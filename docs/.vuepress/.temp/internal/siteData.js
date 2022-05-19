@@ -1,5 +1,5 @@
 export const siteData = {
-  "base": "/../../",
+  "base": "/ui/ms100/",
   "lang": "en-US",
   "title": "",
   "description": "",

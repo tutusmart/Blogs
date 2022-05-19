@@ -44,12 +44,12 @@ export const data = {
     }
   ],
   "git": {
-    "updatedTime": 1652971436000,
+    "updatedTime": 1652979541000,
     "contributors": [
       {
         "name": "tuwei",
         "email": "tuwei@lonch.com.cn",
-        "commits": 1
+        "commits": 2
       }
     ]
   },

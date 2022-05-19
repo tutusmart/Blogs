@@ -1,7 +1,8 @@
 export const themeData = {
   "navbar": [
     {
-      "text": "首页"
+      "text": "首页",
+      "link": "/"
     }
   ],
   "sidebar": [
@@ -273,19 +274,19 @@ export const themeData = {
         },
         {
           "text": "10-vue-react-diff",
-          "link": "/fe/知识广度/10-vue-react-diff.md"
+          "link": "/fe/知识深度/10-vue-react-diff.md"
         },
         {
           "text": "11-vue-router-模式",
-          "link": "/fe/知识广度/11-vue-router-模式.md"
+          "link": "/fe/知识深度/11-vue-router-模式.md"
         },
         {
           "text": "12-总结",
-          "link": "/fe/知识广度/12-总结.md"
+          "link": "/fe/知识深度/12-总结.md"
         },
         {
           "text": "x1-文本小节-知识深度很重要",
-          "link": "/fe/知识广度/x1-文本小节-知识深度很重要.md"
+          "link": "/fe/知识深度/x1-文本小节-知识深度很重要.md"
         }
       ]
     },

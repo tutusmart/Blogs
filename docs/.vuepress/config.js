@@ -1,12 +1,16 @@
 const { defaultTheme } = require('vuepress')
 module.exports = {
   base: "/ui/ms100/",
-  
+  // 我们会将它作为一个 GitHub 仓库
+  // repo: 'https://github.com/tutusmart/Blogs',
+  // // 你也可以直接将它设置为一个 URL
+  // repo: 'https://tuwei.site/ui/ms100',
   theme: defaultTheme({
     // 默认主题配置
     navbar: [
       {
         text: '首页',
+        link: '/',
       },
     ],
     sidebar: [
@@ -263,19 +267,19 @@ module.exports = {
           },
           {
             text: '10-vue-react-diff',
-            link: '/fe/知识广度/10-vue-react-diff.md',
+            link: '/fe/知识深度/10-vue-react-diff.md',
           },
           {
             text: '11-vue-router-模式',
-            link: '/fe/知识广度/11-vue-router-模式.md',
+            link: '/fe/知识深度/11-vue-router-模式.md',
           },
           {
             text: '12-总结',
-            link: '/fe/知识广度/12-总结.md',
+            link: '/fe/知识深度/12-总结.md',
           },
           {
             text: 'x1-文本小节-知识深度很重要',
-            link: '/fe/知识广度/x1-文本小节-知识深度很重要.md',
+            link: '/fe/知识深度/x1-文本小节-知识深度很重要.md',
           },
         ],
       },
