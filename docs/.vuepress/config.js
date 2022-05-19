@@ -1,11 +1,12 @@
 const { defaultTheme } = require('vuepress')
 module.exports = {
+  base: "/ui/ms100/",
+  
   theme: defaultTheme({
     // 默认主题配置
     navbar: [
       {
         text: '首页',
-        link: '/',
       },
     ],
     sidebar: [

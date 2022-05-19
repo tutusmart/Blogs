@@ -43,19 +43,15 @@ export const data = {
       "children": []
     }
   ],
-  "git": {},
+  "git": {
+    "updatedTime": 1652971436000,
+    "contributors": [
+      {
+        "name": "tuwei",
+        "email": "tuwei@lonch.com.cn",
+        "commits": 1
+      }
+    ]
+  },
   "filePathRelative": "fe/数据结构和算法/11-连续最多的字符.md"
-}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
 }

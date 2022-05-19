@@ -125,5 +125,5 @@ wsServer<span class="token punctuation">.</span><span class="token function">on<
 <li>http 长轮询 - 客户端发起 http 请求，server 不立即返回，等待有结果再返回。这期间 TCP 连接不会关闭，阻塞式。（需要处理 timeout 的情况）</li>
 <li>webSocket - 客户端发起请求，服务端接收，连接关闭。服务端发起请求，客户端接收，连接关闭。非阻塞。</li>
 </ul>
-<p><img src="@source/fe/知识广度/img/长轮询.jpeg" alt=""></p>
+<p><img src="@source/fe/知识广度/img/长轮询.png" alt=""></p>
 </template>

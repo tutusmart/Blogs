@@ -43,19 +43,15 @@ export const data = {
       "children": []
     }
   ],
-  "git": {},
+  "git": {
+    "updatedTime": 1652971436000,
+    "contributors": [
+      {
+        "name": "tuwei",
+        "email": "tuwei@lonch.com.cn",
+        "commits": 1
+      }
+    ]
+  },
   "filePathRelative": "fe/实际工作经验/11-项目难点.md"
-}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
 }

@@ -1,0 +1,1 @@
+import{_ as e,o as _,a as r}from"./app.1c29f384.js";const t={};function c(a,n){return _(),r("p",null,"\u5FFD\u7565\u672C\u8282")}var l=e(t,[["render",c],["__file","05-\u5FFD\u7565.html.vue"]]);export{l as default};

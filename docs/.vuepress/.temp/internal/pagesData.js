@@ -27,30 +27,6 @@ export const pagesData = {
   "v-1a5c9a28": () => import(/* webpackChunkName: "v-1a5c9a28" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/分析解决问题/10-文本小节-解决问题的常见思路.html.js").then(({ data }) => data),
   // path: /fe/%E5%88%86%E6%9E%90%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98/11-%E6%80%BB%E7%BB%93.html
   "v-2d3b88c7": () => import(/* webpackChunkName: "v-2d3b88c7" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/分析解决问题/11-总结.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/00-%E5%BC%80%E5%A7%8B.html
-  "v-26427147": () => import(/* webpackChunkName: "v-26427147" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/00-开始.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/01-%E9%A6%96%E5%B1%8F%E4%BC%98%E5%8C%96.html
-  "v-4603a45d": () => import(/* webpackChunkName: "v-4603a45d" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/01-首屏优化.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/03-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E7%94%A8CSS%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E7%9C%81%E7%95%A5.html
-  "v-dcd94d70": () => import(/* webpackChunkName: "v-dcd94d70" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/03-文本小节-用CSS实现文字超出省略.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/04-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html
-  "v-2d1deb30": () => import(/* webpackChunkName: "v-2d1deb30" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/04-设计模式.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/05-vue%E4%BC%98%E5%8C%96.html
-  "v-06799a4e": () => import(/* webpackChunkName: "v-06799a4e" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/05-vue优化.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/06-react%E4%BC%98%E5%8C%96.html
-  "v-020e49d4": () => import(/* webpackChunkName: "v-020e49d4" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/06-react优化.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/08-vue%E9%94%99%E8%AF%AF%E7%9B%91%E5%90%AC.html
-  "v-70a6dba8": () => import(/* webpackChunkName: "v-70a6dba8" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/08-vue错误监听.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/09-react%E9%94%99%E8%AF%AF%E7%9B%91%E5%90%AC.html
-  "v-273be8f2": () => import(/* webpackChunkName: "v-273be8f2" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/09-react错误监听.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/10-%E6%8E%92%E6%9F%A5%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98.html
-  "v-4eb8d075": () => import(/* webpackChunkName: "v-4eb8d075" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/10-排查性能问题.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/11-%E9%A1%B9%E7%9B%AE%E9%9A%BE%E7%82%B9.html
-  "v-769bb952": () => import(/* webpackChunkName: "v-769bb952" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/11-项目难点.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/12-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E5%A4%84%E7%90%86%E9%A1%B9%E7%9B%AE%E6%B2%9F%E9%80%9A%E5%86%B2%E7%AA%81.html
-  "v-124c334e": () => import(/* webpackChunkName: "v-124c334e" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/12-文本小节-处理项目沟通冲突.html.js").then(({ data }) => data),
-  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/13-%E6%80%BB%E7%BB%93.html
-  "v-7e55959a": () => import(/* webpackChunkName: "v-7e55959a" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/13-总结.html.js").then(({ data }) => data),
   // path: /fe/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/00-%E5%BC%80%E5%A7%8B.html
   "v-251009be": () => import(/* webpackChunkName: "v-251009be" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/前端基础知识/00-开始.html.js").then(({ data }) => data),
   // path: /fe/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/01-ajax-fetch-axios-%E5%8C%BA%E5%88%AB.html
@@ -85,66 +61,6 @@ export const pagesData = {
   "v-2a7ff090": () => import(/* webpackChunkName: "v-2a7ff090" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/前端基础知识/x1-文本小节-前端知识体系.html.js").then(({ data }) => data),
   // path: /fe/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/x2-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-Restful-API-method.html
   "v-274e12c2": () => import(/* webpackChunkName: "v-274e12c2" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/前端基础知识/x2-文本小节-Restful-API-method.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/00-%E5%BC%80%E5%A7%8B.html
-  "v-1d6601ce": () => import(/* webpackChunkName: "v-1d6601ce" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/00-开始.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/01-JS%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F.html
-  "v-06e30f8f": () => import(/* webpackChunkName: "v-06e30f8f" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/01-JS内存泄漏.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/02-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cnodejs%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%8C%BA%E5%88%AB.html
-  "v-63d6d5bf": () => import(/* webpackChunkName: "v-63d6d5bf" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/02-浏览器和nodejs事件循环的区别.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/03-%E5%BF%BD%E7%95%A5.html
-  "v-aa3b0586": () => import(/* webpackChunkName: "v-aa3b0586" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/03-忽略.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/04-vdom%E7%9C%9F%E7%9A%84%E5%BE%88%E5%BF%AB%E5%90%97.html
-  "v-2548f34e": () => import(/* webpackChunkName: "v-2548f34e" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/04-vdom真的很快吗.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/05-for-vs-forEach%20copy.html
-  "v-3540449d": () => import(/* webpackChunkName: "v-3540449d" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/05-for-vs-forEach copy.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/05-for-vs-forEach.html
-  "v-6012547d": () => import(/* webpackChunkName: "v-6012547d" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/05-for-vs-forEach.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/06-nodejs%E5%A4%9A%E8%BF%9B%E7%A8%8B.html
-  "v-bb2173ec": () => import(/* webpackChunkName: "v-bb2173ec" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/06-nodejs多进程.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/07-js-bridge%E5%8E%9F%E7%90%86.html
-  "v-2433d542": () => import(/* webpackChunkName: "v-2433d542" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/07-js-bridge原理.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/08-requestIdleCallback.html
-  "v-b44c7f68": () => import(/* webpackChunkName: "v-b44c7f68" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/08-requestIdleCallback.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/09-Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.html
-  "v-67944672": () => import(/* webpackChunkName: "v-67944672" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/09-Vue生命周期.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/10-vue-react-diff.html
-  "v-7e4df1bb": () => import(/* webpackChunkName: "v-7e4df1bb" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/10-vue-react-diff.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/11-vue-router-%E6%A8%A1%E5%BC%8F.html
-  "v-35728d2c": () => import(/* webpackChunkName: "v-35728d2c" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/11-vue-router-模式.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/12-%E6%80%BB%E7%BB%93.html
-  "v-07af7604": () => import(/* webpackChunkName: "v-07af7604" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/12-总结.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/x1-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6%E5%BE%88%E9%87%8D%E8%A6%81.html
-  "v-6f0b03b8": () => import(/* webpackChunkName: "v-6f0b03b8" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/x1-文本小节-知识深度很重要.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/00-%E5%BC%80%E5%A7%8B.html
-  "v-570bcbab": () => import(/* webpackChunkName: "v-570bcbab" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/00-开始.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/01-%E7%A7%BB%E5%8A%A8%E7%AB%AFclick-300ms-%E5%BB%B6%E8%BF%9F.html
-  "v-7008eb02": () => import(/* webpackChunkName: "v-7008eb02" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/01-移动端click-300ms-延迟.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/02-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-Retina%E5%B1%8F%E5%B9%951px%E5%AE%BD%E5%BA%A6.html
-  "v-1fdae286": () => import(/* webpackChunkName: "v-1fdae286" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/02-文本小节-Retina屏幕1px宽度.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/03-token%E5%92%8Ccookie%E5%8C%BA%E5%88%AB.html
-  "v-2c8ea22c": () => import(/* webpackChunkName: "v-2c8ea22c" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/03-token和cookie区别.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/04-http-udp%E5%8C%BA%E5%88%AB.html
-  "v-70c6543a": () => import(/* webpackChunkName: "v-70c6543a" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/04-http-udp区别.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/05-https%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB.html
-  "v-4ae46995": () => import(/* webpackChunkName: "v-4ae46995" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/05-https中间人攻击.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/05-%E5%BF%BD%E7%95%A5.html
-  "v-1901e3d1": () => import(/* webpackChunkName: "v-1901e3d1" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/05-忽略.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/06-defer%E5%92%8Casync.html
-  "v-2ea19f9d": () => import(/* webpackChunkName: "v-2ea19f9d" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/06-defer和async.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/07-%E5%89%8D%E7%AB%AF%E6%94%BB%E5%87%BB.html
-  "v-4bd67ff9": () => import(/* webpackChunkName: "v-4bd67ff9" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/07-前端攻击.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/08-websocket.html
-  "v-77f5ad3b": () => import(/* webpackChunkName: "v-77f5ad3b" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/08-websocket.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/09-%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA.html
-  "v-05e688dc": () => import(/* webpackChunkName: "v-05e688dc" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/09-输入url到页面展示.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/10-%E7%BD%91%E9%A1%B5%E5%A4%9A%E6%A0%87%E7%AD%BE%E9%80%9A%E8%AE%AF.html
-  "v-7aec988f": () => import(/* webpackChunkName: "v-7aec988f" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/10-网页多标签通讯.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/11-koa2%E6%B4%8B%E8%91%B1%E5%9C%88%E6%A8%A1%E5%9E%8B.html
-  "v-8713b81e": () => import(/* webpackChunkName: "v-8713b81e" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/11-koa2洋葱圈模型.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/12-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E4%B8%BA%E4%BD%95%E9%9C%80%E8%A6%81nodejs.html
-  "v-5fd84275": () => import(/* webpackChunkName: "v-5fd84275" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/12-文本小节-为何需要nodejs.html.js").then(({ data }) => data),
-  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/13-%E6%80%BB%E7%BB%93.html
-  "v-1cc2e0d2": () => import(/* webpackChunkName: "v-1cc2e0d2" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/13-总结.html.js").then(({ data }) => data),
   // path: /fe/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/00-%E5%BC%80%E5%A7%8B.html
   "v-631cd959": () => import(/* webpackChunkName: "v-631cd959" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/数据结构和算法/00-开始.html.js").then(({ data }) => data),
   // path: /fe/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/01-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84.html
@@ -187,6 +103,90 @@ export const pagesData = {
   "v-7a06a5c2": () => import(/* webpackChunkName: "v-7a06a5c2" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/数据结构和算法/x1-文本小节-常见数据结构.html.js").then(({ data }) => data),
   // path: /fe/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/x2-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6.html
   "v-9c634e54": () => import(/* webpackChunkName: "v-9c634e54" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/数据结构和算法/x2-文本小节-常见算法时间复杂度.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/00-%E5%BC%80%E5%A7%8B.html
+  "v-26427147": () => import(/* webpackChunkName: "v-26427147" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/00-开始.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/01-%E9%A6%96%E5%B1%8F%E4%BC%98%E5%8C%96.html
+  "v-4603a45d": () => import(/* webpackChunkName: "v-4603a45d" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/01-首屏优化.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/03-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E7%94%A8CSS%E5%AE%9E%E7%8E%B0%E6%96%87%E5%AD%97%E8%B6%85%E5%87%BA%E7%9C%81%E7%95%A5.html
+  "v-dcd94d70": () => import(/* webpackChunkName: "v-dcd94d70" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/03-文本小节-用CSS实现文字超出省略.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/04-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.html
+  "v-2d1deb30": () => import(/* webpackChunkName: "v-2d1deb30" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/04-设计模式.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/05-vue%E4%BC%98%E5%8C%96.html
+  "v-06799a4e": () => import(/* webpackChunkName: "v-06799a4e" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/05-vue优化.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/06-react%E4%BC%98%E5%8C%96.html
+  "v-020e49d4": () => import(/* webpackChunkName: "v-020e49d4" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/06-react优化.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/08-vue%E9%94%99%E8%AF%AF%E7%9B%91%E5%90%AC.html
+  "v-70a6dba8": () => import(/* webpackChunkName: "v-70a6dba8" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/08-vue错误监听.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/09-react%E9%94%99%E8%AF%AF%E7%9B%91%E5%90%AC.html
+  "v-273be8f2": () => import(/* webpackChunkName: "v-273be8f2" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/09-react错误监听.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/10-%E6%8E%92%E6%9F%A5%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98.html
+  "v-4eb8d075": () => import(/* webpackChunkName: "v-4eb8d075" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/10-排查性能问题.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/11-%E9%A1%B9%E7%9B%AE%E9%9A%BE%E7%82%B9.html
+  "v-769bb952": () => import(/* webpackChunkName: "v-769bb952" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/11-项目难点.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/12-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E5%A4%84%E7%90%86%E9%A1%B9%E7%9B%AE%E6%B2%9F%E9%80%9A%E5%86%B2%E7%AA%81.html
+  "v-124c334e": () => import(/* webpackChunkName: "v-124c334e" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/12-文本小节-处理项目沟通冲突.html.js").then(({ data }) => data),
+  // path: /fe/%E5%AE%9E%E9%99%85%E5%B7%A5%E4%BD%9C%E7%BB%8F%E9%AA%8C/13-%E6%80%BB%E7%BB%93.html
+  "v-7e55959a": () => import(/* webpackChunkName: "v-7e55959a" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/实际工作经验/13-总结.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/00-%E5%BC%80%E5%A7%8B.html
+  "v-570bcbab": () => import(/* webpackChunkName: "v-570bcbab" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/00-开始.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/01-%E7%A7%BB%E5%8A%A8%E7%AB%AFclick-300ms-%E5%BB%B6%E8%BF%9F.html
+  "v-7008eb02": () => import(/* webpackChunkName: "v-7008eb02" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/01-移动端click-300ms-延迟.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/02-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-Retina%E5%B1%8F%E5%B9%951px%E5%AE%BD%E5%BA%A6.html
+  "v-1fdae286": () => import(/* webpackChunkName: "v-1fdae286" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/02-文本小节-Retina屏幕1px宽度.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/03-token%E5%92%8Ccookie%E5%8C%BA%E5%88%AB.html
+  "v-2c8ea22c": () => import(/* webpackChunkName: "v-2c8ea22c" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/03-token和cookie区别.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/04-http-udp%E5%8C%BA%E5%88%AB.html
+  "v-70c6543a": () => import(/* webpackChunkName: "v-70c6543a" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/04-http-udp区别.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/05-https%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB.html
+  "v-4ae46995": () => import(/* webpackChunkName: "v-4ae46995" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/05-https中间人攻击.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/05-%E5%BF%BD%E7%95%A5.html
+  "v-1901e3d1": () => import(/* webpackChunkName: "v-1901e3d1" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/05-忽略.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/06-defer%E5%92%8Casync.html
+  "v-2ea19f9d": () => import(/* webpackChunkName: "v-2ea19f9d" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/06-defer和async.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/07-%E5%89%8D%E7%AB%AF%E6%94%BB%E5%87%BB.html
+  "v-4bd67ff9": () => import(/* webpackChunkName: "v-4bd67ff9" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/07-前端攻击.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/08-websocket.html
+  "v-77f5ad3b": () => import(/* webpackChunkName: "v-77f5ad3b" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/08-websocket.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/09-%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA.html
+  "v-05e688dc": () => import(/* webpackChunkName: "v-05e688dc" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/09-输入url到页面展示.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/10-%E7%BD%91%E9%A1%B5%E5%A4%9A%E6%A0%87%E7%AD%BE%E9%80%9A%E8%AE%AF.html
+  "v-7aec988f": () => import(/* webpackChunkName: "v-7aec988f" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/10-网页多标签通讯.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/11-koa2%E6%B4%8B%E8%91%B1%E5%9C%88%E6%A8%A1%E5%9E%8B.html
+  "v-8713b81e": () => import(/* webpackChunkName: "v-8713b81e" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/11-koa2洋葱圈模型.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/12-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E4%B8%BA%E4%BD%95%E9%9C%80%E8%A6%81nodejs.html
+  "v-5fd84275": () => import(/* webpackChunkName: "v-5fd84275" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/12-文本小节-为何需要nodejs.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E5%B9%BF%E5%BA%A6/13-%E6%80%BB%E7%BB%93.html
+  "v-1cc2e0d2": () => import(/* webpackChunkName: "v-1cc2e0d2" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识广度/13-总结.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/00-%E5%BC%80%E5%A7%8B.html
+  "v-1d6601ce": () => import(/* webpackChunkName: "v-1d6601ce" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/00-开始.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/01-JS%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F.html
+  "v-06e30f8f": () => import(/* webpackChunkName: "v-06e30f8f" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/01-JS内存泄漏.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/02-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cnodejs%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%8C%BA%E5%88%AB.html
+  "v-63d6d5bf": () => import(/* webpackChunkName: "v-63d6d5bf" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/02-浏览器和nodejs事件循环的区别.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/03-%E5%BF%BD%E7%95%A5.html
+  "v-aa3b0586": () => import(/* webpackChunkName: "v-aa3b0586" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/03-忽略.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/04-vdom%E7%9C%9F%E7%9A%84%E5%BE%88%E5%BF%AB%E5%90%97.html
+  "v-2548f34e": () => import(/* webpackChunkName: "v-2548f34e" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/04-vdom真的很快吗.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/05-for-vs-forEach%20copy.html
+  "v-3540449d": () => import(/* webpackChunkName: "v-3540449d" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/05-for-vs-forEach copy.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/05-for-vs-forEach.html
+  "v-6012547d": () => import(/* webpackChunkName: "v-6012547d" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/05-for-vs-forEach.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/06-nodejs%E5%A4%9A%E8%BF%9B%E7%A8%8B.html
+  "v-bb2173ec": () => import(/* webpackChunkName: "v-bb2173ec" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/06-nodejs多进程.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/07-js-bridge%E5%8E%9F%E7%90%86.html
+  "v-2433d542": () => import(/* webpackChunkName: "v-2433d542" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/07-js-bridge原理.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/08-requestIdleCallback.html
+  "v-b44c7f68": () => import(/* webpackChunkName: "v-b44c7f68" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/08-requestIdleCallback.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/09-Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.html
+  "v-67944672": () => import(/* webpackChunkName: "v-67944672" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/09-Vue生命周期.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/10-vue-react-diff.html
+  "v-7e4df1bb": () => import(/* webpackChunkName: "v-7e4df1bb" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/10-vue-react-diff.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/11-vue-router-%E6%A8%A1%E5%BC%8F.html
+  "v-35728d2c": () => import(/* webpackChunkName: "v-35728d2c" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/11-vue-router-模式.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/12-%E6%80%BB%E7%BB%93.html
+  "v-07af7604": () => import(/* webpackChunkName: "v-07af7604" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/12-总结.html.js").then(({ data }) => data),
+  // path: /fe/%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6/x1-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E7%9F%A5%E8%AF%86%E6%B7%B1%E5%BA%A6%E5%BE%88%E9%87%8D%E8%A6%81.html
+  "v-6f0b03b8": () => import(/* webpackChunkName: "v-6f0b03b8" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/知识深度/x1-文本小节-知识深度很重要.html.js").then(({ data }) => data),
   // path: /fe/%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81/00-%E5%BC%80%E5%A7%8B.html
   "v-69465bfc": () => import(/* webpackChunkName: "v-69465bfc" */"C:/Users/admin/Desktop/vuePress/docs/.vuepress/.temp/pages/fe/编写高质量代码/00-开始.html.js").then(({ data }) => data),
   // path: /fe/%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81/01-%E6%96%87%E6%9C%AC%E5%B0%8F%E8%8A%82-%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81%E7%9A%84%E7%89%B9%E7%82%B9.html

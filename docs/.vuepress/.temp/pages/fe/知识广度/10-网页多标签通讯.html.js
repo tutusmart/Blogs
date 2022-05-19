@@ -43,19 +43,15 @@ export const data = {
       "children": []
     }
   ],
-  "git": {},
+  "git": {
+    "updatedTime": 1652971436000,
+    "contributors": [
+      {
+        "name": "tuwei",
+        "email": "tuwei@lonch.com.cn",
+        "commits": 1
+      }
+    ]
+  },
   "filePathRelative": "fe/知识广度/10-网页多标签通讯.md"
-}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
 }

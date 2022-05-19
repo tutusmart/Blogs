@@ -49,19 +49,15 @@ export const data = {
       "children": []
     }
   ],
-  "git": {},
+  "git": {
+    "updatedTime": 1652971436000,
+    "contributors": [
+      {
+        "name": "tuwei",
+        "email": "tuwei@lonch.com.cn",
+        "commits": 1
+      }
+    ]
+  },
   "filePathRelative": "fe/实际工作经验/12-文本小节-处理项目沟通冲突.md"
-}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
 }

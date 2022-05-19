@@ -68,19 +68,15 @@ export const data = {
       "children": []
     }
   ],
-  "git": {},
+  "git": {
+    "updatedTime": 1652971436000,
+    "contributors": [
+      {
+        "name": "tuwei",
+        "email": "tuwei@lonch.com.cn",
+        "commits": 1
+      }
+    ]
+  },
   "filePathRelative": "fe/项目设计/01-文本小节-项目负责人的职责.md"
-}
-
-if (import.meta.webpackHot) {
-  import.meta.webpackHot.accept()
-  if (__VUE_HMR_RUNTIME__.updatePageData) {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  }
-}
-
-if (import.meta.hot) {
-  import.meta.hot.accept(({ data }) => {
-    __VUE_HMR_RUNTIME__.updatePageData(data)
-  })
 }
