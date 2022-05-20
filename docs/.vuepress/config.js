@@ -1,6 +1,8 @@
 // const { defaultTheme } = require('vuepress')
 const { hopeTheme } = require("vuepress-theme-hope");
+console.log(process.env.NODE_ENV);
 module.exports = {
+  base: process.env.NODE_ENV === 'production' ? '/ui/ms100' : '/',
   // 站点选项
   theme: hopeTheme({
     plugins:{
