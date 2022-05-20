@@ -6,15 +6,14 @@ module.exports = {
     plugins:{
       blog: true,
     },
-    pure: false,
-    hostname: "https://tuwei.site",
+    pure: true,
     navbar: [
       {
         text: '首页',
         link: '/',
       },
       {
-        text: '面试知道',
+        text: '面试之道',
         link: 'https://tuwei.site/ui/mszd/',
       },
       {
@@ -25,8 +24,8 @@ module.exports = {
     sidebar: [
       { 
         text: '前端基础知识',
-        collapsible: true,
-        index: false,
+        collapsable: true,
+        // collapsible: true,
         children: [
           {
             text: '00-开始',
@@ -96,7 +95,8 @@ module.exports = {
       },
       { 
         text: '数据结构和算法',
-        collapsible: true,
+        // collapsible: true,
+        collapsable: true,
         children: [
           {
             text: '00-开始',
@@ -182,7 +182,8 @@ module.exports = {
       },
       { 
         text: '知识广度',
-        collapsible: true,
+        // collapsible: true,
+        collapsable: true,
         children: [
           {
             text: '00-开始',
@@ -240,7 +241,8 @@ module.exports = {
       },
       { 
         text: '知识深度',
-        collapsible: true,
+        // collapsible: true,
+        collapsable: true,
         children: [
           {
             text: '00-开始',
@@ -295,7 +297,8 @@ module.exports = {
       },
       { 
         text: '软技能',
-        collapsible: true,
+        collapsable: true,
+        // collapsible: true,
         children: [
           {
             text: '00-开始',
@@ -324,7 +327,8 @@ module.exports = {
       },
       { 
         text: '实际工作经验',
-        collapsible: true,
+        collapsable: true,
+        // collapsible: true,
         children: [
           {
             text: '00-开始',
@@ -381,7 +385,8 @@ module.exports = {
       },
       {
         text: '编写高质量代码',
-        collapsible: true,
+        collapsable: true,
+        // collapsible: true,
         children: [
           {
             text: '00-开始',
@@ -443,7 +448,8 @@ module.exports = {
       },
       {
         text: '分析解决问题',
-        collapsible: true,
+        // collapsible: true,
+        collapsable: true,
         children: [
           {
             text: '00-开始',
@@ -493,7 +499,8 @@ module.exports = {
       },
       {
         text: '项目设计',
-        collapsible: true,
+        // collapsible: true,
+        collapsable: true,
         children: [
           {
             text: '00-开始',
