@@ -1,7 +1,7 @@
 # 面试官：说说常见的排序算法有哪些？区别？
 
 
- ![](https://static.vue-js.com/63eb7920-211c-11ec-a752-75723a64e8f5.png)
+ ![](../sImgs/63eb7920-211c-11ec-a752-75723a64e8f5.png)
 
 ## 一、是什么
 
@@ -123,7 +123,7 @@
 
 区别如下图所示：
 
-![](https://static.vue-js.com/5c3d7b50-2131-11ec-a752-75723a64e8f5.png)
+![](../sImgs/5c3d7b50-2131-11ec-a752-75723a64e8f5.png)
 
 
 

@@ -1,6 +1,6 @@
 # 面试官：说说你对盒子模型的理解?
 
-![](https://static.vue-js.com/8d0e9ca0-8f9b-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/8d0e9ca0-8f9b-11eb-ab90-d9ae814b240d.png)
 
 
 ## 一、是什么
@@ -8,7 +8,7 @@
 
 一个盒子由四个部分组成：`content`、`padding`、`border`、`margin`
 
-![](https://static.vue-js.com/976789a0-8f9b-11eb-85f6-6fac77c0c9b3.png)
+![](../sImgs/976789a0-8f9b-11eb-85f6-6fac77c0c9b3.png)
 
 `content`，即实际内容，显示文本和图像
 
@@ -20,7 +20,7 @@
 
 上述是一个从二维的角度观察盒子，下面再看看看三维图：
 
- ![](https://static.vue-js.com/b2548b00-8f9b-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/b2548b00-8f9b-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -55,7 +55,7 @@
 
 下面看看标准盒子模型的模型图：
 
- ![](https://static.vue-js.com/c0e1d2e0-8f9b-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/c0e1d2e0-8f9b-11eb-85f6-6fac77c0c9b3.png)
 
 从上图可以看到：
 
@@ -71,7 +71,7 @@
 
 同样看看IE 怪异盒子模型的模型图：
 
- ![](https://static.vue-js.com/cfbb3ef0-8f9b-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/cfbb3ef0-8f9b-11eb-ab90-d9ae814b240d.png)
 
 从上图可以看到：
 

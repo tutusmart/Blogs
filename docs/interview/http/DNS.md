@@ -1,6 +1,6 @@
 # 面试官：DNS协议 是什么？说说DNS 完整的查询过程?
 
- ![](https://static.vue-js.com/88081710-b78f-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/88081710-b78f-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -13,7 +13,7 @@ DNS（Domain Names System），域名系统，是互联网一项服务，是进�
 - IP 地址：一长串能够唯一地标记网络上的计算机的数字
 - 域名：是由一串用点分隔的名字组成的 Internet 上某一台计算机或计算机组的名称，用于在数据传输时对计算机的定位标识
 
- ![](https://static.vue-js.com/965a03a0-b78f-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/965a03a0-b78f-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -23,13 +23,13 @@ DNS（Domain Names System），域名系统，是互联网一项服务，是进�
 
 域名是一个具有层次的结构，从上到下一次为根域名、顶级域名、二级域名、三级域名...
 
- ![](https://static.vue-js.com/9f112780-b78f-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/9f112780-b78f-11eb-85f6-6fac77c0c9b3.png)
 
 例如`www.xxx.com`，`www`为三级域名、`xxx`为二级域名、`com`为顶级域名，系统为用户做了兼容，域名末尾的根域名`.`一般不需要输入
 
 在域名的每一层都会有一个域名服务器，如下图：
 
- ![](https://static.vue-js.com/f40e0090-b7a4-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/f40e0090-b7a4-11eb-85f6-6fac77c0c9b3.png)
 
 除此之外，还有电脑默认的本地域名服务器
 
@@ -41,11 +41,11 @@ DNS 查询的方式有两种：
 
 - 递归查询：如果 A 请求 B，那么 B 作为请求的接收者一定要给 A 想要的答案
 
- ![](https://static.vue-js.com/a73be9e0-b78f-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/a73be9e0-b78f-11eb-85f6-6fac77c0c9b3.png)
 
 - 迭代查询：如果接收者 B 没有请求者 A 所需要的准确内容，接收者 B 将告诉请求者 A，如何去获得这个内容，但是自己并不去发出请求
 
- ![](https://static.vue-js.com/b023e1c0-b78f-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/b023e1c0-b78f-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -80,7 +80,7 @@ DNS 查询的方式有两种：
 
 流程如下图所示：
 
- ![](https://static.vue-js.com/bec3c740-b78f-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/bec3c740-b78f-11eb-ab90-d9ae814b240d.png)
 
 
 

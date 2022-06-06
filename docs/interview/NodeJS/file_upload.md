@@ -1,6 +1,6 @@
 # 面试官：如何实现文件上传？说说你的思路
 
- ![](https://static.vue-js.com/248a5580-ce60-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/248a5580-ce60-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 

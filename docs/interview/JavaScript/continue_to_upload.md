@@ -1,6 +1,6 @@
 # 面试官：大文件上传如何做断点续传？
 
- ![](https://static.vue-js.com/3ccb0e90-8ba4-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/3ccb0e90-8ba4-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
@@ -26,7 +26,7 @@
 
 如下图
 
- ![](https://static.vue-js.com/21db7520-8ba4-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/21db7520-8ba4-11eb-85f6-6fac77c0c9b3.png)
 
 上传完之后再由服务端对所有上传的文件进行汇总整合成原始的文件
 
@@ -54,7 +54,7 @@
 
 整体思路比较简单，拿到文件，保存文件唯一性标识，切割文件，分段上传，每次上传一段，根据唯一性标识判断文件上传进度，直到文件的全部片段上传完毕
 
-![](https://static.vue-js.com/465d2920-8ba4-11eb-85f6-6fac77c0c9b3.png)
+![](../sImgs/465d2920-8ba4-11eb-85f6-6fac77c0c9b3.png)
 
 下面的内容都是伪代码
 

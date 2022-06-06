@@ -1,6 +1,6 @@
 # 面试官：说说对Fiber架构的理解？解决了什么问题？
 
- ![](https://static.vue-js.com/554da6d0-ed24-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/554da6d0-ed24-11eb-85f6-6fac77c0c9b3.png)
 
 
 ## 一、问题
@@ -15,7 +15,7 @@
 
 这就会导致一些用户交互、动画等任务无法立即得到处理，导致卡顿的情况
 
- ![](https://static.vue-js.com/5eb3a850-ed24-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/5eb3a850-ed24-11eb-ab90-d9ae814b240d.png)
 
 
 

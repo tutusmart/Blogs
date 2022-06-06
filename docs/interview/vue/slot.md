@@ -1,6 +1,6 @@
 # 面试官：说说你对slot的理解？slot使用场景有哪些？
 
- ![](https://tuwei.site/ui/sImgs/141ca660-3dbc-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/141ca660-3dbc-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、slot是什么
 
@@ -43,7 +43,7 @@ customElements.define('element-details',
 可以将其类比为插卡式的FC游戏机，游戏机暴露卡槽（插槽）让用户插入不同的游戏磁条（自定义内容）
 
 放张图感受一下
-![](https://tuwei.site/ui/sImgs/63c0dff0-3dbd-11eb-85f6-6fac77c0c9b3.png)
+![](../sImgs/63c0dff0-3dbd-11eb-85f6-6fac77c0c9b3.png)
 
 
 

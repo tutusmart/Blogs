@@ -1,10 +1,10 @@
 # 面试官：说说 Node. js 有哪些全局对象？
 
- ![](https://static.vue-js.com/79c7b100-c2a3-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/79c7b100-c2a3-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
-在浏览器 `JavaScript` 中，通常` window` 是全局对象， 而 `Nodejs `中的全局对象是 `global`
+在浏览器 `JavaScript` 中，通常`window` 是全局对象， 而 `Nodejs`中的全局对象是 `global`
 
 在`NodeJS`里，是不可能在最外层定义一个变量，因为所有的用户代码都是当前模块的，只在当前模块里可用，但可以通过`exports`对象的使用将其传递给模块外部
 
@@ -81,7 +81,7 @@ process.argv.forEach((val, index) => {
 
 除此之外，还包括一些其他信息如版本、操作系统等
 
-![](https://static.vue-js.com/85f473a0-c2a3-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/85f473a0-c2a3-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -119,7 +119,7 @@ function foo() {
 test();
 ```
 
- ![](https://static.vue-js.com/91b6dbb0-c2a3-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/91b6dbb0-c2a3-11eb-85f6-6fac77c0c9b3.png)
 
 
 

@@ -2,7 +2,7 @@
 
 
 
- ![](https://static.vue-js.com/298437b0-29d0-11ec-a752-75723a64e8f5.png)
+ ![](../sImgs/298437b0-29d0-11ec-a752-75723a64e8f5.png)
 
 
 ## 一、分而治之

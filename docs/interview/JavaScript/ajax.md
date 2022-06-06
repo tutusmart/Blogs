@@ -1,6 +1,6 @@
 # 面试官：ajax原理是什么？如何实现？
 
- ![](https://static.vue-js.com/a35a2950-7b2a-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/a35a2950-7b2a-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 
@@ -12,7 +12,7 @@
 
 流程图如下：
 
- ![](https://static.vue-js.com/af42de10-7b2a-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/af42de10-7b2a-11eb-85f6-6fac77c0c9b3.png)
 
 下面举个例子：
 
@@ -98,7 +98,7 @@ xhr.send([body])
 
 关于`XMLHttpRequest.readyState`属性有五个状态，如下图显示
 
-![](https://static.vue-js.com/9782fc90-7b31-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/9782fc90-7b31-11eb-ab90-d9ae814b240d.png)
 
 只要 `readyState `属性值一变化，就会触发一次 `readystatechange` 事件
 

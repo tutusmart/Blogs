@@ -1,6 +1,6 @@
 # 面试官：DOM常见的操作有哪些？
 
- ![](https://static.vue-js.com/a89c99a0-7fdc-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/a89c99a0-7fdc-11eb-ab90-d9ae814b240d.png)
 
 ## 一、DOM
 
@@ -148,7 +148,7 @@ document.all[''];  获取页面中的所有元素节点的对象集合型
 
 除此之外，每个`DOM`元素还有`parentNode`、`childNodes`、`firstChild`、`lastChild`、`nextSibling`、`previousSibling`属性，关系图如下图所示
 
- ![](https://static.vue-js.com/c100f450-7fdc-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/c100f450-7fdc-11eb-ab90-d9ae814b240d.png)
 
 
 

@@ -1,6 +1,6 @@
 # 面试官：你了解axios的原理吗？有看过它的源码吗？
 
-![](https://tuwei.site/ui/sImgs/1564f7d0-4662-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/1564f7d0-4662-11eb-ab90-d9ae814b240d.png)
 
 ## 一、axios的使用
 
@@ -303,7 +303,7 @@ request(config) {
 
 首先看看目录结构
 
- ![](https://tuwei.site/ui/sImgs/9d90eaa0-48b6-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/9d90eaa0-48b6-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -658,7 +658,7 @@ if (config.cancelToken) {
 
 ### 小结
 
- ![](https://tuwei.site/ui/sImgs/b1d2ebd0-48b6-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/b1d2ebd0-48b6-11eb-ab90-d9ae814b240d.png)
 
 
 

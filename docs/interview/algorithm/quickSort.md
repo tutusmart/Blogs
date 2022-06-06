@@ -2,7 +2,7 @@
 
 
 
- ![](https://static.vue-js.com/bafae570-268a-11ec-8e64-91fdec0f05a1.png)
+ ![](../sImgs/bafae570-268a-11ec-8e64-91fdec0f05a1.png)
 
 ## 一、是什么
 
@@ -65,7 +65,7 @@ function quickSort (arr) {
 
 最好情况下是`O(nlogn)`，其中递归算法的时间复杂度公式：`T[n] = aT[n/b] + f(n)`，推导如下所示：
 
- ![](https://static.vue-js.com/b6019540-2b5e-11ec-8e64-91fdec0f05a1.png)
+ ![](../sImgs/b6019540-2b5e-11ec-8e64-91fdec0f05a1.png)
 
 关于上述代码实现的快速排序，可以看到是稳定的
 

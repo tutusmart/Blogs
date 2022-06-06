@@ -1,6 +1,6 @@
 # 面试官：如何提高webpack的构建速度？
 
- ![](https://static.vue-js.com/3a1b8620-b01b-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/3a1b8620-b01b-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、背景
 
@@ -203,7 +203,7 @@ module.exports = {
 
 打包生成  `sourceMap` 的时候，如果信息越详细，打包速度就会越慢。对应属性取值如下所示：
 
-![](https://static.vue-js.com/11647af0-b01d-11eb-85f6-6fac77c0c9b3.png)
+![](../sImgs/11647af0-b01d-11eb-85f6-6fac77c0c9b3.png)
 
 
 

@@ -1,6 +1,6 @@
 # 面试官：v-show和v-if有什么区别？使用场景分别是什么？
 
-![](https://tuwei.site/ui/sImgs/d21c3c50-3acb-11eb-85f6-6fac77c0c9b3.png)
+![](../sImgs/d21c3c50-3acb-11eb-85f6-6fac77c0c9b3.png)
 
 
 ## 一、v-show与v-if的共同点

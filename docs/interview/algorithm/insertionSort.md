@@ -1,6 +1,6 @@
 # 面试官：说说你对插入排序的理解？如何实现？应用场景？
 
- ![](https://static.vue-js.com/912adc10-267f-11ec-a752-75723a64e8f5.png)
+ ![](../sImgs/912adc10-267f-11ec-a752-75723a64e8f5.png)
 
 
 
@@ -20,19 +20,19 @@
 
 从第二个数开始，插入一个元素1，然后和有序表中记录3比较，1<3，所以插入到记录 3 的左侧
 
- ![](https://static.vue-js.com/9d24f5f0-267f-11ec-a752-75723a64e8f5.png)
+ ![](../sImgs/9d24f5f0-267f-11ec-a752-75723a64e8f5.png)
 
 向有序表插入记录 7 时，同有序表中记录 3 进行比较，3<7，所以插入到记录 3 的右侧
 
- ![](https://static.vue-js.com/a6a954e0-267f-11ec-8e64-91fdec0f05a1.png)
+ ![](../sImgs/a6a954e0-267f-11ec-8e64-91fdec0f05a1.png)
 
 向有序表中插入记录 5 时，同有序表中记录 7 进行比较，5<7，同时 5>3，所以插入到 3 和 7 中间
 
- ![](https://static.vue-js.com/b1981940-267f-11ec-8e64-91fdec0f05a1.png)
+ ![](../sImgs/b1981940-267f-11ec-8e64-91fdec0f05a1.png)
 
 照此规律，依次将无序表中的记录 4，9 和 6插入到有序表中
 
- ![](https://static.vue-js.com/bc2ed290-267f-11ec-a752-75723a64e8f5.png)
+ ![](../sImgs/bc2ed290-267f-11ec-a752-75723a64e8f5.png)
 
 ## 二、如何实现
 

@@ -1,10 +1,10 @@
 # 面试官：说说对 Node 中的 process 的理解？有哪些常用方法？
 
-![](https://static.vue-js.com/4f7866b0-c2b2-11eb-85f6-6fac77c0c9b3.png)
+![](../sImgs/4f7866b0-c2b2-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
-`process` 对象是一个全局变量，提供了有关当前 `Node.js `进程的信息并对其进行控制，作为一个全局变量
+`process` 对象是一个全局变量，提供了有关当前 `Node.js` 进程的信息并对其进行控制，作为一个全局变量
 
 我们都知道，进程计算机系统进行资源分配和调度的基本单位，是操作系统结构的基础，是线程的容器
 
@@ -20,7 +20,7 @@
 
 关于`process`常见的属性有如下：
 
-- process.env：环境变量，例如通过 `process.env.NODE_ENV 获取不同环境项目配置信息
+- process.env：环境变量，例如通过 `process.env. NODE_ENV` 获取不同环境项目配置信息
 - process.nextTick：这个在谈及 `EventLoop` 时经常为会提到
 - process.pid：获取当前进程id
 - process.ppid：当前进程对应的父进程
@@ -37,7 +37,7 @@
 
 ### process.cwd()
 
-返回当前 `Node `进程执行的目录
+返回当前 `Node` 进程执行的目录
 
 一个` Node` 模块 `A` 通过 NPM 发布，项目 `B` 中使用了模块 `A`。在 `A` 中需要操作 `B` 项目下的文件时，就可以用 `process.cwd()` 来获取 `B` 项目的路径
 
@@ -63,9 +63,9 @@ const args = process.argv.slice(2);
 
 返回一个对象，存储当前环境相关的所有信息，一般很少直接用到。
 
-一般我们会在 `process.env` 上挂载一些变量标识当前的环境。比如最常见的用 `process.env.NODE_ENV` 区分 `development` 和 `production`
+一般我们会在 `process.env` 上挂载一些变量标识当前的环境。比如最常见的用 `process.env. NODE_ENV` 区分 `development` 和 `production`
 
-在 `vue-cli` 的源码中也经常会看到 `process.env.VUE_CLI_DEBUG` 标识当前是不是 `DEBUG` 模式
+在 `vue-cli` 的源码中也经常会看到 `process.env. VUE_CLI_DEBUG` 标识当前是不是 `DEBUG` 模式
 
 
 
@@ -99,9 +99,6 @@ console.log('bar');
 
 - process.nextTick()会在这一次event loop的call stack清空后（下一次event loop开始前）再调用callback
 - setTimeout()是并不知道什么时候call stack清空的，所以何时调用callback函数是不确定的
-
-
-
 
 
 ### 参考文献

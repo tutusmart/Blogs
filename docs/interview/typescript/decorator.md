@@ -1,6 +1,6 @@
 # 面试官：说说你对 TypeScript 装饰器的理解？应用场景？
 
- ![](https://static.vue-js.com/f8905dd0-111c-11ec-8e64-91fdec0f05a1.png)
+ ![](../sImgs/f8905dd0-111c-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -129,7 +129,7 @@ xmz.say = function() {
 
 输出如下图所示：
 
- ![](https://static.vue-js.com/e96bc1b0-114d-11ec-8e64-91fdec0f05a1.png)
+ ![](../sImgs/e96bc1b0-114d-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -159,7 +159,7 @@ emp.greet('hello');
 
 输入如下图：
 
- ![](https://static.vue-js.com/f2f32de0-114d-11ec-a752-75723a64e8f5.png)
+ ![](../sImgs/f2f32de0-114d-11ec-a752-75723a64e8f5.png)
 
 
 

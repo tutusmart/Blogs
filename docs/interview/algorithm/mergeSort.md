@@ -1,6 +1,6 @@
 # 面试官：说说你对归并排序的理解？如何实现？应用场景？
 
- ![](https://static.vue-js.com/fa1d5720-26ac-11ec-8e64-91fdec0f05a1.png)
+ ![](../sImgs/fa1d5720-26ac-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -20,7 +20,7 @@
 
 如下图所示：
 
- ![](https://static.vue-js.com/05f14b60-26ad-11ec-a752-75723a64e8f5.png)
+ ![](../sImgs/05f14b60-26ad-11ec-a752-75723a64e8f5.png)
 
 归并合过程中，每次得到的新的子表本身有序，所以最终得到有序表
 

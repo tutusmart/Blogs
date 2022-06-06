@@ -2,7 +2,7 @@
 
 
 
- ![](https://static.vue-js.com/f0e8a2d0-f5ac-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/f0e8a2d0-f5ac-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 
@@ -38,7 +38,7 @@
 
 结构如下图所示：
 
- ![](https://static.vue-js.com/c545ded0-f5ad-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/c545ded0-f5ad-11eb-ab90-d9ae814b240d.png)
 
 优点：
 
@@ -55,7 +55,7 @@
 
 结构如下图所示：
 
- ![](https://static.vue-js.com/8b4b3040-f5ad-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/8b4b3040-f5ad-11eb-85f6-6fac77c0c9b3.png)
 
 优点：
 
@@ -95,7 +95,7 @@
 
 结构如下图：
 
- ![](https://static.vue-js.com/4301a260-f5ad-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/4301a260-f5ad-11eb-85f6-6fac77c0c9b3.png)
 
 
 

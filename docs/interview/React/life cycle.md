@@ -1,6 +1,6 @@
 # 面试官：说说 React 生命周期有哪些不同阶段？每个阶段对应的方法是？
 
- ![](https://static.vue-js.com/5c717010-d373-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/5c717010-d373-11eb-85f6-6fac77c0c9b3.png)
 
 
 ## 一、是什么
@@ -141,11 +141,11 @@ componentDidUpdate(prevProps, prevState, snapshot) {
 
 新版生命周期整体流程如下图所示：
 
- ![](https://static.vue-js.com/66c999c0-d373-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/66c999c0-d373-11eb-85f6-6fac77c0c9b3.png)
 
 旧的生命周期流程图如下：
 
-![](https://static.vue-js.com/d379e420-d374-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/d379e420-d374-11eb-ab90-d9ae814b240d.png)
 
 通过两个图的对比，可以发现新版的生命周期减少了以下三种方法：
 

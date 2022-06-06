@@ -1,6 +1,6 @@
 # 面试官：Vue实例挂载的过程
 
-![](https://tuwei.site/ui/sImgs/63194810-3a09-11eb-85f6-6fac77c0c9b3.png)
+![](../sImgs/63194810-3a09-11eb-85f6-6fac77c0c9b3.png)
 
 
 ## 一、思考

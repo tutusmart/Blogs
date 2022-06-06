@@ -1,6 +1,6 @@
 # 面试官：如何理解TCP/IP协议?
 
- ![](https://static.vue-js.com/4f69a930-b647-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/4f69a930-b647-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -31,7 +31,7 @@ TCP/IP协议族按层次分别了五层体系或者四层体系
 
 如下图所示：
 
- ![](https://static.vue-js.com/5bb93610-b647-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/5bb93610-b647-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -109,7 +109,7 @@ OSI 参考模型与 TCP/IP 参考模型区别如下：
 
 三种模型对应关系如下图所示：
 
-![](https://static.vue-js.com/3fbff4d0-b647-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/3fbff4d0-b647-11eb-ab90-d9ae814b240d.png)
 
 
 

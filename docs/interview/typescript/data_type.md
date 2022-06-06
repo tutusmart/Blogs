@@ -1,6 +1,6 @@
 # 面试官：说说 typescript 的数据类型有哪些？
 
- ![](https://static.vue-js.com/d88f9450-0998-11ec-a752-75723a64e8f5.png)
+ ![](../sImgs/d88f9450-0998-11ec-a752-75723a64e8f5.png)
 
 
 

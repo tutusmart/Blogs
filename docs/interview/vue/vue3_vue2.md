@@ -1,6 +1,6 @@
 # 面试官：vue3有了解过吗？能说说跟vue2的区别吗？
 
- ![](https://tuwei.site/ui/sImgs/774b6950-5087-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/774b6950-5087-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、Vue3介绍
 
@@ -15,7 +15,7 @@
 - 解决架构问题
 
 ## 哪些变化
- ![](https://tuwei.site/ui/sImgs/9169a900-5087-11eb-85f6-6fac77c0c9b3.png)
+ ![](../sImgs/9169a900-5087-11eb-85f6-6fac77c0c9b3.png)
 
 从上图中，我们可以概览`Vue3`的新特性，如下：
 
@@ -40,7 +40,7 @@
 
 - `SSR`速度提高了2~3倍
 
- ![](https://tuwei.site/ui/sImgs/ac1d23d0-5087-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/ac1d23d0-5087-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -56,7 +56,7 @@
 
 `vue`可以开发出更多其他的功能，而不必担忧`vue`打包出来的整体体积过多
 
- ![](https://tuwei.site/ui/sImgs/c01af010-5087-11eb-85f6-6fac77c0c9b3.png) 
+ ![](../sImgs/c01af010-5087-11eb-85f6-6fac77c0c9b3.png) 
 
 
 
@@ -68,7 +68,7 @@
 - 灵活的逻辑组合与复用
 - `Vue3`模块可以和其他框架搭配使用
 
-![](https://tuwei.site/ui/sImgs/c5c919b0-5087-11eb-ab90-d9ae814b240d.png) 
+![](../sImgs/c5c919b0-5087-11eb-ab90-d9ae814b240d.png) 
 
 
 
@@ -76,11 +76,11 @@
 
 `VUE3`是基于`typescipt`编写的，可以享受到自动的类型定义提示
 
-![](https://tuwei.site/ui/sImgs/cc688120-5087-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/cc688120-5087-11eb-ab90-d9ae814b240d.png)
 
 #### 编译器重写
 
-![](https://tuwei.site/ui/sImgs/fcd33800-5087-11eb-85f6-6fac77c0c9b3.png)
+![](../sImgs/fcd33800-5087-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -88,7 +88,7 @@
 
 可以自定义渲染 API
 
-![](https://tuwei.site/ui/sImgs/0c7d88a0-5088-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/0c7d88a0-5088-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -96,11 +96,11 @@
 
 响应式 `Api` 暴露出来
 
-![](https://tuwei.site/ui/sImgs/26070260-5088-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/26070260-5088-11eb-ab90-d9ae814b240d.png)
 
 轻松识别组件重新渲染原因
 
-![](https://tuwei.site/ui/sImgs/43b2fcb0-5088-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/43b2fcb0-5088-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -184,11 +184,11 @@ export * from '@vue/runtime-core'
 
 composition Api，也就是组合式`api`，通过这种形式，我们能够更加容易维护我们的代码，将相同功能的变量进行一个集中式的管理
 
- ![](https://tuwei.site/ui/sImgs/5e0bfb70-5088-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/5e0bfb70-5088-11eb-ab90-d9ae814b240d.png)
 
 关于`compositon api`的使用，这里以下图展开
 
-![](https://tuwei.site/ui/sImgs/6f67a590-5088-11eb-85f6-6fac77c0c9b3.png)
+![](../sImgs/6f67a590-5088-11eb-85f6-6fac77c0c9b3.png)
 
 简单使用:
 

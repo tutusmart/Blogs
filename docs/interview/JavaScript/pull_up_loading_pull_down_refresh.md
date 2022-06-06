@@ -1,6 +1,6 @@
 # 面试官：如何实现上拉加载，下拉刷新？
 
- ![](https://static.vue-js.com/89cd1850-8adc-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/89cd1850-8adc-11eb-ab90-d9ae814b240d.png)
 
 ## 一、前言
 
@@ -24,7 +24,7 @@
 
 首先可以看一张图
 
- ![](https://static.vue-js.com/df498a00-8ae3-11eb-ab90-d9ae814b240d.png)
+ ![](../sImgs/df498a00-8ae3-11eb-ab90-d9ae814b240d.png)
 
 上拉加载的本质是页面触底，或者快要触底时的动作
 

@@ -1,6 +1,6 @@
 # 面试官：说说Loader和Plugin的区别？编写Loader，Plugin的思路？
 
-![](https://static.vue-js.com/93042280-a894-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/93042280-a894-11eb-ab90-d9ae814b240d.png)
 
 ## 一、区别
 
@@ -11,7 +11,7 @@
 
 从整个运行时机上来看，如下图所示：
 
-![](https://static.vue-js.com/9a04ec40-a7c2-11eb-ab90-d9ae814b240d.png)
+![](../sImgs/9a04ec40-a7c2-11eb-ab90-d9ae814b240d.png)
 
 可以看到，两者在运行时机上的区别：
 
