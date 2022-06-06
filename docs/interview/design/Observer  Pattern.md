@@ -202,7 +202,7 @@ pubsub.notify(TYPE_C);
 
 两者区别如下图：
 
-![](https://files.mdnice.com/user/155/9141682c-7386-4f12-8412-fb17a1cd4bf6.png)
+![](../sImgs/9141682c-7386-4f12-8412-fb17a1cd4bf6.png)
 
 - 在观察者模式中，观察者是知道Subject的，Subject一直保持对观察者进行记录。然而，在发布订阅模式中，发布者和订阅者不知道对方的存在。它们只有通过消息代理进行通信。
 

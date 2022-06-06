@@ -69,7 +69,7 @@ wx.requestPayment({
 参数表如下所示：
 
 
-![](https://files.mdnice.com/user/155/48efed1f-d67f-45a7-ab2c-89a6424fafa0.png)
+![](../sImgs/48efed1f-d67f-45a7-ab2c-89a6424fafa0.png)
 
 
 
