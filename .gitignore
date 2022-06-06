@@ -2,5 +2,7 @@
 node_modules
 docs/.vuepress/dist
 docs/.vuepress/dist.zip
+docs/.vuepress/ms100
+docs/.vuepress/ms100.zip
 docs/.vuepress/.temp
 docs/.vuepress/.cache
