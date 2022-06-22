@@ -145,23 +145,23 @@ mysql配置向导启动界面，按“Next”继续。
 
 使用MySQL命令行客户端来装载数据库。
 
-\1) 连接MySql
+(1) 连接MySql
 
 ![img](./images/wps20.jpg)
 
-\2) 创建“bjpowernode”数据库
+(2) 创建“bjpowernode”数据库
 
 mysql> create database bjpowernode;
 
-\3) 选择数据库
+(3) 选择数据库
 
 mysql> use bjpowernode
 
-\4) 导入数据
+(4) 导入数据
 
 mysql>source D:\ bjpowernode.sql
 
-\5) 删除数据库(这里不要做!)
+(5) 删除数据库(这里不要做!)
 
 mysql> drop database bjpowernode;
 
@@ -236,17 +236,21 @@ use bjpowernode;
 
 ### ***2.3、查询当前使用的数据库***
 
+```sql
 select  database();
+```
 
 查询数据库版本也可以使用
 
+```sql
 select  version();
+```
 
 ### ***2.4、终止一条语句***
 
 如果想要终止一条正在编写的语句，可键入\c。
 
-### ***2.5、退出*mysql
+### ***2.5、退出*mysql***
 
 可使用\q、QUIT或EXIT：
 
@@ -300,7 +304,7 @@ show create table
 
 ### ***4.1、查询一个字段***
 
-l 查询员工姓名
+查询员工姓名
 
 | select ename from emp;                                       |
 | ------------------------------------------------------------ |
@@ -310,9 +314,13 @@ Select语句后面跟的是字段名称，select是关键字，select和字段�
 
 ### ***4.2、查询多个字段***
 
-l 查询员工的编号和姓名
+查询员工的编号和姓名
 
-select empno, ename from emp;![img](./images/wps30.jpg)
+```sql
+select empno, ename from emp;
+```
+
+![img](./images/wps30.jpg)
 
 查询多个字段，select中的字段采用逗号间隔即可，最后一个字段，也就是在from前面的字段不能使用逗号了。
 
@@ -320,7 +328,9 @@ select empno, ename from emp;![img](./images/wps30.jpg)
 
 可以将所有的字段放到select语句的后面，这种方案不方便，但是比较清楚，我们可以采用如下便捷的方式查询全部字段
 
+```sql
 select * from emp;
+```
 
 ![img](./images/wps31.jpg)
 
@@ -328,9 +338,11 @@ select * from emp;
 
 ### ***4.4、计算员工的年薪***
 
-l 列出员工的编号，姓名和年薪
+列出员工的编号，姓名和年薪
 
+```sql
 select empno, ename, sal*12 from emp;
+```
 
 ![img](./images/wps32.jpg)
 
@@ -338,13 +350,17 @@ select empno, ename, sal*12 from emp;
 
 ### ***4.5、将查询出来的字段显示为中文***
 
+```sql
 select empno as ‘员工编号’, ename as ‘员工姓名’, sal*12 as ‘年薪’ from emp;注意:字符串必须添加单引号 | 双引号
+```
 
 ![img](./images/wps33.jpg)
 
 可以采用as关键字重命名表字段，其实as也可以省略，如：
 
+```sql
 select empno  "员工编号", ename  "员工姓名", sal*12  "年薪" from emp;
+```
 
 ## **5、条件查询**
 
@@ -370,31 +386,41 @@ select empno  "员工编号", ename  "员工姓名", sal*12  "年薪" from emp;
 
 ### ***5.1、等号操作符***
 
-l 查询薪水为5000的员工
+查询薪水为5000的员工
 
+```sql
 select empno, ename, sal from emp where sal=5000;
+```
 
 ![img](./images/wps34.jpg)
 
-l 查询job为MANAGER的员工
+查询job为MANAGER的员工
 
+```sql
 select empno, ename from emp where job=manager;
+```
 
 ![img](./images/wps35.jpg)
 
 以上查询出现错误，因为job为字符串，所以出现了以上错误
 
+```sql
 select empno, ename from emp where job="manager";
+```
 
 ![img](./images/wps36.jpg)
 
+```sql
 select empno, ename from emp where job=’manager’;
+```
 
 ![img](./images/wps37.jpg)
 
 也可以使用单引号
 
+```sql
 select empno, ename from emp where job='MANAGER';
+```
 
 ![img](./images/wps38.jpg)
 
@@ -424,35 +450,47 @@ MySQL在windows下是不区分大小写的，将script文件导入MySQL后表名
 
 ### ***5.2、*** ***<>操作符***
 
-l 查询薪水不等于5000的员工
+查询薪水不等于5000的员工
 
+```sql
 select empno, ename, sal from emp where sal <> 5000;
+```
 
 ![img](./images/wps39.jpg)
 
 一下写法等同于以上写法，建议使用第一种写法
 
+```sql
 select empno, ename, sal from emp where sal != 5000;
+```
 
 数值也可以采用单引号引起来，如一下语句是正确的(不建议这么写)：
 
+```sql
 select empno, ename, sal from emp where sal <> '5000';
+```
 
-l 查询工作岗位不等于MANAGER的员工
+查询工作岗位不等于MANAGER的员工
 
+```sql
 select empno, ename from emp where job <> 'MANAGER';
+```
 
 ### ***5.3、between*** ***…*** ***and*** ***…*操作符
 
-l 查询薪水为1600到3000的员工(第一种方式，采用>=和<=)
+查询薪水为1600到3000的员工(第一种方式，采用>=和<=)
 
+```sql
 select empno, ename, sal from emp where sal >= 1600 and sal <= 3000;
+```
 
 ![img](./images/wps40.jpg)
 
-l 查询薪水为1600到3000的员工(第一种方式，采用between … and …)
+查询薪水为1600到3000的员工(第一种方式，采用between … and …)
 
+```sql
 select empno, ename, sal from emp where sal between 1600 and 3000;
+```
 
 ![img](./images/wps41.jpg)
 
@@ -460,18 +498,20 @@ select empno, ename, sal from emp where sal between 1600 and 3000;
 
 ### ***5.4、is null***
 
-l Null为空，但不是空串，为null可以设置这个字段不填值，如果查询为null的字段，采用is null
+Null为空，但不是空串，为null可以设置这个字段不填值，如果查询为null的字段，采用is null
 
-l 查询津贴为空的员工
+查询津贴为空的员工
 
+```sql
 select * from emp where comm=null;
+```
 
 ![img](./images/wps42.jpg)
 
 以上也无法查询出符合条件的数据，因为null类型比较特殊，必须使用 is来比较
-
+```sql
 select * from emp where comm is null;
-
+```
 ![img](./images/wps43.jpg)
 
 以上查询正确
@@ -480,35 +520,42 @@ select * from emp where comm is null;
 
 and表示并且的含义，表示所有的条件必须满足
 
-l 工作岗位为MANAGER,薪水大于2500的员工
+工作岗位为MANAGER,薪水大于2500的员工
 
+```sql
 select * from emp where job='MANAGER' and sal > 2500;
-
+```
 ![img](./images/wps44.jpg)
 
 ### ***5.6、or***
 
 or，只要满足条件即可,相当于包含
 
-l 查询出job为manager或者job为salesman的员工
+查询出job为manager或者job为salesman的员工
 
+```sql
 select * from emp where job='MANAGER' or job='SALESMAN';
+```
 
 ![img](./images/wps45.jpg)
 
 ### ***5.7、表达式的优先级***
 
-l 查询薪水大于1800，并且部门代码为20或30的员工（错误的写法）
+查询薪水大于1800，并且部门代码为20或30的员工（错误的写法）
 
+```sql
 select * from emp where sal > 1800 and deptno = 20 or deptno = 30;
+```
 
 ![img](./images/wps46.jpg)
 
 以上输出不是预期结果，薪水小于1800的数据也被查询上来了，原因是表达式的优先级导致的，首先过滤sal > 1800 and deptno = 20，然后再将deptno = 30员工合并过来，所以是不对的
 
-l 查询薪水大于1800，并且部门代码为20或30的（正确的写法）
+查询薪水大于1800，并且部门代码为20或30的（正确的写法）
 
+```sql
 select * from emp where sal > 1800 and (deptno = 20 or deptno = 30);
+```
 
 ![img](./images/wps47.jpg)
 
@@ -518,69 +565,88 @@ select * from emp where sal > 1800 and (deptno = 20 or deptno = 30);
 
 in表示包含的意思，完全可以采用or来表示，采用in会更简洁一些
 
-l 查询出job为manager或者job为salesman的员工
+查询出job为manager或者job为salesman的员工
 
+```sql
 select * from emp where job in ('manager','salesman');
+```
 
 ![img](./images/wps48.jpg)
 
-l 查询出薪水包含1600和薪水包含3000的员工
-
+查询出薪水包含1600和薪水包含3000的员工
+```sql
 select * from emp where sal in(1600, 3000);
+```
 
 ![img](./images/wps49.jpg)
 
 ### ***5.9、not***
 
-l 查询出薪水不包含1600和薪水不包含3000的员工（第一种写法）
+查询出薪水不包含1600和薪水不包含3000的员工（第一种写法）
 
+```sql
 select * from emp where sal <> 1600 and sal <> 3000;
+```
 
 ![img](./images/wps50.jpg)
 
-l 查询出薪水不包含1600和薪水不包含3000的员工（第二种写法
+查询出薪水不包含1600和薪水不包含3000的员工（第二种写法
 
+```sql
 select * from emp where not (sal = 1600 or sal = 3000);
+```
 
 ![img](./images/wps51.jpg)
 
-l 查询出薪水不包含1600和薪水不包含3000的员工（第三种写法）
+查询出薪水不包含1600和薪水不包含3000的员工（第三种写法）
 
+```sql
 select * from emp where sal not in (1600, 3000);
+```
 
 ![img](./images/wps52.jpg)
 
-l 查询出津贴不为null的所有员工
+查询出津贴不为null的所有员工
 
+```sql
 select * from emp where comm is not  null;
+```
 
 ![img](./images/wps53.jpg)
 
 ### ***5.10、like***
 
-l Like可以实现模糊查询，like支持%和下划线匹配
+Like可以实现模糊查询，like支持%和下划线匹配
 
-l 查询姓名以M开头所有的员工
+查询姓名以M开头所有的员工
 
+```sql
 select * from emp where ename like 'M%';
+```
 
 ![img](./images/wps54.jpg)
 
-l 查询姓名以N结尾的所有的员工
+查询姓名以N结尾的所有的员工
 
+```sql
 select * from emp where ename like '%N';
+```
 
 ![img](./images/wps55.jpg)
 
-l 查询姓名中包含O的所有的员工
+查询姓名中包含O的所有的员工
 
+```sql
 select * from emp where ename like '%O%';
+```
 
 ![img](./images/wps56.jpg)
 
-l 查询姓名中第二个字符为A的所有员工
+查询姓名中第二个字符为A的所有员工
 
+```sql
 select * from emp where ename like '_A%';
+```
 
 ![img](./images/wps57.jpg)Like中%和下划线的差别？
 
@@ -590,7 +656,9 @@ select * from emp where ename like '_A%';
 
 Like 中的表达式必须放到单引号中|双引号中，以下写法是错误的：
 
+```sql
 select * from emp where ename like _A%
+```
 
 ## **6、排序数据**
 
@@ -598,15 +666,19 @@ select * from emp where ename like _A%
 
 排序采用order by子句，order by后面跟上排序字段，排序字段可以放多个，多个采用逗号间隔，order by默认采用升序，如果存在where子句那么order by必须放到where语句的后面
 
-l 按照薪水由小到大排序(系统默认由小到大)
+按照薪水由小到大排序(系统默认由小到大)
 
+```sql
 select * from emp order by sal;
+```
 
 ![img](./images/wps58.jpg)
 
-l 取得job为MANAGER的员工，按照薪水由小到大排序(系统默认由小到大)
+取得job为MANAGER的员工，按照薪水由小到大排序(系统默认由小到大)
 
+```sql
 select * from emp where job='MANAGER' order by sal;
+```
 
 ![img](./images/wps59.jpg)
 
@@ -614,33 +686,43 @@ select * from emp where job='MANAGER' order by sal;
 
 以下写法是错误的：
 
+```sql
 select * from emp order by sal where job='MANAGER';
+```
 
-l 按照多个字段排序，如：首先按照job排序，再按照sal排序
+按照多个字段排序，如：首先按照job排序，再按照sal排序
 
+```sql
 select * from emp order by job,sal;
+```
 
 ![img](./images/wps60.jpg)
 
 ### ***6.2、手动指定排序顺序***
 
-l 手动指定按照薪水由小到大排序
+手动指定按照薪水由小到大排序
 
-select * from emp order by sal asc;
+```sql
+s[](https://tuwei.site/ui/ms100/note/mysql_base.html#_15-4%E3%80%81%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB)elect * from emp order by sal asc;
+```
 
 ![img](./images/wps61.jpg)
 
-l 手动指定按照薪水由大到小排序
+手动指定按照薪水由大到小排序
 
+```sql
 select * from emp order by sal desc;
+```
 
 ![img](./images/wps62.jpg)
 
 ### ***6.3、多个字段排序***
 
-l 按照job和薪水倒序
+按照job和薪水倒序
 
+```sql
 select * from emp order by job desc, sal desc;
+```
 
 ![img](./images/wps63.jpg)
 
@@ -648,9 +730,11 @@ select * from emp order by job desc, sal desc;
 
 ### ***6.4、使用字段的位置来排序***
 
-l 按照薪水升序
+按照薪水升序
 
+```sql
 select * from emp order by 6;
+```
 
 ![img](./images/wps64.jpg)
 
@@ -667,73 +751,89 @@ select * from emp order by 6;
 
 **注意：分组函数自动忽略空值，不需要手动的加where条件排除空值。**
 
-**select count() from emp** **where xxx****;**   **符合条件的所有记录总数。**
+**select count() from emp** **where xxx****;符合条件的所有记录总数。**
 
-**select count(comm) from emp;**   **comm这个字段中不为空的元素总数。**
+**select count(comm) from emp;comm这个字段中不为空的元素总数。**
 
 注意：分组函数不能直接使用在where关键字后面。
 
+```sql
 mysql> select ename,sal from emp where sal > avg(sal);
 
 ERROR 1111 (HY000): Invalid use of group function
+```
 
 ### ***7.1、count***
 
-l 取得所有的员工数
+取得所有的员工数
 
+
+```sql
 select count(*) from emp;
+```
 
 ![img](./images/wps65.jpg)Count(*)表示取得所有记录，忽略null，为null的值也会取得
 
-l 取得津贴不为null员工数
+取得津贴不为null员工数
 
+```sql
 select count(comm) from emp;
+```
 
 ![img](./images/wps66.jpg)
 
 采用count(字段名称)，不会取得为null的记录
 
-l 取得工作岗位的个数
+取得工作岗位的个数
 
+```sql
 select count(distinct job ) from emp;
+```
 
 ![img](./images/wps67.jpg)
 
 ### ***7.2、sum***
 
-l Sum可以取得某一个列的和，null会被忽略
+Sum可以取得某一个列的和，null会被忽略
 
-l 取得薪水的合计
+取得薪水的合计
 
+```sql
 select sum(sal) from emp;
+```
 
 ![img](./images/wps68.jpg)
 
-l 取得津贴的合计
+取得津贴的合计
 
+```sql
 select sum(comm) from emp;
+```
 
 ![img](./images/wps69.jpg)
 
 null会被忽略
 
-l 取得薪水的合计（sal+comm）
+取得薪水的合计（sal+comm）
 
+```sql
 select sum(sal+comm) from emp;
+```
 
 ![img](./images/wps70.jpg)
 
 从以上结果来看，不正确，原因在于comm字段有null值，所以无法计算，sum会忽略掉，正确的做法是将comm字段转换成0
 
+```sql
 select sum(sal+IFNULL(comm, 0)) from emp;
-
+```
 ![img](./images/wps71.jpg)
 
 ### ***7.3、avg***
 
 取得某一列的平均值
 
-l 取得平均薪水
+取得平均薪水
 
 select avg(sal) from emp;
 
@@ -743,15 +843,19 @@ select avg(sal) from emp;
 
 取得某个一列的最大值
 
-l 取得最高薪水
+取得最高薪水
 
+```sql
 select max(sal) from emp;
+```
 
 ![img](./images/wps73.jpg)
 
-l 取得最晚入职得员工
+取得最晚入职得员工
 
+```sql
 select max(str_to_date (hiredate, '%Y-%m-%d')) from emp;
+```
 
 ![img](./images/wps74.jpg)
 
@@ -759,15 +863,19 @@ select max(str_to_date (hiredate, '%Y-%m-%d')) from emp;
 
 取得某个一列的最小值
 
-l 取得最低薪水
+取得最低薪水
 
+```sql
 select min(sal) from emp;
+```
 
 ![img](./images/wps75.jpg)
 
-l 取得最早入职得员工（可以不使用str_to_date转换）
+取得最早入职得员工（可以不使用str_to_date转换）
 
+```sql
 select min(str_to_date(hiredate, '%Y-%m-%d')) from emp;
+```
 
 ![img](./images/wps76.jpg)
 
@@ -775,7 +883,9 @@ select min(str_to_date(hiredate, '%Y-%m-%d')) from emp;
 
 可以将这些聚合函数都放到select中一起使用
 
+```sql
 select count(*),sum(sal),avg(sal),max(sal),min(sal) from emp;
+```
 
 ![img](./images/wps77.jpg)
 
@@ -785,9 +895,11 @@ select count(*),sum(sal),avg(sal),max(sal),min(sal) from emp;
 
 ### ***8.1、group by***
 
-l 取得每个工作岗位的工资合计，要求显示岗位名称和工资合计
+取得每个工作岗位的工资合计，要求显示岗位名称和工资合计
 
+```sql
 select job, sum(sal) from emp group by job;
+```
 
 ![img](./images/wps78.jpg)
 
@@ -795,7 +907,7 @@ select job, sum(sal) from emp group by job;
 
 ![img](./images/wps79.jpg)
 
-l 按照工作岗位和部门编码分组，取得的工资合计
+按照工作岗位和部门编码分组，取得的工资合计
 
 n 原始数据
 
@@ -803,12 +915,15 @@ n 原始数据
 
 n 分组语句
 
+```sql
 select job,deptno,sum(sal) from emp group by job,deptno;
+```
 
 ![img](./images/wps81.jpg)
 
+```sql
 mysql> select empno,deptno,avg(sal) from emp group by deptno;
-
+```
 +-------+--------+-------------+
 
 | empno | deptno | avg(sal)  |
@@ -835,7 +950,9 @@ mysql> select empno,deptno,avg(sal) from emp group by deptno;
 
 取得每个岗位的平均工资大于2000
 
+```sql
 select job, avg(sal) from emp group by job having avg(sal) >2000;
+```
 
 ![img](./images/wps82.jpg)
 
@@ -855,15 +972,15 @@ select 字段from 表名where …….group by ……..having …….(就是为�
 
 以上语句的执行顺序
 
-\1. 首先执行where语句过滤原始数据
+1. 首先执行where语句过滤原始数据
 
-\2. 执行group by进行分组
+2. 执行group by进行分组
 
-\3. 执行having对分组数据进行操作
+3. 执行having对分组数据进行操作
 
-\4. 执行select选出数据
+4. 执行select选出数据
 
-\5. 执行order by排序
+5. 执行order by排序
 
 原则：能在where中过滤的数据，尽量在where中过滤，效率较高。having的过滤是专门对分组之后的数据进行过滤的。
 
@@ -873,17 +990,19 @@ select 字段from 表名where …….group by ……..having …….(就是为�
 
 连接查询：也可以叫跨表查询，需要关联多个表进行查询
 
-l 显示每个员工信息，并显示所属的部门名称
+显示每个员工信息，并显示所属的部门名称
 
-| select ename, dname from emp, dept;                          |
-| ------------------------------------------------------------ |
-| SQL> select ename, dname from emp, dept; ENAME   DNAME---------- --------------SMITH   ACCOUNTINGALLEN   ACCOUNTINGWARD   ACCOUNTINGJONES   ACCOUNTINGMARTIN  ACCOUNTINGBLAKE   ACCOUNTINGCLARK   ACCOUNTINGSCOTT   ACCOUNTINGKING   ACCOUNTINGTURNER  ACCOUNTINGADAMS   ACCOUNTINGJAMES   ACCOUNTINGFORD   ACCOUNTINGMILLER  ACCOUNTINGSMITH   RESEARCHALLEN   RESEARCHWARD   RESEARCHJONES   RESEARCHMARTIN  RESEARCHBLAKE   RESEARCHCLARK   RESEARCHSCOTT   RESEARCHKING   RESEARCHTURNER  RESEARCHADAMS   RESEARCHJAMES   RESEARCHFORD   RESEARCHMILLER  RESEARCHSMITH   SALESALLEN   SALESWARD   SALESJONES   SALESMARTIN  SALESBLAKE   SALESCLARK   SALESSCOTT   SALESKING   SALESTURNER  SALESADAMS   SALESJAMES   SALESFORD   SALESMILLER  SALESSMITH   OPERATIONSALLEN   OPERATIONSWARD   OPERATIONSJONES   OPERATIONSMARTIN  OPERATIONSBLAKE   OPERATIONSCLARK   OPERATIONSSCOTT   OPERATIONSKING   OPERATIONSTURNER  OPERATIONSADAMS   OPERATIONSJAMES   OPERATIONSFORD   OPERATIONSMILLER  OPERATIONS 已选择56行。 |
+```sql
+select ename, dname from emp, dept;                          |
+```
 
 以上输出，不正确，输出了56条数据，其实就是两个表记录的成绩，这种情况我们称为：“笛卡儿乘积”，出现错误的原因是：没有指定连接条件
 
 指定连接条件
 
+```sql
 select emp.ename, dept.dname from emp, dept where emp.deptno=dept.deptno;也可以使用别名select e.ename, d.dname from emp e, dept d where e.deptno=d.deptno;
+```
 
 ![img](./images/wps83.jpg)
 
@@ -891,25 +1010,28 @@ select emp.ename, dept.dname from emp, dept where emp.deptno=dept.deptno;也可�
 
 以上查询也称为 “内连接”，只查询相等的数据（连接条件相等的数据）
 
-l 取得员工和所属的领导的姓名
+取得员工和所属的领导的姓名
 
-| select e.ename, m.ename from emp e, emp m where e.mgr=m.empno; |
-| ------------------------------------------------------------ |
-| SQL> select  *from emp;（普通员工）  EMPNO ENAME   JOB     MGR HIREDATE     SAL   COMM  DEPTNO---------- ---------- --------- ---------- -------------- ---------- ---------- ----------  7369 SMITH   CLERK    7902 17-12月-80    800      20  7499 ALLEN   SALESMAN   7698 20-2月 -81    1600   300   30  7521 WARD   SALESMAN   7698 22-2月 -81    1250   500   30  7566 JONES   MANAGER   7839 02-4月 -81    2975      20  7654 MARTIN  SALESMAN   7698 28-9月 -81    1250   1400   30  7698 BLAKE   MANAGER   7839 01-5月 -81    2850      30  7782 CLARK   MANAGER   7839 09-6月 -81    2450      10  7788 SCOTT   ANALYST   7566 19-4月 -87    3000      20  7839 KING   PRESIDENT    17-11月-81    5000      10  7844 TURNER  SALESMAN   7698 08-9月 -81    1500    0   30  7876 ADAMS   CLERK    7788 23-5月 -87    1100      20  7900 JAMES   CLERK    7698 03-12月-81    950      30  7902 FORD   ANALYST   7566 03-12月-81    3000      20  7934 MILLER  CLERK    7782 23-1月 -82    1300      10 已选择14行。 SQL> select*  from emp;（管理者）  EMPNO ENAME   JOB     MGR HIREDATE     SAL   COMM  DEPTNO---------- ---------- --------- ---------- -------------- ---------- ---------- ----------  7369 SMITH   CLERK    7902 17-12月-80    800      20  7499 ALLEN   SALESMAN   7698 20-2月 -81    1600   300   30  7521 WARD   SALESMAN   7698 22-2月 -81    1250   500   30  7566 JONES   MANAGER   7839 02-4月 -81    2975      20  7654 MARTIN  SALESMAN   7698 28-9月 -81    1250   1400   30  7698 BLAKE   MANAGER   7839 01-5月 -81    2850      30  7782 CLARK   MANAGER   7839 09-6月 -81    2450      10  7788 SCOTT   ANALYST   7566 19-4月 -87    3000      20  7839 KING   PRESIDENT    17-11月-81    5000      10  7844 TURNER  SALESMAN   7698 08-9月 -81    1500    0   30  7876 ADAMS   CLERK    7788 23-5月 -87    1100      20  7900 JAMES   CLERK    7698 03-12月-81    950      30  7902 FORD   ANALYST   7566 03-12月-81    3000      20  7934 MILLER  CLERK    7782 23-1月 -82    1300      10 已选择14行。 SQL> select e.ename, m.ename from emp e, emp m where e.mgr=m.empno; ENAME   ENAME---------- ----------SMITH   FORDALLEN   BLAKEWARD   BLAKEJONES   KINGMARTIN  BLAKEBLAKE   KINGCLARK   KINGSCOTT   JONESTURNER  BLAKEADAMS   SCOTTJAMES   BLAKEFORD   JONESMILLER  CLARK 已选择13行。 |
+```sql
+select e.ename, m.ename from emp e, emp m where e.mgr=m.empno; 
+```
+
 
 以上称为“自连接”，只有一张表连接，具体的查询方法，把一张表看作两张表即可，如以上示例：第一个表emp e代码了员工表，emp m代表了领导表，相当于员工表和部门表一样
 
 ### ***9.2、SQL99语法***
 
-l （内连接）显示薪水大于2000的员工信息，并显示所属的部门名称
+（内连接）显示薪水大于2000的员工信息，并显示所属的部门名称
 
 采用SQL92语法：select e.ename, e.sal, d.dname from emp e, dept d where e.deptno=d.deptno and  e.sal > 2000;采用SQL99语法：select e.ename, e.sal, d.dname from emp e join dept d on e.deptno=d.deptno where e.sal>2000;或select e.ename, e.sal, d.dname from emp e inner join dept d on e.deptno=d.deptno where e.sal>2000;在实际中一般不加inner关键字
 
 Sql92语法和sql99语法的区别：99语法可以做到表的连接和查询条件分离，特别是多个表进行连接的时候，会比sql92更清晰
 
-l （外连接）显示员工信息，并显示所属的部门名称，如果某一个部门没有员工，那么该部门也必须显示出来
+（外连接）显示员工信息，并显示所属的部门名称，如果某一个部门没有员工，那么该部门也必须显示出来
 
+```sql
 右连接：select e.ename, e.sal, d.dname from emp e right join dept d on e.deptno=d.deptno;左连接：select e.ename, e.sal, d.dname from dept d left join emp e on e.deptno=d.deptno;以上两个查询效果相同
+```
 
 ![img](./images/wps84.jpg)
 
@@ -925,7 +1047,7 @@ inner 可以省略
 
 外连接
 
-*左外连接
+左外连接
 
 表1  left  outer  join  表2  on  关联条件
 
@@ -945,7 +1067,9 @@ outer  可以省略
 
 *右连接恰恰相反，以上左连接和右连接也可以加入outer关键字，但一般不建议这种写法，如：
 
+```sql
 select e.ename, e.sal, d.dname from emp e right outer join dept d on e.deptno=d.deptno;select e.ename, e.sal, d.dname from dept d left outer join emp e on e.deptno=d.deptno;
+```
 
 左连接能完成的功能右连接一定可以完成
 
@@ -957,55 +1081,69 @@ select e.ename, e.sal, d.dname from emp e right outer join dept d on e.deptno=d.
 
 ### ***10.1、在where语句中使用子查询，也就是在where语句中加入select语句***
 
-l 查询员工信息，查询哪些人是管理者，要求显示出其员工编号和员工姓名
+查询员工信息，查询哪些人是管理者，要求显示出其员工编号和员工姓名
 
 实现思路：
 
-l 1、首先取得管理者的编号，去除重复的
+1、首先取得管理者的编号，去除重复的
 
+```sql
 select distinct mgr from emp where mgr is not null; distinct 去除重复行
+```
 
-l 2、查询员工编号包含管理者编号的
+2、查询员工编号包含管理者编号的
 
+```sql
 select empno, ename from emp where empno in(select mgr from emp where mgr is not null);
+```
 
 ![img](./images/wps86.jpg)
 
-l 查询哪些人的薪水高于员工的平均薪水，需要显示员工编号，员工姓名，薪水
+查询哪些人的薪水高于员工的平均薪水，需要显示员工编号，员工姓名，薪水
 
 实现思路
 
 1、 取得平均薪水
 
+```sql
 select avg(sal) from emp;
+```
 
 2、 取得大于平均薪水的员工
 
+```sql
 select empno, ename, sal from emp where sal > (select avg(sal) from emp);
+```
 
 ​ ![img](./images/wps87.jpg)
 
 ### ***10.2、在from语句中使用子查询，可以将该子查询看做一张表***
 
-l 查询员工信息，查询哪些人是管理者，要求显示出其员工编号和员工姓名
+查询员工信息，查询哪些人是管理者，要求显示出其员工编号和员工姓名
 
 首先取得管理者的编号，去除重复的
 
+```sql
 select distinct mgr from emp where mgr is not null;
+```
 
 将以上查询作为一张表，放到from语句的后面
 
+```sql
 使用92语法：select e.empno, e.ename from emp e, (select distinct mgr from emp where mgr is not null) m where e.empno=m.mgr;使用99语法：select e.empno, e.ename from emp e join (select distinct mgr from emp where mgr is not null) m on e.empno=m.mgr;
+```
 
 ![img](./images/wps88.jpg)
 
-l 查询各个部门的平均薪水所属等级，需要显示部门编号，平均薪水，等级编号
+查询各个部门的平均薪水所属等级，需要显示部门编号，平均薪水，等级编号
 
 实现思路
 
 1、首先取得各个部门的平均薪水
 
+```sql
 select deptno, avg(sal) avg_sal from emp group by deptno;
+```
 
 ![img](./images/wps89.jpg)
 
@@ -1020,15 +1158,19 @@ select deptno, avg(sal) avg_sal from emp group by deptno;
 
 ### ***10.3、在select语句中使用子查询***
 
-l 查询员工信息，并显示出员工所属的部门名称
+查询员工信息，并显示出员工所属的部门名称
 
 第一种做法，将员工表和部门表连接
 
+```sql
 select e.ename, d.dname from emp e, dept d where e.deptno=d.deptno;
+```
 
 第二种做法，在select语句中再次嵌套select语句完成部分名称的查询
 
+```sql
 select e.ename, (select d.dname from dept d where e.deptno=d.deptno) as dname from emp e;
+```
 
 ![img](./images/wps95.jpg)
 
@@ -1038,7 +1180,9 @@ select e.ename, (select d.dname from dept d where e.deptno=d.deptno) as dname fr
 
 1、查询job包含MANAGER和包含SALESMAN的员工
 
+```sql
 select * from emp where job in('MANAGER', 'SALESMAN');
+```
 
 ![img](./images/wps96.jpg)
 
@@ -1062,7 +1206,9 @@ select* from tablename limit 2,4
 
 ### ***12.1、取得前5条数据***
 
+```sql
 select * from emp  limit 5;
+```
 
 ![img](./images/wps98.jpg)
 
@@ -1070,13 +1216,17 @@ select * from emp  limit 5;
 
 ### ***12.2、从第二条开始取两条数据***
 
+```sql
 select * from emp  limit 1,2;
+```
 
 ![img](./images/wps100.jpg)
 
 ### ***12.3、取得薪水最高的前5名***
 
-select  * from emp e order by e.sal desc limit 5;
+```sql
+select * from emp e order by e.sal desc limit 5;
+```
 
 ![img](./images/wps101.jpg)
 
@@ -1084,11 +1234,14 @@ select  * from emp e order by e.sal desc limit 5;
 
 ### ***13.1、创建表***
 
-l 语法格式
+语法格式
+```sql
+create table tableName(  columnName dataType(length),  ………………..  columnName dataType(length));set character_set_results='gbk'; show variables like '%char%'; 
+```
 
-create table tableName(  columnName dataType(length),  ………………..  columnName dataType(length));set character_set_results='gbk'; show variables like '%char%'; 创建表的时候，表中有字段，每一个字段有：   *字段名*   字段数据类型   *字段长度限制*   字段约束
+创建表的时候，表中有字段，每一个字段有：   *字段名*   字段数据类型   *字段长度限制*   字段约束
 
-l MySql常用数据类型
+MySql常用数据类型
 
 | 类型                         | 描述                                             |
 | ---------------------------- | ------------------------------------------------ |
@@ -1105,21 +1258,27 @@ l MySql常用数据类型
 | CLOB                         | Character Large OBject（字符大对象）             |
 | 其它…………………                  |                                                  |
 
-l 建立学生信息表，字段包括：学号、姓名、性别、出生日期、email、班级标识
+建立学生信息表，字段包括：学号、姓名、性别、出生日期、email、班级标识
 
+```sql
 create table t_student( student_id  int(10), student_name  varchar(20), sex  char(2), birthday date, email  varchar(30), classes_id int(3) )
+```
 
 ![img](./images/wps102.jpg)
 
-l 向t_student表中加入数据,（必须使用客户端软件，我们的cmd默认是GBK编码,数据中设置的编码是UTF-8）
+向t_student表中加入数据,（必须使用客户端软件，我们的cmd默认是GBK编码,数据中设置的编码是UTF-8）
 
+```sql
 insert into t_student(student_id, student_name, sex, birthday, email, classes_id) values(1001, 'zhangsan', 'm', '1988-01-01', 'qqq@163.com', 10)
+```
 
 ![img](./images/wps103.jpg)
 
-l 向t_student表中加入数据（使用默认值）
+向t_student表中加入数据（使用默认值）
 
+```sql
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20), sex  char(2)  default  'm', birthday date,  email  varchar(30), classes_id int(3) ) insert into t_student(student_id, student_name, birthday, email, classes_id) values(1002, 'zhangsan', '1988-01-01', 'qqq@163.com', 10) ![img](./images/wps104.jpg)
+```
 
 ### ***13.2、增加/删除/修改表结构***
 
@@ -1129,7 +1288,9 @@ drop table if exists t_student; create table t_student( student_id  int(10), stu
 
 如：需求发生改变，需要向t_student中加入联系电话字段，字段名称为：contatct_tel 类型为varchar(40)
 
+```sql
 alter table t_student add  contact_tel varchar(40);
+```
 
 ![img](./images/wps105.jpg)
 
@@ -1137,7 +1298,9 @@ alter table t_student add  contact_tel varchar(40);
 
 如：student_name无法满足需求，长度需要更改为100
 
+```sql
 alter table t_student modify student_name varchar(100) ;
+```
 
 ![img](./images/wps106.jpg)
 
@@ -1149,7 +1312,9 @@ alter table t_student modify student_name varchar(100) ;
 
 如：删除联系电话字段
 
+```sql
 alter table t_student drop contact_tel;
+```
 
 ![img](./images/wps108.jpg)
 
@@ -1159,11 +1324,11 @@ alter table t_student drop contact_tel;
 
 添加、修改和删出都属于DML，主要包含的语句：insert、update、delete
 
-l Insert语法格式
+Insert语法格式
 
 Insert into 表名(字段，。。。。) values(值,………..)
 
-l 省略字段的插入
+省略字段的插入
 
 insert into emp values(9999,'zhangsan','MANAGER', null, null,3000, 500, 10);
 
@@ -1173,9 +1338,11 @@ insert into emp values(9999,'zhangsan','MANAGER', null, null,3000, 500, 10);
 
 不建议使用此种方式，因为当数据库表中的字段位置发生改变的时候会影响到insert语句
 
-l 指定字段的插入(建议使用此种方式)
+指定字段的插入(建议使用此种方式)
 
+```sql
 insert into emp (empno,ename,job,mgr,hiredate,sal,comm,deptno) values(9999,'zhangsan','MANAGER', null, null,3000, 500, 10);
+```
 
 ![img](./images/wps111.jpg)
 
@@ -1187,27 +1354,35 @@ insert into emp (empno,ename,job,mgr,hiredate,sal,comm,deptno) values(9999,'zhan
 
 第一种方法，插入的日期格式和显示的日期格式一致
 
+```sql
 insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values(9997,'zhangsan','MANAGER', null, '1981-06-12',3000, 500, 10);
+```
 
 ![img](./images/wps113.jpg)
 
 第二种方法，采用str_to_date
 
+```sql
 insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values(9996,'zhangsan','MANAGER',null,str_to_date('1981-06-12','%Y-%m-%d'),3000, 500, 10);
+```
 
 ![img](./images/wps114.jpg)
 
 第三种方法，添加系统日期（now()）
 
+```sql
 insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values(9995,'zhangsan','MANAGER',null,now() ,3000, 500, 10);
+```
 
 ![img](./images/wps115.jpg)
 
 ![img](./images/wps116.jpg)
 
-l 表复制
+表复制
 
+```sql
 create table emp_bak as select empno,ename,sal from emp;
+```
 
 ![img](./images/wps117.jpg)
 
@@ -1215,9 +1390,11 @@ create table emp_bak as select empno,ename,sal from emp;
 
 以上方式，会自动创建表，将符合查询条件的数据自动复制到创建的表中
 
-l 如何将查询的数据直接放到已经存在的表中，可以使用条件
+如何将查询的数据直接放到已经存在的表中，可以使用条件
 
+```sql
 insert into emp_bak select * from emp where sal=3000;
+```
 
 ![img](./images/wps119.jpg)
 
@@ -1225,33 +1402,41 @@ insert into emp_bak select * from emp where sal=3000;
 
 可以修改数据，可以根据条件修改数据
 
-l 语法格式：
+语法格式：
 
 update 表名 set 字段名称1=需要修改的值1, 字段名称2=需要修改的值2 where …….
 
-l 将job为manager的员工的工资上涨10%
+将job为manager的员工的工资上涨10%
 
+```sql
 update emp set sal=sal+sal*0.1 where job='MANAGER';
+```
 
 #### ***13.3.3、delete***
 
 可以删除数据，可以根据条件删除数据
 
-l 语法格式：
+语法格式：
 
+```sql
 Delete from表名 where 。。。。。
+```
 
-l 删除津贴为500的员工
+删除津贴为500的员工
 
+```sql
 delete from emp where comm=500;
+```
 
-l 删除津贴为null的员工
+删除津贴为null的员工
 
+```sql
 delete from emp where comm is null;
+```
 
 ### ***13.4、创建表加入约束***
 
-l 常见的约束
+常见的约束
 
 a) 非空约束，not null
 
@@ -1267,7 +1452,9 @@ e) 自定义检查约束，check（不建议使用）(在mysql中现在还不支
 
 非空约束，针对某个字段设置其值不为空，如：学生的姓名不能为空
 
+```sql
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20) not null, sex  char(2)  default  'm', birthday date,  email  varchar(30), classes_id int(3) ) insert into t_student(student_id, birthday, email, classes_id) values(1002, '1988-01-01', 'qqq@163.com', 10)
+```
 
 ![img](./images/wps120.jpg)
 
@@ -1277,7 +1464,9 @@ drop table if exists t_student; create table t_student( student_id  int(10), stu
 
 唯一性约束，它可以使某个字段的值不能重复，如：email不能重复：
 
+```sql
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20) not null, sex  char(2)  default  'm', birthday date,  email  varchar(30) unique, classes_id int(3) )insert into t_student(student_id, student_name , sex, birthday, email, classes_id) values(1001,'zhangsan','m', '1988-01-01', 'qqq@163.com', 10)
+```
 
 ![img](./images/wps121.jpg)
 
@@ -1285,11 +1474,14 @@ drop table if exists t_student; create table t_student( student_id  int(10), stu
 
 同样可以为唯一约束起个约束名
 
-l 我们可以查看一下约束
+我们可以查看一下约束
+
 
 mysql> use information_schema;
 
-mysql> select * from table_constraints where table_name = 't_student';
+```sql
+select * from table_constraints where table_name = 't_student';
+```
 
 ![img](./images/wps122.jpg)
 
@@ -1297,13 +1489,17 @@ mysql> select * from table_constraints where table_name = 't_student';
 
 以上约束的名称我们也可以自定义。
 
+```sql
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20) not null, sex  char(2)  default  'm', birthday date,  email  varchar(30)  , classes_id int(3) ,constraint email_unique unique(email)/*表级约束*/)
+```
 
 #### ***13.4.3、主键约束，primary key***
 
 每个表应该具有主键，主键可以标识记录的唯一性，主键分为单一主键和复合（联合）主键，单一主键是由一个字段构成的，复合（联合）主键是由多个字段构成的
 
+```sql
 drop table if exists t_student; create table t_student() student_id  int(10)  primary key,/*列级约束*/ student_name  varchar(20) not null, sex  char(2)  default  'm', birthday date,  email  varchar(30)  , classes_id int(3) )insert into t_student(student_id, student_name , sex, birthday, email, classes_id) values(1001,'zhangsan','m', '1988-01-01', 'qqq@163.com', 10)
+```
 
 向以上表中加入学号为1001的两条记录，出现如下错误，因为加入了主键约束
 
@@ -1311,7 +1507,9 @@ drop table if exists t_student; create table t_student() student_id  int(10)  pr
 
 我们也可以通过表级约束为约束起个名称：
 
+```sql
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20) not null, sex  char(2)  default  'm', birthday date,  email  varchar(30)  , classes_id int(3),  CONSTRAINT p_id PRIMARY key (student_id))insert into t_student(student_id, student_name , sex, birthday, email, classes_id) values(1001,'zhangsan','m', '1988-01-01', 'qqq@163.com', 10)
+```
 
 #### ***13.4.4、外键约束，foreign  key***
 
@@ -1321,15 +1519,21 @@ drop table if exists t_student; create table t_student( student_id  int(10), stu
 
 首先建立班级表t_classes
 
+```sql
 drop table if exists t_classes;create table t_classes( classes_id int(3), classes_name varchar(40), constraint pk_classes_id primary key(classes_id))
+```
 
 在t_student中加入外键约束
 
+```sql
 drop table if exists t_student;create table t_student( student_id  int(10), student_name  varchar(20), sex  char(2), birthday date, email  varchar(30), classes_id int(3), constraint   student_id_pk primary key(student_id),constraint fk_classes_id foreign key(classes_id) references t_classes(classes_id)   )
+```
 
 向t_student中加入数据
 
+```sql
 insert into t_student(student_id, student_name, sex, birthday, email, classes_id) values(1001, 'zhangsan', 'm', '1988-01-01', 'qqq@163.com', 10)
+```
 
 ![img](./images/wps124.jpg)
 
@@ -1341,7 +1545,9 @@ insert into t_student(student_id, student_name, sex, birthday, email, classes_id
 
 以上成功的插入了学生信息，当时classes_id没有值，这样会影响参照完整性，所以我们建议将外键字段设置为非空
 
+```sql
 drop table if exists t_student;create table t_student( student_id  int(10), student_name  varchar(20), sex  char(2), birthday date, email  varchar(30), classes_id int (3) not null, constraint   student_id_pk primary key(student_id), constraint fk_classes_id foreign key(classes_id) references t_classes(classes_id)   )insert into t_student(student_id, student_name, sex, birthday, email, classes_id) values(1001, 'zhangsan', 'm', '1988-01-01', 'qqq@163.com', null);
+```
 
 再次插入班级编号为null的数据
 
@@ -1349,21 +1555,39 @@ drop table if exists t_student;create table t_student( student_id  int(10), stud
 
 添加数据到班级表，添加数据到学生表，删除班级数据，将会出现如下错误：
 
-insert into t_classes (classes_id,classes_name) values (10,'366'); insert into t_student(student_id, student_name, sex, birthday, email, classes_id) values(1001, 'zhangsan', 'm', '1988-01-01', 'qqq@163.com', 10) mysql> update t_classes set  classes_id = 20 where classes_name = '366';![img](./images/wps127.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除子表中的引用记录，再修改父表中的数据。我们也可以采取以下措施 级联更新。mysql> delete from t_classes where classes_id = 10;![img](./images/wps128.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除父表，那么将会影响子表的参照完整性，所以正确的做法是，先删除子表中的数据，再删除父表中的数据，采用drop table也不行，必须先drop子表，再drop父表我们也可以采取以下措施 级联删除。
+```sql
+insert into t_classes (classes_id,classes_name) values (10,'366'); insert into t_student(student_id, student_name, sex, birthday, email, classes_id) values(1001, 'zhangsan', 'm', '1988-01-01', 'qqq@163.com', 10) mysql> update t_classes set  classes_id = 20 where classes_name = '366';
+```
+
+![img](./images/wps127.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除子表中的引用记录，再修改父表中的数据。我们也可以采取以下措施 级联更新。mysql> delete from t_classes where classes_id = 10;![img](./images/wps128.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除父表，那么将会影响子表的参照完整性，所以正确的做法是，先删除子表中的数据，再删除父表中的数据，采用drop table也不行，必须先drop子表，再drop父表我们也可以采取以下措施 级联删除。
 
 #### ***13.4.5、级联更新与级联删除***
 
 ##### ***13.4.5.1、on*** ***update*** ***cascade;***
 
-mysql对有些约束的修改比较麻烦，所以我们可以先删除，再添加 alter table t_student drop foreign key fk_classes_id; alter table t_student add constraint fk_classes_id_1 foreign key(classes_id) references t_classes(classes_id) on update cascade; ![img](./images/wps129.jpg)我们只修改了父表中的数据，但是子表中的数据也会跟着变动。
+mysql对有些约束的修改比较麻烦，所以我们可以先删除，再添加 
+
+```sql
+alter table t_student drop foreign key fk_classes_id; alter table t_student add constraint fk_classes_id_1 foreign key(classes_id) references t_classes(classes_id) on update cascade; 
+```
+
+![img](./images/wps129.jpg)
+我们只修改了父表中的数据，但是子表中的数据也会跟着变动。
 
 ##### ***13.4.5.2、on delete cascade*
 
-mysql对有些约束的修改时不支持的，所以我们可以先删除，再添加 alter table t_student drop foreign key fk_classes_id; alter table t_student add constraint fk_classes_id_1 foreign key(classes_id) references t_classes(classes_id) on delete cascade;delete from t_classes where classes_id = 20;![img](./images/wps130.jpg) 我们只删除了父表中的数据，但是子表也会中的数据也会删除。
+mysql对有些约束的修改时不支持的，所以我们可以先删除，再添加 
+```sql
+alter table t_student drop foreign key fk_classes_id; alter table t_student add constraint fk_classes_id_1 foreign key(classes_id) references t_classes(classes_id) on delete cascade;delete from t_classes where classes_id = 20;
+```
+
+![img](./images/wps130.jpg) 我们只删除了父表中的数据，但是子表也会中的数据也会删除。
 
 ### ***13.5、t_student和t_classes完整示例***
 
+```sql
 drop table if exists t_classes;create table t_classes( classes_id int (3), classes_name varchar(30) not null, constraint pk_classes_id primary key(classes_id) ) drop table if exists t_student;create table t_student( student_id int(10), student_name  varchar(50) not null, sex  char(2) not null, birthday date not null, email  varchar(30) unique, classes_id int (3) not null, constraint pk_student_id primary key(student_id), constraint fk_classes_id foreign key(classes_id) references t_classes(classes_id) )
+```
 
 ## **14、存储引擎（了解）**
 
@@ -1403,7 +1627,7 @@ mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
 ### ***14.2、常用的存储引擎***
 
-#### ***14.2.1、*****MyISAM****存储引擎**
+#### ***14.2.1、MyISAM****存储引擎**
 
 • MyISAM存储引擎是MySQL最常用的引擎。
 
@@ -1421,7 +1645,7 @@ mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
 – 可被转换为压缩、只读表来节省空间
 
-#### ***14.2.2、*****InnoDB****存储引擎**
+#### ***14.2.2、InnoDB****存储引擎**
 
 • InnoDB存储引擎是MySQL的缺省引擎。
 
@@ -1443,7 +1667,7 @@ mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
 – 支持外键及引用的完整性，包括级联删除和更新
 
-#### ***14.2.3、*****MEMORY****存储引擎**
+#### ***14.2.3、MEMORY****存储引擎**
 
 • 使用MEMORY存储引擎的表，其数据存储在内存中，且行的长度固定，这两个特点使得MEMORY存储引擎非常快。
 
@@ -1475,19 +1699,19 @@ mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
 f) 原子性（Atomicity）
 
-l 整个事务中的所有操作，必须作为一个单元全部完成（或全部取消）。
+整个事务中的所有操作，必须作为一个单元全部完成（或全部取消）。
 
 g) 一致性（Consistency）
 
-l 在事务开始之前与结束之后，数据库都保持一致状态。
+在事务开始之前与结束之后，数据库都保持一致状态。
 
 h) 隔离性(Isolation)
 
-l 一个事务不会影响其他事务的运行。
+一个事务不会影响其他事务的运行。
 
 i) 持久性(Durability)
 
-l 在事务完成以后，该事务对数据库所作的更改将持久地保存在数据库之中，并不会被回滚。
+在事务完成以后，该事务对数据库所作的更改将持久地保存在数据库之中，并不会被回滚。
 
 事务中存在一些概念：
 
@@ -1511,41 +1735,43 @@ e) SET AUTOCOMMIT：禁用或启用事务的自动提交模式
 
 ### ***15.2、事务的提交与回滚演示***
 
-\1) 创建表
+(1) 创建表
 
 | create table user(id int (11) primary key not null auto_increment ,   username varchar(30),password varchar(30))  ENGINE=InnoDB DEFAULT CHARSET=utf8 |
 | ------------------------------------------------------------ |
 |                                                              |
 
-\2) 查询表中数据
+(2) 查询表中数据
 
 ![img](./images/wps133.jpg)
 
-\3) 开启事务START TRANSACTION;
+(3) 开启事务START TRANSACTION;
 
-\4) 插入数据
+(4) 插入数据
 
+```sql
 insert into user (username,password) values ('zhangsan','123');
+```
 
 ![img](./images/wps134.jpg)
 
-\5) 查看数据
+(5) 查看数据
 
 ![img](./images/wps135.jpg)
 
-\6) 修改数据
+(6) 修改数据
 
 ![img](./images/wps136.jpg)
 
-\7) 查看数据
+(7) 查看数据
 
 ![img](./images/wps137.jpg)
 
-\8) 回滚事务
+(8) 回滚事务
 
 ![img](./images/wps138.jpg)
 
-\9) 查看数据
+(9) 查看数据
 
 ![img](./images/wps139.jpg)
 
@@ -1791,7 +2017,10 @@ mysql> SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED；
 
 1、create unique index 索引名 on 表名(列名);
 
+```sql
 create unique index u_ename on emp(ename);
+```
+
 2、alter table 表名 add unique index 索引名 (列名);
 
 create index test_index on emp (sal);
@@ -1808,7 +2037,9 @@ show index from emp;
 
 注意一定不可以用select * … 可以看到type!=all了，说明使用了索引
 
+```sql
 explain select sal from emp where sal > 1500;
+```
 
 条件中的sal使用了索引
 
@@ -1852,17 +2083,25 @@ DROP INDEX index_name ON talbe_nameALTER TABLE table_name DROP INDEX index_nameA
 
 如下示例：查询员工的姓名，部门，工资入职信息等信息。
 
+```sql
 select ename,dname,sal,hiredate,e.deptno from emp e,dept d where e.deptno = e.deptno and e.deptno = 10;
+```
 
 为什么使用视图？因为需求决定以上语句需要在多个地方使用，如果频繁的拷贝以上代码，会给维护带来成本，视图可以解决这个问题
 
-| create view v_dept_emp as select ename,dname,sal,hiredate,e.deptno from emp e,dept d where e.deptno = e.deptno and e.deptno = 10; |
-| ------------------------------------------------------------ |
-| create view v_dept_avg_sal_grade as select a.deptno, a.avg_sal, b.grade from (select deptno, avg(sal) avg_sal from emp group by deptno) a, salgrade b where a.avg_sal between b.losal and b.hisal; /*注意mysql不支持子查询创建视图*/ |
+```sql
+create view v_dept_emp as select ename,dname,sal,hiredate,e.deptno from emp e,dept d where e.deptno = e.deptno and e.deptno = 10;
+
+create view v_dept_avg_sal_grade as select a.deptno, a.avg_sal, b.grade from (select deptno, avg(sal) avg_sal from emp group by deptno) a, salgrade b where a.avg_sal between b.losal and b.hisal; 
+```
+
+/*注意mysql不支持子查询创建视图*/
 
 ### ***17.3、修改视图***
 
+```sql
 alter view  v_dept_emp as select ename,dname,sal,hiredate,e.deptno from emp e,dept d where e.deptno = 20;
+```
 
 ### ***17.4、删除视图***
 
@@ -1872,7 +2111,9 @@ drop view if exists v_dept_emp;
 
 ### ***18.1、新建用户***
 
+```sql
 CREATE USER username IDENTIFIED BY 'password';说明:username——你将创建的用户名, password——该用户的登陆密码,密码可以为空,如果为空则该用户可以不需要密码登陆服务器.例如：create user p361 identified by '123';--可以登录但是只可以看见一个库  information_schema
+```
 
 ### ***18.2、授权***
 
@@ -1890,7 +2131,7 @@ CREATE USER username IDENTIFIED BY 'password';说明:username——你将创建�
 
 在windows的dos命令窗口中执行：mysqldump bjpowernode>D:\bjpowernode.sql -uroot -p123
 
-##### ***18.4.1.2、*****导出****指定库下的指定表**
+##### ***18.4.1.2、导出****指定库下的指定表**
 
 在windows的dos命令窗口中执行：mysqldump bjpowernode emp> D:\ bjpowernode.sql -uroot –p123
 
@@ -2108,7 +2349,9 @@ SC（SNO，CNO，SCGRADE）代表（学号，课号，成绩）
 
 \-----------------------------------------------------------------------------
 
+```sql
 CREATE TABLE SC( SNO   VARCHAR(200), CNO   VARCHAR(200), SCGRADE  VARCHAR(200)); CREATE TABLE S( SNO  VARCHAR(200 ), SNAME  VARCHAR(200)); CREATE TABLE C( CNO   VARCHAR(200), CNAME  VARCHAR(200), CTEACHER  VARCHAR(200)); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '1', '语文', '张'); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '2', '政治', '王'); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '3', '英语', '李'); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '4', '数学', '赵'); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '5', '物理', '黎明'); commit; INSERT INTO S ( SNO, SNAME ) VALUES ( '1', '学生1'); INSERT INTO S ( SNO, SNAME ) VALUES ( '2', '学生2'); INSERT INTO S ( SNO, SNAME ) VALUES ( '3', '学生3'); INSERT INTO S ( SNO, SNAME ) VALUES ( '4', '学生4'); commit; INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '1', '40'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '2', '30'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '3', '20'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '4', '80'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '5', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '1', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '2', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '3', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '4', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '5', '40'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '3', '1', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '3', '3', '80'); commit;
+```
 
 问题1.找出没选过“黎明”老师的所有学生姓名。
 

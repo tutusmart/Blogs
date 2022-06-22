@@ -3,6 +3,7 @@ const { hopeTheme } = require("vuepress-theme-hope");
 module.exports = {
   base: process.env.NODE_ENV === 'production' ? '/ui/ms100/' : '/',
   dest: './ms100', //指定输出路径
+  port: '1234', //端口号
   // 站点选项
   theme: hopeTheme({
     plugins:{
