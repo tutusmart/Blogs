@@ -25,6 +25,29 @@ module.exports = {
     ],
     sidebar: [
       {
+        "collapsable": true,
+        "text": "Mysql系列(更新中)",
+        "prefix": "/note",
+        "children": [
+            {
+                "text": "mysql基础知识总结",
+                "link": "mysql_base"
+            },
+            {
+                "text": "mysql学习笔记01",
+                "link": "mysql_day01"
+            },
+            {
+                "text": "mysql学习笔记02",
+                "link": "mysql_day02"
+            },
+            {
+                "text": "mysql学习笔记03",
+                "link": "mysql_day03"
+            },
+          ]
+      },
+      {
           "collapsable": true,
           "text": "Vue系列  ( 已完结..)",
           "prefix": "/interview/vue",
