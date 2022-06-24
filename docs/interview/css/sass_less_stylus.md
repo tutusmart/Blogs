@@ -1,6 +1,6 @@
 # 面试官：说说对Css预编语言的理解？有哪些区别?
 
- ![](../sImgs/81cca1c0-a42c-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/81cca1c0-a42c-11eb-85f6-6fac77c0c9b3.png)
 
 
 ## 一、是什么

@@ -1,6 +1,6 @@
 # 面试官：说说 JavaScript 中内存泄漏的几种情况？
 
-  ![](../sImgs/19f76b30-824d-11eb-ab90-d9ae814b240d.png)
+  ![](https://www.oss.tuwei.site/blogsImgs/fe/19f76b30-824d-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 
@@ -12,7 +12,7 @@
 
 对于持续运行的服务进程，必须及时释放不再用到的内存。否则，内存占用越来越高，轻则影响系统性能，重则导致进程崩溃
 
- ![](../sImgs/56d4bd90-821c-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/56d4bd90-821c-11eb-ab90-d9ae814b240d.png)
 
 在`C`语言中，因为是手动管理内存，内存泄露是经常出现的事情。
 

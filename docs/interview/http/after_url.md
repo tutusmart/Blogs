@@ -1,6 +1,6 @@
 # 面试官：说说地址栏输入 URL 敲下回车后发生了什么?
 
- ![](../sImgs/11bf1f20-bdf4-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/11bf1f20-bdf4-11eb-85f6-6fac77c0c9b3.png)
 
 
 ## 一、简单分析
@@ -23,7 +23,7 @@
 
 `URL`的解析第过程中的第一步，一个`url`的结构解析如下：
 
- ![](../sImgs/27a0c690-bdf4-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/27a0c690-bdf4-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -33,7 +33,7 @@
 
 整个查询过程如下图所示：
 
- ![](../sImgs/330fb770-bdf4-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/330fb770-bdf4-11eb-85f6-6fac77c0c9b3.png)
 
 最终，获取到了域名对应的目标服务器`IP`地址
 
@@ -45,7 +45,7 @@
 
 在确定目标服务器服务器的`IP`地址后，则经历三次握手建立`TCP`连接，流程如下：
 
- ![](../sImgs/ad750790-bdf4-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/ad750790-bdf4-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -61,7 +61,7 @@
 - 请求头
 - 请求主体
 
- ![](../sImgs/bbcb60f0-bdf4-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/bbcb60f0-bdf4-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -73,7 +73,7 @@
 - 响应头
 - 响应正文
 
- ![](../sImgs/c5fe0140-bdf4-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/c5fe0140-bdf4-11eb-ab90-d9ae814b240d.png)
 
 在服务器响应之后，由于现在`http`默认开始长连接`keep-alive`，当页面关闭之后，`tcp`链接则会经过四次挥手完成断开
 
@@ -95,7 +95,7 @@
 - 绘制 render 树（ paint ），绘制页面像素信息
 - 浏览器会将各层的信息发送给 GPU，GPU 会将各层合成（ composite ），显示在屏幕上
 
- ![](../sImgs/db7bddd0-bdf4-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/db7bddd0-bdf4-11eb-85f6-6fac77c0c9b3.png)
 
 
 

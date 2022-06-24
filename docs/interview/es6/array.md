@@ -1,6 +1,6 @@
 # 面试官：数组新增了哪些扩展？
 
- ![](../sImgs/a156b8d0-53c5-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/a156b8d0-53c5-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、扩展运算符的应用
 

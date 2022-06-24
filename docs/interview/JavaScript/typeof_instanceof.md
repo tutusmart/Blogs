@@ -1,6 +1,6 @@
 # 面试官：typeof 与 instanceof 区别
 
- ![](../sImgs/3fc158f0-7710-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/3fc158f0-7710-11eb-ab90-d9ae814b240d.png)
 
 
 

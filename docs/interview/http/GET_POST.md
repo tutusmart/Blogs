@@ -1,6 +1,6 @@
 # 面试官：说一下 GET 和 POST 的区别？
 
- ![](../sImgs/6e8d19e0-bc3d-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/6e8d19e0-bc3d-11eb-ab90-d9ae814b240d.png)
 
 
 

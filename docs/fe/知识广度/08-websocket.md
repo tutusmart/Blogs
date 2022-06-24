@@ -106,7 +106,7 @@ wsServer.on('connection', curWs => {
 
 会先发起一个 http 请求，根服务端建立连接。连接成功之后再升级为 webSocket 协议，然后再通讯。
 
-![](./img/ws连接.png)
+![](https://www.oss.tuwei.site/blogsImgs/images/ws连接.png)
 
 ## webSocket 和 http 区别
 
@@ -149,4 +149,4 @@ io.on('connection', socket => {
 - http 长轮询 - 客户端发起 http 请求，server 不立即返回，等待有结果再返回。这期间 TCP 连接不会关闭，阻塞式。（需要处理 timeout 的情况）
 - webSocket - 客户端发起请求，服务端接收，连接关闭。服务端发起请求，客户端接收，连接关闭。非阻塞。
 
-![](./img/长轮询.png)
+![](https://www.oss.tuwei.site/blogsImgs/images/长轮询.png)

@@ -1,6 +1,6 @@
 # 面试官：你了解vue的diff算法吗？说说看
 
-![](../sImgs/5e858e30-4585-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/5e858e30-4585-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 

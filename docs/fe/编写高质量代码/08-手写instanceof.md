@@ -12,7 +12,7 @@ instanceof 的原理是什么，请用代码来表示
 
 ## 原型链
 
-![](./img/原型链.png)
+![](https://www.oss.tuwei.site/blogsImgs/images/原型链.png)
 
 ## instanceof 原理
 

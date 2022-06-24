@@ -1,6 +1,6 @@
 # 面试官：说说你对栈、队列的理解？应用场景？
 
- ![](../sImgs/bc57f530-1b99-11ec-a752-75723a64e8f5.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/bc57f530-1b99-11ec-a752-75723a64e8f5.png)
 
 ## 一、栈
 

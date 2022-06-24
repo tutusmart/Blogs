@@ -2,7 +2,7 @@
 
 
 
- ![](../sImgs/cc658c10-1565-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/cc658c10-1565-11ec-8e64-91fdec0f05a1.png)
 
 
 ## 一、前言

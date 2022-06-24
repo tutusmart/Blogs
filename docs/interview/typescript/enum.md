@@ -1,7 +1,7 @@
 # 面试官：说说你对 TypeScript 中枚举类型的理解？应用场景？
 
 
- ![](../sImgs/76173bf0-0b0c-11ec-a752-75723a64e8f5.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/76173bf0-0b0c-11ec-a752-75723a64e8f5.png)
 
 
 

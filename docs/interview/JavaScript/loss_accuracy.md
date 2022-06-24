@@ -1,6 +1,6 @@
 # 面试官：说说 Javascript 数字精度丢失的问题，如何解决？
 
- ![](../sImgs/09646a10-86f4-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/09646a10-86f4-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、场景复现
 
@@ -31,7 +31,7 @@
 
 而计算机只能用二进制（0或1）表示，二进制转换为科学记数法的公式如下：
 
- ![](../sImgs/1b4b1620-86f4-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/1b4b1620-86f4-11eb-ab90-d9ae814b240d.png)
 
 其中，`a`的值为0或者1，e为小数点移动的位置
 
@@ -39,7 +39,7 @@
 
 27.0转化成二进制为11011.0 ，科学计数法表示为：
 
- ![](../sImgs/37007090-86f4-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/37007090-86f4-11eb-ab90-d9ae814b240d.png)
 
 前面讲到，`javaScript`存储方式是双精度浮点数，其长度为8个字节，即64位比特
 
@@ -51,7 +51,7 @@
 
 如下图所示：
 
- ![](../sImgs/430d0100-86f4-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/430d0100-86f4-11eb-85f6-6fac77c0c9b3.png)
 
 举个例子：
 

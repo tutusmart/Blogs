@@ -1,6 +1,6 @@
 # 面试官：state 和 props 有什么区别？
 
-![](../sImgs/7f272780-d440-11eb-ab90-d9ae814b240d.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/7f272780-d440-11eb-ab90-d9ae814b240d.png)
 
 ## 一、state
 

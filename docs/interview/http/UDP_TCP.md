@@ -1,6 +1,6 @@
 # 面试官：如何理解UDP 和 TCP? 区别? 应用场景?
 
- ![](../sImgs/85ad65b0-b393-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/85ad65b0-b393-11eb-ab90-d9ae814b240d.png)
 
 
 ## 一、UDP
@@ -13,7 +13,7 @@ UDP（User Datagram Protocol），用户数据包协议，是一个简单的**�
 
 `UDP`报头包括4个字段，每个字段占用2个字节（即16个二进制位），标题短，开销小
 
- ![](../sImgs/928e5d20-b393-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/928e5d20-b393-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -34,7 +34,7 @@ TCP（Transmission Control Protocol），传输控制协议，是一种可靠、
 
 `TCP`报文首部有20个字节，额外开销大
 
- ![](../sImgs/a0010d40-b393-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/a0010d40-b393-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -50,7 +50,7 @@ TCP（Transmission Control Protocol），传输控制协议，是一种可靠、
 
 `UDP`与`TCP`两者的都位于传输层，如下图所示：
 
- ![](../sImgs/a92bda80-b393-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/a92bda80-b393-11eb-ab90-d9ae814b240d.png)
 
 两者区别如下表所示：
 
@@ -73,7 +73,7 @@ TCP（Transmission Control Protocol），传输控制协议，是一种可靠、
 
 两者应用场景如下图：
 
- ![](../sImgs/b6cdd800-b393-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/b6cdd800-b393-11eb-ab90-d9ae814b240d.png)
 
 可以看到，TCP 应用场景适用于对效率要求低，对准确性要求高或者要求有链接的场景，而UDP 适用场景为对效率要求高，对准确性要求低的场景
 

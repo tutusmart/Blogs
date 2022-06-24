@@ -1,6 +1,6 @@
 # 面试官：什么是单点登录？如何实现？
 
- ![](../sImgs/8a25a760-8c83-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/8a25a760-8c83-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
@@ -12,7 +12,7 @@ SSO 一般都需要一个独立的认证中心（passport），子系统的登�
 
 当一个系统成功登录以后，`passport`将会颁发一个令牌给各个子系统，子系统可以拿着令牌会获取各自的受保护资源，为了减少频繁认证，各个子系统在被`passport`授权以后，会建立一个局部会话，在一定时间内可以无需再次向`passport`发起认证
 
- ![](../sImgs/2b9b0e70-8c4b-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/2b9b0e70-8c4b-11eb-85f6-6fac77c0c9b3.png)
 
 上图有四个系统，分别是`Application1`、`Application2`、`Application3`、和`SSO`，当`Application1`、`Application2`、`Application3`需要登录时，将跳到`SSO`系统，`SSO`系统完成登录，其他的应用系统也就随之登录了
 
@@ -95,7 +95,7 @@ window.addEventListener('message', function (event) {
 
 单点登录的流程图如下所示：
 
- ![](../sImgs/2422bc40-8c84-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/2422bc40-8c84-11eb-ab90-d9ae814b240d.png)
 
 - 用户访问系统1的受保护资源，系统1发现用户未登录，跳转至sso认证中心，并将自己的地址作为参数
 

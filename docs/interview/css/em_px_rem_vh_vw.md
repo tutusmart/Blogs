@@ -1,6 +1,6 @@
 # 面试官：说说em/px/rem/vh/vw区别?
 
-![](../sImgs/51b036e0-9131-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/51b036e0-9131-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、介绍
 

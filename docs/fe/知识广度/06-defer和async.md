@@ -10,7 +10,7 @@
 - `<script async src="xxx.js">` js 下载和 html 解析可并行，下载完之后暂停 html 解析，执行 js 。然后再继续 html 解析。
 - `<script defer src="xxx.js">` js 下载和 html 解析可并行。等待 html 解析完之后再执行 js 。
 
-![](./img/async-defer.png)
+![](https://www.oss.tuwei.site/blogsImgs/images/async-defer.png)
 
 ## 连环问：preload prefetch dns-prefetch 的区别
 

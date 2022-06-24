@@ -1,6 +1,6 @@
 # 面试官：有使用过vue吗？说说你对vue的理解
 
-![](../sImgs/02ac1620-3ac6-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/02ac1620-3ac6-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、从历史说起
 
@@ -15,11 +15,11 @@ Web是World Wide Web的简称，中文译为万维网我们可以将它规划成
 
 石器时代指的就是我们的静态网页，可以欣赏一下1997的Apple官网
 
- ![](../sImgs/1734e450-3ac6-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/1734e450-3ac6-11eb-85f6-6fac77c0c9b3.png)
 
 最早的网页是没有数据库的，可以理解成就是一张可以在网络上浏览的报纸，直到CGI技术的出现通过 CGI Perl 运行一小段代码与数据库或文件系统进行交互，如当时的Google（1998年）
 
- ![](../sImgs/23189000-3ac6-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/23189000-3ac6-11eb-85f6-6fac77c0c9b3.png)
 
 ### 文明时代
 
@@ -49,7 +49,7 @@ JSP有一个很大的缺点，就是不太灵活，因为JSP是在服务器端�
 这里没有文字，放一张图感受一下
 
 
- ![](../sImgs/32a6f430-3ac6-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/32a6f430-3ac6-11eb-85f6-6fac77c0c9b3.png)
 
 PS：这里为什么要说这么多Web的历史，我们可以看到Web技术的变化之大与快，每一种新的技术出现都是一些特定场景的解决方案，那我们今天的主角Vue又是为了解决什么呢？我们接着往下看
 
@@ -68,7 +68,7 @@ Vue.js（/vjuː/，或简称为Vue）是一个用于创建用户界面的开源J
 - ViewModel：视图模型层，用来连接Model和View，是Model和View之间的通信桥梁
 
 这时候需要一张直观的关系图，如下
- ![image.png](../sImgs/4402c560-3ac6-11eb-85f6-6fac77c0c9b3.png)
+ ![image.png](https://www.oss.tuwei.site/blogsImgs/fe/4402c560-3ac6-11eb-85f6-6fac77c0c9b3.png)
 
 ### 组件化
 
@@ -96,15 +96,15 @@ Vue.js（/vjuː/，或简称为Vue）是一个用于创建用户界面的开源J
 
 没有落地使用场景的革命不是好革命，就以一个高频的应用场景来示意吧注册账号这个需求大家应该很熟悉了，如下
 
- ![](../sImgs/5ae84840-3ac6-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/5ae84840-3ac6-11eb-ab90-d9ae814b240d.png)
 
 用`jquery`来实现大概的思路就是选择流程dom对象，点击按钮隐藏当前活动流程dom对象，显示下一流程dom对象如下图\(代码就不上了，上了就篇文章就没了..\)
 
- ![](../sImgs/65f89e60-3ac6-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/65f89e60-3ac6-11eb-85f6-6fac77c0c9b3.png)
 
 用`vue`来实现，我们知道`vue`基本不操作`dom`节点， 双向绑定使`dom`节点跟视图绑定后，通过修改变量的值控制`dom`节点的各类属性。所以其实现思路为：视图层使用一变量控制dom节点显示与否，点击按钮则改变该变量，如下图
 
- ![](../sImgs/6f916fb0-3ac6-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/6f916fb0-3ac6-11eb-ab90-d9ae814b240d.png)
 
 总结就是：
 
@@ -138,4 +138,4 @@ Vue.js（/vjuː/，或简称为Vue）是一个用于创建用户界面的开源J
 - https://zhuanlan.zhihu.com/p/20197803
 - https://zhuanlan.zhihu.com/p/38296857
 
- ![](../sImgs/821b87b0-3ac6-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/821b87b0-3ac6-11eb-ab90-d9ae814b240d.png)

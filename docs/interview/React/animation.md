@@ -1,5 +1,5 @@
 # 面试官：在react中组件间过渡动画如何实现？
- ![](../sImgs/294f1e00-e4b0-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/294f1e00-e4b0-11eb-ab90-d9ae814b240d.png)
 
 
 ## 一、是什么

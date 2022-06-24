@@ -1,7 +1,7 @@
 # 面试官：说说你对 TypeScript 中泛型的理解？应用场景？
 
 
- ![](../sImgs/5bb5f1d0-0e17-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/5bb5f1d0-0e17-11ec-8e64-91fdec0f05a1.png)
 
 ## 一、是什么
 
@@ -123,7 +123,7 @@ const stack = new Stacn<number>()
 
 如果上述只能传递 `string` 和 `number` 类型，这时候就可以使用 `<T extends xx>` 的方式猜实现**约束泛型**，如下所示：
 
- ![](../sImgs/67d212a0-0e17-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/67d212a0-0e17-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -149,7 +149,7 @@ function getValue<T extends object, U extends keyof T>(obj: T, key: U) {
 
 使用如下图所示：
 
- ![](../sImgs/74fcbd40-0e17-11ec-a752-75723a64e8f5.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/74fcbd40-0e17-11ec-a752-75723a64e8f5.png)
 
 
 

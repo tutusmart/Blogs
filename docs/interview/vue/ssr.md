@@ -1,6 +1,6 @@
 # 面试官：SSR解决了什么问题？有做过SSR吗？你是怎么做的？
 
-![](../sImgs/84bd83f0-4986-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/84bd83f0-4986-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
@@ -85,7 +85,7 @@ SSR主要解决了以下两种问题：
 
 这里需要生成一个服务器`bundle`文件用于服务端首屏渲染和一个客户端`bundle`文件用于客户端激活
 
- ![](../sImgs/9dcd12c0-4986-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/9dcd12c0-4986-11eb-85f6-6fac77c0c9b3.png)
 
 代码结构 除了两个不同入口之外，其他结构和之前`vue`应用完全相同
 

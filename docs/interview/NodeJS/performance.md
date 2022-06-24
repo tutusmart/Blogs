@@ -1,6 +1,6 @@
 # 面试官：Node性能如何进行监控以及优化？
 
- ![](../sImgs/bb37dae0-d179-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/bb37dae0-d179-11eb-ab90-d9ae814b240d.png)
 
 ## 一、 是什么
 

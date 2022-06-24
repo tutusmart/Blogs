@@ -22,67 +22,69 @@ MySQL AB是由两个瑞典人和一个芬兰人：David Axmark、Allan Larsson�
 
 ### ***1.4、MySql的安装***
 
-打开下载的mysql安装文件mysql-essential-5.0.22-win32.msi，双击运行，出现如下界面
 
-![img](./images/wps1.png)
+安装教程网上很多，这里不多介绍
+<!-- 打开下载的mysql安装文件mysql-essential-5.0.22-win32.msi，双击运行，出现如下界面
+
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps1.png)
 
 按“Next”继续
 
-![img](./images/wps2.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps2.png)
 
 选择安装类型，有“Typical（默认）”、“Complete（完全）”、“Custom（用户自定义）”三个选项，我们选择“Custom”，有更多的选项，也方便熟悉安装过程
 
-![img](./images/wps3.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps3.jpg)
 
 上一步选择了 Custom 安装，这里将设定 MySQL 的组件包和安装路径，设定好之后，单击 Next 继续安装。
 
-![img](./images/wps4.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps4.png)
 
 现在软件安装完成了，出现上面的界面，将 “Configure the Mysql Server now”前面的勾打上，点“Finish”结束软件的安装并启动mysql配置向导。
 
 mysql配置向导启动界面，按“Next”继续。
 
-![img](./images/wps5.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps5.png)
 
 选择配置方式，“Detailed Configuration（手动精确配置）”、“Standard Configuration（标准配置）”，我们选择“Detailed Configuration”，方便熟悉配置过程。
 
-![img](./images/wps6.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps6.png) 
 
 选择服务器类型，“Developer Machine（开发测试类，mysql占用很少资源）”、“Server Machine（服务器类型，mysql占用较多资源）”、“Dedicated MySQL Server Machine（专门的数据库服务器，mysql占用所有可用资源）”，大家根据自己的类型选择了，一般选“Server Machine”，不会太少，也不会占满。
 
-![img](./images/wps7.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps7.png)
 
 选择mysql数据库的大致用途，“Multifunctional Database（通用多功能型，能很好的支持InnoDB与MyISAM存储引擎）”、“Transactional Database Only（服务器类型，专注于事务处理，一般）”、“Non-Transactional Database Only（非事务处理型，较简单，主要做一些监控、记数用，对MyISAM数据类型的支持仅限于non-transactional），随自己的用途而选择了，我这里选择“Multifunctional Database”， 按“Next”继续。
 
-![img](./images/wps8.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps8.png)
 
 对InnoDB Tablespace进行配置，就是为InnoDB 数据库文件选择一个存储空间，如果修改了，要记住位置，重装的时候要选择一样的地方，否则可能会造成数据库损坏，当然，对数据库做个备份就没问题了，这里不详述。我这里没有修改，使用用默认位置，直接按“Next”继续。
 
-![img](./images/wps9.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps9.png)
 
 选择您的网站的一般mysql访问量，同时连接的数目，“Decision Support(DSS)/OLAP（20个左右）”、“Online Transaction Processing(OLTP)（500个左右）”、“Manual Setting（手动设置，自己输一个数）”，我这里选“Decision Support(DSS)/OLAP)”，按“Next”继续
 
-![img](./images/wps10.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps10.png)
 
 是否启用TCP/IP连接，设定端口，如果不启用，就只能在自己的机器上访问mysql数据库了，我这里启用，把前面的勾打上，Port Number：3306，在这个页面上，您还可以选择“启用标准模式”（Enable Strict Mode），按“Next”继续。
 
-![img](./images/wps11.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps11.jpg)
 
 这个比较重要，就是对mysql默认数据库语言编码进行设置，第一个是西文编码，我们要设置的是utf8编码，按 “Next”继续。
 
-![img](./images/wps12.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps12.png)
 
 选择是否将mysql安装为windows服务，还可以指定Service Name（服务标识名称），是否将mysql的bin目录加入到Windows PATH（加入后，就可以直接使用bin下的文件，而不用指出目录名，比如连接，“mysql.exe -uusername -ppassword;”就可以了，不用指出mysql.exe的完整地址，很方便），我这里全部打上了勾，Service Name不变。按“Next”继续。
 
-![img](./images/wps13.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps13.png)
 
 设置完毕，按“Next”继续。
 
-![img](./images/wps14.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps14.png)
 
 确认设置无误，如果有误，按“Back”返回检查。按“Execute”使设置生效。
 
-![img](./images/wps15.png)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps15.png)
 
 设置完毕，按“Finish”结束mysql的安装与配置
 
@@ -92,21 +94,21 @@ mysql配置向导启动界面，按“Next”继续。
 
 停止 MYSQL 的服务。
 
-![img](./images/wps16.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps16.jpg)
 
 启动 MYSQL 的服务。
 
-![img](./images/wps17.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps17.jpg)
 
 也可以在 DOS 中直接通过命令行的形式进行控制。
-
+-->
 停止 MYSQL 的服务。
 
-![img](./images/wps18.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps18.jpg)
 
 启动 MYSQL 的服务。
 
-![img](./images/wps19.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps19.jpg)
 
 ### ***1.5、表***
 
@@ -147,7 +149,7 @@ mysql配置向导启动界面，按“Next”继续。
 
 (1) 连接MySql
 
-![img](./images/wps20.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps20.jpg)
 
 (2) 创建“bjpowernode”数据库
 
@@ -262,19 +264,19 @@ mysql> \q (ctrl+c)
 
 ### ***3.1、查看和指定现有的数据库***
 
-![img](./images/wps21.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps21.jpg)
 
 ### ***3.2、指定当前缺省数据库***
 
-![img](./images/wps22.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps22.jpg)
 
 ### ***3.3、查看当前使用的库***
 
-![img](./images/wps23.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps23.jpg)
 
 ### ***3.4、查看当前库中的表***
 
-![img](./images/wps24.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps24.jpg)
 
 ### ***3.5、查看其他库中的表***
 
@@ -282,7 +284,7 @@ show tables from ;
 
 如查看exam库中的表
 
-![img](./images/wps25.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps25.jpg)
 
 ### ***3.6、查看表的结构***
 
@@ -290,7 +292,7 @@ desc
 
 如：
 
-![img](./images/wps26.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps26.jpg)
 
 ### ***3.7、查看表的创建语句***
 
@@ -298,7 +300,7 @@ show create table
 
 如：
 
-![img](./images/wps27.jpg) ![img](./images/wps28.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps27.jpg) ![img](https://www.oss.tuwei.site/blogsImgs/images/wps28.jpg)
 
 ## **4、简单的查询**
 
@@ -308,7 +310,7 @@ show create table
 
 | select ename from emp;                                       |
 | ------------------------------------------------------------ |
-| ![img](./images/wps29.jpg) |
+| ![img](https://www.oss.tuwei.site/blogsImgs/images/wps29.jpg) |
 
 Select语句后面跟的是字段名称，select是关键字，select和字段名称之间采用空格隔开，from表示将要查询的表，它和字段之间采用空格隔开
 
@@ -320,7 +322,7 @@ Select语句后面跟的是字段名称，select是关键字，select和字段�
 select empno, ename from emp;
 ```
 
-![img](./images/wps30.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps30.jpg)
 
 查询多个字段，select中的字段采用逗号间隔即可，最后一个字段，也就是在from前面的字段不能使用逗号了。
 
@@ -332,7 +334,7 @@ select empno, ename from emp;
 select * from emp;
 ```
 
-![img](./images/wps31.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps31.jpg)
 
 采用select  *from emp，虽然简单，但是*号不是很明确，建议查询全部字段将相关字段写到select语句的后面,在以后java连接数据库的时候,是需要在java程序中编写SQL语句的,这个时候编写的SQL语句不建议使用select *  这种形式,建议写明字段,这样可读性强.
 
@@ -344,7 +346,7 @@ select * from emp;
 select empno, ename, sal*12 from emp;
 ```
 
-![img](./images/wps32.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps32.jpg)
 
 在select语句中可以使用运算符，以上存在一些问题，年薪的字段名称不太明确
 
@@ -354,7 +356,7 @@ select empno, ename, sal*12 from emp;
 select empno as ‘员工编号’, ename as ‘员工姓名’, sal*12 as ‘年薪’ from emp;注意:字符串必须添加单引号 | 双引号
 ```
 
-![img](./images/wps33.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps33.jpg)
 
 可以采用as关键字重命名表字段，其实as也可以省略，如：
 
@@ -392,7 +394,7 @@ select empno  "员工编号", ename  "员工姓名", sal*12  "年薪" from emp;
 select empno, ename, sal from emp where sal=5000;
 ```
 
-![img](./images/wps34.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps34.jpg)
 
 查询job为MANAGER的员工
 
@@ -400,7 +402,7 @@ select empno, ename, sal from emp where sal=5000;
 select empno, ename from emp where job=manager;
 ```
 
-![img](./images/wps35.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps35.jpg)
 
 以上查询出现错误，因为job为字符串，所以出现了以上错误
 
@@ -408,13 +410,13 @@ select empno, ename from emp where job=manager;
 select empno, ename from emp where job="manager";
 ```
 
-![img](./images/wps36.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps36.jpg)
 
 ```sql
 select empno, ename from emp where job=’manager’;
 ```
 
-![img](./images/wps37.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps37.jpg)
 
 也可以使用单引号
 
@@ -422,7 +424,7 @@ select empno, ename from emp where job=’manager’;
 select empno, ename from emp where job='MANAGER';
 ```
 
-![img](./images/wps38.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps38.jpg)
 
 以上输出正确，Mysql默认情况下大小写是不敏感的。
 
@@ -456,7 +458,7 @@ MySQL在windows下是不区分大小写的，将script文件导入MySQL后表名
 select empno, ename, sal from emp where sal <> 5000;
 ```
 
-![img](./images/wps39.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps39.jpg)
 
 一下写法等同于以上写法，建议使用第一种写法
 
@@ -484,7 +486,7 @@ select empno, ename from emp where job <> 'MANAGER';
 select empno, ename, sal from emp where sal >= 1600 and sal <= 3000;
 ```
 
-![img](./images/wps40.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps40.jpg)
 
 查询薪水为1600到3000的员工(第一种方式，采用between … and …)
 
@@ -492,7 +494,7 @@ select empno, ename, sal from emp where sal >= 1600 and sal <= 3000;
 select empno, ename, sal from emp where sal between 1600 and 3000;
 ```
 
-![img](./images/wps41.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps41.jpg)
 
 关于between … and …，它是包含最大值和最小值的
 
@@ -506,13 +508,13 @@ Null为空，但不是空串，为null可以设置这个字段不填值，如果
 select * from emp where comm=null;
 ```
 
-![img](./images/wps42.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps42.jpg)
 
 以上也无法查询出符合条件的数据，因为null类型比较特殊，必须使用 is来比较
 ```sql
 select * from emp where comm is null;
 ```
-![img](./images/wps43.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps43.jpg)
 
 以上查询正确
 
@@ -525,7 +527,7 @@ and表示并且的含义，表示所有的条件必须满足
 ```sql
 select * from emp where job='MANAGER' and sal > 2500;
 ```
-![img](./images/wps44.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps44.jpg)
 
 ### ***5.6、or***
 
@@ -537,7 +539,7 @@ or，只要满足条件即可,相当于包含
 select * from emp where job='MANAGER' or job='SALESMAN';
 ```
 
-![img](./images/wps45.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps45.jpg)
 
 ### ***5.7、表达式的优先级***
 
@@ -547,7 +549,7 @@ select * from emp where job='MANAGER' or job='SALESMAN';
 select * from emp where sal > 1800 and deptno = 20 or deptno = 30;
 ```
 
-![img](./images/wps46.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps46.jpg)
 
 以上输出不是预期结果，薪水小于1800的数据也被查询上来了，原因是表达式的优先级导致的，首先过滤sal > 1800 and deptno = 20，然后再将deptno = 30员工合并过来，所以是不对的
 
@@ -557,7 +559,7 @@ select * from emp where sal > 1800 and deptno = 20 or deptno = 30;
 select * from emp where sal > 1800 and (deptno = 20 or deptno = 30);
 ```
 
-![img](./images/wps47.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps47.jpg)
 
 关于运算符的问题：不用记，没有把握尽量采用括号
 
@@ -571,14 +573,14 @@ in表示包含的意思，完全可以采用or来表示，采用in会更简洁�
 select * from emp where job in ('manager','salesman');
 ```
 
-![img](./images/wps48.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps48.jpg)
 
 查询出薪水包含1600和薪水包含3000的员工
 ```sql
 select * from emp where sal in(1600, 3000);
 ```
 
-![img](./images/wps49.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps49.jpg)
 
 ### ***5.9、not***
 
@@ -588,7 +590,7 @@ select * from emp where sal in(1600, 3000);
 select * from emp where sal <> 1600 and sal <> 3000;
 ```
 
-![img](./images/wps50.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps50.jpg)
 
 查询出薪水不包含1600和薪水不包含3000的员工（第二种写法
 
@@ -596,7 +598,7 @@ select * from emp where sal <> 1600 and sal <> 3000;
 select * from emp where not (sal = 1600 or sal = 3000);
 ```
 
-![img](./images/wps51.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps51.jpg)
 
 查询出薪水不包含1600和薪水不包含3000的员工（第三种写法）
 
@@ -604,7 +606,7 @@ select * from emp where not (sal = 1600 or sal = 3000);
 select * from emp where sal not in (1600, 3000);
 ```
 
-![img](./images/wps52.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps52.jpg)
 
 查询出津贴不为null的所有员工
 
@@ -612,7 +614,7 @@ select * from emp where sal not in (1600, 3000);
 select * from emp where comm is not  null;
 ```
 
-![img](./images/wps53.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps53.jpg)
 
 ### ***5.10、like***
 
@@ -624,7 +626,7 @@ Like可以实现模糊查询，like支持%和下划线匹配
 select * from emp where ename like 'M%';
 ```
 
-![img](./images/wps54.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps54.jpg)
 
 查询姓名以N结尾的所有的员工
 
@@ -632,7 +634,7 @@ select * from emp where ename like 'M%';
 select * from emp where ename like '%N';
 ```
 
-![img](./images/wps55.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps55.jpg)
 
 查询姓名中包含O的所有的员工
 
@@ -640,7 +642,7 @@ select * from emp where ename like '%N';
 select * from emp where ename like '%O%';
 ```
 
-![img](./images/wps56.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps56.jpg)
 
 查询姓名中第二个字符为A的所有员工
 
@@ -648,7 +650,7 @@ select * from emp where ename like '%O%';
 select * from emp where ename like '_A%';
 ```
 
-![img](./images/wps57.jpg)Like中%和下划线的差别？
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps57.jpg)Like中%和下划线的差别？
 
 %匹配任意字符出现的个数
 
@@ -672,7 +674,7 @@ select * from emp where ename like _A%
 select * from emp order by sal;
 ```
 
-![img](./images/wps58.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps58.jpg)
 
 取得job为MANAGER的员工，按照薪水由小到大排序(系统默认由小到大)
 
@@ -680,7 +682,7 @@ select * from emp order by sal;
 select * from emp where job='MANAGER' order by sal;
 ```
 
-![img](./images/wps59.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps59.jpg)
 
 如果包含where语句order by必须放到where后面，如果没有where语句order by放到表的后面
 
@@ -696,7 +698,7 @@ select * from emp order by sal where job='MANAGER';
 select * from emp order by job,sal;
 ```
 
-![img](./images/wps60.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps60.jpg)
 
 ### ***6.2、手动指定排序顺序***
 
@@ -706,7 +708,7 @@ select * from emp order by job,sal;
 s[](https://tuwei.site/ui/ms100/note/mysql_base.html#_15-4%E3%80%81%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB)elect * from emp order by sal asc;
 ```
 
-![img](./images/wps61.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps61.jpg)
 
 手动指定按照薪水由大到小排序
 
@@ -714,7 +716,7 @@ s[](https://tuwei.site/ui/ms100/note/mysql_base.html#_15-4%E3%80%81%E4%BA%8B%E5%
 select * from emp order by sal desc;
 ```
 
-![img](./images/wps62.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps62.jpg)
 
 ### ***6.3、多个字段排序***
 
@@ -724,7 +726,7 @@ select * from emp order by sal desc;
 select * from emp order by job desc, sal desc;
 ```
 
-![img](./images/wps63.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps63.jpg)
 
 如果采用多个字段排序，如果根据第一个字段排序重复了，会根据第二个字段排序
 
@@ -736,7 +738,7 @@ select * from emp order by job desc, sal desc;
 select * from emp order by 6;
 ```
 
-![img](./images/wps64.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps64.jpg)
 
 不建议使用此种方式，采用数字含义不明确，程序不健壮
 
@@ -772,7 +774,7 @@ ERROR 1111 (HY000): Invalid use of group function
 select count(*) from emp;
 ```
 
-![img](./images/wps65.jpg)Count(*)表示取得所有记录，忽略null，为null的值也会取得
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps65.jpg)Count(*)表示取得所有记录，忽略null，为null的值也会取得
 
 取得津贴不为null员工数
 
@@ -780,7 +782,7 @@ select count(*) from emp;
 select count(comm) from emp;
 ```
 
-![img](./images/wps66.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps66.jpg)
 
 采用count(字段名称)，不会取得为null的记录
 
@@ -790,7 +792,7 @@ select count(comm) from emp;
 select count(distinct job ) from emp;
 ```
 
-![img](./images/wps67.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps67.jpg)
 
 ### ***7.2、sum***
 
@@ -802,7 +804,7 @@ Sum可以取得某一个列的和，null会被忽略
 select sum(sal) from emp;
 ```
 
-![img](./images/wps68.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps68.jpg)
 
 取得津贴的合计
 
@@ -810,7 +812,7 @@ select sum(sal) from emp;
 select sum(comm) from emp;
 ```
 
-![img](./images/wps69.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps69.jpg)
 
 null会被忽略
 
@@ -820,14 +822,14 @@ null会被忽略
 select sum(sal+comm) from emp;
 ```
 
-![img](./images/wps70.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps70.jpg)
 
 从以上结果来看，不正确，原因在于comm字段有null值，所以无法计算，sum会忽略掉，正确的做法是将comm字段转换成0
 
 ```sql
 select sum(sal+IFNULL(comm, 0)) from emp;
 ```
-![img](./images/wps71.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps71.jpg)
 
 ### ***7.3、avg***
 
@@ -837,7 +839,7 @@ select sum(sal+IFNULL(comm, 0)) from emp;
 
 select avg(sal) from emp;
 
-![img](./images/wps72.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps72.jpg)
 
 ### ***7.4、max***
 
@@ -849,7 +851,7 @@ select avg(sal) from emp;
 select max(sal) from emp;
 ```
 
-![img](./images/wps73.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps73.jpg)
 
 取得最晚入职得员工
 
@@ -857,7 +859,7 @@ select max(sal) from emp;
 select max(str_to_date (hiredate, '%Y-%m-%d')) from emp;
 ```
 
-![img](./images/wps74.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps74.jpg)
 
 ### ***7.5、min***
 
@@ -869,7 +871,7 @@ select max(str_to_date (hiredate, '%Y-%m-%d')) from emp;
 select min(sal) from emp;
 ```
 
-![img](./images/wps75.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps75.jpg)
 
 取得最早入职得员工（可以不使用str_to_date转换）
 
@@ -877,7 +879,7 @@ select min(sal) from emp;
 select min(str_to_date(hiredate, '%Y-%m-%d')) from emp;
 ```
 
-![img](./images/wps76.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps76.jpg)
 
 ### ***7.6、组合聚合函数***
 
@@ -887,7 +889,7 @@ select min(str_to_date(hiredate, '%Y-%m-%d')) from emp;
 select count(*),sum(sal),avg(sal),max(sal),min(sal) from emp;
 ```
 
-![img](./images/wps77.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps77.jpg)
 
 ## **8、分组查询**
 
@@ -901,17 +903,17 @@ select count(*),sum(sal),avg(sal),max(sal),min(sal) from emp;
 select job, sum(sal) from emp group by job;
 ```
 
-![img](./images/wps78.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps78.jpg)
 
 如果使用了order by，order by必须放到group by后面
 
-![img](./images/wps79.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps79.jpg)
 
 按照工作岗位和部门编码分组，取得的工资合计
 
 n 原始数据
 
-![img](./images/wps80.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps80.jpg)
 
 n 分组语句
 
@@ -919,7 +921,7 @@ n 分组语句
 select job,deptno,sum(sal) from emp group by job,deptno;
 ```
 
-![img](./images/wps81.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps81.jpg)
 
 ```sql
 mysql> select empno,deptno,avg(sal) from emp group by deptno;
@@ -954,7 +956,7 @@ mysql> select empno,deptno,avg(sal) from emp group by deptno;
 select job, avg(sal) from emp group by job having avg(sal) >2000;
 ```
 
-![img](./images/wps82.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps82.jpg)
 
 分组函数的执行顺序：
 
@@ -1004,7 +1006,7 @@ select ename, dname from emp, dept;                          |
 select emp.ename, dept.dname from emp, dept where emp.deptno=dept.deptno;也可以使用别名select e.ename, d.dname from emp e, dept d where e.deptno=d.deptno;
 ```
 
-![img](./images/wps83.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps83.jpg)
 
 以上结果输出正确，因为加入了正确的连接条件
 
@@ -1033,7 +1035,7 @@ Sql92语法和sql99语法的区别：99语法可以做到表的连接和查询�
 右连接：select e.ename, e.sal, d.dname from emp e right join dept d on e.deptno=d.deptno;左连接：select e.ename, e.sal, d.dname from dept d left join emp e on e.deptno=d.deptno;以上两个查询效果相同
 ```
 
-![img](./images/wps84.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps84.jpg)
 
 连接分类：
 
@@ -1073,7 +1075,7 @@ select e.ename, e.sal, d.dname from emp e right outer join dept d on e.deptno=d.
 
 左连接能完成的功能右连接一定可以完成
 
-![img](./images/wps85.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps85.jpg)
 
 ## **10、子查询**
 
@@ -1097,7 +1099,7 @@ select distinct mgr from emp where mgr is not null; distinct 去除重复行
 select empno, ename from emp where empno in(select mgr from emp where mgr is not null);
 ```
 
-![img](./images/wps86.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps86.jpg)
 
 查询哪些人的薪水高于员工的平均薪水，需要显示员工编号，员工姓名，薪水
 
@@ -1115,7 +1117,7 @@ select avg(sal) from emp;
 select empno, ename, sal from emp where sal > (select avg(sal) from emp);
 ```
 
-​ ![img](./images/wps87.jpg)
+​ ![img](https://www.oss.tuwei.site/blogsImgs/images/wps87.jpg)
 
 ### ***10.2、在from语句中使用子查询，可以将该子查询看做一张表***
 
@@ -1133,7 +1135,7 @@ select distinct mgr from emp where mgr is not null;
 使用92语法：select e.empno, e.ename from emp e, (select distinct mgr from emp where mgr is not null) m where e.empno=m.mgr;使用99语法：select e.empno, e.ename from emp e join (select distinct mgr from emp where mgr is not null) m on e.empno=m.mgr;
 ```
 
-![img](./images/wps88.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps88.jpg)
 
 查询各个部门的平均薪水所属等级，需要显示部门编号，平均薪水，等级编号
 
@@ -1145,7 +1147,7 @@ select distinct mgr from emp where mgr is not null;
 select deptno, avg(sal) avg_sal from emp group by deptno;
 ```
 
-![img](./images/wps89.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps89.jpg)
 
 2、将部门的平均薪水作为一张表与薪水等级表建立连接，取得等级
 
@@ -1154,7 +1156,7 @@ select deptno, avg(sal) avg_sal from emp group by deptno;
 | select * from salgrade;                                      |
 | select a.deptno,a.avg_sal,g.grade from (select deptno,avg(sal) avg_sal from emp group by deptno ) a join salgrade g on a.avg_sal between g.losal and hisal; |
 
-![img](./images/wps90.png)![img](./images/wps91.png)![img](./images/wps92.png)![img](./images/wps93.png)![img](./images/wps94.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps90.png)![img](https://www.oss.tuwei.site/blogsImgs/images/wps91.png)![img](https://www.oss.tuwei.site/blogsImgs/images/wps92.png)![img](https://www.oss.tuwei.site/blogsImgs/images/wps93.png)![img](https://www.oss.tuwei.site/blogsImgs/images/wps94.jpg)
 
 ### ***10.3、在select语句中使用子查询***
 
@@ -1172,7 +1174,7 @@ select e.ename, d.dname from emp e, dept d where e.deptno=d.deptno;
 select e.ename, (select d.dname from dept d where e.deptno=d.deptno) as dname from emp e;
 ```
 
-![img](./images/wps95.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps95.jpg)
 
 ## **11、union**
 
@@ -1184,13 +1186,13 @@ select e.ename, (select d.dname from dept d where e.deptno=d.deptno) as dname fr
 select * from emp where job in('MANAGER', 'SALESMAN');
 ```
 
-![img](./images/wps96.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps96.jpg)
 
 2、采用union来合并
 
 select  *from emp where job='MANAGER'unionselect*  from emp where job='SALESMAN'
 
-![img](./images/wps97.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps97.jpg)
 
 合并结果集的时候，需要查询字段对应个数相同。*在Oracle中更严格，不但要求个数相同，而且还要求类型对应相同*。
 
@@ -1210,9 +1212,9 @@ select* from tablename limit 2,4
 select * from emp  limit 5;
 ```
 
-![img](./images/wps98.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps98.jpg)
 
-![img](./images/wps99.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps99.jpg)
 
 ### ***12.2、从第二条开始取两条数据***
 
@@ -1220,7 +1222,7 @@ select * from emp  limit 5;
 select * from emp  limit 1,2;
 ```
 
-![img](./images/wps100.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps100.jpg)
 
 ### ***12.3、取得薪水最高的前5名***
 
@@ -1228,7 +1230,7 @@ select * from emp  limit 1,2;
 select * from emp e order by e.sal desc limit 5;
 ```
 
-![img](./images/wps101.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps101.jpg)
 
 ## **13、表**
 
@@ -1264,7 +1266,7 @@ MySql常用数据类型
 create table t_student( student_id  int(10), student_name  varchar(20), sex  char(2), birthday date, email  varchar(30), classes_id int(3) )
 ```
 
-![img](./images/wps102.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps102.jpg)
 
 向t_student表中加入数据,（必须使用客户端软件，我们的cmd默认是GBK编码,数据中设置的编码是UTF-8）
 
@@ -1272,12 +1274,12 @@ create table t_student( student_id  int(10), student_name  varchar(20), sex  cha
 insert into t_student(student_id, student_name, sex, birthday, email, classes_id) values(1001, 'zhangsan', 'm', '1988-01-01', 'qqq@163.com', 10)
 ```
 
-![img](./images/wps103.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps103.jpg)
 
 向t_student表中加入数据（使用默认值）
 
 ```sql
-drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20), sex  char(2)  default  'm', birthday date,  email  varchar(30), classes_id int(3) ) insert into t_student(student_id, student_name, birthday, email, classes_id) values(1002, 'zhangsan', '1988-01-01', 'qqq@163.com', 10) ![img](./images/wps104.jpg)
+drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20), sex  char(2)  default  'm', birthday date,  email  varchar(30), classes_id int(3) ) insert into t_student(student_id, student_name, birthday, email, classes_id) values(1002, 'zhangsan', '1988-01-01', 'qqq@163.com', 10) ![img](https://www.oss.tuwei.site/blogsImgs/images/wps104.jpg)
 ```
 
 ### ***13.2、增加/删除/修改表结构***
@@ -1292,7 +1294,7 @@ drop table if exists t_student; create table t_student( student_id  int(10), stu
 alter table t_student add  contact_tel varchar(40);
 ```
 
-![img](./images/wps105.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps105.jpg)
 
 #### ***13.2.2、修改字段***
 
@@ -1302,11 +1304,11 @@ alter table t_student add  contact_tel varchar(40);
 alter table t_student modify student_name varchar(100) ;
 ```
 
-![img](./images/wps106.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps106.jpg)
 
 如sex字段名称感觉不好，想用gender那么就需要更爱列的名称
 
-![img](./images/wps107.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps107.jpg)
 
 #### ***13.2.3、删除字段***
 
@@ -1316,7 +1318,7 @@ alter table t_student modify student_name varchar(100) ;
 alter table t_student drop contact_tel;
 ```
 
-![img](./images/wps108.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps108.jpg)
 
 ### ***13.3、添加、修改和删除***
 
@@ -1332,9 +1334,9 @@ Insert into 表名(字段，。。。。) values(值,………..)
 
 insert into emp values(9999,'zhangsan','MANAGER', null, null,3000, 500, 10);
 
-![img](./images/wps109.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps109.jpg)
 
-![img](./images/wps110.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps110.jpg)
 
 不建议使用此种方式，因为当数据库表中的字段位置发生改变的时候会影响到insert语句
 
@@ -1344,11 +1346,11 @@ insert into emp values(9999,'zhangsan','MANAGER', null, null,3000, 500, 10);
 insert into emp (empno,ename,job,mgr,hiredate,sal,comm,deptno) values(9999,'zhangsan','MANAGER', null, null,3000, 500, 10);
 ```
 
-![img](./images/wps111.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps111.jpg)
 
 出现了主键重复的错误，主键表示了记录的唯一性，不能重复
 
-![img](./images/wps112.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps112.jpg)
 
 如何插入日期：
 
@@ -1358,7 +1360,7 @@ insert into emp (empno,ename,job,mgr,hiredate,sal,comm,deptno) values(9999,'zhan
 insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values(9997,'zhangsan','MANAGER', null, '1981-06-12',3000, 500, 10);
 ```
 
-![img](./images/wps113.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps113.jpg)
 
 第二种方法，采用str_to_date
 
@@ -1366,7 +1368,7 @@ insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values(9997
 insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values(9996,'zhangsan','MANAGER',null,str_to_date('1981-06-12','%Y-%m-%d'),3000, 500, 10);
 ```
 
-![img](./images/wps114.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps114.jpg)
 
 第三种方法，添加系统日期（now()）
 
@@ -1374,9 +1376,9 @@ insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values(9996
 insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values(9995,'zhangsan','MANAGER',null,now() ,3000, 500, 10);
 ```
 
-![img](./images/wps115.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps115.jpg)
 
-![img](./images/wps116.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps116.jpg)
 
 表复制
 
@@ -1384,9 +1386,9 @@ insert into emp(empno, ename, job, mgr, hiredate, sal, comm, deptno) values(9995
 create table emp_bak as select empno,ename,sal from emp;
 ```
 
-![img](./images/wps117.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps117.jpg)
 
-![img](./images/wps118.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps118.jpg)
 
 以上方式，会自动创建表，将符合查询条件的数据自动复制到创建的表中
 
@@ -1396,7 +1398,7 @@ create table emp_bak as select empno,ename,sal from emp;
 insert into emp_bak select * from emp where sal=3000;
 ```
 
-![img](./images/wps119.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps119.jpg)
 
 #### ***13.3.2、update***
 
@@ -1456,7 +1458,7 @@ e) 自定义检查约束，check（不建议使用）(在mysql中现在还不支
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20) not null, sex  char(2)  default  'm', birthday date,  email  varchar(30), classes_id int(3) ) insert into t_student(student_id, birthday, email, classes_id) values(1002, '1988-01-01', 'qqq@163.com', 10)
 ```
 
-![img](./images/wps120.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps120.jpg)
 
 以上错误为加入的学生姓名为空。
 
@@ -1468,7 +1470,7 @@ drop table if exists t_student; create table t_student( student_id  int(10), stu
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20) not null, sex  char(2)  default  'm', birthday date,  email  varchar(30) unique, classes_id int(3) )insert into t_student(student_id, student_name , sex, birthday, email, classes_id) values(1001,'zhangsan','m', '1988-01-01', 'qqq@163.com', 10)
 ```
 
-![img](./images/wps121.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps121.jpg)
 
 以上插入了重复的email，所以出现了“违反唯一约束错误”，所以unique起作用了
 
@@ -1483,7 +1485,7 @@ mysql> use information_schema;
 select * from table_constraints where table_name = 't_student';
 ```
 
-![img](./images/wps122.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps122.jpg)
 
 关于约束名称可以到table_constraints中查询
 
@@ -1503,7 +1505,7 @@ drop table if exists t_student; create table t_student() student_id  int(10)  pr
 
 向以上表中加入学号为1001的两条记录，出现如下错误，因为加入了主键约束
 
-![img](./images/wps123.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps123.jpg)
 
 我们也可以通过表级约束为约束起个名称：
 
@@ -1535,13 +1537,13 @@ drop table if exists t_student;create table t_student( student_id  int(10), stud
 insert into t_student(student_id, student_name, sex, birthday, email, classes_id) values(1001, 'zhangsan', 'm', '1988-01-01', 'qqq@163.com', 10)
 ```
 
-![img](./images/wps124.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps124.jpg)
 
 出现错误，因为在班级表中不存在班级编号为10班级，外键约束起到了作用
 
 存在外键的表就是子表，参照的表就是父表，所以存在一个父子关系，也就是主从关系，主表就是班级表，从表就是学生表
 
-![img](./images/wps125.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps125.jpg)
 
 以上成功的插入了学生信息，当时classes_id没有值，这样会影响参照完整性，所以我们建议将外键字段设置为非空
 
@@ -1551,7 +1553,7 @@ drop table if exists t_student;create table t_student( student_id  int(10), stud
 
 再次插入班级编号为null的数据
 
-![img](./images/wps126.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps126.jpg)
 
 添加数据到班级表，添加数据到学生表，删除班级数据，将会出现如下错误：
 
@@ -1559,7 +1561,7 @@ drop table if exists t_student;create table t_student( student_id  int(10), stud
 insert into t_classes (classes_id,classes_name) values (10,'366'); insert into t_student(student_id, student_name, sex, birthday, email, classes_id) values(1001, 'zhangsan', 'm', '1988-01-01', 'qqq@163.com', 10) mysql> update t_classes set  classes_id = 20 where classes_name = '366';
 ```
 
-![img](./images/wps127.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除子表中的引用记录，再修改父表中的数据。我们也可以采取以下措施 级联更新。mysql> delete from t_classes where classes_id = 10;![img](./images/wps128.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除父表，那么将会影响子表的参照完整性，所以正确的做法是，先删除子表中的数据，再删除父表中的数据，采用drop table也不行，必须先drop子表，再drop父表我们也可以采取以下措施 级联删除。
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps127.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除子表中的引用记录，再修改父表中的数据。我们也可以采取以下措施 级联更新。mysql> delete from t_classes where classes_id = 10;![img](https://www.oss.tuwei.site/blogsImgs/images/wps128.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除父表，那么将会影响子表的参照完整性，所以正确的做法是，先删除子表中的数据，再删除父表中的数据，采用drop table也不行，必须先drop子表，再drop父表我们也可以采取以下措施 级联删除。
 
 #### ***13.4.5、级联更新与级联删除***
 
@@ -1571,7 +1573,7 @@ mysql对有些约束的修改比较麻烦，所以我们可以先删除，再添
 alter table t_student drop foreign key fk_classes_id; alter table t_student add constraint fk_classes_id_1 foreign key(classes_id) references t_classes(classes_id) on update cascade; 
 ```
 
-![img](./images/wps129.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps129.jpg)
 我们只修改了父表中的数据，但是子表中的数据也会跟着变动。
 
 ##### ***13.4.5.2、on delete cascade*
@@ -1581,7 +1583,7 @@ mysql对有些约束的修改时不支持的，所以我们可以先删除，再
 alter table t_student drop foreign key fk_classes_id; alter table t_student add constraint fk_classes_id_1 foreign key(classes_id) references t_classes(classes_id) on delete cascade;delete from t_classes where classes_id = 20;
 ```
 
-![img](./images/wps130.jpg) 我们只删除了父表中的数据，但是子表也会中的数据也会删除。
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps130.jpg) 我们只删除了父表中的数据，但是子表也会中的数据也会删除。
 
 ### ***13.5、t_student和t_classes完整示例***
 
@@ -1607,7 +1609,7 @@ drop table if exists t_classes;create table t_classes( classes_id int (3), class
 
 ​ mysql> SHOW ENGINES\G
 
-![img](./images/wps131.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps131.jpg)
 
 • 在创建表时，可使用ENGINE选项为CREATE TABLE语句显式指定存储引擎。
 
@@ -1693,7 +1695,7 @@ mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
 ## **15、事务**
 
-### ![img](./images/wps132.png)***15.1、概述***
+### ![img](https://www.oss.tuwei.site/blogsImgs/images/wps132.png)***15.1、概述***
 
 事务可以保证多个操作原子性，要么全成功，要么全失败。对于数据库来说事务保证批量的DML要么全成功，要么全失败。事务具有四个特征ACID
 
@@ -1743,7 +1745,7 @@ e) SET AUTOCOMMIT：禁用或启用事务的自动提交模式
 
 (2) 查询表中数据
 
-![img](./images/wps133.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps133.jpg)
 
 (3) 开启事务START TRANSACTION;
 
@@ -1753,27 +1755,27 @@ e) SET AUTOCOMMIT：禁用或启用事务的自动提交模式
 insert into user (username,password) values ('zhangsan','123');
 ```
 
-![img](./images/wps134.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps134.jpg)
 
 (5) 查看数据
 
-![img](./images/wps135.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps135.jpg)
 
 (6) 修改数据
 
-![img](./images/wps136.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps136.jpg)
 
 (7) 查看数据
 
-![img](./images/wps137.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps137.jpg)
 
 (8) 回滚事务
 
-![img](./images/wps138.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps138.jpg)
 
 (9) 查看数据
 
-![img](./images/wps139.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps139.jpg)
 
 ### ***15.3、自动提交模式***
 
@@ -1861,7 +1863,7 @@ B不以执行DML,DQL语句
 
 #### ***15.4.3、隔离级别与一致性问题的关系***
 
-![img](./images/wps140.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps140.jpg)
 
 #### ***15.4.4、设置服务器缺省隔离级别***
 
@@ -1999,7 +2001,7 @@ mysql> SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED；
 
 如果未使用索引，我们查询 工资大于 1500的会执行全表扫描
 
-![img](./images/wps141.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps141.jpg)
 
 **什么时候需要给字段添加索引：**
 
@@ -2025,13 +2027,13 @@ create unique index u_ename on emp(ename);
 
 create index test_index on emp (sal);
 
-![img](./images/wps142.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps142.jpg)
 
 ##### 16.2.2、查看索引
 
 show index from emp;
 
-![img](./images/wps143.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps143.jpg)
 
 ##### 16.2.3、使用索引
 
@@ -2043,7 +2045,7 @@ explain select sal from emp where sal > 1500;
 
 条件中的sal使用了索引
 
-![img](./images/wps144.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps144.jpg)
 
 如下图：假如我们要查找sal大于1500的所有行，那么可以扫描索引，索引时排序的，结果得出7行，我们知道不会再有匹配的记录，可以退出了。
 如果查找一个值，它在索引表中某个中间点以前不会出现，那么也有找到其第一个匹配索引项的定位算法，而不用进行表的顺序扫描（如二分查找法）。
@@ -2051,7 +2053,7 @@ explain select sal from emp where sal > 1500;
 
 ##### 16.2.4、删除索引
 
-DROP INDEX index_name ON talbe_nameALTER TABLE table_name DROP INDEX index_nameALTER TABLE table_name DROP PRIMARY KEY其中，前两条语句是等价的，删除掉table_name中的索引index_name。第3条语句只在删除PRIMARY KEY索引时使用，因为一个表只可能有一个PRIMARY KEY索引， mysql> ALTER TABLE EMP DROP INDEX test_index; 删除后就不再使用索引了，查询会执行全表扫描。![img](./images/wps145.jpg)
+DROP INDEX index_name ON talbe_nameALTER TABLE table_name DROP INDEX index_nameALTER TABLE table_name DROP PRIMARY KEY其中，前两条语句是等价的，删除掉table_name中的索引index_name。第3条语句只在删除PRIMARY KEY索引时使用，因为一个表只可能有一个PRIMARY KEY索引， mysql> ALTER TABLE EMP DROP INDEX test_index; 删除后就不再使用索引了，查询会执行全表扫描。![img](https://www.oss.tuwei.site/blogsImgs/images/wps145.jpg)
 
 ## **17、视图**
 
@@ -2077,7 +2079,7 @@ DROP INDEX index_name ON talbe_nameALTER TABLE table_name DROP INDEX index_nameA
 
 \- 隐藏表的实现细节【面向视图检索】
 
-![img](./images/wps146.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps146.jpg)
 
 ### ***17.2、创建视图***
 
@@ -2277,19 +2279,19 @@ n 联系方式字段可以再分，不是原子性的
 | ---- |
 |      |
 
-![img](./images/wps147.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps147.jpg)
 
 ## **2、哪些人的薪水在部门的平均薪水之上**
 
-![img](./images/wps148.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps148.jpg)
 
 ## **3、取得部门中（所有人的）平均的薪水等级，如下：**
 
-![img](./images/wps149.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps149.jpg)
 
 ## **4、不准用组函数（Max），取得最高薪水**
 
-![img](./images/wps150.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps150.jpg)
 
 ## **5、取得平均薪水最高的部门的部门编号**
 
@@ -2297,35 +2299,35 @@ n 联系方式字段可以再分，不是原子性的
 | ---- |
 |      |
 
-![img](./images/wps151.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps151.jpg)
 
 ## **6、取得平均薪水最高的部门的部门名称**
 
-![img](./images/wps152.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps152.jpg)
 
 ## **7、求平均薪水的等级最低的部门的部门名称**
 
-![img](./images/wps153.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps153.jpg)
 
 ## **8、取得比普通员工(员工代码没有在mgr字段上出现的)的最高薪水还要高的领导人姓名**
 
-![img](./images/wps154.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps154.jpg)
 
 ## **9、取得薪水最高的前五名员工**
 
-![img](./images/wps155.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps155.jpg)
 
 ## **10、取得薪水最高的第六到第十名员工**
 
-![img](./images/wps156.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps156.jpg)
 
 ## **11、取得最后入职的5名员工**
 
-![img](./images/wps157.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps157.jpg)
 
 ## **12、取得每个薪水等级有多少员工**
 
-![img](./images/wps158.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps158.jpg)
 
 ## **13、面试题**
 
@@ -2357,7 +2359,7 @@ CREATE TABLE SC( SNO   VARCHAR(200), CNO   VARCHAR(200), SCGRADE  VARCHAR(200));
 
 即:
 
-![img](./images/wps159.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps159.jpg)
 
 问题2:列出2门以上（含2门）不及格学生姓名及平均成绩。
 
@@ -2367,77 +2369,77 @@ CREATE TABLE SC( SNO   VARCHAR(200), CNO   VARCHAR(200), SCGRADE  VARCHAR(200));
 
 |                                                              |
 | ------------------------------------------------------------ |
-| ![img](./images/wps160.jpg) |
+| ![img](https://www.oss.tuwei.site/blogsImgs/images/wps160.jpg) |
 
 ## **15、列出受雇日期早于其直接上级的所有员工的编号,姓名,部门名称**
 
-![img](./images/wps161.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps161.jpg)
 
 ## **16、列出部门名称和这些部门的员工信息,同时列出那些没有员工的部门.**
 
-![img](./images/wps162.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps162.jpg)
 
 ## **17、列出至少有5个员工的所有部门**
 
-![img](./images/wps163.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps163.jpg)
 
 ## **18、列出薪金比"SMITH"多的所有员工信息.**
 
-![img](./images/wps164.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps164.jpg)
 
 ## **19、列出所有"CLERK"(办事员)的姓名及其部门名称,部门的人数.**
 
-![img](./images/wps165.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps165.jpg)
 
 ## **20、列出最低薪金大于1500的各种工作及从事此工作的全部雇员人数.**
 
-![img](./images/wps166.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps166.jpg)
 
 ## **21、列出在部门"SALES"<销售部>工作的员工的姓名,假定不知道销售部的部门编号.**
 
-![img](./images/wps167.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps167.jpg)
 
 ## **22、列出薪金高于公司平均薪金的所有员工,所在部门,上级领导,雇员的工资等级.**
 
-![img](./images/wps168.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps168.jpg)
 
 ## **23、列出与"SCOTT"从事相同工作的所有员工及部门名称.**
 
-![img](./images/wps169.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps169.jpg)
 
 ## **24、列出薪金等于部门30中员工的薪金的其他员工的姓名和薪金.**
 
 ## **25、列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金.部门名称.**
 
-![img](./images/wps170.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps170.jpg)
 
 ## **26、列出在每个部门工作的员工数量,平均工资和平均服务期限.**
 
-![img](./images/wps171.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps171.jpg)
 
 ## **27、列出所有员工的姓名、部门名称和工资。**
 
-![img](./images/wps172.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps172.jpg)
 
 ## **28、列出所有部门的详细信息和人数**
 
-![img](./images/wps173.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps173.jpg)
 
 ## **29、列出各种工作的最低工资及从事此工作的雇员姓名**
 
-![img](./images/wps174.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps174.jpg)
 
 ## **30、列出各个部门的MANAGER(领导)的最低薪金**
 
-![img](./images/wps175.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps175.jpg)
 
 ## **31、列出所有员工的年工资,按年薪从低到高排序**
 
-![img](./images/wps176.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps176.jpg)
 
 ## **32、求出员工领导的薪水超过3000的员工名称与领导名称**
 
-![img](./images/wps177.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps177.jpg)
 
 ## **33、求出部门名称中,带'S'字符的部门员工的工资合计、部门人数.**
 
@@ -2445,7 +2447,7 @@ CREATE TABLE SC( SNO   VARCHAR(200), CNO   VARCHAR(200), SCGRADE  VARCHAR(200));
 | ---- |
 |      |
 
-![img](./images/wps178.jpg)
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps178.jpg)
 
 ## **34、给任职日期超过30年的员工加薪10%.**
 

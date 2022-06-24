@@ -1,6 +1,6 @@
 # 面试官：如何实现文件上传？说说你的思路
 
- ![](../sImgs/248a5580-ce60-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/248a5580-ce60-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 

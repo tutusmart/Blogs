@@ -1,6 +1,6 @@
 # 面试官：什么是响应式设计？响应式设计的基本原理是什么？如何做？
 
- ![](../sImgs/a57e2e40-9dba-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/a57e2e40-9dba-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
@@ -18,7 +18,7 @@
 
 - 网站的布局会根据视口来调整模块的大小和位置
 
- ![](../sImgs/ae68be30-9dba-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/ae68be30-9dba-11eb-85f6-6fac77c0c9b3.png)
 
 
 

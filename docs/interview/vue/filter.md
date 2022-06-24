@@ -1,6 +1,6 @@
 # 面试官：Vue中的过滤器了解吗？过滤器的应用场景有哪些？
 
- ![](../sImgs/fe68eea0-440f-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/fe68eea0-440f-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 过滤器（`filter`）是输送介质管道上不可缺少的一种装置

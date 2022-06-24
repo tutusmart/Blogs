@@ -1,6 +1,6 @@
 # 面试官：说说如何借助webpack来优化前端性能？
 
- ![](../sImgs/15e1ace0-aee4-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/15e1ace0-aee4-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -227,7 +227,7 @@ module.exports = {
 
  如下面`sum`函数没被用到，`webpack`打包会添加注释，`terser`在优化时，则将该函数去掉
 
- ![](../sImgs/21b2e200-aee4-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/21b2e200-aee4-11eb-85f6-6fac77c0c9b3.png)
 
 
 

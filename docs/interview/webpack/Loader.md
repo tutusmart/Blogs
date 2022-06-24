@@ -1,13 +1,13 @@
 # 面试官：说说webpack中常见的Loader？解决了什么问题？
 
- ![](../sImgs/5660fc40-a6ff-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/5660fc40-a6ff-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 `loader` 用于对模块的"源代码"进行转换，在 `import` 或"加载"模块时预处理文件
 
 `webpack`做的事情，仅仅是分析出各种模块的依赖关系，然后形成资源列表，最终打包生成到指定的文件中。如下图所示：
 
- ![](../sImgs/7b8d9640-a6ff-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/7b8d9640-a6ff-11eb-ab90-d9ae814b240d.png)
 
 在`webpack`内部中，任何文件都是模块，不仅仅只是`js`文件
 
@@ -17,7 +17,7 @@
 
 在加载模块的时候，执行顺序如下：
 
- ![](../sImgs/9c2c43b0-a6ff-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/9c2c43b0-a6ff-11eb-85f6-6fac77c0c9b3.png)
 
 
 

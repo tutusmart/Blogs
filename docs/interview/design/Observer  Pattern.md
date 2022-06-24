@@ -1,6 +1,6 @@
 # 面试官：说说你对发布订阅、观察者模式的理解？区别？
 
- ![](../sImgs/342739f0-3fb1-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/342739f0-3fb1-11ec-8e64-91fdec0f05a1.png)
 
 
 ## 一、观察者模式
@@ -9,7 +9,7 @@
 
 观察者模式属于行为型模式，行为型模式关注的是对象之间的通讯，观察者模式就是观察者和被观察者之间的通讯
 
- ![](../sImgs/d3a80020-3f7c-11ec-a752-75723a64e8f5.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/d3a80020-3f7c-11ec-a752-75723a64e8f5.png)
 
 例如生活中，我们可以用报纸期刊的订阅来形象的说明，当你订阅了一份报纸，每天都会有一份最新的报纸送到你手上，有多少人订阅报纸，报社就会发多少份报纸
 
@@ -85,7 +85,7 @@ subject.notifyObservers('Hello again');
 
 同样的，订阅者可以表达对一个或多个类别的兴趣，只接收感兴趣的消息，无需了解哪些发布者存在 
 
-![](../sImgs/e24d3cd0-3f7c-11ec-8e64-91fdec0f05a1.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/e24d3cd0-3f7c-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -202,7 +202,7 @@ pubsub.notify(TYPE_C);
 
 两者区别如下图：
 
-![](../sImgs/9141682c-7386-4f12-8412-fb17a1cd4bf6.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/9141682c-7386-4f12-8412-fb17a1cd4bf6.png)
 
 - 在观察者模式中，观察者是知道Subject的，Subject一直保持对观察者进行记录。然而，在发布订阅模式中，发布者和订阅者不知道对方的存在。它们只有通过消息代理进行通信。
 

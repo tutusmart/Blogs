@@ -1,6 +1,6 @@
 # 面试官：怎么理解回流跟重绘？什么场景下会触发？
 
- ![](../sImgs/1ed5d340-9cdc-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/1ed5d340-9cdc-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
@@ -12,7 +12,7 @@
 
 具体的浏览器解析渲染机制如下所示：
 
- ![](../sImgs/2b56a950-9cdc-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/2b56a950-9cdc-11eb-ab90-d9ae814b240d.png)
 
 - 解析HTML，生成DOM树，解析CSS，生成CSSOM树
 

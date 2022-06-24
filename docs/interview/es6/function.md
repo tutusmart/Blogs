@@ -1,6 +1,6 @@
 #  面试官：对象新增了哪些扩展？
 
-![](../sImgs/54a04a10-5569-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/54a04a10-5569-11eb-85f6-6fac77c0c9b3.png)
 
 
 

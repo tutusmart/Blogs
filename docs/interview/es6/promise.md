@@ -1,6 +1,6 @@
 #  面试官：你是怎么理解ES6中 Promise的？使用场景？
 
-![](../sImgs/f033b160-5811-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/f033b160-5811-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -65,7 +65,7 @@ doSomething().then(function(result) {
 
 认真阅读下图，我们能够轻松了解`promise`整个流程
 
- ![](../sImgs/1b02ae90-58a9-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/1b02ae90-58a9-11eb-85f6-6fac77c0c9b3.png)
 
 
 

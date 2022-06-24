@@ -1,6 +1,6 @@
 # 面试官：React中组件之间如何通信？
 
- ![](../sImgs/767a2800-dc9f-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/767a2800-dc9f-11eb-85f6-6fac77c0c9b3.png)
 
 
 

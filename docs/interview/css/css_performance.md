@@ -1,6 +1,6 @@
 # 面试官：如果要做优化，CSS提高性能的方法有哪些？
 
- ![](../sImgs/c071c820-9fa3-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/c071c820-9fa3-11eb-ab90-d9ae814b240d.png)
 
 
 

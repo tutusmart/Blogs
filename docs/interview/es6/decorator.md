@@ -1,6 +1,6 @@
 # 面试官：你是怎么理解ES6中 Decorator 的？使用场景？
 
- ![](../sImgs/7df43560-5ba5-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/7df43560-5ba5-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、介绍
 

@@ -1,6 +1,6 @@
 # 面试官：说说var、let、const之间的区别
 
-![](../sImgs/d2aba2e0-50f7-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/d2aba2e0-50f7-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、var
 

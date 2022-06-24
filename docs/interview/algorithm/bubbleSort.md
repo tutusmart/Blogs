@@ -1,6 +1,6 @@
 # 面试官：说说你对冒泡排序的理解？如何实现？应用场景？
 
- ![](../sImgs/6f5e0850-2652-11ec-a752-75723a64e8f5.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/6f5e0850-2652-11ec-a752-75723a64e8f5.png)
 
 
 ## 一、是什么
@@ -22,11 +22,11 @@
 
 最终第 1 趟排序的结果变成了 99、12、35、76、18，如下图所示：
 
- ![](../sImgs/7a363770-2652-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/7a363770-2652-11ec-8e64-91fdec0f05a1.png)
 
 上述可以看到，经过第一趟的排序，可以得到最大的元素，接下来第二趟排序则对剩下的的4个元素进行排序，如下图所示：
 
- ![](../sImgs/84b9ddf0-2652-11ec-a752-75723a64e8f5.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/84b9ddf0-2652-11ec-a752-75723a64e8f5.png)
 
 经过第 2 趟排序，结果为 99、76、12、35、18
 

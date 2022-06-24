@@ -1,6 +1,6 @@
 # 面试官：说说你对二分查找的理解？如何实现？应用场景？
 
- ![](../sImgs/d43ca230-2987-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/d43ca230-2987-11ec-8e64-91fdec0f05a1.png)
 
 
 ## 一、是什么
@@ -22,7 +22,7 @@
 
 如下图所示：
 
- ![](../sImgs/e2108520-2987-11ec-a752-75723a64e8f5.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/e2108520-2987-11ec-a752-75723a64e8f5.png)
 
 相比普通的顺序查找，除了数据量很少的情况下，二分查找会比顺序查找更快，区别如下所示：
 
@@ -92,7 +92,7 @@ function BinarySearchFirst(arr, target) {
 
 该数组的特性是存在一个分界点用来分界两个有序数组，如下：
 
- ![](../sImgs/eeee2130-2987-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/eeee2130-2987-11ec-8e64-91fdec0f05a1.png)
 
 分界点有如下特性：
 

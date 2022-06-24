@@ -1,6 +1,6 @@
 # 面试官：说说你对BOM的理解，常见的BOM对象你了解哪些？
 
- ![](../sImgs/3e191c40-8089-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/3e191c40-8089-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
@@ -10,7 +10,7 @@
 
 浏览器的全部内容可以看成`DOM`，整个浏览器可以看成`BOM`。区别如下：
 
-![](../sImgs/482f33e0-8089-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/482f33e0-8089-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -100,9 +100,9 @@ http://foouser:barpassword@www.wrox.com:80/WileyCDA/?q=javascript#contents
 
 下表列出了`navigator`对象接口定义的属性和方法：
 
- ![](../sImgs/6797ab40-8089-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/6797ab40-8089-11eb-ab90-d9ae814b240d.png)
 
- ![](../sImgs/74096620-8089-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/74096620-8089-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -110,7 +110,7 @@ http://foouser:barpassword@www.wrox.com:80/WileyCDA/?q=javascript#contents
 
 保存的纯粹是客户端能力信息，也就是浏览器窗口外面的客户端显示器的信息，比如像素宽度和像素高度
 
- ![](../sImgs/7d6b21e0-8089-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/7d6b21e0-8089-11eb-85f6-6fac77c0c9b3.png)
 
 
 

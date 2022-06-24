@@ -1,6 +1,6 @@
 # 面试官：你是怎么处理vue项目中的错误的？
 
- ![](../sImgs/3cafe4f0-4fd9-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/3cafe4f0-4fd9-11eb-ab90-d9ae814b240d.png)
 
 ## 一、错误类型
 

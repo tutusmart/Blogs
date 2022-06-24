@@ -1,6 +1,6 @@
 # 面试官：说说Vue 3.0中Treeshaking特性？举例说明一下？
 
- ![](../sImgs/5e8bf1d0-6097-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/5e8bf1d0-6097-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 
@@ -65,7 +65,7 @@ vue create vue-demo
 
 对项目进行打包，体积如下图
 
-![](../sImgs/6bd2aff0-6097-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/6bd2aff0-6097-11eb-85f6-6fac77c0c9b3.png)
 
 为组件设置其他属性（`compted`、`watch`）
 
@@ -89,7 +89,7 @@ export default {
 
 再一次打包，发现打包出来的体积并没有变化
 
-![](../sImgs/7c29e260-6097-11eb-ab90-d9ae814b240d.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/7c29e260-6097-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -113,7 +113,7 @@ export default defineComponent({
 
 将项目进行打包
 
-![](../sImgs/95df0000-6097-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/95df0000-6097-11eb-85f6-6fac77c0c9b3.png)
 
 在组件中引入`computed`和`watch`
 
@@ -145,7 +145,7 @@ export default defineComponent({
 
 再次对项目进行打包，可以看到在引入`computer`和`watch`之后，项目整体体积变大了
 
- ![](../sImgs/b36a7a00-6097-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/b36a7a00-6097-11eb-85f6-6fac77c0c9b3.png)
 
 
 

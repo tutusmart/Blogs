@@ -1,6 +1,6 @@
 # 面试官：Javascript本地存储的方式有哪些？区别及应用场景？
 
- ![](../sImgs/68dccf20-849f-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/68dccf20-849f-11eb-ab90-d9ae814b240d.png)
 
 ## 一、方式
 

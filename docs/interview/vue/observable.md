@@ -1,6 +1,6 @@
 # 面试官：Vue.observable你有了解过吗？说说看 
 
-![](../sImgs/193782e0-3e7b-11eb-ab90-d9ae814b240d.png)  
+![](https://www.oss.tuwei.site/blogsImgs/fe/193782e0-3e7b-11eb-ab90-d9ae814b240d.png)  
 
 ## 一、Observable 是什么
 

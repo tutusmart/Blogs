@@ -1,6 +1,6 @@
 # 面试官：说说你对正则表达式的理解？应用场景？
 
-![](../sImgs/55388a40-7f1d-11eb-ab90-d9ae814b240d.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/55388a40-7f1d-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 

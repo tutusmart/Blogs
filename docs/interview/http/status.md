@@ -1,6 +1,6 @@
 # 面试官：说说HTTP 常见的状态码有哪些，适用场景？
 
- ![](../sImgs/038831d0-bbc9-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/038831d0-bbc9-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 

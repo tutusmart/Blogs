@@ -1,6 +1,6 @@
 # 面试官：让Chrome支持小于12px 的文字方式有哪些？区别？
 
-![](../sImgs/62945fd0-a334-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/62945fd0-a334-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、背景
 
@@ -62,11 +62,11 @@ Chrome 中文版浏览器会默认设定页面的最小字号是12px，英文版
 
 效果如下：
 
- ![](../sImgs/d5243980-a334-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/d5243980-a334-11eb-ab90-d9ae814b240d.png)
 
 > 需要注意的是，`Zoom` 并不是标准属性，需要考虑其兼容性
 
- ![image.png](../sImgs/3defe3c0-a343-11eb-85f6-6fac77c0c9b3.png)
+ ![image.png](https://www.oss.tuwei.site/blogsImgs/fe/3defe3c0-a343-11eb-85f6-6fac77c0c9b3.png)
 
 
 ### -webkit-transform:scale()
@@ -97,7 +97,7 @@ Chrome 中文版浏览器会默认设定页面的最小字号是12px，英文版
 
 效果如下：
 
- ![](../sImgs/d5243980-a334-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/d5243980-a334-11eb-ab90-d9ae814b240d.png)
 
 
 ### -webkit-text-size-adjust:none

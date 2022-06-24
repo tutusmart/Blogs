@@ -1,6 +1,6 @@
 # 面试官：你是怎么理解ES6中 Generator的？使用场景？
 
- ![](../sImgs/7db499b0-5947-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/7db499b0-5947-11eb-ab90-d9ae814b240d.png)
 
 ## 一、介绍
 

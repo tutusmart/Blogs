@@ -1,6 +1,6 @@
 # 面试官：bind、call、apply 区别？如何实现一个bind?
 
- ![](../sImgs/a900e460-7be4-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/a900e460-7be4-11eb-ab90-d9ae814b240d.png)
 
 
 

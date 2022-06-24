@@ -1,6 +1,6 @@
 # 面试官：举例说明你对尾递归的理解，有哪些应用场景
 
- ![](../sImgs/74db8fe0-815d-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/74db8fe0-815d-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、递归
 
@@ -54,7 +54,7 @@ pow(x, n) =
 
 也就是说`pow` 递归地调用自身 直到 `n == 1`
 
- ![](../sImgs/8002c960-815d-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/8002c960-815d-11eb-ab90-d9ae814b240d.png)
 
 为了计算 `pow(2, 4)`，递归变体经过了下面几个步骤：
 

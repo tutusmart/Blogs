@@ -1,6 +1,6 @@
 # 面试官：解释下什么是事件代理？应用场景？
 
-![](../sImgs/a33f0ab0-797e-11eb-ab90-d9ae814b240d.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/a33f0ab0-797e-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 

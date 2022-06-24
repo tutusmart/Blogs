@@ -1,6 +1,6 @@
 # 面试官：说说你对策略模式的理解？应用场景？
 
- ![](../sImgs/e4aad950-3cb2-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/e4aad950-3cb2-11ec-8e64-91fdec0f05a1.png)
 
 
 

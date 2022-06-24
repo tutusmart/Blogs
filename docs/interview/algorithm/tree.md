@@ -2,7 +2,7 @@
 
 
 
- ![](../sImgs/5a7616f0-1dfe-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/5a7616f0-1dfe-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -17,17 +17,17 @@
 
 如下图，左侧的为二叉树，而右侧的因为头结点的子结点超过2，因此不属于二叉树：
 
- ![](../sImgs/66758800-1dfe-11ec-a752-75723a64e8f5.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/66758800-1dfe-11ec-a752-75723a64e8f5.png)
 
 同时，二叉树可以继续进行分类，分成了满二叉树和完成二叉树：
 
 - 满二叉树：如果二叉树中除了叶子结点，每个结点的度都为 2
 
- ![](../sImgs/759db050-1dfe-11ec-a752-75723a64e8f5.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/759db050-1dfe-11ec-a752-75723a64e8f5.png)
 
 - 完成二叉树：如果二叉树中除去最后一层节点为满二叉树，且最后一层的结点依次从左到右分布
 
- ![](../sImgs/84ae31f0-1dfe-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/84ae31f0-1dfe-11ec-8e64-91fdec0f05a1.png)
 
 ## 二、操作
 

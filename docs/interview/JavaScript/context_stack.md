@@ -1,6 +1,6 @@
 # 面试官：JavaScript中执行上下文和执行栈是什么？
 
-![](../sImgs/8652b710-74c1-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/8652b710-74c1-11eb-85f6-6fac77c0c9b3.png)
 
 
 ## 一、执行上下文
@@ -15,7 +15,7 @@
 
 下面给出全局上下文和函数上下文的例子：
 
- ![](../sImgs/90dd3b60-74c1-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/90dd3b60-74c1-11eb-85f6-6fac77c0c9b3.png)
 
 紫色框住的部分为全局上下文，蓝色和橘色框起来的是不同的函数上下文。只有全局上下文（的变量）能被其他任何上下文访问
 
@@ -187,7 +187,7 @@ FunctionExectionContext = {
 
 执行栈，也叫调用栈，具有 LIFO（后进先出）结构，用于存储在代码执行期间创建的所有执行上下文
 
- ![](../sImgs/9eda0310-74c1-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/9eda0310-74c1-11eb-ab90-d9ae814b240d.png)
 
 当`Javascript`引擎开始执行你第一行脚本代码的时候，它就会创建一个全局执行上下文然后将它压到执行栈中
 
@@ -213,7 +213,7 @@ console.log('Inside Global Execution Context');
 
 转化成图的形式
 
- ![](../sImgs/ac11a600-74c1-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/ac11a600-74c1-11eb-ab90-d9ae814b240d.png)
 
 简单分析一下流程：
 

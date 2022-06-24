@@ -1,6 +1,6 @@
 # 面试官：谈谈 JavaScript 中的类型转换机制
 
- ![](../sImgs/2abd00a0-6692-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/2abd00a0-6692-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、概述
 
@@ -40,7 +40,7 @@ let x = y ? 1 : a;
 
 先给出类型转换规则：
 
- ![](../sImgs/915b7300-6692-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/915b7300-6692-11eb-ab90-d9ae814b240d.png)
 
 实践一下：
 
@@ -92,7 +92,7 @@ parseInt('32a3') //32
 
 给出转换规则图：
 
-   ![](../sImgs/48dd8eb0-6692-11eb-85f6-6fac77c0c9b3.png)
+   ![](https://www.oss.tuwei.site/blogsImgs/fe/48dd8eb0-6692-11eb-85f6-6fac77c0c9b3.png)
 
 实践一下：
 
@@ -123,7 +123,7 @@ String([1, 2, 3]) // "1,2,3"
 
 可以将任意类型的值转为布尔值，转换规则如下：
 
- ![](../sImgs/53bdad10-6692-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/53bdad10-6692-11eb-ab90-d9ae814b240d.png)
 
 实践一下：
 

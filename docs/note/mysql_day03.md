@@ -140,7 +140,7 @@ Mysql days03
 
 - 业务背景： 请设计数据库表，用来维护学生和班级的信息？ 第一种方案：一张表存储所有数据
 
-  ## no(pk) name classno classname
+**no(pk) name classno classname**
 
   1 zs1 101 河南省平顶山市舞钢市垭口一高高三1班 2 zs2 101 河南省平顶山市舞钢市垭口一高高三1班 3 zs3 102 河南省平顶山市舞钢市垭口一高高三2班 4 zs4 102 河南省平顶山市舞钢市垭口一高高三2班 5 zs5 102 河南省平顶山市舞钢市垭口一高高三2班 缺点：冗余。【不推荐】
 
@@ -148,11 +148,11 @@ Mysql days03
 
   t_class 班级表
 
-  ## cno(pk) cname
+**cno(pk) cname**
 
   ```
     101           河南省平顶山市舞钢市垭口一高高三1班 
-  102           河南省平顶山市舞钢市垭口一高高三2班 
+    102           河南省平顶山市舞钢市垭口一高高三2班 
   
   t_student 学生表
   sno(pk)        sname          classno(该字段添加外键约束fk)
@@ -170,7 +170,7 @@ Mysql days03
 
   删除数据的时候，先删除子表，再删除父表。 添加数据的时候，先添加父表，再添加子表。 创建表的时候，先创建父表，再创建子表。 删除表的时候，先删除子表，再删除父表。
 
-  ```
+  ```sql
    drop table if exists t_student;
      drop table if exists t_class;
   
@@ -213,7 +213,7 @@ Mysql days03
 
 2.1、完整的建表语句
 
-```
+```sql
      CREATE TABLE `t_x` (
        `id` int(11) DEFAULT NULL
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 

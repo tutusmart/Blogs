@@ -1,6 +1,6 @@
 # 面试官：说说你对immutable的理解？如何应用在react项目中？
 
- ![](../sImgs/797e9470-ea3f-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/797e9470-ea3f-11eb-ab90-d9ae814b240d.png)
 
 ## 一、是什么
 

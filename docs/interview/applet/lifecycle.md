@@ -2,7 +2,7 @@
 
 
 
- ![](../sImgs/1df64890-30e0-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/1df64890-30e0-11ec-8e64-91fdec0f05a1.png)
 
 
 ## 一、是什么

@@ -1,6 +1,6 @@
 # 面试官：JavaScript字符串的常用方法有哪些？
 
- ![](../sImgs/ceb6ebc0-65c1-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/ceb6ebc0-65c1-11eb-ab90-d9ae814b240d.png)
 
 ## 一、操作方法
 

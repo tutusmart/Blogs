@@ -1,6 +1,6 @@
 # 面试官：说说 HTTP 常见的请求头有哪些? 作用？
 
- ![](../sImgs/964abb00-bc69-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/964abb00-bc69-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、是什么
 
@@ -77,7 +77,7 @@ Cache-Control: max-age=0
 
 强制缓存与协商缓存的流程图如下所示：
 
- ![](../sImgs/a4065b00-bc69-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/a4065b00-bc69-11eb-85f6-6fac77c0c9b3.png)
 
 
 

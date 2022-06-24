@@ -1,6 +1,6 @@
 # 面试官：说说你对 linux 用户管理的理解？相关的命令有哪些？
 
- ![](../sImgs/8d8d9d70-0417-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/8d8d9d70-0417-11ec-8e64-91fdec0f05a1.png)
 
 
 
@@ -91,7 +91,7 @@ drwxr-xr-x   3  osmond   osmond    4096  05-16 13:32   nobp
 
 `-`代表当前没有，`rwx`对应代表的意思如下：
 
- ![](../sImgs/9ac2cf60-0417-11ec-8e64-91fdec0f05a1.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/9ac2cf60-0417-11ec-8e64-91fdec0f05a1.png)
 
 
 

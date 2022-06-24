@@ -1,6 +1,6 @@
 # 面试官：Vue组件之间的通信方式都有哪些？
 
-![](../sImgs/7de50d20-3aca-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/7de50d20-3aca-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、组件间通信的概念  
 
@@ -26,7 +26,7 @@
 
 关系图:
 
- ![](../sImgs/85b92400-3aca-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/85b92400-3aca-11eb-ab90-d9ae814b240d.png)
 
 ## 三、组件间通信的方案
 
@@ -43,7 +43,7 @@
 
 ### props传递数据
 
- ![](../sImgs/8f80a670-3aca-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/8f80a670-3aca-11eb-ab90-d9ae814b240d.png)
 
 - 适用场景：父组件传递数据给子组件
 - 子组件设置`props`属性，定义接收父组件传递过来的参数
@@ -212,7 +212,7 @@ inject:['foo'] // 获取到祖先组件传递过来的值
 
 - 适用场景: 复杂关系的组件数据传递
 - `Vuex`作用相当于一个用来存储共享变量的容器
- ![](../sImgs/fa207cd0-3aca-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/fa207cd0-3aca-11eb-ab90-d9ae814b240d.png)
 
 - `state`用来存放共享变量的地方
 - `getter`，可以增加一个`getter`派生状态，\(相当于`store`中的计算属性），用来获得共享变量的值
@@ -244,4 +244,4 @@ inject:['foo'] // 获取到祖先组件传递过来的值
 
 [面试官：说说你对Vue生命周期的理解\?](http://mp.weixin.qq.com/s?__biz=MzU1OTgxNDQ1Nw==&mid=2247484176&idx=1&sn=5623421ed2678046ed9e438aadf6e26f&chksm=fc10c146cb67485015f24f7e9f5862c4c685fc33485fe30e1b375a534b4031978439c554e0c0&scene=21#wechat_redirect)  
 
- ![](../sImgs/821b87b0-3ac6-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/821b87b0-3ac6-11eb-ab90-d9ae814b240d.png)

@@ -1,6 +1,6 @@
 # 面试官：说说对React中类组件和函数组件的理解？有什么区别？
 
- ![](../sImgs/6c196d80-de39-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/6c196d80-de39-11eb-85f6-6fac77c0c9b3.png)
 
 ## 一、类组件
 

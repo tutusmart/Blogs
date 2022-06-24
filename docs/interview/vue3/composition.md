@@ -1,6 +1,6 @@
 # 面试官：Vue3.0 所采用的 Composition Api 与 Vue2.x 使用的 Options Api 有什么不同？
 
- ![](../sImgs/8d6dd7b0-6048-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/8d6dd7b0-6048-11eb-85f6-6fac77c0c9b3.png)
 
 ## 开始之前
 `Composition API` 可以说是`Vue3`的最大特点，那么为什么要推出`Composition Api`，解决了什么问题？
@@ -20,7 +20,7 @@
 
 如下图：
 
- ![](../sImgs/9bf6d9d0-6048-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/9bf6d9d0-6048-11eb-85f6-6fac77c0c9b3.png)
 
 可以看到`Options`代码编写方式，如果是组件状态，则写在`data`属性上，如果是方法，则写在`methods`属性上...
 
@@ -36,7 +36,7 @@
 即使项目很大，功能很多，我们都能快速的定位到这个功能所用到的所有 API
 
 
- ![](../sImgs/acee9200-6048-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/acee9200-6048-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -55,7 +55,7 @@
 
 假设一个组件是一个大型组件，其内部有很多处理逻辑关注点（对应下图不用颜色）
 
- ![](../sImgs/dc83d070-6048-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/dc83d070-6048-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -109,7 +109,7 @@ export default defineComponent({
 
 再来一张图进行对比，可以很直观地感受到 `Composition API `在逻辑组织方面的优势，以后修改一个属性功能的时候，只需要跳到控制该属性的方法中即可
 
-![](../sImgs/e5804bc0-5c58-11eb-85f6-6fac77c0c9b3.png)
+![](https://www.oss.tuwei.site/blogsImgs/fe/e5804bc0-5c58-11eb-85f6-6fac77c0c9b3.png)
 
 
 

@@ -1,6 +1,6 @@
 # 面试官：说说flexbox（弹性盒布局模型）,以及适用场景？
 
- ![](../sImgs/ef25b0a0-9837-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/ef25b0a0-9837-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -12,7 +12,7 @@
 
 它的所有子元素自动成为容器成员，称为`flex`项目`item`
 
- ![](../sImgs/fbc5f590-9837-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/fbc5f590-9837-11eb-ab90-d9ae814b240d.png)
 
 容器中默认存在两条轴，主轴和交叉轴，呈90度关系。项目默认沿主轴排列，通过`flex-direction`来决定主轴的方向
 
@@ -54,7 +54,7 @@
 
 如下图所示：
 
- ![](../sImgs/0c9abc70-9838-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/0c9abc70-9838-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -110,7 +110,7 @@
 
 效果图如下：
 
- ![](../sImgs/2d5ca950-9838-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/2d5ca950-9838-11eb-85f6-6fac77c0c9b3.png)
 
 
 
@@ -155,7 +155,7 @@
 
 效果图如下：
 
- ![](../sImgs/39bcb0f0-9838-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/39bcb0f0-9838-11eb-ab90-d9ae814b240d.png)
 
 
 
@@ -198,11 +198,11 @@
 
 如果所有项目的`flex-grow`属性都为1，则它们将等分剩余空间（如果有的话）
 
- ![](../sImgs/48c8c5c0-9838-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/48c8c5c0-9838-11eb-ab90-d9ae814b240d.png)
 
 如果一个项目的`flex-grow`属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍
 
- ![](../sImgs/5b822b20-9838-11eb-ab90-d9ae814b240d.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/5b822b20-9838-11eb-ab90-d9ae814b240d.png)
 
 弹性容器的宽度正好等于元素宽度总和，无多余宽度，此时无论`flex-grow`是什么值都不会生效
 
@@ -222,7 +222,7 @@
 
 如果一个项目的`flex-shrink`属性为0，其他项目都为1，则空间不足时，前者不缩小
 
- ![](../sImgs/658c5be0-9838-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/658c5be0-9838-11eb-85f6-6fac77c0c9b3.png)
 
 在容器宽度有剩余时，`flex-shrink`也是不会生效的
 
@@ -291,7 +291,7 @@
 
 效果图如下：
 
- ![](../sImgs/6f8304a0-9838-11eb-85f6-6fac77c0c9b3.png)
+ ![](https://www.oss.tuwei.site/blogsImgs/fe/6f8304a0-9838-11eb-85f6-6fac77c0c9b3.png)
 
 
 
