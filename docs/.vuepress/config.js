@@ -16,11 +16,11 @@ module.exports = {
     navbar: [
       {
         text: '首页',
-        link: '/',
+        link: '/index.html',
       },
       {
         text: '面试之道',
-        link: 'https://tuwei.site/ui/mszd/',
+        link: 'http://ui.tuwei.site/mszd/index.html',
       },
       {
         text: '面试手册',
