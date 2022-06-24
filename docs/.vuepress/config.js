@@ -1,13 +1,16 @@
 // const { defaultTheme } = require('vuepress')
 const { hopeTheme } = require("vuepress-theme-hope");
 module.exports = {
-  base: process.env.NODE_ENV === 'production' ? '/ui/ms100/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/ms100/' : '/',
   dest: './ms100', //指定输出路径
   port: '1234', //端口号
   // 站点选项
   theme: hopeTheme({
     plugins:{
       blog: true,
+      mdEnhance: {
+        lazyLoad: true,
+      }
     },
     pure: true,
     navbar: [
@@ -31,10 +34,6 @@ module.exports = {
         "prefix": "/note",
         "children": [
             {
-                "text": "mysql基础知识总结",
-                "link": "mysql_base"
-            },
-            {
                 "text": "mysql学习笔记01",
                 "link": "mysql_day01"
             },
@@ -45,6 +44,14 @@ module.exports = {
             {
                 "text": "mysql学习笔记03",
                 "link": "mysql_day03"
+            },
+            {
+              "text": "mysql基础知识总结01",
+              "link": "mysql_base01"
+            },
+            {
+              "text": "mysql基础知识总结02",
+              "link": "mysql_base02"
             },
           ]
       },

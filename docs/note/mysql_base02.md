@@ -1,1184 +1,6 @@
-# ***mysql学习笔记***
-
-## **1、数据库概述及数据准备**
-
-### ***1.1、SQL概述***
-
-SQL，一般发音为sequel，SQL的全称Structured Query Language)，SQL用来和数据库打交道，完成和数据库的通信，SQL是一套标准。但是每一个数据库都有自己的特性别的数据库没有,当使用这个数据库特性相关的功能,这时SQL语句可能就不是标准了.(90%以上的SQL都是通用的)
-
-### ***1.2、什么是数据库***
-
-数据库，通常是一个或一组文件，保存了一些符合特定规格的数据,数据库对应的英语单词是DataBase,简称:DB,数据库软件称为数据库管理系统（DBMS），全称为DataBase Management System，如：Oracle、SQL Server、MySql、Sybase、informix、DB2、interbase、PostgreSql 。
-
-### ***1.3、MySql概述***
-
-MySQL最初是由“MySQL AB”公司开发的一套关系型数据库管理系统（RDBMS-Relational Database Mangerment System）。
-
-MySQL不仅是最流行的开源数据库，而且是业界成长最快的数据库，每天有超过7万次的下载量，其应用范围从大型企业到专有的嵌入应用系统。
-
-MySQL AB是由两个瑞典人和一个芬兰人：David Axmark、Allan Larsson和Michael “Monty” Widenius在瑞典创办的。
-
-在2008年初，Sun Microsystems收购了MySQL AB公司。在2009年，Oracle收购了Sun公司，使MySQL并入Oracle的数据库产品线。
-
-### ***1.4、MySql的安装***
-
-
-安装教程网上很多，这里不多介绍
-<!-- 打开下载的mysql安装文件mysql-essential-5.0.22-win32.msi，双击运行，出现如下界面
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps1.png)
-
-按“Next”继续
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps2.png)
-
-选择安装类型，有“Typical（默认）”、“Complete（完全）”、“Custom（用户自定义）”三个选项，我们选择“Custom”，有更多的选项，也方便熟悉安装过程
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps3.jpg)
-
-上一步选择了 Custom 安装，这里将设定 MySQL 的组件包和安装路径，设定好之后，单击 Next 继续安装。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps4.png)
-
-现在软件安装完成了，出现上面的界面，将 “Configure the Mysql Server now”前面的勾打上，点“Finish”结束软件的安装并启动mysql配置向导。
-
-mysql配置向导启动界面，按“Next”继续。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps5.png)
-
-选择配置方式，“Detailed Configuration（手动精确配置）”、“Standard Configuration（标准配置）”，我们选择“Detailed Configuration”，方便熟悉配置过程。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps6.png) 
-
-选择服务器类型，“Developer Machine（开发测试类，mysql占用很少资源）”、“Server Machine（服务器类型，mysql占用较多资源）”、“Dedicated MySQL Server Machine（专门的数据库服务器，mysql占用所有可用资源）”，大家根据自己的类型选择了，一般选“Server Machine”，不会太少，也不会占满。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps7.png)
-
-选择mysql数据库的大致用途，“Multifunctional Database（通用多功能型，能很好的支持InnoDB与MyISAM存储引擎）”、“Transactional Database Only（服务器类型，专注于事务处理，一般）”、“Non-Transactional Database Only（非事务处理型，较简单，主要做一些监控、记数用，对MyISAM数据类型的支持仅限于non-transactional），随自己的用途而选择了，我这里选择“Multifunctional Database”， 按“Next”继续。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps8.png)
-
-对InnoDB Tablespace进行配置，就是为InnoDB 数据库文件选择一个存储空间，如果修改了，要记住位置，重装的时候要选择一样的地方，否则可能会造成数据库损坏，当然，对数据库做个备份就没问题了，这里不详述。我这里没有修改，使用用默认位置，直接按“Next”继续。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps9.png)
-
-选择您的网站的一般mysql访问量，同时连接的数目，“Decision Support(DSS)/OLAP（20个左右）”、“Online Transaction Processing(OLTP)（500个左右）”、“Manual Setting（手动设置，自己输一个数）”，我这里选“Decision Support(DSS)/OLAP)”，按“Next”继续
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps10.png)
-
-是否启用TCP/IP连接，设定端口，如果不启用，就只能在自己的机器上访问mysql数据库了，我这里启用，把前面的勾打上，Port Number：3306，在这个页面上，您还可以选择“启用标准模式”（Enable Strict Mode），按“Next”继续。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps11.jpg)
-
-这个比较重要，就是对mysql默认数据库语言编码进行设置，第一个是西文编码，我们要设置的是utf8编码，按 “Next”继续。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps12.png)
-
-选择是否将mysql安装为windows服务，还可以指定Service Name（服务标识名称），是否将mysql的bin目录加入到Windows PATH（加入后，就可以直接使用bin下的文件，而不用指出目录名，比如连接，“mysql.exe -uusername -ppassword;”就可以了，不用指出mysql.exe的完整地址，很方便），我这里全部打上了勾，Service Name不变。按“Next”继续。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps13.png)
-
-设置完毕，按“Next”继续。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps14.png)
-
-确认设置无误，如果有误，按“Back”返回检查。按“Execute”使设置生效。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps15.png)
-
-设置完毕，按“Finish”结束mysql的安装与配置
-
-可以通过服务管理器管理 MYSQL 的服务。
-
-通过命令调用服务管理器:services.msc
-
-停止 MYSQL 的服务。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps16.jpg)
-
-启动 MYSQL 的服务。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps17.jpg)
-
-也可以在 DOS 中直接通过命令行的形式进行控制。
--->
-停止 MYSQL 的服务。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps18.jpg)
-
-启动 MYSQL 的服务。
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps19.jpg)
-
-### ***1.5、表***
-
-表(table)是一种**结构化的文件**，可以用来存储特定类型的数据，如：学生信息，课程信息，都可以放到表中。另外表都有特定的名称，而且不能重复。表中具有几个概念：列、行、主键。 列叫做字段(Column),行叫做表中的记录,每一个字段都有:字段名称/字段数据类型/字段约束/字段长度
-
-学生信息表
-
-| 学号（主键） | 姓名 | 性别 | 年龄 |
-| ------------ | ---- | ---- | ---- |
-| 00001        | 张三 | 男   | 20   |
-| 00002        | 李四 | 女   | 20   |
-
-### ***1.6、SQL的分类***
-
-数据查询语言(DQL-Data Query Language)
-
-代表关键字:select
-
-数据操纵语言(DML-Data Manipulation Language)
-
-代表关键字:insert,delete,update
-
-数据定义语言(DDL-Data Definition Language)
-
-代表关键字:create ,drop,alter,
-
-事务控制语言(TCL-Transactional Control Language)
-
-代表关键字:commit ,rollback;
-
-数据控制语言(DCL-Data Control Language)
-
-代表关键字:grant,revoke.
-
-### ***1.7、导入演示数据***
-
-使用MySQL命令行客户端来装载数据库。
-
-(1) 连接MySql
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps20.jpg)
-
-(2) 创建“bjpowernode”数据库
-
-mysql> create database bjpowernode;
-
-(3) 选择数据库
-
-mysql> use bjpowernode
-
-(4) 导入数据
-
-mysql>source D:\ bjpowernode.sql
-
-(5) 删除数据库(这里不要做!)
-
-mysql> drop database bjpowernode;
-
-### ***1.8、表结构描述***
-
-表名称：dept
-
-描述：部门信息表
-
-| 英文字段名称 | 中文描述 | 类型        |
-| ------------ | -------- | ----------- |
-| DEPTNO       | 部门编号 | INT(2)      |
-| DNAME        | 部门名称 | VARCHAR(14) |
-| LOC          | 位置     | VARCHAR(13) |
-
-表名称：emp
-
-描述：员工信息表
-
-| 英文字段名称 | 中文描述 | 类型         |
-| ------------ | -------- | ------------ |
-| EMPNO        | 员工编号 | INT (4)      |
-| ENAME        | 员工姓名 | VARCHAR(10)  |
-| JOB          | 工作岗位 | VARCHAR(9)   |
-| MGR          | 上级领导 | INT (4)      |
-| HIREDATE     | 入职日期 | DATE         |
-| SAL          | 薪水     | DOUBLE(7,2)  |
-| COMM         | 津贴     | DOUBLE (7,2) |
-| DEPTNO       | 部门编号 | INT(2)       |
-
-注：DEPTNO字段是外键，DEPTNO的值来源于dept表的主键，起到了约束的作用
-
-表名称：salgrade
-
-描述：薪水等级信息表
-
-| 英文字段名称 | 中文描述 | 类型 |
-| ------------ | -------- | ---- |
-| GRADE        | 等级     | INT  |
-| LOSAL        | 最低薪水 | INT  |
-| HISAL        | 最高薪水 | INT  |
-
-## **2、常用命令**
-
-### ***2.1、查看msyql版本***
-
-• MySQL程序选项具有以下两种通用形式：
-
-– 长选项，由单词之前加两个减号组成
-
-– 短选项，由单个字母之前加一个减号组成
-
-C:\Users\Administrator>mysql --version
-
-mysql  Ver 14.14 Distrib 5.5.36, for Win32 (x86)
-
-C:\Users\Administrator>mysql -V
-
-mysql  Ver 14.14 Distrib 5.5.36, for Win32 (x86)
-
-### ***2.2、创建数据库***
-
-\1. create database 数据库名称;
-
-create database  bjpowernode;
-
-\2. use 数据库名称
-
-use bjpowernode;
-
-在数据库中建立表，因此创建表的时候必须要先选择数据库。
-
-### ***2.3、查询当前使用的数据库***
-
-```sql
-select  database();
-```
-
-查询数据库版本也可以使用
-
-```sql
-select  version();
-```
-
-### ***2.4、终止一条语句***
-
-如果想要终止一条正在编写的语句，可键入\c。
-
-### ***2.5、退出*mysql***
-
-可使用\q、QUIT或EXIT：
-
-如：
-
-mysql> \q (ctrl+c)
-
-## **3、查看“演示数据”的表结构**
-
-### ***3.1、查看和指定现有的数据库***
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps21.jpg)
-
-### ***3.2、指定当前缺省数据库***
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps22.jpg)
-
-### ***3.3、查看当前使用的库***
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps23.jpg)
-
-### ***3.4、查看当前库中的表***
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps24.jpg)
-
-### ***3.5、查看其他库中的表***
-
-show tables from ;
-
-如查看exam库中的表
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps25.jpg)
-
-### ***3.6、查看表的结构***
-
-desc
-
-如：
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps26.jpg)
-
-### ***3.7、查看表的创建语句***
-
-show create table
-
-如：
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps27.jpg) ![img](https://www.oss.tuwei.site/blogsImgs/images/wps28.jpg)
-
-## **4、简单的查询**
-
-### ***4.1、查询一个字段***
-
-查询员工姓名
-
-| select ename from emp;                                       |
-| ------------------------------------------------------------ |
-| ![img](https://www.oss.tuwei.site/blogsImgs/images/wps29.jpg) |
-
-Select语句后面跟的是字段名称，select是关键字，select和字段名称之间采用空格隔开，from表示将要查询的表，它和字段之间采用空格隔开
-
-### ***4.2、查询多个字段***
-
-查询员工的编号和姓名
-
-```sql
-select empno, ename from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps30.jpg)
-
-查询多个字段，select中的字段采用逗号间隔即可，最后一个字段，也就是在from前面的字段不能使用逗号了。
-
-### ***4.3、查询全部字段***
-
-可以将所有的字段放到select语句的后面，这种方案不方便，但是比较清楚，我们可以采用如下便捷的方式查询全部字段
-
-```sql
-select * from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps31.jpg)
-
-采用select  *from emp，虽然简单，但是*号不是很明确，建议查询全部字段将相关字段写到select语句的后面,在以后java连接数据库的时候,是需要在java程序中编写SQL语句的,这个时候编写的SQL语句不建议使用select *  这种形式,建议写明字段,这样可读性强.
-
-### ***4.4、计算员工的年薪***
-
-列出员工的编号，姓名和年薪
-
-```sql
-select empno, ename, sal*12 from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps32.jpg)
-
-在select语句中可以使用运算符，以上存在一些问题，年薪的字段名称不太明确
-
-### ***4.5、将查询出来的字段显示为中文***
-
-```sql
-select empno as ‘员工编号’, ename as ‘员工姓名’, sal*12 as ‘年薪’ from emp;注意:字符串必须添加单引号 | 双引号
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps33.jpg)
-
-可以采用as关键字重命名表字段，其实as也可以省略，如：
-
-```sql
-select empno  "员工编号", ename  "员工姓名", sal*12  "年薪" from emp;
-```
-
-## **5、条件查询**
-
-条件查询需要用到where语句，where必须放到from语句表的后面
-
-支持如下运算符
-
-| 运算符           | 说明                                                         |
-| ---------------- | ------------------------------------------------------------ |
-| =                | 等于                                                         |
-| <>或!=           | 不等于                                                       |
-| <                | 小于                                                         |
-| <=               | 小于等于                                                     |
-| >                | 大于                                                         |
-| >=               | 大于等于                                                     |
-| between … and …. | 两个值之间,**等同于 >= and <=**                              |
-| is null          | 为null（is not null 不为空）                                 |
-| **and**          | 并且                                                         |
-| **or**           | 或者                                                         |
-| in               | 包含，相当于多个or（not in不在这个范围中）                   |
-| not              | not可以取非，主要用在is 或in中                               |
-| like             | like称为模糊查询，支持%或下划线匹配%匹配任意个字符下划线，一个下划线只匹配一个字符 |
-
-### ***5.1、等号操作符***
-
-查询薪水为5000的员工
-
-```sql
-select empno, ename, sal from emp where sal=5000;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps34.jpg)
-
-查询job为MANAGER的员工
-
-```sql
-select empno, ename from emp where job=manager;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps35.jpg)
-
-以上查询出现错误，因为job为字符串，所以出现了以上错误
-
-```sql
-select empno, ename from emp where job="manager";
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps36.jpg)
-
-```sql
-select empno, ename from emp where job=’manager’;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps37.jpg)
-
-也可以使用单引号
-
-```sql
-select empno, ename from emp where job='MANAGER';
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps38.jpg)
-
-以上输出正确，Mysql默认情况下大小写是不敏感的。
-
-注意：
-
-MySQL在windows下是不区分大小写的，将script文件导入MySQL后表名也会自动转化为小写，结果再 想要将数据库导出放到linux服务器中使用时就出错了。因为在linux下表名区分大小写而找不到表，查了很多都是说在linux下更改MySQL的设置使其也不区分大小写，但是有没有办法反过来让windows 下大小写敏感呢。其实方法是一样的，相应的更改windows中MySQL的设置就行了。
-
-   具体操作：
-
-   在MySQL的配置文件my.ini中增加一行：
-
-   lower_case_table_names = 0
-
-   其中 0：区分大小写，1：不区分大小写
-
-   MySQL在Linux下数据库名、表名、列名、别名大小写规则是这样的：
-
-1、数据库名与表名是严格区分大小写的；
-
-2、表的别名是严格区分大小写的；
-
-3、列名与列的别名在所有的情况下均是忽略大小写的；
-
-4、变量名也是严格区分大小写的；  MySQL在Windows下都不区分大小写
-
-### ***5.2、*** ***<>操作符***
-
-查询薪水不等于5000的员工
-
-```sql
-select empno, ename, sal from emp where sal <> 5000;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps39.jpg)
-
-一下写法等同于以上写法，建议使用第一种写法
-
-```sql
-select empno, ename, sal from emp where sal != 5000;
-```
-
-数值也可以采用单引号引起来，如一下语句是正确的(不建议这么写)：
-
-```sql
-select empno, ename, sal from emp where sal <> '5000';
-```
-
-查询工作岗位不等于MANAGER的员工
-
-```sql
-select empno, ename from emp where job <> 'MANAGER';
-```
-
-### ***5.3、between*** ***…*** ***and*** ***…*操作符
-
-查询薪水为1600到3000的员工(第一种方式，采用>=和<=)
-
-```sql
-select empno, ename, sal from emp where sal >= 1600 and sal <= 3000;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps40.jpg)
-
-查询薪水为1600到3000的员工(第一种方式，采用between … and …)
-
-```sql
-select empno, ename, sal from emp where sal between 1600 and 3000;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps41.jpg)
-
-关于between … and …，它是包含最大值和最小值的
-
-### ***5.4、is null***
-
-Null为空，但不是空串，为null可以设置这个字段不填值，如果查询为null的字段，采用is null
-
-查询津贴为空的员工
-
-```sql
-select * from emp where comm=null;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps42.jpg)
-
-以上也无法查询出符合条件的数据，因为null类型比较特殊，必须使用 is来比较
-```sql
-select * from emp where comm is null;
-```
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps43.jpg)
-
-以上查询正确
-
-### ***5.5、 and***
-
-and表示并且的含义，表示所有的条件必须满足
-
-工作岗位为MANAGER,薪水大于2500的员工
-
-```sql
-select * from emp where job='MANAGER' and sal > 2500;
-```
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps44.jpg)
-
-### ***5.6、or***
-
-or，只要满足条件即可,相当于包含
-
-查询出job为manager或者job为salesman的员工
-
-```sql
-select * from emp where job='MANAGER' or job='SALESMAN';
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps45.jpg)
-
-### ***5.7、表达式的优先级***
-
-查询薪水大于1800，并且部门代码为20或30的员工（错误的写法）
-
-```sql
-select * from emp where sal > 1800 and deptno = 20 or deptno = 30;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps46.jpg)
-
-以上输出不是预期结果，薪水小于1800的数据也被查询上来了，原因是表达式的优先级导致的，首先过滤sal > 1800 and deptno = 20，然后再将deptno = 30员工合并过来，所以是不对的
-
-查询薪水大于1800，并且部门代码为20或30的（正确的写法）
-
-```sql
-select * from emp where sal > 1800 and (deptno = 20 or deptno = 30);
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps47.jpg)
-
-关于运算符的问题：不用记，没有把握尽量采用括号
-
-### ***5.8、in***
-
-in表示包含的意思，完全可以采用or来表示，采用in会更简洁一些
-
-查询出job为manager或者job为salesman的员工
-
-```sql
-select * from emp where job in ('manager','salesman');
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps48.jpg)
-
-查询出薪水包含1600和薪水包含3000的员工
-```sql
-select * from emp where sal in(1600, 3000);
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps49.jpg)
-
-### ***5.9、not***
-
-查询出薪水不包含1600和薪水不包含3000的员工（第一种写法）
-
-```sql
-select * from emp where sal <> 1600 and sal <> 3000;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps50.jpg)
-
-查询出薪水不包含1600和薪水不包含3000的员工（第二种写法
-
-```sql
-select * from emp where not (sal = 1600 or sal = 3000);
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps51.jpg)
-
-查询出薪水不包含1600和薪水不包含3000的员工（第三种写法）
-
-```sql
-select * from emp where sal not in (1600, 3000);
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps52.jpg)
-
-查询出津贴不为null的所有员工
-
-```sql
-select * from emp where comm is not  null;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps53.jpg)
-
-### ***5.10、like***
-
-Like可以实现模糊查询，like支持%和下划线匹配
-
-查询姓名以M开头所有的员工
-
-```sql
-select * from emp where ename like 'M%';
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps54.jpg)
-
-查询姓名以N结尾的所有的员工
-
-```sql
-select * from emp where ename like '%N';
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps55.jpg)
-
-查询姓名中包含O的所有的员工
-
-```sql
-select * from emp where ename like '%O%';
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps56.jpg)
-
-查询姓名中第二个字符为A的所有员工
-
-```sql
-select * from emp where ename like '_A%';
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps57.jpg)Like中%和下划线的差别？
-
-%匹配任意字符出现的个数
-
-下划线只匹配一个字符
-
-Like 中的表达式必须放到单引号中|双引号中，以下写法是错误的：
-
-```sql
-select * from emp where ename like _A%
-```
-
-## **6、排序数据**
-
-### ***6.1、单一字段排序***
-
-排序采用order by子句，order by后面跟上排序字段，排序字段可以放多个，多个采用逗号间隔，order by默认采用升序，如果存在where子句那么order by必须放到where语句的后面
-
-按照薪水由小到大排序(系统默认由小到大)
-
-```sql
-select * from emp order by sal;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps58.jpg)
-
-取得job为MANAGER的员工，按照薪水由小到大排序(系统默认由小到大)
-
-```sql
-select * from emp where job='MANAGER' order by sal;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps59.jpg)
-
-如果包含where语句order by必须放到where后面，如果没有where语句order by放到表的后面
-
-以下写法是错误的：
-
-```sql
-select * from emp order by sal where job='MANAGER';
-```
-
-按照多个字段排序，如：首先按照job排序，再按照sal排序
-
-```sql
-select * from emp order by job,sal;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps60.jpg)
-
-### ***6.2、手动指定排序顺序***
-
-手动指定按照薪水由小到大排序
-
-```sql
-s[](https://tuwei.site/ui/ms100/note/mysql_base.html#_15-4%E3%80%81%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB)elect * from emp order by sal asc;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps61.jpg)
-
-手动指定按照薪水由大到小排序
-
-```sql
-select * from emp order by sal desc;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps62.jpg)
-
-### ***6.3、多个字段排序***
-
-按照job和薪水倒序
-
-```sql
-select * from emp order by job desc, sal desc;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps63.jpg)
-
-如果采用多个字段排序，如果根据第一个字段排序重复了，会根据第二个字段排序
-
-### ***6.4、使用字段的位置来排序***
-
-按照薪水升序
-
-```sql
-select * from emp order by 6;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps64.jpg)
-
-不建议使用此种方式，采用数字含义不明确，程序不健壮
-
-## **7、分组函数/聚合函数/多行处理函数**
-
-| count | 取得记录数 |
-| ----- | ---------- |
-| sum   | 求和       |
-| avg   | 取平均     |
-| max   | 取最大的数 |
-| min   | 取最小的数 |
-
-**注意：分组函数自动忽略空值，不需要手动的加where条件排除空值。**
-
-**select count() from emp** **where xxx****;符合条件的所有记录总数。**
-
-**select count(comm) from emp;comm这个字段中不为空的元素总数。**
-
-注意：分组函数不能直接使用在where关键字后面。
-
-```sql
-mysql> select ename,sal from emp where sal > avg(sal);
-
-ERROR 1111 (HY000): Invalid use of group function
-```
-
-### ***7.1、count***
-
-取得所有的员工数
-
-
-```sql
-select count(*) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps65.jpg)Count(*)表示取得所有记录，忽略null，为null的值也会取得
-
-取得津贴不为null员工数
-
-```sql
-select count(comm) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps66.jpg)
-
-采用count(字段名称)，不会取得为null的记录
-
-取得工作岗位的个数
-
-```sql
-select count(distinct job ) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps67.jpg)
-
-### ***7.2、sum***
-
-Sum可以取得某一个列的和，null会被忽略
-
-取得薪水的合计
-
-```sql
-select sum(sal) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps68.jpg)
-
-取得津贴的合计
-
-```sql
-select sum(comm) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps69.jpg)
-
-null会被忽略
-
-取得薪水的合计（sal+comm）
-
-```sql
-select sum(sal+comm) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps70.jpg)
-
-从以上结果来看，不正确，原因在于comm字段有null值，所以无法计算，sum会忽略掉，正确的做法是将comm字段转换成0
-
-```sql
-select sum(sal+IFNULL(comm, 0)) from emp;
-```
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps71.jpg)
-
-### ***7.3、avg***
-
-取得某一列的平均值
-
-取得平均薪水
-
-select avg(sal) from emp;
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps72.jpg)
-
-### ***7.4、max***
-
-取得某个一列的最大值
-
-取得最高薪水
-
-```sql
-select max(sal) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps73.jpg)
-
-取得最晚入职得员工
-
-```sql
-select max(str_to_date (hiredate, '%Y-%m-%d')) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps74.jpg)
-
-### ***7.5、min***
-
-取得某个一列的最小值
-
-取得最低薪水
-
-```sql
-select min(sal) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps75.jpg)
-
-取得最早入职得员工（可以不使用str_to_date转换）
-
-```sql
-select min(str_to_date(hiredate, '%Y-%m-%d')) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps76.jpg)
-
-### ***7.6、组合聚合函数***
-
-可以将这些聚合函数都放到select中一起使用
-
-```sql
-select count(*),sum(sal),avg(sal),max(sal),min(sal) from emp;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps77.jpg)
-
-## **8、分组查询**
-
-分组查询主要涉及到两个子句，分别是：group by和having
-
-### ***8.1、group by***
-
-取得每个工作岗位的工资合计，要求显示岗位名称和工资合计
-
-```sql
-select job, sum(sal) from emp group by job;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps78.jpg)
-
-如果使用了order by，order by必须放到group by后面
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps79.jpg)
-
-按照工作岗位和部门编码分组，取得的工资合计
-
-n 原始数据
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps80.jpg)
-
-n 分组语句
-
-```sql
-select job,deptno,sum(sal) from emp group by job,deptno;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps81.jpg)
-
-```sql
-mysql> select empno,deptno,avg(sal) from emp group by deptno;
-```
-+-------+--------+-------------+
-
-| empno | deptno | avg(sal)  |
-
-+-------+--------+-------------+
-
-|  7782 |  10 | 2916.666667 |
-
-|  7369 |  20 | 2175.000000 |
-
-|  7499 |  30 | 1566.666667 |
-
-+-------+--------+-------------+
-
-以上SQL语句在Oracle数据库中无法执行，执行报错。
-
-以上SQL语句在Mysql数据库中可以执行，但是执行结果矛盾。
-
-在SQL语句中若有group by 语句，那么在select语句后面只能跟**分组函数****+****参与分组的字段**。
-
-### ***8.2、having***
-
-如果想对分组数据再进行过滤需要使用having子句
-
-取得每个岗位的平均工资大于2000
-
-```sql
-select job, avg(sal) from emp group by job having avg(sal) >2000;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps82.jpg)
-
-分组函数的执行顺序：
-
-根据条件查询数据
-
-分组
-
-采用having过滤，取得正确的数据
-
-### ***8.3、select语句总结***
-
-一个完整的select语句格式如下
-
-select 字段from 表名where …….group by ……..having …….(就是为了过滤分组后的数据而存在的—不可以单独的出现)order by ……..
-
-以上语句的执行顺序
-
-1. 首先执行where语句过滤原始数据
-
-2. 执行group by进行分组
-
-3. 执行having对分组数据进行操作
-
-4. 执行select选出数据
-
-5. 执行order by排序
-
-原则：能在where中过滤的数据，尽量在where中过滤，效率较高。having的过滤是专门对分组之后的数据进行过滤的。
-
-## **9、连接查询**
-
-### ***9.1、SQL92语法***
-
-连接查询：也可以叫跨表查询，需要关联多个表进行查询
-
-显示每个员工信息，并显示所属的部门名称
-
-```sql
-select ename, dname from emp, dept;                          |
-```
-
-以上输出，不正确，输出了56条数据，其实就是两个表记录的成绩，这种情况我们称为：“笛卡儿乘积”，出现错误的原因是：没有指定连接条件
-
-指定连接条件
-
-```sql
-select emp.ename, dept.dname from emp, dept where emp.deptno=dept.deptno;也可以使用别名select e.ename, d.dname from emp e, dept d where e.deptno=d.deptno;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps83.jpg)
-
-以上结果输出正确，因为加入了正确的连接条件
-
-以上查询也称为 “内连接”，只查询相等的数据（连接条件相等的数据）
-
-取得员工和所属的领导的姓名
-
-```sql
-select e.ename, m.ename from emp e, emp m where e.mgr=m.empno; 
-```
-
-
-以上称为“自连接”，只有一张表连接，具体的查询方法，把一张表看作两张表即可，如以上示例：第一个表emp e代码了员工表，emp m代表了领导表，相当于员工表和部门表一样
-
-### ***9.2、SQL99语法***
-
-（内连接）显示薪水大于2000的员工信息，并显示所属的部门名称
-
-采用SQL92语法：select e.ename, e.sal, d.dname from emp e, dept d where e.deptno=d.deptno and  e.sal > 2000;采用SQL99语法：select e.ename, e.sal, d.dname from emp e join dept d on e.deptno=d.deptno where e.sal>2000;或select e.ename, e.sal, d.dname from emp e inner join dept d on e.deptno=d.deptno where e.sal>2000;在实际中一般不加inner关键字
-
-Sql92语法和sql99语法的区别：99语法可以做到表的连接和查询条件分离，特别是多个表进行连接的时候，会比sql92更清晰
-
-（外连接）显示员工信息，并显示所属的部门名称，如果某一个部门没有员工，那么该部门也必须显示出来
-
-```sql
-右连接：select e.ename, e.sal, d.dname from emp e right join dept d on e.deptno=d.deptno;左连接：select e.ename, e.sal, d.dname from dept d left join emp e on e.deptno=d.deptno;以上两个查询效果相同
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps84.jpg)
-
-连接分类：
-
-内链接
-
-表1  inner join  表2  on  关联条件
-
-做连接查询的时候一定要写上关联条件
-
-inner 可以省略
-
-外连接
-
-左外连接
-
-表1  left  outer  join  表2  on  关联条件
-
-做连接查询的时候一定要写上关联条件
-
-outer  可以省略*右外连接
-
-表1  right  outer  join  表2  on  关联条件
-
-做连接查询的时候一定要写上关联条件
-
-outer  可以省略
-
-*左外连接（左连接）和右外连接（右连接）的区别：
-
-*左连接以左面的表为准和右边的表比较，和左表相等的不相等都会显示出来，右表符合条件的显示,不符合条件的不显示
-
-*右连接恰恰相反，以上左连接和右连接也可以加入outer关键字，但一般不建议这种写法，如：
-
-```sql
-select e.ename, e.sal, d.dname from emp e right outer join dept d on e.deptno=d.deptno;select e.ename, e.sal, d.dname from dept d left outer join emp e on e.deptno=d.deptno;
-```
-
-左连接能完成的功能右连接一定可以完成
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps85.jpg)
-
-## **10、子查询**
-
-子查询就是嵌套的select语句，可以理解为子查询是一张表
-
-### ***10.1、在where语句中使用子查询，也就是在where语句中加入select语句***
-
-查询员工信息，查询哪些人是管理者，要求显示出其员工编号和员工姓名
-
-实现思路：
-
-1、首先取得管理者的编号，去除重复的
-
-```sql
-select distinct mgr from emp where mgr is not null; distinct 去除重复行
-```
-
-2、查询员工编号包含管理者编号的
-
-```sql
-select empno, ename from emp where empno in(select mgr from emp where mgr is not null);
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps86.jpg)
-
-查询哪些人的薪水高于员工的平均薪水，需要显示员工编号，员工姓名，薪水
-
-实现思路
-
-1、 取得平均薪水
-
-```sql
-select avg(sal) from emp;
-```
-
-2、 取得大于平均薪水的员工
-
-```sql
-select empno, ename, sal from emp where sal > (select avg(sal) from emp);
-```
-
-​ ![img](https://www.oss.tuwei.site/blogsImgs/images/wps87.jpg)
-
-### ***10.2、在from语句中使用子查询，可以将该子查询看做一张表***
-
-查询员工信息，查询哪些人是管理者，要求显示出其员工编号和员工姓名
-
-首先取得管理者的编号，去除重复的
-
-```sql
-select distinct mgr from emp where mgr is not null;
-```
-
-将以上查询作为一张表，放到from语句的后面
-
-```sql
-使用92语法：select e.empno, e.ename from emp e, (select distinct mgr from emp where mgr is not null) m where e.empno=m.mgr;使用99语法：select e.empno, e.ename from emp e join (select distinct mgr from emp where mgr is not null) m on e.empno=m.mgr;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps88.jpg)
-
-查询各个部门的平均薪水所属等级，需要显示部门编号，平均薪水，等级编号
-
-实现思路
-
-1、首先取得各个部门的平均薪水
-
-```sql
-select deptno, avg(sal) avg_sal from emp group by deptno;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps89.jpg)
-
-2、将部门的平均薪水作为一张表与薪水等级表建立连接，取得等级
-
-| select deptno,avg(sal) avg_sal from emp group by deptno;     |
-| ------------------------------------------------------------ |
-| select * from salgrade;                                      |
-| select a.deptno,a.avg_sal,g.grade from (select deptno,avg(sal) avg_sal from emp group by deptno ) a join salgrade g on a.avg_sal between g.losal and hisal; |
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps90.png)![img](https://www.oss.tuwei.site/blogsImgs/images/wps91.png)![img](https://www.oss.tuwei.site/blogsImgs/images/wps92.png)![img](https://www.oss.tuwei.site/blogsImgs/images/wps93.png)![img](https://www.oss.tuwei.site/blogsImgs/images/wps94.jpg)
-
-### ***10.3、在select语句中使用子查询***
-
-查询员工信息，并显示出员工所属的部门名称
-
-第一种做法，将员工表和部门表连接
-
-```sql
-select e.ename, d.dname from emp e, dept d where e.deptno=d.deptno;
-```
-
-第二种做法，在select语句中再次嵌套select语句完成部分名称的查询
-
-```sql
-select e.ename, (select d.dname from dept d where e.deptno=d.deptno) as dname from emp e;
-```
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps95.jpg)
-
 ## **11、union**
 
-### ***11.1、union可以合并集合（相加）***
+### 11.1、union可以合并集合（相加）
 
 1、查询job包含MANAGER和包含SALESMAN的员工
 
@@ -1196,7 +18,7 @@ select  *from emp where job='MANAGER'unionselect*  from emp where job='SALESMAN'
 
 合并结果集的时候，需要查询字段对应个数相同。*在Oracle中更严格，不但要求个数相同，而且还要求类型对应相同*。
 
-## **12、****limit****的使用**
+## **12、*limit*的使用**
 
 mySql提供了limit ，主要用于提取前几条或者中间某几行数据
 
@@ -1206,7 +28,7 @@ n是指从第m+1条开始，取n条。
 select* from tablename limit 2,4
 即取出第3条至第6条，4条记录
 
-### ***12.1、取得前5条数据***
+### 12.1、取得前5条数据
 
 ```sql
 select * from emp  limit 5;
@@ -1216,7 +38,7 @@ select * from emp  limit 5;
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps99.jpg)
 
-### ***12.2、从第二条开始取两条数据***
+### 12.2、从第二条开始取两条数据
 
 ```sql
 select * from emp  limit 1,2;
@@ -1224,7 +46,7 @@ select * from emp  limit 1,2;
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps100.jpg)
 
-### ***12.3、取得薪水最高的前5名***
+### 12.3、取得薪水最高的前5名
 
 ```sql
 select * from emp e order by e.sal desc limit 5;
@@ -1234,7 +56,7 @@ select * from emp e order by e.sal desc limit 5;
 
 ## **13、表**
 
-### ***13.1、创建表***
+### 13.1、创建表
 
 语法格式
 ```sql
@@ -1282,11 +104,11 @@ insert into t_student(student_id, student_name, sex, birthday, email, classes_id
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20), sex  char(2)  default  'm', birthday date,  email  varchar(30), classes_id int(3) ) insert into t_student(student_id, student_name, birthday, email, classes_id) values(1002, 'zhangsan', '1988-01-01', 'qqq@163.com', 10) ![img](https://www.oss.tuwei.site/blogsImgs/images/wps104.jpg)
 ```
 
-### ***13.2、增加/删除/修改表结构***
+### 13.2、增加/删除/修改表结构
 
 采用alter table来增加/删除/修改表结构，不影响表中的数据
 
-#### ***13.2.1、添加字段***
+#### 13.2.1、添加字段
 
 如：需求发生改变，需要向t_student中加入联系电话字段，字段名称为：contatct_tel 类型为varchar(40)
 
@@ -1296,7 +118,7 @@ alter table t_student add  contact_tel varchar(40);
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps105.jpg)
 
-#### ***13.2.2、修改字段***
+#### 13.2.2、修改字段
 
 如：student_name无法满足需求，长度需要更改为100
 
@@ -1310,7 +132,7 @@ alter table t_student modify student_name varchar(100) ;
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps107.jpg)
 
-#### ***13.2.3、删除字段***
+#### 13.2.3、删除字段
 
 如：删除联系电话字段
 
@@ -1320,9 +142,9 @@ alter table t_student drop contact_tel;
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps108.jpg)
 
-### ***13.3、添加、修改和删除***
+### 13.3、添加、修改和删除
 
-#### ***13.3.1、insert***
+#### 13.3.1、insert
 
 添加、修改和删出都属于DML，主要包含的语句：insert、update、delete
 
@@ -1400,7 +222,7 @@ insert into emp_bak select * from emp where sal=3000;
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps119.jpg)
 
-#### ***13.3.2、update***
+#### 13.3.2、update
 
 可以修改数据，可以根据条件修改数据
 
@@ -1414,7 +236,7 @@ update 表名 set 字段名称1=需要修改的值1, 字段名称2=需要修改�
 update emp set sal=sal+sal*0.1 where job='MANAGER';
 ```
 
-#### ***13.3.3、delete***
+#### 13.3.3、delete
 
 可以删除数据，可以根据条件删除数据
 
@@ -1436,7 +258,7 @@ delete from emp where comm=500;
 delete from emp where comm is null;
 ```
 
-### ***13.4、创建表加入约束***
+### 13.4、创建表加入约束
 
 常见的约束
 
@@ -1450,7 +272,7 @@ d) 外键约束，foreign key
 
 e) 自定义检查约束，check（不建议使用）(在mysql中现在还不支持)
 
-#### ***13.4.1、非空约束，not null***
+#### 13.4.1、非空约束，not null
 
 非空约束，针对某个字段设置其值不为空，如：学生的姓名不能为空
 
@@ -1462,7 +284,7 @@ drop table if exists t_student; create table t_student( student_id  int(10), stu
 
 以上错误为加入的学生姓名为空。
 
-#### ***13.4.2、唯一约束，unique***
+#### 13.4.2、唯一约束，unique
 
 唯一性约束，它可以使某个字段的值不能重复，如：email不能重复：
 
@@ -1495,7 +317,7 @@ select * from table_constraints where table_name = 't_student';
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20) not null, sex  char(2)  default  'm', birthday date,  email  varchar(30)  , classes_id int(3) ,constraint email_unique unique(email)/*表级约束*/)
 ```
 
-#### ***13.4.3、主键约束，primary key***
+#### 13.4.3、主键约束，primary key
 
 每个表应该具有主键，主键可以标识记录的唯一性，主键分为单一主键和复合（联合）主键，单一主键是由一个字段构成的，复合（联合）主键是由多个字段构成的
 
@@ -1513,7 +335,7 @@ drop table if exists t_student; create table t_student() student_id  int(10)  pr
 drop table if exists t_student; create table t_student( student_id  int(10), student_name  varchar(20) not null, sex  char(2)  default  'm', birthday date,  email  varchar(30)  , classes_id int(3),  CONSTRAINT p_id PRIMARY key (student_id))insert into t_student(student_id, student_name , sex, birthday, email, classes_id) values(1001,'zhangsan','m', '1988-01-01', 'qqq@163.com', 10)
 ```
 
-#### ***13.4.4、外键约束，foreign  key***
+#### 13.4.4、外键约束，foreign  key
 
 外键主要是维护表之间的关系的，主要是为了保证参照完整性，如果表中的某个字段为外键字段，那么该字段的值必须来源于参照的表的主键，如：emp中的deptno值必须来源于dept表中的deptno字段值。
 
@@ -1563,9 +385,9 @@ insert into t_classes (classes_id,classes_name) values (10,'366'); insert into t
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps127.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除子表中的引用记录，再修改父表中的数据。我们也可以采取以下措施 级联更新。mysql> delete from t_classes where classes_id = 10;![img](https://www.oss.tuwei.site/blogsImgs/images/wps128.jpg) 因为子表（t_student）存在一个外键classes_id，它参照了父表（t_classes）中的主键，所以先删除父表，那么将会影响子表的参照完整性，所以正确的做法是，先删除子表中的数据，再删除父表中的数据，采用drop table也不行，必须先drop子表，再drop父表我们也可以采取以下措施 级联删除。
 
-#### ***13.4.5、级联更新与级联删除***
+#### 13.4.5、级联更新与级联删除
 
-##### ***13.4.5.1、on*** ***update*** ***cascade;***
+##### 13.4.5.1、on update cascade;
 
 mysql对有些约束的修改比较麻烦，所以我们可以先删除，再添加 
 
@@ -1576,7 +398,7 @@ alter table t_student drop foreign key fk_classes_id; alter table t_student add 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps129.jpg)
 我们只修改了父表中的数据，但是子表中的数据也会跟着变动。
 
-##### ***13.4.5.2、on delete cascade*
+##### 13.4.5.2、on delete cascade*
 
 mysql对有些约束的修改时不支持的，所以我们可以先删除，再添加 
 ```sql
@@ -1585,7 +407,7 @@ alter table t_student drop foreign key fk_classes_id; alter table t_student add 
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps130.jpg) 我们只删除了父表中的数据，但是子表也会中的数据也会删除。
 
-### ***13.5、t_student和t_classes完整示例***
+### 13.5、t_student和t_classes完整示例
 
 ```sql
 drop table if exists t_classes;create table t_classes( classes_id int (3), classes_name varchar(30) not null, constraint pk_classes_id primary key(classes_id) ) drop table if exists t_student;create table t_student( student_id int(10), student_name  varchar(50) not null, sex  char(2) not null, birthday date not null, email  varchar(30) unique, classes_id int (3) not null, constraint pk_student_id primary key(student_id), constraint fk_classes_id foreign key(classes_id) references t_classes(classes_id) )
@@ -1593,7 +415,7 @@ drop table if exists t_classes;create table t_classes( classes_id int (3), class
 
 ## **14、存储引擎（了解）**
 
-### ***14.1、存储引擎的使用***
+### 14.1、存储引擎的使用
 
 • 数据库中的各表均被（在创建表时）指定的存储引擎来处理。
 
@@ -1627,9 +449,9 @@ mysql> SHOW CREATE TABLE emp\G
 
 mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
-### ***14.2、常用的存储引擎***
+### 14.2、常用的存储引擎
 
-#### ***14.2.1、MyISAM****存储引擎**
+#### 14.2.1、MyISAM*存储引擎**
 
 • MyISAM存储引擎是MySQL最常用的引擎。
 
@@ -1647,7 +469,7 @@ mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
 – 可被转换为压缩、只读表来节省空间
 
-#### ***14.2.2、InnoDB****存储引擎**
+#### 14.2.2、InnoDB*存储引擎**
 
 • InnoDB存储引擎是MySQL的缺省引擎。
 
@@ -1669,7 +491,7 @@ mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
 – 支持外键及引用的完整性，包括级联删除和更新
 
-#### ***14.2.3、MEMORY****存储引擎**
+#### 14.2.3、MEMORY存储引擎
 
 • 使用MEMORY存储引擎的表，其数据存储在内存中，且行的长度固定，这两个特点使得MEMORY存储引擎非常快。
 
@@ -1685,7 +507,7 @@ mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
 • MEMORY存储引擎以前被称为HEAP引擎。
 
-### ***14.3、选择合适的存储引擎***
+### 14.3、选择合适的存储引擎
 
 • MyISAM表最适合于大量的数据读而少量数据更新的混合操作。MyISAM表的另一种适用情形是使用压缩的只读表。
 
@@ -1695,7 +517,7 @@ mysql> SHOW TABLE STATUS LIKE 'emp' \G
 
 ## **15、事务**
 
-### ![img](https://www.oss.tuwei.site/blogsImgs/images/wps132.png)***15.1、概述***
+### ![img](https://www.oss.tuwei.site/blogsImgs/images/wps132.png)15.1、概述
 
 事务可以保证多个操作原子性，要么全成功，要么全失败。对于数据库来说事务保证批量的DML要么全成功，要么全失败。事务具有四个特征ACID
 
@@ -1735,7 +557,7 @@ e) SET AUTOCOMMIT：禁用或启用事务的自动提交模式
 
 注意：rollback，或者commit后事务就结束了。
 
-### ***15.2、事务的提交与回滚演示***
+### 15.2、事务的提交与回滚演示
 
 (1) 创建表
 
@@ -1777,7 +599,7 @@ insert into user (username,password) values ('zhangsan','123');
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps139.jpg)
 
-### ***15.3、自动提交模式***
+### 15.3、自动提交模式
 
 • 自动提交模式用于决定新事务如何及何时启动。
 
@@ -1815,7 +637,7 @@ show variables like '%auto%'; -- 查看变量状态
 
 ### **15.4、事务的隔离级别**
 
-#### ***15.4.1、隔离级别***
+#### 15.4.1、隔离级别
 
 • 事务的隔离级别决定了事务之间可见的级别。
 
@@ -1833,7 +655,7 @@ show variables like '%auto%'; -- 查看变量状态
 
 ​ 幻像读是指在同一个事务中以前没有的行，由于其他事务的提交而出现的新行。
 
-#### ***15.4.2、四个隔离级别***
+#### 15.4.2、四个隔离级别
 
 • InnoDB 实现了四个隔离级别，用以控制事务所做的修改，并将修改通告至其它并发的事务：
 
@@ -1861,13 +683,13 @@ A在事物中执行DML语句时,未提交
 
 B不以执行DML,DQL语句
 
-#### ***15.4.3、隔离级别与一致性问题的关系***
+#### 15.4.3、隔离级别与一致性问题的关系
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps140.jpg)
 
-#### ***15.4.4、设置服务器缺省隔离级别***
+#### 15.4.4、设置服务器缺省隔离级别
 
-##### ***通过修改配置文件设置***
+##### 通过修改配置文件设置
 
 • 可以在my.ini文件中使用transaction-isolation选项来设置服务器的缺省事务隔离级别。
 
@@ -1887,7 +709,7 @@ B不以执行DML,DQL语句
 
 transaction-isolation = READ-COMMITTED
 
-##### ***通过命令动态设置隔离级别***
+##### 通过命令动态设置隔离级别
 
 • 隔离级别也可以在运行的服务器中动态设置，应使用SET TRANSACTION ISOLATION LEVEL语句。
 
@@ -1905,9 +727,9 @@ transaction-isolation = READ-COMMITTED
 
 – SERIALIZABLE
 
-• 例如： SET TRANSACTION ISOLATION LEVEL ***REPEATABLE READ***;
+• 例如： SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
 
-#### ***15.4.5、隔离级别的作用范围***
+#### 15.4.5、隔离级别的作用范围
 
 • 事务隔离级别的作用范围分为两种：
 
@@ -1927,7 +749,7 @@ mysql> SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED；
 
 mysql> SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED；
 
-#### ***15.4.6、查看隔离级别***
+#### 15.4.6、查看隔离级别
 
 • 服务器变量tx_isolation（包括会话级和全局级两个变量）中保存着当前的会话隔离级别。
 
@@ -1945,9 +767,9 @@ mysql> SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED；
 
 ​ mysql> SELECT @@global.tx_isolation;
 
-#### ***15.4.7、并发事务与隔离级别示例***
+#### 15.4.7、并发事务与隔离级别示例
 
-##### ***read uncommitted(未提交读) --脏读(Drity Read)：***
+##### read uncommitted(未提交读) --脏读(Drity Read)：
 
 | 会话一                                                      | 会话二                 |
 | ----------------------------------------------------------- | ---------------------- |
@@ -1962,7 +784,7 @@ mysql> SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED；
 | s1>rollback;                                                |                        |
 |                                                             | s2>select * from tx;   |
 
-##### ***read committed(已提交读)***
+##### read committed(已提交读)
 
 | 会话一                                                     | 会话二                |
 | ---------------------------------------------------------- | --------------------- |
@@ -1975,7 +797,7 @@ mysql> SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED；
 | s1>commit;                                                 |                       |
 |                                                            | s2>select * from tx;  |
 
-##### ***repeatable read(可重复读)***
+##### repeatable read(可重复读)
 
 | 会话一                                                      | 会话二                |
 | ----------------------------------------------------------- | --------------------- |
@@ -1989,13 +811,13 @@ mysql> SET GLOBAL TRANSACTION ISOLATION LEVEL READ COMMITTED；
 
 ## **16、索引**
 
-#### ***16.1、索引原理***
+#### 16.1、索引原理
 
 索引被用来快速找出在一个列上用一特定值的行。没有索引，MySQL不得不首先以第一条记录开始，然后读完整个表直到它找出相关的行。表越大，花费时间越多。对于一个有序字段，可以运用二分查找（Binary Search），这就是为什么性能能得到本质上的提高。MYISAM和INNODB都是用B+Tree作为索引结构
 
 （主键，unique 都会默认的添加索引）
 
-#### ***16.2、索引的应用***
+#### 16.2、索引的应用
 
 ##### 16.2.1、创建索引
 
@@ -2025,13 +847,17 @@ create unique index u_ename on emp(ename);
 
 2、alter table 表名 add unique index 索引名 (列名);
 
+```sql
 create index test_index on emp (sal);
+```
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps142.jpg)
 
 ##### 16.2.2、查看索引
 
+```sql
 show index from emp;
+```
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps143.jpg)
 
@@ -2057,7 +883,7 @@ DROP INDEX index_name ON talbe_nameALTER TABLE table_name DROP INDEX index_nameA
 
 ## **17、视图**
 
-### ***17.1、什么是视图***
+### 17.1、什么是视图
 
 • 视图是一种根据查询（也就是SELECT表达式）定义的数据库对象，用于获取想要看到和使用的局部数据。
 
@@ -2075,13 +901,13 @@ DROP INDEX index_name ON talbe_nameALTER TABLE table_name DROP INDEX index_nameA
 
 视图作用：
 
-\- 提高检索效率
+- 提高检索效率
 
-\- 隐藏表的实现细节【面向视图检索】
+- 隐藏表的实现细节【面向视图检索】
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps146.jpg)
 
-### ***17.2、创建视图***
+### 17.2、创建视图
 
 如下示例：查询员工的姓名，部门，工资入职信息等信息。
 
@@ -2099,51 +925,53 @@ create view v_dept_avg_sal_grade as select a.deptno, a.avg_sal, b.grade from (se
 
 /*注意mysql不支持子查询创建视图*/
 
-### ***17.3、修改视图***
+### 17.3、修改视图
 
 ```sql
 alter view  v_dept_emp as select ename,dname,sal,hiredate,e.deptno from emp e,dept d where e.deptno = 20;
 ```
 
-### ***17.4、删除视图***
+### 17.4、删除视图
 
+```sql
 drop view if exists v_dept_emp;
+```
 
 ## **18、DBA命令（了解）**
 
-### ***18.1、新建用户***
+### 18.1、新建用户
 
 ```sql
 CREATE USER username IDENTIFIED BY 'password';说明:username——你将创建的用户名, password——该用户的登陆密码,密码可以为空,如果为空则该用户可以不需要密码登陆服务器.例如：create user p361 identified by '123';--可以登录但是只可以看见一个库  information_schema
 ```
 
-### ***18.2、授权***
+### 18.2、授权
 
 命令详解mysql> grant all privileges on dbname.tbname to 'username'@'login ip' identified by 'password' with grant option;1) dbname=*表示所有*[*数据库*](http://www.2cto.com/database/)*2) tbname=*表示所有表3) login ip=%表示任何ip4) password为空，表示不需要密码即可登录5) with grant option;  表示该用户还可以授权给其他用户l 细粒度授权首先以root用户进入mysql，然后键入命令：grant select,insert,update,delete on*.* to p361 [@localhost]() Identified by "123"; 如果希望该用户能够在任何机器上登陆mysql，则将localhost改为 "%" 。l 粗粒度授权我们测试用户一般使用该命令授权，GRANT ALL PRIVILEGES ON *.*TO 'p361'@'%' Identified by "123"; 注意:用以上命令授权的用户不能给其它用户授权,如果想让该用户可以授权,用以下命令: GRANT ALL PRIVILEGES ON*.* TO 'p361'@'%' Identified by "123"  WITH GRANT OPTION; privileges包括：1)  alter：修改数据库的表2)  create：创建新的数据库或表3)  delete：删除表数据4)  drop：删除数据库/表5)  index：创建/删除索引6)  insert：添加表数据7)  select：查询表数据8)  update：更新表数据9)  all：允许任何操作10)  usage：只允许登录
 
-### ***18.3、回收权限***
+### 18.3、回收权限
 
 命令详解revoke privileges on dbname[.tbname] from username;revoke all privileges on *.* from p361; use mysqlselect * from user进入 mysql库中修改密码;update user set password =  password('qwe') where user = 'p646';刷新权限;flush privileges
 
-### ***18.4、导出导入***
+### 18.4、导出导入
 
-#### ***18.4.1、导出***
+#### 18.4.1、导出
 
-##### ***18.4.1.1、*导出整个数据库
+##### 18.4.1.1、*导出整个数据库
 
 在windows的dos命令窗口中执行：mysqldump bjpowernode>D:\bjpowernode.sql -uroot -p123
 
-##### ***18.4.1.2、导出****指定库下的指定表**
+##### 18.4.1.2、导出*指定库下的指定表**
 
 在windows的dos命令窗口中执行：mysqldump bjpowernode emp> D:\ bjpowernode.sql -uroot –p123
 
-#### ***18.4.2、导入***
+#### 18.4.2、导入
 
 登录MYSQL数据库管理系统之后执行：source D:\ bjpowernode.sql
 
 ## **19、数据库设计的三范式**
 
-### ***19.1、第一范式***
+### 19.1、第一范式
 
 数据库表中不能出现重复记录，每个字段是原子性的不能再分
 
@@ -2169,7 +997,7 @@ n 联系方式字段可以再分，不是原子性的
 
 关于第一范式，每一行必须唯一，也就是每个表必须有主键，这是我们数据库设计的最基本要求，主要通常采用数值型或定长字符串表示，关于列不可再分，应该根据具体的情况来决定。如联系方式，为了开发上的便利行可能就采用一个字段了。
 
-### ***19.2、第二范式***
+### 19.2、第二范式
 
 第二范式是建立在第一范式基础上的，另外要求所有非主键字段完全依赖主键，不能产生部分依赖
 
@@ -2223,7 +1051,7 @@ n 联系方式字段可以再分，不是原子性的
 
 **以上是一种典型的“多对多”的设计**
 
-### ***19.3、第三范式***
+### 19.3、第三范式
 
 建立在第二范式基础上的，非主键字段不能传递依赖于主键字段。（**不要产生传递依赖**）
 
@@ -2255,7 +1083,7 @@ n 联系方式字段可以再分，不是原子性的
 
 **以上设计是一种典型的一对多的设计，一存储在一张表中，多存储在一张表中，在多的那张表中添加外键指向一的一方的主键**
 
-### ***19.4、三范式总结***
+### 19.4、三范式总结
 
 第一范式：有主键，具有原子性，字段不可分割
 
@@ -2267,19 +1095,15 @@ n 联系方式字段可以再分，不是原子性的
 
 **一对一设计，有两种设计方案：**
 
-​ **第一种设计方案：主键共享**
+​**第一种设计方案：主键共享**
 
 **第二种设计方案：外键唯一**
 
-# ***、作业***
+# 、作业
 
-## **1、取得每个部门最高薪水的人员名称**
+<!--## **1、取得每个部门最高薪水的人员名称**
 
-|      |
-| ---- |
-|      |
-
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps147.jpg)
+ ![img](https://www.oss.tuwei.site/blogsImgs/images/wps147.jpg)
 
 ## **2、哪些人的薪水在部门的平均薪水之上**
 
@@ -2294,10 +1118,6 @@ n 联系方式字段可以再分，不是原子性的
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps150.jpg)
 
 ## **5、取得平均薪水最高的部门的部门编号**
-
-|      |
-| ---- |
-|      |
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps151.jpg)
 
@@ -2367,9 +1187,7 @@ CREATE TABLE SC( SNO   VARCHAR(200), CNO   VARCHAR(200), SCGRADE  VARCHAR(200));
 
 ## **14、列出所有员工及领导的姓名**
 
-|                                                              |
-| ------------------------------------------------------------ |
-| ![img](https://www.oss.tuwei.site/blogsImgs/images/wps160.jpg) |
+![img](https://www.oss.tuwei.site/blogsImgs/images/wps160.jpg) 
 
 ## **15、列出受雇日期早于其直接上级的所有员工的编号,姓名,部门名称**
 
@@ -2442,13 +1260,7 @@ CREATE TABLE SC( SNO   VARCHAR(200), CNO   VARCHAR(200), SCGRADE  VARCHAR(200));
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps177.jpg)
 
 ## **33、求出部门名称中,带'S'字符的部门员工的工资合计、部门人数.**
-
-|      |
-| ---- |
-|      |
-
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps178.jpg)
 
 ## **34、给任职日期超过30年的员工加薪10%.**
-
-##
+ -->
