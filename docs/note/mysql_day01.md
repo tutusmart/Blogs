@@ -159,7 +159,9 @@ mysql> desc salgrade;
 |  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000.00 |    NULL |     20 |
 |  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300.00 |    NULL |     10 |
 +-------+--------+-----------+------+------------+---------+---------+--------+
-​
+​```
+
+```sql
 mysql> select * from dept;
 +--------+------------+----------+
 | DEPTNO | DNAME      | LOC      |
@@ -247,33 +249,36 @@ show create table emp;
 给查询结果的列重命名？
 
 ```sql
-  select ename,sal * 12 as yearsal from emp;
+select ename,sal * 12 as yearsal from emp;
 ```
 
 别名中有中文？
 
 ```sql
-  select ename,sal * 12 as 年薪 from emp; // 错误
-  select ename,sal * 12 as '年薪' from emp;
-  +--------+----------+
-  | ename  | 年薪      |
-  +--------+----------+
-  | SMITH  |  9600.00 |
-  | ALLEN  | 19200.00 |
-  | WARD   | 15000.00 |
-  | JONES  | 35700.00 |
-  | MARTIN | 15000.00 |
-  | BLAKE  | 34200.00 |
-  | CLARK  | 29400.00 |
-  | SCOTT  | 36000.00 |
-  | KING   | 60000.00 |
-  | TURNER | 18000.00 |
-  | ADAMS  | 13200.00 |
-  | JAMES  | 11400.00 |
-  | FORD   | 36000.00 |
-  | MILLER | 15600.00 |
-  +--------+----------+
-​```
+select ename,sal * 12 as 年薪 from emp; // 错误
+select ename,sal * 12 as '年薪' from emp;
+```
+
+```sql
++--------+----------+
+| ename  | 年薪      |
++--------+----------+
+| SMITH  |  9600.00 |
+| ALLEN  | 19200.00 |
+| WARD   | 15000.00 |
+| JONES  | 35700.00 |
+| MARTIN | 15000.00 |
+| BLAKE  | 34200.00 |
+| CLARK  | 29400.00 |
+| SCOTT  | 36000.00 |
+| KING   | 60000.00 |
+| TURNER | 18000.00 |
+| ADAMS  | 13200.00 |
+| JAMES  | 11400.00 |
+| FORD   | 36000.00 |
+| MILLER | 15600.00 |
++--------+----------+
+```
 
 注意：标准sql语句中要求字符串使用单引号括起来。虽然mysql支持双引号，尽量别用。
 ​
@@ -370,7 +375,7 @@ as关键字可以省略？
   between and除了可以使用在数字方面之外，还可以使用在字符串方面。
   select ename from emp where ename between 'A' and 'C';
   +-------+
-  | ename |0
+  | ename |
   +-------+
   | ALLEN |
   | BLAKE |
@@ -385,82 +390,82 @@ as关键字可以省略？
     必须使用 is null或者is not null
 
 ```sql
-    select ename,sal,comm from emp where comm is null;
-    +--------+---------+------+
-    | ename  | sal     | comm |
-    +--------+---------+------+
-    | SMITH  |  800.00 | NULL |
-    | JONES  | 2975.00 | NULL |
-    | BLAKE  | 2850.00 | NULL |
-    | CLARK  | 2450.00 | NULL |
-    | SCOTT  | 3000.00 | NULL |
-    | KING   | 5000.00 | NULL |
-    | ADAMS  | 1100.00 | NULL |
-    | JAMES  |  950.00 | NULL |
-    | FORD   | 3000.00 | NULL |
-    | MILLER | 1300.00 | NULL |
-    +--------+---------+------+
-    select ename,sal,comm from emp where comm = null;
-    Empty set (0.00 sec)
+  select ename,sal,comm from emp where comm is null;
+  +--------+---------+------+
+  | ename  | sal     | comm |
+  +--------+---------+------+
+  | SMITH  |  800.00 | NULL |
+  | JONES  | 2975.00 | NULL |
+  | BLAKE  | 2850.00 | NULL |
+  | CLARK  | 2450.00 | NULL |
+  | SCOTT  | 3000.00 | NULL |
+  | KING   | 5000.00 | NULL |
+  | ADAMS  | 1100.00 | NULL |
+  | JAMES  |  950.00 | NULL |
+  | FORD   | 3000.00 | NULL |
+  | MILLER | 1300.00 | NULL |
+  +--------+---------+------+
+  select ename,sal,comm from emp where comm = null;
+  Empty set (0.00 sec)
 ```
 
-  找出哪些人津贴不为NULL？
+找出哪些人津贴不为NULL？
 
 ```sql
-    select ename,sal,comm from emp where comm is not null;
-    +--------+---------+---------+
-    | ename  | sal     | comm    |
-    +--------+---------+---------+
-    | ALLEN  | 1600.00 |  300.00 |
-    | WARD   | 1250.00 |  500.00 |
-    | MARTIN | 1250.00 | 1400.00 |
-    | TURNER | 1500.00 |    0.00 |
-    +--------+---------+---------+
+  select ename,sal,comm from emp where comm is not null;
+  +--------+---------+---------+
+  | ename  | sal     | comm    |
+  +--------+---------+---------+
+  | ALLEN  | 1600.00 |  300.00 |
+  | WARD   | 1250.00 |  500.00 |
+  | MARTIN | 1250.00 | 1400.00 |
+  | TURNER | 1500.00 |    0.00 |
+  +--------+---------+---------+
 ```
 
   找出哪些人没有津贴？
 
 ```sql
-    select ename,sal,comm from emp where comm is null or comm = 0;
-    +--------+---------+------+
-    | ename  | sal     | comm |
-    +--------+---------+------+
-    | SMITH  |  800.00 | NULL |
-    | JONES  | 2975.00 | NULL |
-    | BLAKE  | 2850.00 | NULL |
-    | CLARK  | 2450.00 | NULL |
-    | SCOTT  | 3000.00 | NULL |
-    | KING   | 5000.00 | NULL |
-    | TURNER | 1500.00 | 0.00 |
-    | ADAMS  | 1100.00 | NULL |
-    | JAMES  |  950.00 | NULL |
-    | FORD   | 3000.00 | NULL |
-    | MILLER | 1300.00 | NULL |
-    +--------+---------+------+
+  select ename,sal,comm from emp where comm is null or comm = 0;
+  +--------+---------+------+
+  | ename  | sal     | comm |
+  +--------+---------+------+
+  | SMITH  |  800.00 | NULL |
+  | JONES  | 2975.00 | NULL |
+  | BLAKE  | 2850.00 | NULL |
+  | CLARK  | 2450.00 | NULL |
+  | SCOTT  | 3000.00 | NULL |
+  | KING   | 5000.00 | NULL |
+  | TURNER | 1500.00 | 0.00 |
+  | ADAMS  | 1100.00 | NULL |
+  | JAMES  |  950.00 | NULL |
+  | FORD   | 3000.00 | NULL |
+  | MILLER | 1300.00 | NULL |
+  +--------+---------+------+
 ```
 
-  找出工作岗位是MANAGER和SALESMAN的员工？
+找出工作岗位是MANAGER和SALESMAN的员工？
   
 ```sql
-    select ename,job from emp where job = 'MANAGER' or job = 'SALESMAN';
-    +--------+----------+
-    | ename  | job      |
-    +--------+----------+
-    | ALLEN  | SALESMAN |
-    | WARD   | SALESMAN |
-    | JONES  | MANAGER  |
-    | MARTIN | SALESMAN |
-    | BLAKE  | MANAGER  |
-    | CLARK  | MANAGER  |
-    | TURNER | SALESMAN |
-    +--------+----------+
+  select ename,job from emp where job = 'MANAGER' or job = 'SALESMAN';
+  +--------+----------+
+  | ename  | job      |
+  +--------+----------+
+  | ALLEN  | SALESMAN |
+  | WARD   | SALESMAN |
+  | JONES  | MANAGER  |
+  | MARTIN | SALESMAN |
+  | BLAKE  | MANAGER  |
+  | CLARK  | MANAGER  |
+  | TURNER | SALESMAN |
+  +--------+----------+
 ```
 
-  and和or联合起来用：找出薪资大于1000的并且部门编号是20或30部门的员工。
+and和or联合起来用：找出薪资大于1000的并且部门编号是20或30部门的员工。
 
 ```sql
-    select ename,sal,deptno from emp where sal > 1000 and deptno = 20 or deptno = 30; // 错误的
-    select ename,sal,deptno from emp where sal > 1000 and (deptno = 20 or deptno = 30); // 正确的。
+  select ename,sal,deptno from emp where sal > 1000 and deptno = 20 or deptno = 30; // 错误的
+  select ename,sal,deptno from emp where sal > 1000 and (deptno = 20 or deptno = 30); // 正确的。
 ```
 
 注意：当运算符的优先级不确定的时候加小括号。
@@ -468,75 +473,75 @@ as关键字可以省略？
 in等同于or：找出工作岗位是MANAGER和SALESMAN的员工？
 
 ```sql
-    select ename,job from emp where job = 'SALESMAN' or job = 'MANAGER';
-    select ename,job from emp where job in('SALESMAN', 'MANAGER');
-    ​
-    select ename,job from emp where sal in(800, 5000); // in后面的值不是区间，是具体的值。
+  select ename,job from emp where job = 'SALESMAN' or job = 'MANAGER';
+  select ename,job from emp where job in('SALESMAN', 'MANAGER');
+  ​
+  select ename,job from emp where sal in(800, 5000); // in后面的值不是区间，是具体的值。
 
-    +-------+-----------+
-    | ename | job       |
-    +-------+-----------+
-    | SMITH | CLERK     |
-    | KING  | PRESIDENT |
-    +-------+-----------+
+  +-------+-----------+
+  | ename | job       |
+  +-------+-----------+
+  | SMITH | CLERK     |
+  | KING  | PRESIDENT |
+  +-------+-----------+
 ```
 
 ```sql
-  not in: 不在这几个值当中。
-    select ename,job from emp where sal not in(800, 5000);
-  
-  模糊查询like ? 
-    找出名字当中含有O的？
-      （在模糊查询当中，必须掌握两个特殊的符号，一个是%，一个是_）
-      %代表任意多个字符，_代表任意1个字符。
-      select ename from emp where ename like '%O%';
-      +-------+
-      | ename |
-      +-------+
-      | JONES |
-      | SCOTT |
-      | FORD  |
-      +-------+
-    找出名字中第二个字母是A的？
-      select ename from emp where ename like '_A%';
-      +--------+
-      | ename  |
-      +--------+
-      | WARD   |
-      | MARTIN |
-      | JAMES  |
-      +--------+
-    找出名字中有下划线的？
-      mysql> select * from t_user;
-      +------+----------+
-      | id   | name     |
-      +------+----------+
-      |    1 | zhangsan |
-      |    2 | lisi     |
-      |    3 | WANG_WU  |
-      +------+----------+
-      select name from t_user where name like '%_%';
-      +----------+
-      | name     |
-      +----------+
-      | zhangsan |
-      | lisi     |
-      | WANG_WU  |
-      +----------+
-      select name from t_user where name like '%_%';
-      +---------+
-      | name    |
-      +---------+
-      | WANG_WU |
-      +---------+
+not in: 不在这几个值当中。
+  select ename,job from emp where sal not in(800, 5000);
+
+模糊查询like ? 
+  找出名字当中含有O的？
+    （在模糊查询当中，必须掌握两个特殊的符号，一个是%，一个是_）
+    %代表任意多个字符，_代表任意1个字符。
+    select ename from emp where ename like '%O%';
+    +-------+
+    | ename |
+    +-------+
+    | JONES |
+    | SCOTT |
+    | FORD  |
+    +-------+
+  找出名字中第二个字母是A的？
+    select ename from emp where ename like '_A%';
+    +--------+
+    | ename  |
+    +--------+
+    | WARD   |
+    | MARTIN |
+    | JAMES  |
+    +--------+
+  找出名字中有下划线的？
+    mysql> select * from t_user;
+    +------+----------+
+    | id   | name     |
+    +------+----------+
+    |    1 | zhangsan |
+    |    2 | lisi     |
+    |    3 | WANG_WU  |
+    +------+----------+
+    select name from t_user where name like '%_%';
+    +----------+
+    | name     |
+    +----------+
+    | zhangsan |
+    | lisi     |
+    | WANG_WU  |
+    +----------+
+    select name from t_user where name like '%_%';
+    +---------+
+    | name    |
+    +---------+
+    | WANG_WU |
+    +---------+
 ​
-    找出名字中最后一个字母是T的？
-      select ename from emp where ename like '%T';
-      +-------+
-      | ename |
-      +-------+
-      | SCOTT | 
-      +-------+
+  找出名字中最后一个字母是T的？
+    select ename from emp where ename like '%T';
+    +-------+
+    | ename |
+    +-------+
+    | SCOTT | 
+    +-------+
 ```
 
 ### 13、排序（升序、降序）
@@ -550,24 +555,24 @@ select  
     emp   
   order by.  
     sal;   
-+--------+---------+
-| ename  | sal     |
-+--------+---------+
-| SMITH  |  800.00 |
-| JAMES  |  950.00 |
-| ADAMS  | 1100.00 |
-| WARD   | 1250.00 |
-| MARTIN | 1250.00 |
-| MILLER | 1300.00 |
-| TURNER | 1500.00 |
-| ALLEN  | 1600.00 |
-| CLARK  | 2450.00 |
-| BLAKE  | 2850.00 |
-| JONES  | 2975.00 |
-| FORD   | 3000.00 |
-| SCOTT  | 3000.00 |
-| KING   | 5000.00 |
-+--------+---------+
+  +--------+---------+
+  | ename  | sal     |
+  +--------+---------+
+  | SMITH  |  800.00 |
+  | JAMES  |  950.00 |
+  | ADAMS  | 1100.00 |
+  | WARD   | 1250.00 |
+  | MARTIN | 1250.00 |
+  | MILLER | 1300.00 |
+  | TURNER | 1500.00 |
+  | ALLEN  | 1600.00 |
+  | CLARK  | 2450.00 |
+  | BLAKE  | 2850.00 |
+  | JONES  | 2975.00 |
+  | FORD   | 3000.00 |
+  | SCOTT  | 3000.00 |
+  | KING   | 5000.00 |
+  +--------+---------+
 ```
 
 >注意：默认是升序。怎么指定升序或者降序呢？asc表示升序，desc表示降序。 select ename , sal from emp order by sal; // 升序 select ename , sal from emp order by sal asc; // 升序 select ename , sal from emp order by sal desc; // 降序。
@@ -679,12 +684,14 @@ order by是最后执行的。
         ..
 ```
 
-```sql
+
 count(*)和count(具体的某个字段)，他们有什么区别？
 count(*):不是统计某个字段中数据的个数，而是统计总记录条数。（和某个字段无关）
 count(comm): 表示统计comm字段中不为NULL的数据总数量。
 ​
 分组函数也能组合起来用：
+
+```sql
   select count(*),sum(sal),avg(sal),max(sal),min(sal) from emp;
 ​
   +----------+----------+-------------+----------+----------+
@@ -692,16 +699,23 @@ count(comm): 表示统计comm字段中不为NULL的数据总数量。
   +----------+----------+-------------+----------+----------+
   |       14 | 29025.00 | 2073.214286 |  5000.00 |   800.00 |
   +----------+----------+-------------+----------+----------+
-​
+​```
+
 找出工资高于平均工资的员工？
   第一步：找出平均工资
+
+```sql
     select avg(sal) from emp;
     +-------------+
     | avg(sal)    |
     +-------------+
     | 2073.214286 |
     +-------------+
+```
+
   第二步：找出高于平均工资的员工
+
+```sql
     select ename,sal from emp where sal > 2073.214286;
     +-------+---------+
     | ename | sal     |
@@ -713,7 +727,6 @@ count(comm): 表示统计comm字段中不为NULL的数据总数量。
     | KING  | 5000.00 |
     | FORD  | 3000.00 |
     +-------+---------+
-​
     select ename,sal from emp where sal > (select avg(sal) from emp);
 ```
 
@@ -753,35 +766,42 @@ ifnull() 空处理函数？
 
 ### 16、group by 和 having
 
-```sql
 group by ： 按照某个字段或者某些字段进行分组。
 having : having是对分组之后的数据进行再次过滤。
 ​
 案例：找出每个工作岗位的最高薪资。
-select max(sal),job from emp group by job;
-​
-+----------+-----------+
-| max(sal) | job       |
-+----------+-----------+
-|  3000.00 | ANALYST   |
-|  1300.00 | CLERK     |
-|  2975.00 | MANAGER   |
-|  5000.00 | PRESIDENT |
-|  1600.00 | SALESMAN  |
-+----------+-----------+
-```
 
 ```sql
+
+  select max(sal),job from emp group by job;
+  ​
+  +----------+-----------+
+  | max(sal) | job       |
+  +----------+-----------+
+  |  3000.00 | ANALYST   |
+  |  1300.00 | CLERK     |
+  |  2975.00 | MANAGER   |
+  |  5000.00 | PRESIDENT |
+  |  1600.00 | SALESMAN  |
+  +----------+-----------+
+```
+
+
 注意：分组函数一般都会和group by联合使用，这也是为什么它被称为分组函数的原因。
 并且任何一个分组函数（count sum avg max min）都是在group by语句执行结束之后才会执行的。
 当一条sql语句没有group by的话，整张表的数据会自成一组。   
-​
+
+```sql
 select ename,max(sal),job from emp group by job;
+```
+
 以上在mysql当中，查询结果是有的，但是结果没有意义，在Oracle数据库当中会报错。语法错误。
 Oracle的语法规则比MySQL语法规则严谨。
 记住一个规则：当一条语句中有group by的话，select后面只能跟分组函数和参与分组的字段。
 ​
 每个工作岗位的平均薪资？
+
+```sql
   select job,avg(sal) from emp group by job;
   +-----------+-------------+
   | job       | avg(sal)    |
@@ -792,19 +812,25 @@ Oracle的语法规则比MySQL语法规则严谨。
   | PRESIDENT | 5000.000000 |
   | SALESMAN  | 1400.000000 |
   +-----------+-------------+
-​
+​```
+
 多个字段能不能联合起来一块分组？
 案例：找出每个部门不同工作岗位的最高薪资。
+
+```sql
   select 
     deptno,job,max(sal)
   from
     emp
   group by
     deptno,job;
-​
+​```
+
 找出每个部门的最高薪资，要求显示薪资大于2900的数据。
 ​
   第一步：找出每个部门的最高薪资
+
+```sql
   select max(sal),deptno from emp group by deptno;
   +----------+--------+
   | max(sal) | deptno |
@@ -813,8 +839,11 @@ Oracle的语法规则比MySQL语法规则严谨。
   |  3000.00 |     20 |
   |  2850.00 |     30 |
   +----------+--------+
-​
+​```
+
   第二步：找出薪资大于2900
+
+```sql
   select max(sal),deptno from emp group by deptno having max(sal) > 2900; // 这种方式效率低。
   +----------+--------+
   | max(sal) | deptno |

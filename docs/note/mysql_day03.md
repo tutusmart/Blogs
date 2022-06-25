@@ -8,27 +8,30 @@ Mysql days03
 
 - 案例：给某一列添加unique
 
-  ```
+```sql
   drop table if exists t_user;
   create table t_user(
     id int,
-  username varchar(255) unique  //列级约束
+    username varchar(255) unique  //列级约束
   );
   insert into t_user values(1,'zhangsan');    
   insert into t_user values(2,'zhangsan');  //出现编译错误，唯一性约束，该字段与上一行字段重复，但可以为null！
   ERROR 1062 (23000) : Duplicate entry 'zhangsan' for key 'username'
   
   insert into t_user(id) values(2);
-    insert into t_user(id) values(3);
+  insert into t_user(id) values(3);
   insert into t_user(id) values(4);
-    *案例：给两个列或者多个列添加unique
-    drop table if exists t_user;
+```
+
+案例：给两个列或者多个列添加unique
+```sql
+  drop table if exists t_user;
   create table t_user(
       id int,
       usercode varchar(255),
       username varchar(255),
       unique(usercode,username)  //多个字段联合起来添加一个约束unique 【表级约束】
-     );
+  );
   
   insert into t_user values(1,'111','zs');
   insert into t_user values(2,'111','ls');
@@ -39,16 +42,15 @@ Mysql days03
   
   drop table if exists t_user;
   create table t_suer(
-      id int,
-      usercode varchar(255) unique,
-      username varchar(255) unique
-    );
+    id int,
+    usercode varchar(255) unique,
+    username varchar(255) unique
+  );
   insert into t_user values(1,'111','zs');
   insert into t_user values(2,'111','ls');
-  ERROR 1062 (23000) : Duplicate entry '111' for key 'usercode'
-  ```
+  -- ERROR 1062 (23000) : Duplicate entry '111' for key 'usercode'
+```
 
-<!---->
 
 -   注意：not null约束只有列级约束，没有表级约束。
 
@@ -56,10 +58,10 @@ Mysql days03
 
 - 怎么给一张表添加主键约束呢？
 
-  ```
+```sql
   drop table if exists t_user;
   create table t_user(
-      id int primary key,  //列级约束
+    id int primary key,  //列级约束
     username varchar(255),
     email varchar(255)
   );
@@ -74,9 +76,12 @@ Mysql days03
   |  2 | ls       | ls@123.com  |
   |  3 | ww       | ww@123.com  |
   +----+----------+-------------+
-  ```
+```
 
-  insert into t_user(id,username,email) values(1,'jack','<jack@123.com>'); //出现编译错误，主键约束，不能为null也不能重复！ ERROR 1364 (HY000) : Field 'id' doesn't have a default value
+```sql
+  insert into t_user(id,username,email) values(1,'jack','<jack@123.com>'); 
+  //出现编译错误，主键约束，不能为null也不能重复！ ERROR 1364 (HY000) : Field 'id' doesn't have a default value
+```
 
   根据以上的测试得出：id是主键，因为添加了主键约束，主键字段中的数据不能为null，也不能重复。 主键的特点：不能为null，也不能重复。
 
@@ -88,12 +93,12 @@ Mysql days03
 
 - 使用表级约束方式定义主键：
 
-  ```
+```sql
   drop table if exists t_user;
   create table t_user(
       id int,
-    username varchar(255),
-    primary key(id)
+      username varchar(255),
+      primary key(id)
   );
   insert into t_user(id,username) values(1,'zs');
   insert into t_user(id,username) values(2,'ls');
@@ -108,21 +113,21 @@ Mysql days03
       drop table if exists t_user;
       create table t_user(
           id int,
-    username varchar(255),
-    password varchar(255),
-    primary key(id,username)
+          username varchar(255),
+          password varchar(255),
+          primary key(id,username)
        );
       insert ......
-  ```
+```
 
 - mysql提供主键值自增：(非常重要。)
 
-  ```
+```sql
   drop table if exists t_user;
   create table t_user(
-      id int primary key auto_increment,  //id字段自动维护一个自增的数字，从1开始，以1递增。
+    id int primary key auto_increment,  //id字段自动维护一个自增的数字，从1开始，以1递增。
     username varchar(255)
-    );
+  );
   insert into t_user(username) values('a'); 
   insert into t_user(username) values('b');
   insert into t_user(username) values('c');
@@ -130,9 +135,9 @@ Mysql days03
   insert into t_user(username) values('e');
   insert into t_user(username) values('f');
   select * from t_user;
-  
-  提示：Oracle当中也提供了一个自增机制，叫做：序列(sequence)对象。
-  ```
+  -- 提示：Oracle当中也提供了一个自增机制，叫做：序列(sequence)对象。 
+
+```  
 
 1.3、外键约束
 
@@ -142,7 +147,11 @@ Mysql days03
 
 **no(pk) name classno classname**
 
-  1 zs1 101 河南省平顶山市舞钢市垭口一高高三1班 2 zs2 101 河南省平顶山市舞钢市垭口一高高三1班 3 zs3 102 河南省平顶山市舞钢市垭口一高高三2班 4 zs4 102 河南省平顶山市舞钢市垭口一高高三2班 5 zs5 102 河南省平顶山市舞钢市垭口一高高三2班 缺点：冗余。【不推荐】
+  1 zs1 101 河南省平顶山市舞钢市垭口一高高三1班   
+  2 zs2 101 河南省平顶山市舞钢市垭口一高高三1班   
+  3 zs3 102 河南省平顶山市舞钢市垭口一高高三2班   
+  4 zs4 102 河南省平顶山市舞钢市垭口一高高三2班   
+  5 zs5 102 河南省平顶山市舞钢市垭口一高高三2班 缺点：冗余。【不推荐】
 
   第二种方案：两张表(班级表和学生表)
 
@@ -150,7 +159,7 @@ Mysql days03
 
 **cno(pk) cname**
 
-  ```
+```sql
     101           河南省平顶山市舞钢市垭口一高高三1班 
     102           河南省平顶山市舞钢市垭口一高高三2班 
   
@@ -162,7 +171,7 @@ Mysql days03
    3              zs3              102
    4              zs4              102
    5              zs5              102
-  ```
+```
 
 - 将以上表的建表语句写出来：
 
@@ -170,41 +179,39 @@ Mysql days03
 
   删除数据的时候，先删除子表，再删除父表。 添加数据的时候，先添加父表，再添加子表。 创建表的时候，先创建父表，再创建子表。 删除表的时候，先删除子表，再删除父表。
 
-  ```sql
-   drop table if exists t_student;
-     drop table if exists t_class;
+```sql
+  drop table if exists t_student;
+  drop table if exists t_class;
+
+  create table t_class(
+      cno int,
+      cname varchar(255),
+      primary key(cno)
+  );
   
-     create table t_class(
-         cno int,
-         cname varchar(255),
-         primary key(cno)
-     );
-     
-   create table t_student(
-      sno int,
-      sname varchar(255),
-      classno int,
-      primary key(sno),
-      foreign key(classno) references t_class(cno)
-        );
-  
-      insert into t_class values(101,'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-      insert into t_class values(102,'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
-  
-      insert into t_student values(1,'zs1',101);
-      insert into t_student values(2,'zs2',101);
-      insert into t_student values(3,'zs3',102);
-      insert into t_student values(4,'zs4',102);
-      insert into t_student values(5,'zs5',102);
-      insert into t_student values(6,'zs6',102);
-      select * from t_class;
-      select * from t_student;
+create table t_student(
+    sno int,
+    sname varchar(255),
+    classno int,
+    primary key(sno),
+    foreign key(classno) references t_class(cno)
+  );
+
+  insert into t_class values(101,'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+  insert into t_class values(102,'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+
+  insert into t_student values(1,'zs1',101);
+  insert into t_student values(2,'zs2',101);
+  insert into t_student values(3,'zs3',102);
+  insert into t_student values(4,'zs4',102);
+  insert into t_student values(5,'zs5',102);
+  insert into t_student values(6,'zs6',102);
+  select * from t_class;
+  select * from t_student;
   
   insert into t_student values(7,'lisi',103);  //编译错误，引用的103，父表中没有该字段！
-  ERROR 1452 (23000) : Cannot add or update a child row :aforeign key constraint fails (bjpowernode INT YT......)
-  ```
-
-<!---->
+  -- ERROR 1452 (23000) : Cannot add or update a child row :aforeign key constraint fails (bjpowernode INT YT......)
+```
 
 -   外键值可以为NULL？ 外键可以为null。
 -   外键字段引用其他表的某个字段的时候，被引用的字段必须是主键吗？ 注意：被引用的字段不一定是主键，但至少是具有unique约束，具有唯一性，不可重复！
@@ -214,152 +221,163 @@ Mysql days03
 2.1、完整的建表语句
 
 ```sql
-     CREATE TABLE `t_x` (
-       `id` int(11) DEFAULT NULL
-     ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+  CREATE TABLE `t_x` (
+    `id` int(11) DEFAULT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
 ```
 
-```
  注意：在MySQL当中，凡是标识符使用飘号括起来的。最好别用，不通用。
 
  建表的时候可以指定存储引擎，也可以指定字符集。
 
  mysql默认使用的存储引擎是InnoDB方式。
  默认采用的字符集是UTF-8。
-```
+
 
 2.2、什么是存储引擎呢？ 存储引擎这个名字只有在mysql中存在。(Oracle中有对应的机制，但不叫做存储引擎。Oracle中没有特殊的名字，就是"表的存储方式")
 
-```
    mysql支持很多存储引擎，每个存储引擎都对应了一种不同的存储方式。
    每一个存储引擎都有自己的优缺点，需要在合适的时机选择合适的存储引擎。
-```
 
 2.3、查看当前mysql支持的存储引擎？ show engines \G
 
+mysql 5.5.36版本支持的光速引擎有9个：
+
 ```
-   mysql 5.5.36版本支持的光速引擎有9个：
  *************************** 1. row ***************************
-      Engine: FEDERATED
-     Support: NO
-     Comment: Federated MySQL storage engine
-Transactions: NULL
+    Engine: FEDERATED
+    Support: NO
+    Comment: Federated MySQL storage engine
+    Transactions: NULL
     XA: NULL
-  Savepoints: NULL
+    Savepoints: NULL
+
+
 *************************** 2. row ***************************
-      Engine: MRG_MYISAM
-     Support: YES
-     Comment: Collection of identical MyISAM tables
-Transactions: NO
+    Engine: MRG_MYISAM
+    Support: YES
+    Comment: Collection of identical MyISAM tables
+    Transactions: NO
     XA: NO
-  Savepoints: NO
+    Savepoints: NO
+
+
 *************************** 3. row ***************************
-      Engine: MyISAM
-     Support: YES
-     Comment: MyISAM storage engine
-Transactions: NO
+    Engine: MyISAM
+    Support: YES
+    Comment: MyISAM storage engine
+    Transactions: NO
     XA: NO
-  Savepoints: NO
+    Savepoints: NO
+
+
 *************************** 4. row ***************************
-      Engine: BLACKHOLE
-     Support: YES
-     Comment: /dev/null storage engine (anything you write to it disappears)
-Transactions: NO
+    Engine: BLACKHOLE
+    Support: YES
+    Comment: /dev/null storage engine (anything you write to it disappears)
+    Transactions: NO
     XA: NO
-  Savepoints: NO
+    Savepoints: NO
+
+
 *************************** 5. row ***************************
-      Engine: CSV
-     Support: YES
-     Comment: CSV storage engine
-Transactions: NO
+    Engine: CSV
+    Support: YES
+    Comment: CSV storage engine
+    Transactions: NO
     XA: NO
-  Savepoints: NO
+    Savepoints: NO
 *************************** 6. row ***************************
-      Engine: MEMORY
-     Support: YES
-     Comment: Hash based, stored in memory, useful for temporary tables
-Transactions: NO
+    Engine: MEMORY
+    Support: YES
+    Comment: Hash based, stored in memory, useful for temporary tables
+    Transactions: NO
     XA: NO
-  Savepoints: NO
+    Savepoints: NO
+
+
 *************************** 7. row ***************************
-      Engine: ARCHIVE
-     Support: YES
-     Comment: Archive storage engine
-Transactions: NO
+    Engine: ARCHIVE
+    Support: YES
+    Comment: Archive storage engine
+    Transactions: NO
     XA: NO
-  Savepoints: NO
+    Savepoints: NO
+
+
 *************************** 8. row ***************************
-      Engine: InnoDB
-     Support: DEFAULT
-     Comment: Supports transactions, row-level locking, and foreign keys
-Transactions: YES
+    Engine: InnoDB
+    Support: DEFAULT
+    Comment: Supports transactions, row-level locking, and foreign keys
+    Transactions: YES
     XA: YES
-  Savepoints: YES
+    Savepoints: YES
+
+
 *************************** 9. row ***************************
-      Engine: PERFORMANCE_SCHEMA
-     Support: YES
-     Comment: Performance Schema
-Transactions: NO
+    Engine: PERFORMANCE_SCHEMA
+    Support: YES
+    Comment: Performance Schema
+    Transactions: NO
     XA: NO
-  Savepoints: NO
+    Savepoints: NO
+
 ```
 
 2.4、常见的存储引擎？
 
+2.4.1、MyISAM
 ```
-   Engine: MyISAM
-     Support: YES
-     Comment: MyISAM storage engine
-Transactions: NO
-    XA: NO
+  Engine: MyISAM
+  Support: YES
+  Comment: MyISAM storage engine
+  Transactions: NO
+  XA: NO
   Savepoints: NO
-
-   MyISAM这种存储引擎不支持事务。
-   MyISAM是mysql最常用的存储引擎，但是这种存储引擎不是默认的。
-   MyISAM采用三个文件组织一个表：
-       xxx.frm(存储格式的文件)
-   xxx.MYD(存储表中数据的文件)
-   xxx.MYI(存储表中索引的文件)
-   优点：可被压缩，节省存储空间。并且可以转换为只读表，提高检索效率。
-   缺点:不支持事务。
 ```
+  MyISAM这种存储引擎不支持事务。
+  MyISAM是mysql最常用的存储引擎，但是这种存储引擎不是默认的。
+  MyISAM采用三个文件组织一个表：
+      xxx.frm(存储格式的文件)
+  xxx.MYD(存储表中数据的文件)
+  xxx.MYI(存储表中索引的文件)
+  优点：可被压缩，节省存储空间。并且可以转换为只读表，提高检索效率。
+  缺点:不支持事务。
 
-***
-
+2.4.2 InnoDB
 ```
-       Engine: InnoDB
-     Support: DEFAULT
-     Comment: Supports transactions, row-level locking, and foreign keys
-Transactions: YES
-    XA: YES
+  Engine: InnoDB
+  Support: DEFAULT
+  Comment: Supports transactions, row-level locking, and foreign keys
+  Transactions: YES
+  XA: YES
   Savepoints: YES
-   
-   优点：支持事务、行级锁、外键等。这种存储引擎数据的安全得到保障。
+```
+  优点：支持事务、行级锁、外键等。这种存储引擎数据的安全得到保障。
 
-   表的结构存储在xxx.frm文件中
-   数据存储在tablespace这样的表空间中(逻辑概念)，无法被压缩，无法转换成只读。
-   这种InnoDB存储引擎在MySQL数据库崩溃之后提供自动恢复机制。
-   InoDB支持级联删除和级联更新。
+  表的结构存储在xxx.frm文件中
+  数据存储在tablespace这样的表空间中(逻辑概念)，无法被压缩，无法转换成只读。
+  这种InnoDB存储引擎在MySQL数据库崩溃之后提供自动恢复机制。
+  InoDB支持级联删除和级联更新。
 
 ----------------------------------------------------------------------------------
 
-       Engine: MEMORY
-     Support: YES
-     Comment: Hash based, stored in memory, useful for temporary tables
-Transactions: NO
-    XA: NO
+2.4.3 MEMORY
+```
+  Engine: MEMORY
+  Support: YES
+  Comment: Hash based, stored in memory, useful for temporary tables
+  T     ransactions: NO
+  XA: NO
   Savepoints: NO
-
+```
   缺点：不支持事务。数据容易丢失。因为所有数据和索引都是存储在内存当中的。
   优点：查询速度最快。
   以前叫做HEPA引擎。
-```
-
 ### 3、事务(Transaction)
 
 3.1、什么是事务？
 
-```
    一个事务是一个完整的业务逻辑单元，不可再分。
 
    比如：银行账户，从A账户向B账户转账10000元，需要执行两条update语句。
@@ -369,7 +387,6 @@ Transactions: NO
    以上两条DML语句必须同时成功，或者同时失败，不允许出现一条成功，一条失败。
 
    想要保证以上的两条DML语句同时成功或者同时失败，那么就要使用数据库的"事务机制"。
-```
 
 3.2、和事务相关的语句只有：DML语句。(insert delete update) 为什么？因为他们这三个语句都是和数据库表当中的"数据"相关的。 事务的存在是为了保证数据的完整性，安全性。
 
@@ -379,42 +396,47 @@ Transactions: NO
 
 3.5、关于事务之间的隔离性？ 事务隔离性存在隔离级别，理论上隔离级别包括4个： 第一级别：读未提交(read uncommitted) 对方事务还没有提交，我们当前事务可以读取到对方未提交的数据。 读未提交存在脏读(Dirty Read) 现象：表示读到了脏数据。 第二级别：读已提交(read committed) 对方事务提交之后的数据我方可以读取到。 读已提交存在的问题是：不可重复读。 第三级别：可重复读(repeatable read) 这种隔离级别解决了：不可重复读问题。 这种隔离级别存在的问题是：读取到的数据是幻象。 第四级别：序列化读/串行化读 解决了所有问题。 效率低，需要事务排队。
 
-```
    Oracle数据库默认的隔离级别是：第二级别，读已提交。
    mysql数据库默认的隔离级别是：第三级别，可重复读。
-```
 
 3.6、演示事务： * mysql事务默认情况下是自动提交的。 (什么是自动提交？只要执行任意一条DML语句则提交一次。)怎么关闭默认提交？start transaction;
 
-```
    * 建表：
-       drop table if exists t_user;
-   create table t_user(
-       id int primary key auto_increment,
-       username varchar(255)
-     );
 
-   * 演示：mysql中的事务是支持自动提交的，只要执行一条DML语句，则提交一次。
-       mysql> insert into t_user(username) values('zs');
-   Querk OK, 1 row affected (0.03 sec)
-   mysql> select * from t_user;
+```sql
+  drop table if exists t_user;
+  create table t_user(
+    id int primary key auto_increment,
+    username varchar(255)
+  );
+```
+
+演示：mysql中的事务是支持自动提交的，只要执行一条DML语句，则提交一次。
+
+```sql
+  mysql> insert into t_user(username) values('zs');
+  Querk OK, 1 row affected (0.03 sec)
+  mysql> select * from t_user;
   +----+----------+
   | id | username |
   +----+----------+
   |  1 | zs       |
   +----+----------+
-   mysql> rollback;
-   Query OK, 0 rows affected (0.00 sec)
+  mysql> rollback;
+  Query OK, 0 rows affected (0.00 sec)
 
-       mysql> select * from t_user;
-   +----+----------+
-   | id | username |
-   +----+----------+
-   |  1 | zs       |
-   +----+----------+
+      mysql> select * from t_user;
+  +----+----------+
+  | id | username |
+  +----+----------+
+  |  1 | zs       |
+  +----+----------+
+```
 
-* 演示：使用start transaction; 关闭自动提交机制。
-    mysql> select * from t_user;
+演示：使用start transaction; 关闭自动提交机制。
+
+```sql
+  mysql> select * from t_user;
   +----+----------+
   | id | username |
   +----+----------+
@@ -518,31 +540,35 @@ Transactions: NO
   +----+--------------+
   5 rows in set (0.00 sec)
 
-rollback : 回滚。
-commit ： 提交。
-start transaction : 关闭自动提交机制。
- 
-  -----------------------------------------------------------------
+  rollback : 回滚。
+  commit ： 提交。
+  start transaction : 关闭自动提交机制。
 ```
 
--   演示两个事务，假如隔离级别： 演示第1级别：读未提交 set global transaction isolation level read uncommitted; 演示第二级别；读已提交 set global transaction isolation level read committed; 演示第三级别:可重复读 set global transaction isolation level repeatable read;
+-   演示两个事务，假如隔离级别：  
+  演示第1级别：读未提交 set global transaction isolation level read uncommitted;   
+  演示第二级别；读已提交 set global transaction isolation level read committed;   
+  演示第三级别:可重复读 set global transaction isolation level repeatable read;  
 
 *mysql远程登录：mysql -h192.168.151.18 -uroot -p444
 
 ### 4、索引
 
-4.1、什么是索引？有什么用？ 索引就相当于一本书的目录，通过目录可以快速的找到对应的资源。 在数据库方面，查询一张表的时候有两种检索方式： 第一种方式：全表扫描 第二种方式：根据索引检索(效率很高) 索引为什么可以提高检索效率呢？ 其实最根本的原理是缩小了扫描的范围。
+4.1、什么是索引？有什么用？ 索引就相当于一本书的目录，通过目录可以快速的找到对应的资源。 在数据库方面，查询一张表的时候有两种检索方式： 
+    第一种方式：全表扫描 
+    第二种方式：根据索引检索(效率很高) 索引为什么可以提高检索效率呢？ 其实最根本的原理是缩小了扫描的范围。
 
-```
 索引虽然可以提高检索效率，但是不能随意的添加索引，因为索引也是数据库当中的对象，也需要数据库不断的维护。是有维护成本的。
 比如：表中的数据经常被修改，这样就不适合添加索引，因为数据一旦修改，索引需要重新排序，进行维护。
 
 添加索引是给某一个字段，或者说某些字段添加索引。
 
+```sql
 select ename,sal from emp where ename = 'SMITH';
+```
+
 当ename字段没有添加索引的时候，以上sql语句会进行全表扫描，扫描ename字段中所有的值。
 当ename字段添加索引的时候，以上sql语句会根据索引扫描，快速定位。
-```
 
 4.2、怎么创建索引对象？怎么删除索引对象？ 创建索引对象： create index 索引名称 on 表名(字段名); 删除索引对象： drop index 索引名称 on 表名;
 
@@ -552,30 +578,30 @@ select ename,sal from emp where ename = 'SMITH';
 
 4.5、查看sql语句的执行计划：
 
-```
+```sql
  mysql> explain select ename,sal from emp where sal = 5000;
 +----+-------------+-------+------+---------------+------+---------+------+------+-------------+
 | id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra       |
 +----+-------------+-------+------+---------------+------+---------+------+------+-------------+
 |  1 | SIMPLE      | emp   | ALL  | NULL          | NULL | NULL    | NULL |   14 | Using where |
 +----+-------------+-------+------+---------------+------+---------+------+------+-------------+
-
-
 ```
 
-```
+
 给薪资sal字段添加索引：
-    create index emp_sal_index on emp(sal);
 
+```sql
+create index emp_sal_index on emp(sal);
 mysql> explain select ename,sal from emp where sal = 5000;
 +----+-------------+-------+------+---------------+---------------+---------+-------+------+-------------+
 | id | select_type | table | type | possible_keys | key           | key_len | ref   | rows | Extra       |
 +----+-------------+-------+------+---------------+---------------+---------+-------+------+-------------+
 |  1 | SIMPLE      | emp   | ref  | emp_sal_index | emp_sal_index | 9       | const |    1 | Using where |
 +----+-------------+-------+------+---------------+---------------+---------+-------+------+-------------+
+```
+
 rows检索次数减少了
                                                                                   
-```
 
 4.6、索引底层采用的数据结构是：B + Tree
 
@@ -587,7 +613,6 @@ rows检索次数减少了
 
 ### 5、试图(view)
 
-```
 5.1、什么是视图？
    站在不同的角度去看到数据。(同一张表的数据，通过不同的角度去看待)
 
@@ -601,6 +626,8 @@ drop view myview;
 可以对试图进行CRUD操作。
 
 5.4、面向视图操作？
+
+```sql
 mysql> select * from myview;
 +-------+--------+
 | empno | ename  |
@@ -621,17 +648,16 @@ mysql> select * from myview;
 |  7934 | MILLER |
 +-------+--------+
 
-  create table emp_bak as select * from emp;
-  create view myview1 as select empno,ename,sal from emp_bak;
-  update myview1 set ename = 'hehe',sal = 1 where empno 7369;  //通过视图修改原表数据。
-  delete from myview1 where empno = 7369;  //通过试图删除原表数据。
+create table emp_bak as select * from emp;
+create view myview1 as select empno,ename,sal from emp_bak;
+update myview1 set ename = 'hehe',sal = 1 where empno 7369;  //通过视图修改原表数据。
+delete from myview1 where empno = 7369;  //通过试图删除原表数据。
 ```
 
 5.5、试图的作用？ 试图可以隐藏表的实现细节。保密级别较高的系统，数据库只对外提供相关的视图，java程序员只对视图对象进行CRUD。
 
 ### 6、DBA命令
 
-```
 6.1、在数据库当中的数据导出
     在windows的DOS命令窗口中执行： (导出整个库)
     mysqldump bjpowernode>D:\bjpowernode.sql -uroot -p999
@@ -639,92 +665,117 @@ mysql> select * from myview;
     mysqldump bjpowernode emp>D:\bjpowernode.sql -uroot -p999
 
 6.2、导入数据
-    create database bjpowernode;
+
+```sql
+create database bjpowernode;
 use bjpowernode;
 source D:\bjpowernode.sql 
 ```
 
 ### 7、数据库设计三范式(重点内容，面试经常会问)
 
-```
 7.1、什么是设计范式？
     设计表的依据。按照这三个范式设计的表不会出现数据冗余。
 
 7.2、三范式都是哪些？
     第一范式：任何一张表都应该有主键，并且每一个字段原子性不可再分。
 
-第二范式：建立在第一范式的基础上，所有非主键字段完全依赖主键，不能产生部份依赖。
-    多对多？三张表，关系表两个外键。
-    t_student学生表
-    sno(pk)       sname
-    ---------------------
-     1             张三
-     2             李四 
-     3             王五
+第二范式：
 
-     t_teacher 讲师表
-     tno(pk)            tname
-     ----------------------
-      1     王老师
-      2     张老师
-      3     李老师
+  建立在第一范式的基础上，所有非主键字段完全依赖主键，不能产生部份依赖。
+  多对多？三张表，关系表两个外键。
 
-      t_student_teacher_relation 学生讲师关系表
-      id(pk)        sno(fk)          tno(fk)
-      -------------------------------------------
-       1        1                 3
-       2        1     1
-       3        2     2
-       4        2     3
-       5        3     1
-       6        3     3
- 
-第三范式：建立在第二范式的基础上，所有非主键字段直接依赖主键，不能产生传递依赖。
-    一对多？两张表，多的表加外键。
-    班级t_class
-    cno(pk)          cname
-    --------------------------
-      1              班级1
-      2              班级2
+t_student  =>学生表  
 
-    学生t_student
-    sno(pk)         sname         classno(fk)
-    --------------------------------------------
-     101       张1       1
-     102             张2       2
-     103       张3       2
-     104       张4       1
-     105       张5       2
-
-  提醒：在实际的开发中，以满足客户需求为主，有的时候会拿冗余换执行速度。
+```sql
+  sno(pk)  |     sname
+  ---------------------
+  1        |     张三
+  2        |     李四 
+  3        |    王五
 ```
+t_teacher =>讲师表
+```sql
+  tno(pk)   ｜ tname
+  ----------------------
+     1      ｜  王老师
+     2      ｜  张老师
+     3      ｜  李老师
+```
+
+t_student_teacher_relation =>学生讲师关系表
+```sql
+  id(pk)  ｜     sno(fk)   ｜      tno(fk)
+  -------------------------------------------
+  1       |          1     |         3
+  2       |          1     |         1
+  3       |          2     |         2
+  4       |          2     |         3
+  5       |          3     |         1
+  6       |          3     |         1 
+```
+
+第三范式：
+
+  建立在第二范式的基础上，所有非主键字段直接依赖主键，不能产生传递依赖。
+  一对多？两张表，多的表加外键。
+  班级t_class
+
+```sql
+  cno(pk)    |      cname
+  --------------------------
+    1        |      班级1
+    2        |      班级2
+```
+
+学生t_student
+```sql
+  sno(pk) | sname  | classno(fk)
+--------------------------------------------
+  101     |  张1    |   1
+  102     |  张2    |   2
+  103     |  张3    |   2
+  104     |  张4    |   1
+  105     |  张5    |   2
+```
+
+提醒：在实际的开发中，以满足客户需求为主，有的时候会拿冗余换执行速度。
 
 7.3、一对一怎么设计？
 
 一对一设计有两种方案：主键共享 t_user_login 用户登陆表
 
-## id(pk) username password
+```sql
+  id(pk)  | username  | password
 
-1 zs 123 2 ls 456
-
-```
- t_user_detail 用户详细信息表
-  id(pk+fk)         realname          tel          ...
- ----------------------------------------------------
-    1              张三            11111111112234
-    2              李四            12112523432412
+  1       | zs        | 123   
+  2       | ls        | 456 
 ```
 
-一对一设计有两种方案:外键唯一。 t_user_login 用户登陆表
-
-## id(pk) username password
-
-1 zs 123 2 ls 456
+t_user_detail 用户详细信息表
 
 ```sql
- t_user_detail 用户详细信息表
-  id(pk)         realname          tel            userid(fk+unique)      
+  id(pk+fk)  |      realname    |      tel           ...
  ----------------------------------------------------
-   1                张三         111111114          2
-   2          李四         121432412          1
+    1        |       张三        |     13245645612
+    2        |      李四         |     13245644852
+```
+
+一对一设计有两种方案:外键唯一 
+
+t_user_login 用户登陆表
+
+```sql
+  id(pk) |  username |   password
+    1    |  zs       |   123   
+    2    |  ls       |   456
+```
+
+t_user_detail 用户详细信息表
+
+```sql
+  id(pk)   |   realname   |    tel         |   userid(fk+unique)      
+ ----------------------------------------------------
+   1       |   张三        |    111111114   |     2
+   2       |   李四        |    121432412   |     1
 ```

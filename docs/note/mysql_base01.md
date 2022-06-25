@@ -931,6 +931,7 @@ select job,deptno,sum(sal) from emp group by job,deptno;
 mysql> select empno,deptno,avg(sal) from emp group by deptno;
 ```
 
+```
 +-------+--------+-------------+
 
 | empno | deptno | avg(sal)  |
@@ -944,6 +945,7 @@ mysql> select empno,deptno,avg(sal) from emp group by deptno;
 |  7499 |  30 | 1566.666667 |
 
 +-------+--------+-------------+
+```
 
 以上SQL语句在Oracle数据库中无法执行，执行报错。
 

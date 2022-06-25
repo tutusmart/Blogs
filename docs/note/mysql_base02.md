@@ -154,8 +154,9 @@ Insert into 表名(字段，。。。。) values(值,………..)
 
 省略字段的插入
 
+```sql
 insert into emp values(9999,'zhangsan','MANAGER', null, null,3000, 500, 10);
-
+```
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps109.jpg)
 
 ![img](https://www.oss.tuwei.site/blogsImgs/images/wps110.jpg)
@@ -561,9 +562,11 @@ e) SET AUTOCOMMIT：禁用或启用事务的自动提交模式
 
 (1) 创建表
 
+```
 | create table user(id int (11) primary key not null auto_increment ,   username varchar(30),password varchar(30))  ENGINE=InnoDB DEFAULT CHARSET=utf8 |
 | ------------------------------------------------------------ |
 |                                                              |
+```
 
 (2) 查询表中数据
 
@@ -879,7 +882,17 @@ explain select sal from emp where sal > 1500;
 
 ##### 16.2.4、删除索引
 
-DROP INDEX index_name ON talbe_nameALTER TABLE table_name DROP INDEX index_nameALTER TABLE table_name DROP PRIMARY KEY其中，前两条语句是等价的，删除掉table_name中的索引index_name。第3条语句只在删除PRIMARY KEY索引时使用，因为一个表只可能有一个PRIMARY KEY索引， mysql> ALTER TABLE EMP DROP INDEX test_index; 删除后就不再使用索引了，查询会执行全表扫描。![img](https://www.oss.tuwei.site/blogsImgs/images/wps145.jpg)
+```sql
+DROP INDEX index_name ON talbe_name ALTER TABLE table_name 
+
+DROP INDEX index_name ALTER TABLE table_name 
+
+DROP PRIMARY KEY
+```
+
+其中，前两条语句是等价的，删除掉table_name中的索引index_name。
+
+第3条语句只在删除PRIMARY KEY索引时使用，因为一个表只可能有一个PRIMARY KEY索引， mysql> ALTER TABLE EMP DROP INDEX test_index; 删除后就不再使用索引了，查询会执行全表扫描。![img](https://www.oss.tuwei.site/blogsImgs/images/wps145.jpg)
 
 ## **17、视图**
 
@@ -923,7 +936,7 @@ create view v_dept_emp as select ename,dname,sal,hiredate,e.deptno from emp e,de
 create view v_dept_avg_sal_grade as select a.deptno, a.avg_sal, b.grade from (select deptno, avg(sal) avg_sal from emp group by deptno) a, salgrade b where a.avg_sal between b.losal and b.hisal; 
 ```
 
-/*注意mysql不支持子查询创建视图*/
+*注意mysql不支持子查询创建视图*
 
 ### 17.3、修改视图
 
@@ -942,12 +955,15 @@ drop view if exists v_dept_emp;
 ### 18.1、新建用户
 
 ```sql
-CREATE USER username IDENTIFIED BY 'password';说明:username——你将创建的用户名, password——该用户的登陆密码,密码可以为空,如果为空则该用户可以不需要密码登陆服务器.例如：create user p361 identified by '123';--可以登录但是只可以看见一个库  information_schema
+CREATE USER username IDENTIFIED BY 'password';
 ```
 
+>说明:username——你将创建的用户名, password——该用户的登陆密码,密码可以为空,如果为空则该用户可以不需要密码登陆服务器.例如：create user p361 identified by '123'; 可以登录但是只可以看见一个库  information_schema
 ### 18.2、授权
 
+```
 命令详解mysql> grant all privileges on dbname.tbname to 'username'@'login ip' identified by 'password' with grant option;1) dbname=*表示所有*[*数据库*](http://www.2cto.com/database/)*2) tbname=*表示所有表3) login ip=%表示任何ip4) password为空，表示不需要密码即可登录5) with grant option;  表示该用户还可以授权给其他用户l 细粒度授权首先以root用户进入mysql，然后键入命令：grant select,insert,update,delete on*.* to p361 [@localhost]() Identified by "123"; 如果希望该用户能够在任何机器上登陆mysql，则将localhost改为 "%" 。l 粗粒度授权我们测试用户一般使用该命令授权，GRANT ALL PRIVILEGES ON *.*TO 'p361'@'%' Identified by "123"; 注意:用以上命令授权的用户不能给其它用户授权,如果想让该用户可以授权,用以下命令: GRANT ALL PRIVILEGES ON*.* TO 'p361'@'%' Identified by "123"  WITH GRANT OPTION; privileges包括：1)  alter：修改数据库的表2)  create：创建新的数据库或表3)  delete：删除表数据4)  drop：删除数据库/表5)  index：创建/删除索引6)  insert：添加表数据7)  select：查询表数据8)  update：更新表数据9)  all：允许任何操作10)  usage：只允许登录
+```
 
 ### 18.3、回收权限
 
@@ -977,11 +993,11 @@ CREATE USER username IDENTIFIED BY 'password';说明:username——你将创建�
 
 不符合第一范式的示例
 
-| 学生编号 | 学生姓名 | 联系方式                                        |
-| -------- | -------- | ----------------------------------------------- |
-| 1001     | 张三     | [zs@gmail.com](mailto:zs@gmail.com),1359999999  |
-| 1002     | 李四     | [ls@gmail.com](mailto:ls@gmail.com),13699999999 |
-| 1001     | 王五     | [ww@163.net](mailto:ww@163.net),13488888888     |
+| 学生编号 | 学生姓名 | 联系方式                                            |
+| -------- | ---------| ----------------------------------------------- |
+| 1001     | 张三      | [zs@gmail.com](mailto:zs@gmail.com),1359999999  |
+| 1002     | 李四      | [ls@gmail.com](mailto:ls@gmail.com),13699999999 |
+| 1001     | 王五      | [ww@163.net](mailto:ww@163.net),13488888888     |
 
 存在问题：
 
@@ -991,9 +1007,9 @@ n 联系方式字段可以再分，不是原子性的
 
 | 学生编号(pk) | 学生姓名 | email                               | 联系电话    |
 | ------------ | -------- | ----------------------------------- | ----------- |
-| 1001         | 张三     | [zs@gmail.com](mailto:zs@gmail.com) | 1359999999  |
-| 1002         | 李四     | [ls@gmail.com](mailto:ls@gmail.com) | 13699999999 |
-| 1003         | 王五     | [ww@163.net](mailto:ww@163.net)     | 13488888888 |
+| 1001         | 张三      | [zs@gmail.com](mailto:zs@gmail.com) | 1359999999  |
+| 1002         | 李四      | [ls@gmail.com](mailto:ls@gmail.com) | 13699999999 |
+| 1003         | 王五      | [ww@163.net](mailto:ww@163.net)     | 13488888888 |
 
 关于第一范式，每一行必须唯一，也就是每个表必须有主键，这是我们数据库设计的最基本要求，主要通常采用数值型或定长字符串表示，关于列不可再分，应该根据具体的情况来决定。如联系方式，为了开发上的便利行可能就采用一个字段了。
 
@@ -1003,12 +1019,12 @@ n 联系方式字段可以再分，不是原子性的
 
 示例：
 
-| 学生编号 | 学生姓名 | 教师编号 | 教师姓名 |
-| -------- | -------- | -------- | -------- |
-| 1001     | 张三     | 001      | 王老师   |
-| 1002     | 李四     | 002      | 赵老师   |
-| 1003     | 王五     | 001      | 王老师   |
-| 1001     | 张三     | 002      | 赵老师   |
+| 学生编号   | 学生姓名 | 教师编号   |  教师姓名 |
+| -------- | -------- | -------- | --------|
+| 1001     | 张三     | 001       | 王老师   |
+| 1002     | 李四     | 002       | 赵老师   |
+| 1003     | 王五     | 001       | 王老师   |
+| 1001     | 张三     | 002       | 赵老师   |
 
 确定主键：
 
@@ -1055,32 +1071,33 @@ n 联系方式字段可以再分，不是原子性的
 
 建立在第二范式基础上的，非主键字段不能传递依赖于主键字段。（**不要产生传递依赖**）
 
+```
 | 学生编号（PK） | 学生姓名 | 班级编号 | 班级名称 |
 | -------------- | -------- | -------- | -------- |
 | 1001           | 张三     | 01       | 一年一班 |
 | 1002           | 李四     | 02       | 一年二班 |
 | 1003           | 王五     | 03       | 一年三班 |
 | 1004           | 六       | 03       | 一年三班 |
-
+```
 从上表可以看出，班级名称字段存在冗余，因为班级名称字段没有直接依赖于主键，班级名称字段依赖于班级编号，班级编号依赖于学生编号，那么这就是传递依赖，解决的办法是将冗余字段单独拿出来建立表，如：
 
 学生信息表
-
+```
 | 学生编号（PK） | 学生姓名 | 班级编号（FK） |
 | -------------- | -------- | -------------- |
 | 1001           | 张三     | 01             |
 | 1002           | 李四     | 02             |
 | 1003           | 王五     | 03             |
 | 1004           | 六       | 03             |
-
+```
 班级信息表
-
-| 班级编号（PK） | 班级名称 |
+```
+| 班级编号（PK）   | 班级名称 |
 | -------------- | -------- |
 | 01             | 一年一班 |
 | 02             | 一年二班 |
 | 03             | 一年三班 |
-
+```
 **以上设计是一种典型的一对多的设计，一存储在一张表中，多存储在一张表中，在多的那张表中添加外键指向一的一方的主键**
 
 ### 19.4、三范式总结
@@ -1099,55 +1116,55 @@ n 联系方式字段可以再分，不是原子性的
 
 **第二种设计方案：外键唯一**
 
-# 、作业
+## 、作业
 
-<!--## **1、取得每个部门最高薪水的人员名称**
+## **1、取得每个部门最高薪水的人员名称**
 
- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps147.jpg)
+ <!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps147.jpg) -->
 
 ## **2、哪些人的薪水在部门的平均薪水之上**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps148.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps148.jpg) -->
 
 ## **3、取得部门中（所有人的）平均的薪水等级，如下：**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps149.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps149.jpg) -->
 
 ## **4、不准用组函数（Max），取得最高薪水**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps150.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps150.jpg) -->
 
 ## **5、取得平均薪水最高的部门的部门编号**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps151.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps151.jpg) -->
 
 ## **6、取得平均薪水最高的部门的部门名称**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps152.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps152.jpg) -->
 
 ## **7、求平均薪水的等级最低的部门的部门名称**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps153.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps153.jpg) -->
 
 ## **8、取得比普通员工(员工代码没有在mgr字段上出现的)的最高薪水还要高的领导人姓名**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps154.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps154.jpg) -->
 
 ## **9、取得薪水最高的前五名员工**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps155.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps155.jpg) -->
 
 ## **10、取得薪水最高的第六到第十名员工**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps156.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps156.jpg) -->
 
 ## **11、取得最后入职的5名员工**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps157.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps157.jpg) -->
 
 ## **12、取得每个薪水等级有多少员工**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps158.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps158.jpg) -->
 
 ## **13、面试题**
 
@@ -1161,25 +1178,61 @@ SC（SNO，CNO，SCGRADE）代表（学号，课号，成绩）
 
 问题：
 
-1，找出没选过“黎明”老师的所有学生姓名。
+  1，找出没选过“黎明”老师的所有学生姓名。
 
-2，列出2门以上（含2门）不及格学生姓名及平均成绩。
+  2，列出2门以上（含2门）不及格学生姓名及平均成绩。
 
-3，即学过1号课程又学过2号课所有学生的姓名。
+  3，即学过1号课程又学过2号课所有学生的姓名。
 
-请用标准SQL语言写出答案，方言也行（请说明是使用什么方言）。
+  请用标准SQL语言写出答案，方言也行（请说明是使用什么方言）。
 
-\-----------------------------------------------------------------------------
 
 ```sql
-CREATE TABLE SC( SNO   VARCHAR(200), CNO   VARCHAR(200), SCGRADE  VARCHAR(200)); CREATE TABLE S( SNO  VARCHAR(200 ), SNAME  VARCHAR(200)); CREATE TABLE C( CNO   VARCHAR(200), CNAME  VARCHAR(200), CTEACHER  VARCHAR(200)); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '1', '语文', '张'); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '2', '政治', '王'); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '3', '英语', '李'); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '4', '数学', '赵'); INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '5', '物理', '黎明'); commit; INSERT INTO S ( SNO, SNAME ) VALUES ( '1', '学生1'); INSERT INTO S ( SNO, SNAME ) VALUES ( '2', '学生2'); INSERT INTO S ( SNO, SNAME ) VALUES ( '3', '学生3'); INSERT INTO S ( SNO, SNAME ) VALUES ( '4', '学生4'); commit; INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '1', '40'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '2', '30'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '3', '20'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '4', '80'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '5', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '1', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '2', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '3', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '4', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '5', '40'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '3', '1', '60'); INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '3', '3', '80'); commit;
+CREATE TABLE SC( 
+  SNO   VARCHAR(200), 
+  CNO   VARCHAR(200), 
+  SCGRADE  VARCHAR(200)
+); 
+CREATE TABLE S( 
+  SNO  VARCHAR(200 ), 
+  SNAME  VARCHAR(200)
+); 
+CREATE TABLE C( 
+  CNO   VARCHAR(200), 
+  CNAME  VARCHAR(200), 
+  CTEACHER  VARCHAR(200)
+); 
+INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '1', '语文', '张'); 
+INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '2', '政治', '王'); 
+INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '3', '英语', '李'); 
+INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '4', '数学', '赵'); 
+INSERT INTO C ( CNO, CNAME, CTEACHER ) VALUES ( '5', '物理', '黎明'); 
+commit; 
+INSERT INTO S ( SNO, SNAME ) VALUES ( '1', '学生1'); 
+INSERT INTO S ( SNO, SNAME ) VALUES ( '2', '学生2'); 
+INSERT INTO S ( SNO, SNAME ) VALUES ( '3', '学生3'); 
+INSERT INTO S ( SNO, SNAME ) VALUES ( '4', '学生4'); 
+commit; 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '1', '40'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '2', '30'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '3', '20'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '4', '80'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '1', '5', '60'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '1', '60'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '2', '60'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '3', '60'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '4', '60'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '2', '5', '40'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '3', '1', '60'); 
+INSERT INTO SC ( SNO, CNO, SCGRADE ) VALUES ( '3', '3', '80'); 
+commit;
 ```
 
 问题1.找出没选过“黎明”老师的所有学生姓名。
 
 即:
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps159.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps159.jpg) -->
 
 问题2:列出2门以上（含2门）不及格学生姓名及平均成绩。
 
@@ -1187,80 +1240,79 @@ CREATE TABLE SC( SNO   VARCHAR(200), CNO   VARCHAR(200), SCGRADE  VARCHAR(200));
 
 ## **14、列出所有员工及领导的姓名**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps160.jpg) 
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps160.jpg)  -->
 
 ## **15、列出受雇日期早于其直接上级的所有员工的编号,姓名,部门名称**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps161.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps161.jpg) -->
 
 ## **16、列出部门名称和这些部门的员工信息,同时列出那些没有员工的部门.**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps162.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps162.jpg) -->
 
 ## **17、列出至少有5个员工的所有部门**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps163.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps163.jpg) -->
 
 ## **18、列出薪金比"SMITH"多的所有员工信息.**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps164.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps164.jpg) -->
 
 ## **19、列出所有"CLERK"(办事员)的姓名及其部门名称,部门的人数.**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps165.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps165.jpg) -->
 
 ## **20、列出最低薪金大于1500的各种工作及从事此工作的全部雇员人数.**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps166.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps166.jpg) -->
 
 ## **21、列出在部门"SALES"<销售部>工作的员工的姓名,假定不知道销售部的部门编号.**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps167.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps167.jpg) -->
 
 ## **22、列出薪金高于公司平均薪金的所有员工,所在部门,上级领导,雇员的工资等级.**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps168.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps168.jpg) -->
 
 ## **23、列出与"SCOTT"从事相同工作的所有员工及部门名称.**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps169.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps169.jpg) -->
 
 ## **24、列出薪金等于部门30中员工的薪金的其他员工的姓名和薪金.**
 
 ## **25、列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金.部门名称.**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps170.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps170.jpg) -->
 
 ## **26、列出在每个部门工作的员工数量,平均工资和平均服务期限.**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps171.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps171.jpg) -->
 
 ## **27、列出所有员工的姓名、部门名称和工资。**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps172.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps172.jpg) -->
 
 ## **28、列出所有部门的详细信息和人数**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps173.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps173.jpg) -->
 
 ## **29、列出各种工作的最低工资及从事此工作的雇员姓名**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps174.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps174.jpg) -->
 
 ## **30、列出各个部门的MANAGER(领导)的最低薪金**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps175.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps175.jpg) -->
 
 ## **31、列出所有员工的年工资,按年薪从低到高排序**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps176.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps176.jpg) -->
 
 ## **32、求出员工领导的薪水超过3000的员工名称与领导名称**
 
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps177.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps177.jpg) -->
 
 ## **33、求出部门名称中,带'S'字符的部门员工的工资合计、部门人数.**
-![img](https://www.oss.tuwei.site/blogsImgs/images/wps178.jpg)
+<!-- ![img](https://www.oss.tuwei.site/blogsImgs/images/wps178.jpg) -->
 
 ## **34、给任职日期超过30年的员工加薪10%.**
- -->
