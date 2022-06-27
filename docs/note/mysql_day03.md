@@ -16,7 +16,7 @@ Mysql days03
   );
   insert into t_user values(1,'zhangsan');    
   insert into t_user values(2,'zhangsan');  //出现编译错误，唯一性约束，该字段与上一行字段重复，但可以为null！
-  ERROR 1062 (23000) : Duplicate entry 'zhangsan' for key 'username'
+  -- ERROR 1062 (23000) : Duplicate entry 'zhangsan' for key 'username'
   
   insert into t_user(id) values(2);
   insert into t_user(id) values(3);
@@ -38,7 +38,7 @@ Mysql days03
   insert into t_user values(3,'222','zs');
   select * from t_user;
   insert into t_user values(4,'111','zs');  //出现编译错误！
-  ERROR 1062 (23000) : Duplicate entry '111-zs' for key 'usercode'
+  -- ERROR 1062 (23000) : Duplicate entry '111-zs' for key 'usercode'
   
   drop table if exists t_user;
   create table t_suer(
@@ -107,7 +107,7 @@ Mysql days03
   select * from t_user;
   
   insert into t_user(id,username) values(3,'cx');  //出现编译错误！
-  ERROR 1062 (23000) : Duplicate entry '4' for key 'PRIMARY'
+  -- ERROR 1062 (23000) : Duplicate entry '4' for key 'PRIMARY'
   
   以下内容是演示一下复合主键，不需要掌握：
       drop table if exists t_user;
@@ -155,22 +155,24 @@ Mysql days03
 
   第二种方案：两张表(班级表和学生表)
 
-  t_class 班级表
-
-**cno(pk) cname**
-
+t_class 班级表
 ```sql
-    101           河南省平顶山市舞钢市垭口一高高三1班 
-    102           河南省平顶山市舞钢市垭口一高高三2班 
-  
-  t_student 学生表
-  sno(pk)        sname          classno(该字段添加外键约束fk)
+    cno(pk)   |      cname  
   -----------------------------------------------------------
-   1              zs1              101
-   2              zs2              101
-   3              zs3              102
-   4              zs4              102
-   5              zs5              102
+      101     |      河南省平顶山市舞钢市垭口一高高三1班 
+      102     |      河南省平顶山市舞钢市垭口一高高三2班 
+```
+
+t_student 学生表
+
+```sql  
+  sno(pk)   |     sname     |     classno(该字段添加外键约束fk)
+  -----------------------------------------------------------
+   1        |      zs1       |       101
+   2        |      zs2       |       101
+   3        |      zs3       |       102
+   4        |      zs4       |       102
+   5        |      zs5       |       102
 ```
 
 - 将以上表的建表语句写出来：
@@ -550,7 +552,7 @@ mysql 5.5.36版本支持的光速引擎有9个：
   演示第二级别；读已提交 set global transaction isolation level read committed;   
   演示第三级别:可重复读 set global transaction isolation level repeatable read;  
 
-*mysql远程登录：mysql -h192.168.151.18 -uroot -p444
+>mysql远程登录：mysql -h192.168.151.18 -uroot -p444
 
 ### 4、索引
 
@@ -572,7 +574,7 @@ select ename,sal from emp where ename = 'SMITH';
 
 4.2、怎么创建索引对象？怎么删除索引对象？ 创建索引对象： create index 索引名称 on 表名(字段名); 删除索引对象： drop index 索引名称 on 表名;
 
-4.3、什么时候考虑给字段添加索引？(满足什么条件) * 数据量庞大。(根据客户的需求，根据线上的环境) * 该字段很少的DML操作。(因为字段进行修改操作，索引也需要维护) * 该字段经常出现在where子句中。(经常根据哪个字段维护)
+4.3、什么时候考虑给字段添加索引？(满足什么条件) *数据量庞大。(根据客户的需求，根据线上的环境)* 该字段很少的DML操作。(因为字段进行修改操作，索引也需要维护) * 该字段经常出现在where子句中。(经常根据哪个字段维护)
 
 4.4、注意：主键具有unique约束的字段会自动添加索引。 根据主键查询效率较高，尽量根据主键检索。
 
@@ -687,33 +689,27 @@ source D:\bjpowernode.sql
 
 t_student  =>学生表  
 
-```sql
-  sno(pk)  |     sname
-  ---------------------
-  1        |     张三
-  2        |     李四 
-  3        |    王五
-```
+| 学生编号（PK） | 学生姓名 |
+| -------------- | -------- |
+| 1001           | 张三     |
+| 1002           | 李四     |
+| 1003           | 王五     |
+
 t_teacher =>讲师表
-```sql
-  tno(pk)   ｜ tname
-  ----------------------
-     1      ｜  王老师
-     2      ｜  张老师
-     3      ｜  李老师
-```
+
+| 教师编号（PK） | 教师姓名 |
+| -------------- | -------- |
+| 001            | 王老师   |
+| 002            | 赵老师   |
 
 t_student_teacher_relation =>学生讲师关系表
-```sql
-  id(pk)  ｜     sno(fk)   ｜      tno(fk)
-  -------------------------------------------
-  1       |          1     |         3
-  2       |          1     |         1
-  3       |          2     |         2
-  4       |          2     |         3
-  5       |          3     |         1
-  6       |          3     |         1 
-```
+
+| 学生编号(PK)  fkà学生表的学生编号 | 教师编号(PK) fkà教师表的教师编号 |
+| --------------------------------- | -------------------------------- |
+| 1001                              | 001                              |
+| 1002                              | 002                              |
+| 1003                              | 001                              |
+| 1001                              | 002                              |
 
 第三范式：
 
@@ -721,23 +717,20 @@ t_student_teacher_relation =>学生讲师关系表
   一对多？两张表，多的表加外键。
   班级t_class
 
-```sql
-  cno(pk)    |      cname
-  --------------------------
-    1        |      班级1
-    2        |      班级2
-```
+| 班级编号（PK）   | 班级名称 |
+| -------------- | -------- |
+| 01             | 一年一班 |
+| 02             | 一年二班 |
+| 03             | 一年三班 |
 
 学生t_student
-```sql
-  sno(pk) | sname  | classno(fk)
---------------------------------------------
-  101     |  张1    |   1
-  102     |  张2    |   2
-  103     |  张3    |   2
-  104     |  张4    |   1
-  105     |  张5    |   2
-```
+
+| 学生编号（PK） | 学生姓名 | 班级编号（FK） |
+| -------------- | -------- | -------------- |
+| 1001           | 张三     | 01             |
+| 1002           | 李四     | 02             |
+| 1003           | 王五     | 03             |
+| 1004           | 六       | 03             |
 
 提醒：在实际的开发中，以满足客户需求为主，有的时候会拿冗余换执行速度。
 
@@ -745,37 +738,31 @@ t_student_teacher_relation =>学生讲师关系表
 
 一对一设计有两种方案：主键共享 t_user_login 用户登陆表
 
-```sql
-  id(pk)  | username  | password
-
+  id(pk)  | username  | password |
+  | -------------- | -------- | -------------- |
   1       | zs        | 123   
   2       | ls        | 456 
-```
 
 t_user_detail 用户详细信息表
 
-```sql
-  id(pk+fk)  |      realname    |      tel           ...
- ----------------------------------------------------
-    1        |       张三        |     13245645612
-    2        |      李四         |     13245644852
-```
+  
+| id(pk+fk)  |      realname    |      tel    |
+| -------- | -------- |------- |
+|  1        |       张三        |     13245645612
+|  2        |      李四         |     13245644852
 
 一对一设计有两种方案:外键唯一 
 
 t_user_login 用户登陆表
 
-```sql
-  id(pk) |  username |   password
-    1    |  zs       |   123   
-    2    |  ls       |   456
-```
+| id(pk) |  username |   password |
+| -------- | -------- |------- | 
+| 1    |  zs       |   123   
+| 2    |  ls       |   456
 
 t_user_detail 用户详细信息表
 
-```sql
-  id(pk)   |   realname   |    tel         |   userid(fk+unique)      
- ----------------------------------------------------
-   1       |   张三        |    111111114   |     2
-   2       |   李四        |    121432412   |     1
-```
+id(pk)     |   realname   |    tel    |   userid(fk+unique) |
+| -------- | -------- |------- | ---- |  
+| 1        |   张三        |    111111114   |     2
+| 2        |   李四        |    121432412   |     1

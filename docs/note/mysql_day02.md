@@ -188,14 +188,14 @@ SQL92:（太老，不用了）
 SQL99：（常用的）
 
 ```sql
-  select 
-    e.ename,d.dname
-  from
-    emp e
-  join
-    dept d
-  on
-    e.deptno = d.deptno;
+select 
+  e.ename,d.dname
+from
+  emp e
+join
+  dept d
+on
+  e.deptno = d.deptno;
 // inner可以省略的，带着inner目的是可读性好一些。
 select 
   e.ename,d.dname
@@ -319,7 +319,6 @@ on
 2.7、自连接：最大的特点是：一张表看做两张表。自己连接自己。
 
 案例：找出每个员工的上级领导，要求显示员工名和对应的领导名。 mysql> select empno,ename,mgr from emp; emp a 员工表
-
 ```sql
 +-------+--------+------+
 | empno | ename  | mgr  |
@@ -676,22 +675,22 @@ on
 案例：找出每一个员工的部门名称、工资等级、以及上级领导。
 
 ```sql
-  select 
-    e.ename '员工',d.dname,s.grade,e1.ename '领导'
-  from
-    emp e
-  join
-    dept d
-  on
-    e.deptno = d.deptno
-  join
-    salgrade s
-  on
-    e.sal between s.losal and s.hisal
-  left join
-    emp e1
-  on
-    e.mgr = e1.empno;
+select 
+  e.ename '员工',d.dname,s.grade,e1.ename '领导'
+from
+  emp e
+join
+  dept d
+on
+  e.deptno = d.deptno
+join
+  salgrade s
+on
+  e.sal between s.losal and s.hisal
+left join
+  emp e1
+on
+  e.mgr = e1.empno;
 ```
 
 ```sql
@@ -733,36 +732,33 @@ on
 案例：找出高于平均薪资的员工信息。 select * from emp where sal > avg(sal); //错误的写法，where后面不能直接使用分组函数。
 
 ```sql
-第一步：找出平均薪资
-  select avg(sal) from emp;
-  +-------------+
-  | avg(sal)    |
-  +-------------+
-  | 2073.214286 |
-  +-------------+
-第二步：where过滤
-  select * from emp where sal > 2073.214286;
-  +-------+-------+-----------+------+------------+---------+------+--------+
-  | EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
-  +-------+-------+-----------+------+------------+---------+------+--------+
-  |  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
-  |  7698 | BLAKE | MANAGER   | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
-  |  7782 | CLARK | MANAGER   | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
-  |  7788 | SCOTT | ANALYST   | 7566 | 1987-04-19 | 3000.00 | NULL |     20 |
-  |  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
-  |  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
-  +-------+-------+-----------+------+------------+---------+------+--------+
-第一步和第二步合并：
-  select * from emp where sal > (select avg(sal) from emp);
+-- 第一步：找出平均薪资
+select avg(sal) from emp;
++-------------+
+| avg(sal)    |
++-------------+
+| 2073.214286 |
++-------------+
+-- 第二步：where过滤
+select * from emp where sal > 2073.214286;
++-------+-------+-----------+------+------------+---------+------+--------+
+| EMPNO | ENAME | JOB       | MGR  | HIREDATE   | SAL     | COMM | DEPTNO |
++-------+-------+-----------+------+------------+---------+------+--------+
+|  7566 | JONES | MANAGER   | 7839 | 1981-04-02 | 2975.00 | NULL |     20 |
+|  7698 | BLAKE | MANAGER   | 7839 | 1981-05-01 | 2850.00 | NULL |     30 |
+|  7782 | CLARK | MANAGER   | 7839 | 1981-06-09 | 2450.00 | NULL |     10 |
+|  7788 | SCOTT | ANALYST   | 7566 | 1987-04-19 | 3000.00 | NULL |     20 |
+|  7839 | KING  | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL |     10 |
+|  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000.00 | NULL |     20 |
++-------+-------+-----------+------+------------+---------+------+--------+
+-- 第一步和第二步合并：
+select * from emp where sal > (select avg(sal) from emp);
 ```
 
 3.3、from后面嵌套子查询
 
 案例：找出每个部门平均薪水的等级。
-
-
 第一步：找出每个部门平均薪水（按照部门编号分组，求sal的平均值）
-
 ```sql
 select deptno,avg(sal) as avgsal from emp group by deptno;
 +--------+-------------+
@@ -775,7 +771,6 @@ select deptno,avg(sal) as avgsal from emp group by deptno;
 ```
 
 第二步：将以上的查询结果当做临时表t，让t表和salgrade s表连接，条件是：t.avgsal between s.losal and s.hisal
-
 ```sql
 select 
   t.*,s.grade
@@ -797,7 +792,6 @@ on
 
 案例：找出每个部门平均的薪水等级。
 第一步：找出每个员工的薪水等级。
-
 ```sql
 select e.ename,e.sal,e.deptno,s.grade from emp e join salgrade s on e.sal between s.losal and s.hisal;
 +--------+---------+--------+-------+
@@ -821,7 +815,6 @@ select e.ename,e.sal,e.deptno,s.grade from emp e join salgrade s on e.sal betwee
 ```
 
 第二步：基于以上结果，继续按照deptno分组，求grade平均值。
-
 ```sql
 select 
   e.deptno,avg(s.grade)
@@ -1060,71 +1053,70 @@ create table t_student(
 ### 7、insert语句插入数据
 
 语法格式： insert into 表名(字段名1,字段名2,字段名3,....) values(值1,值2,值3,....) 要求：字段的数量和值的数量相同，并且数据类型要对应相同。
-
 ```sql
 insert into t_student(no,name,sex,classno,birth) values(1,'zhangsan','1','gaosan1ban');
-// ERROR 1136 (21S01): Column count doesn't match value count at row 1
+-- ERROR 1136 (21S01): Column count doesn't match value count at row 1
 ```
 
 ```sql
-insert into t_student(no,name,sex,classno,birth) values(1,'zhangsan','1','gaosan1ban', '1950-10-12');
+  insert into t_student(no,name,sex,classno,birth) values(1,'zhangsan','1','gaosan1ban', '1950-10-12');
 
-mysql> select * from t_student;
-+------+----------+------+------------+------------+
-| no   | name     | sex  | classno    | birth      |
-+------+----------+------+------------+------------+
-|    1 | zhangsan | 1    | gaosan1ban | 1950-10-12 |
-+------+----------+------+------------+------------+
+  mysql> select * from t_student;
+  +------+----------+------+------------+------------+
+  | no   | name     | sex  | classno    | birth      |
+  +------+----------+------+------------+------------+
+  |    1 | zhangsan | 1    | gaosan1ban | 1950-10-12 |
+  +------+----------+------+------------+------------+
 
-insert into t_student(name,sex,classno,birth,no) values('lisi','1','gaosan1ban', '1950-10-12',2);
+  insert into t_student(name,sex,classno,birth,no) values('lisi','1','gaosan1ban', '1950-10-12',2);
 
-mysql> select * from t_student;
-+------+----------+------+------------+------------+
-| no   | name     | sex  | classno    | birth      |
-+------+----------+------+------------+------------+
-|    1 | zhangsan | 1    | gaosan1ban | 1950-10-12 |
-|    2 | lisi     | 1    | gaosan1ban | 1950-10-12 |
-+------+----------+------+------------+------------+
+  mysql> select * from t_student;
+  +------+----------+------+------------+------------+
+  | no   | name     | sex  | classno    | birth      |
+  +------+----------+------+------------+------------+
+  |    1 | zhangsan | 1    | gaosan1ban | 1950-10-12 |
+  |    2 | lisi     | 1    | gaosan1ban | 1950-10-12 |
+  +------+----------+------+------------+------------+
 
-insert into t_student(name) values('wangwu'); // 除name字段之外，剩下的所有字段自动插入NULL。
-mysql> select * from t_student;
-+------+----------+------+------------+------------+
-| no   | name     | sex  | classno    | birth      |
-+------+----------+------+------------+------------+
-|    1 | zhangsan | 1    | gaosan1ban | 1950-10-12 |
-|    2 | lisi     | 1    | gaosan1ban | 1950-10-12 |
-| NULL | wangwu   | NULL | NULL       | NULL       |
-+------+----------+------+--- ---------+------------+
+  insert into t_student(name) values('wangwu'); // 除name字段之外，剩下的所有字段自动插入NULL。
+  mysql> select * from t_student;
+  +------+----------+------+------------+------------+
+  | no   | name     | sex  | classno    | birth      |
+  +------+----------+------+------------+------------+
+  |    1 | zhangsan | 1    | gaosan1ban | 1950-10-12 |
+  |    2 | lisi     | 1    | gaosan1ban | 1950-10-12 |
+  | NULL | wangwu   | NULL | NULL       | NULL       |
+  +------+----------+------+--- ---------+------------+
 ```
 
 ```sql
-insert into t_student(no) values(3); 
-mysql> select * from t_student;
-+------+----------+------+------------+------------+
-| no   | name     | sex  | classno    | birth      |
-+------+----------+------+------------+------------+
-|    1 | zhangsan | 1    | gaosan1ban | 1950-10-12 |
-|    2 | lisi     | 1    | gaosan1ban | 1950-10-12 |
-| NULL | wangwu   | NULL | NULL       | NULL       |
-|    3 | NULL     | NULL | NULL       | NULL       |
-+------+----------+------+------------+------------+
+  insert into t_student(no) values(3); 
+  mysql> select * from t_student;
+  +------+----------+------+------------+------------+
+  | no   | name     | sex  | classno    | birth      |
+  +------+----------+------+------------+------------+
+  |    1 | zhangsan | 1    | gaosan1ban | 1950-10-12 |
+  |    2 | lisi     | 1    | gaosan1ban | 1950-10-12 |
+  | NULL | wangwu   | NULL | NULL       | NULL       |
+  |    3 | NULL     | NULL | NULL       | NULL       |
+  +------+----------+------+------------+------------+
 
-drop table if exists t_student; // 当这个表存在的话删除。
-create table t_student(
-  no bigint,
-  name varchar(255),
-  sex char(1) default 1,
-  classno varchar(255),
-  birth char(10)
-);
+  drop table if exists t_student; // 当这个表存在的话删除。
+  create table t_student(
+    no bigint,
+    name varchar(255),
+    sex char(1) default 1,
+    classno varchar(255),
+    birth char(10)
+  );
 
-insert into t_student(name) values('zhangsan');
-mysql> select * from t_student;
-+------+----------+------+---------+-------+
-| no   | name     | sex  | classno | birth |
-+------+----------+------+---------+-------+
-| NULL | zhangsan | 1    | NULL    | NULL  |
-+------+----------+------+---------+-------+
+  insert into t_student(name) values('zhangsan');
+  mysql> select * from t_student;
+  +------+----------+------+---------+-------+
+  | no   | name     | sex  | classno | birth |
+  +------+----------+------+---------+-------+
+  | NULL | zhangsan | 1    | NULL    | NULL  |
+  +------+----------+------+---------+-------+
 ```
 
 需要注意的地方：
@@ -1145,11 +1137,9 @@ mysql> select * from t_student;
 +------+----------+------+------------+------------+
 
 insert into t_student values(1,'jack','0','gaosan2ban');
-ERROR 1136 (21S01): Column count doesn't match value count at row 1
+-- ERROR 1136 (21S01): Column count doesn't match value count at row 1
 
-// 一次插入多行数据
-
-```sql
+-- 一次插入多行数据
 insert into t_student
   (no,name,sex,classno,birth) 
 values
@@ -1244,16 +1234,17 @@ mysql> select * from dept1;
 删除10部门数据？
 
 ```sql
-  delete from dept1 where deptno = 10;
+delete from dept1 where deptno = 10;
 ```
 
 删除所有记录？
 ```sql
-  delete from dept1;
+delete from dept1;
 ```
 怎么删除大表？（重点）
 ```sql
-  truncate table 表名; // 表被截断，不可回滚。永久丢失。
+truncate table 表名;
+-- 表被截断，不可回滚。永久丢失。
 ```
 ### 12、对于表结构的修改，这里不讲了，大家使用工具完成即可，因为在实际开发中表一旦
 
