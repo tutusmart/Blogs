@@ -9,46 +9,48 @@ Mysql days03
 - 案例：给某一列添加unique
 
 ```sql
-  drop table if exists t_user;
-  create table t_user(
-    id int,
-    username varchar(255) unique  //列级约束
-  );
-  insert into t_user values(1,'zhangsan');    
-  insert into t_user values(2,'zhangsan');  //出现编译错误，唯一性约束，该字段与上一行字段重复，但可以为null！
-  -- ERROR 1062 (23000) : Duplicate entry 'zhangsan' for key 'username'
-  
-  insert into t_user(id) values(2);
-  insert into t_user(id) values(3);
-  insert into t_user(id) values(4);
+drop table if exists t_user;
+create table t_user(
+  id int,
+  username varchar(255) unique  //列级约束
+);
+insert into t_user values(1,'zhangsan');    
+insert into t_user values(2,'zhangsan');  
+-- 出现编译错误，唯一性约束，该字段与上一行字段重复，但可以为null！
+-- ERROR 1062 (23000) : Duplicate entry 'zhangsan' for key 'username'
+
+insert into t_user(id) values(2);
+insert into t_user(id) values(3);
+insert into t_user(id) values(4);
 ```
 
 案例：给两个列或者多个列添加unique
 ```sql
-  drop table if exists t_user;
-  create table t_user(
-      id int,
-      usercode varchar(255),
-      username varchar(255),
-      unique(usercode,username)  //多个字段联合起来添加一个约束unique 【表级约束】
-  );
-  
-  insert into t_user values(1,'111','zs');
-  insert into t_user values(2,'111','ls');
-  insert into t_user values(3,'222','zs');
-  select * from t_user;
-  insert into t_user values(4,'111','zs');  //出现编译错误！
-  -- ERROR 1062 (23000) : Duplicate entry '111-zs' for key 'usercode'
-  
-  drop table if exists t_user;
-  create table t_suer(
+drop table if exists t_user;
+create table t_user(
     id int,
-    usercode varchar(255) unique,
-    username varchar(255) unique
-  );
-  insert into t_user values(1,'111','zs');
-  insert into t_user values(2,'111','ls');
-  -- ERROR 1062 (23000) : Duplicate entry '111' for key 'usercode'
+    usercode varchar(255),
+    username varchar(255),
+    unique(usercode,username)  
+    --多个字段联合起来添加一个约束unique 【表级约束】
+);
+
+insert into t_user values(1,'111','zs');
+insert into t_user values(2,'111','ls');
+insert into t_user values(3,'222','zs');
+select * from t_user;
+insert into t_user values(4,'111','zs');  //出现编译错误！
+-- ERROR 1062 (23000) : Duplicate entry '111-zs' for key 'usercode'
+
+drop table if exists t_user;
+create table t_suer(
+  id int,
+  usercode varchar(255) unique,
+  username varchar(255) unique
+);
+insert into t_user values(1,'111','zs');
+insert into t_user values(2,'111','ls');
+-- ERROR 1062 (23000) : Duplicate entry '111' for key 'usercode'
 ```
 
 
@@ -59,28 +61,30 @@ Mysql days03
 - 怎么给一张表添加主键约束呢？
 
 ```sql
-  drop table if exists t_user;
-  create table t_user(
-    id int primary key,  //列级约束
-    username varchar(255),
-    email varchar(255)
-  );
-  insert into t_user(id,username,email) values(1,'zs','zs@123.com');
-  insert into t_user(id,username,email) values(2,'ls','ls@123.com');
-  insert into t_user(id,username,email) values(3,'ww','ww@123.com');
-  select * from t_user;
-  +-----------------------------+
-  | id | username | email       |
-  +-----------------------------+
-  |  1 | zs       | zs@123.com  |
-  |  2 | ls       | ls@123.com  |
-  |  3 | ww       | ww@123.com  |
-  +----+----------+-------------+
+drop table if exists t_user;
+create table t_user(
+  id int primary key,  //列级约束
+  username varchar(255),
+  email varchar(255)
+);
+insert into t_user(id,username,email) values(1,'zs','zs@123.com');
+insert into t_user(id,username,email) values(2,'ls','ls@123.com');
+insert into t_user(id,username,email) values(3,'ww','ww@123.com');
+
+select * from t_user;
+
++-----------------------------+
+| id | username | email       |
++-----------------------------+
+|  1 | zs       | zs@123.com  |
+|  2 | ls       | ls@123.com  |
+|  3 | ww       | ww@123.com  |
++----+----------+-------------+
 ```
 
 ```sql
-  insert into t_user(id,username,email) values(1,'jack','<jack@123.com>'); 
-  //出现编译错误，主键约束，不能为null也不能重复！ ERROR 1364 (HY000) : Field 'id' doesn't have a default value
+insert into t_user(id,username,email) values(1,'jack','<jack@123.com>'); 
+//出现编译错误，主键约束，不能为null也不能重复！ ERROR 1364 (HY000) : Field 'id' doesn't have a default value
 ```
 
   根据以上的测试得出：id是主键，因为添加了主键约束，主键字段中的数据不能为null，也不能重复。 主键的特点：不能为null，也不能重复。
@@ -94,48 +98,49 @@ Mysql days03
 - 使用表级约束方式定义主键：
 
 ```sql
-  drop table if exists t_user;
-  create table t_user(
-      id int,
-      username varchar(255),
-      primary key(id)
+drop table if exists t_user;
+create table t_user(
+    id int,
+    username varchar(255),
+    primary key(id)
+);
+insert into t_user(id,username) values(1,'zs');
+insert into t_user(id,username) values(2,'ls');
+insert into t_user(id,username) values(3,'ws');
+insert into t_user(id,username) values(4,'cs');
+select * from t_user;
+  
+insert into t_user(id,username) values(3,'cx');  
+-- 出现编译错误！
+-- ERROR 1062 (23000) : Duplicate entry '4' for key 'PRIMARY'
+
+-- 以下内容是演示一下复合主键，不需要掌握：
+drop table if exists t_user;
+create table t_user(
+    id int,
+    username varchar(255),
+    password varchar(255),
+    primary key(id,username)
   );
-  insert into t_user(id,username) values(1,'zs');
-  insert into t_user(id,username) values(2,'ls');
-  insert into t_user(id,username) values(3,'ws');
-  insert into t_user(id,username) values(4,'cs');
-  select * from t_user;
-  
-  insert into t_user(id,username) values(3,'cx');  //出现编译错误！
-  -- ERROR 1062 (23000) : Duplicate entry '4' for key 'PRIMARY'
-  
-  以下内容是演示一下复合主键，不需要掌握：
-      drop table if exists t_user;
-      create table t_user(
-          id int,
-          username varchar(255),
-          password varchar(255),
-          primary key(id,username)
-       );
-      insert ......
+insert ......
 ```
 
 - mysql提供主键值自增：(非常重要。)
 
 ```sql
-  drop table if exists t_user;
-  create table t_user(
-    id int primary key auto_increment,  //id字段自动维护一个自增的数字，从1开始，以1递增。
-    username varchar(255)
-  );
-  insert into t_user(username) values('a'); 
-  insert into t_user(username) values('b');
-  insert into t_user(username) values('c');
-  insert into t_user(username) values('d');
-  insert into t_user(username) values('e');
-  insert into t_user(username) values('f');
-  select * from t_user;
-  -- 提示：Oracle当中也提供了一个自增机制，叫做：序列(sequence)对象。 
+drop table if exists t_user;
+create table t_user(
+  id int primary key auto_increment,  //id字段自动维护一个自增的数字，从1开始，以1递增。
+  username varchar(255)
+);
+insert into t_user(username) values('a'); 
+insert into t_user(username) values('b');
+insert into t_user(username) values('c');
+insert into t_user(username) values('d');
+insert into t_user(username) values('e');
+insert into t_user(username) values('f');
+select * from t_user;
+-- 提示：Oracle当中也提供了一个自增机制，叫做：序列(sequence)对象。 
 
 ```  
 
@@ -145,35 +150,34 @@ Mysql days03
 
 - 业务背景： 请设计数据库表，用来维护学生和班级的信息？ 第一种方案：一张表存储所有数据
 
-**no(pk) name classno classname**
+|no(pk) | name | classno | classname |
+| ---------| -------- |---------| -------- |
+|1 | zs1 | 101 |河南省平顶山市舞钢市垭口一高高三1班 |   
+|2 | zs2 | 101| 河南省平顶山市舞钢市垭口一高高三1班   |
+|3 | zs3 | 102| 河南省平顶山市舞钢市垭口一高高三2班   |
+|4 | zs4 | 102 |河南省平顶山市舞钢市垭口一高高三2班   | 
+|5 | zs5 | 102| 河南省平顶山市舞钢市垭口一高高三2班   |
 
-  1 zs1 101 河南省平顶山市舞钢市垭口一高高三1班   
-  2 zs2 101 河南省平顶山市舞钢市垭口一高高三1班   
-  3 zs3 102 河南省平顶山市舞钢市垭口一高高三2班   
-  4 zs4 102 河南省平顶山市舞钢市垭口一高高三2班   
-  5 zs5 102 河南省平顶山市舞钢市垭口一高高三2班 缺点：冗余。【不推荐】
+缺点：冗余。【不推荐】
 
-  第二种方案：两张表(班级表和学生表)
+第二种方案：两张表(班级表和学生表)
 
-t_class 班级表
-```sql
-    cno(pk)   |      cname  
-  -----------------------------------------------------------
-      101     |      河南省平顶山市舞钢市垭口一高高三1班 
-      102     |      河南省平顶山市舞钢市垭口一高高三2班 
-```
+**t_class** 班级表
 
-t_student 学生表
+| cno(pk)   |      cname|  
+| ---------| -------- |
+101     |      河南省平顶山市舞钢市垭口一高高三1班 
+102     |      河南省平顶山市舞钢市垭口一高高三2班 
 
-```sql  
-  sno(pk)   |     sname     |     classno(该字段添加外键约束fk)
-  -----------------------------------------------------------
-   1        |      zs1       |       101
-   2        |      zs2       |       101
-   3        |      zs3       |       102
-   4        |      zs4       |       102
-   5        |      zs5       |       102
-```
+**t_student** 学生表
+
+|sno(pk)   |    sname | classno(该字段添加外键约束fk) |
+| ---------| -------- | ------  |
+|1        |      zs1  |  101    |
+|2        |      zs2  |  101     
+|3        |      zs3  |  102     
+|4        |      zs4  |  102     
+|5        |      zs5  |  102     
 
 - 将以上表的建表语句写出来：
 
@@ -182,37 +186,38 @@ t_student 学生表
   删除数据的时候，先删除子表，再删除父表。 添加数据的时候，先添加父表，再添加子表。 创建表的时候，先创建父表，再创建子表。 删除表的时候，先删除子表，再删除父表。
 
 ```sql
-  drop table if exists t_student;
-  drop table if exists t_class;
+drop table if exists t_student;
+drop table if exists t_class;
 
-  create table t_class(
-      cno int,
-      cname varchar(255),
-      primary key(cno)
-  );
-  
+create table t_class(
+    cno int,
+    cname varchar(255),
+    primary key(cno)
+);
+
 create table t_student(
-    sno int,
-    sname varchar(255),
-    classno int,
-    primary key(sno),
-    foreign key(classno) references t_class(cno)
-  );
+  sno int,
+  sname varchar(255),
+  classno int,
+  primary key(sno),
+  foreign key(classno) references t_class(cno)
+);
 
-  insert into t_class values(101,'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-  insert into t_class values(102,'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+insert into t_class values(101,'xx');
+insert into t_class values(102,'yy');
 
-  insert into t_student values(1,'zs1',101);
-  insert into t_student values(2,'zs2',101);
-  insert into t_student values(3,'zs3',102);
-  insert into t_student values(4,'zs4',102);
-  insert into t_student values(5,'zs5',102);
-  insert into t_student values(6,'zs6',102);
-  select * from t_class;
-  select * from t_student;
-  
-  insert into t_student values(7,'lisi',103);  //编译错误，引用的103，父表中没有该字段！
-  -- ERROR 1452 (23000) : Cannot add or update a child row :aforeign key constraint fails (bjpowernode INT YT......)
+insert into t_student values(1,'zs1',101);
+insert into t_student values(2,'zs2',101);
+insert into t_student values(3,'zs3',102);
+insert into t_student values(4,'zs4',102);
+insert into t_student values(5,'zs5',102);
+insert into t_student values(6,'zs6',102);
+select * from t_class;
+select * from t_student;
+
+insert into t_student values(7,'lisi',103);
+-- 编译错误，引用的103，父表中没有该字段！
+-- ERROR 1452 (23000) : Cannot add or update a child row :aforeign key constraint fails (bjpowernode INT YT......)
 ```
 
 -   外键值可以为NULL？ 外键可以为null。
@@ -223,9 +228,9 @@ create table t_student(
 2.1、完整的建表语句
 
 ```sql
-  CREATE TABLE `t_x` (
-    `id` int(11) DEFAULT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+CREATE TABLE `t_x` (
+  `id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
 ```
 
  注意：在MySQL当中，凡是标识符使用飘号括起来的。最好别用，不通用。
@@ -254,7 +259,6 @@ mysql 5.5.36版本支持的光速引擎有9个：
     XA: NULL
     Savepoints: NULL
 
-
 *************************** 2. row ***************************
     Engine: MRG_MYISAM
     Support: YES
@@ -262,7 +266,6 @@ mysql 5.5.36版本支持的光速引擎有9个：
     Transactions: NO
     XA: NO
     Savepoints: NO
-
 
 *************************** 3. row ***************************
     Engine: MyISAM
@@ -272,7 +275,6 @@ mysql 5.5.36版本支持的光速引擎有9个：
     XA: NO
     Savepoints: NO
 
-
 *************************** 4. row ***************************
     Engine: BLACKHOLE
     Support: YES
@@ -281,7 +283,6 @@ mysql 5.5.36版本支持的光速引擎有9个：
     XA: NO
     Savepoints: NO
 
-
 *************************** 5. row ***************************
     Engine: CSV
     Support: YES
@@ -289,6 +290,7 @@ mysql 5.5.36版本支持的光速引擎有9个：
     Transactions: NO
     XA: NO
     Savepoints: NO
+
 *************************** 6. row ***************************
     Engine: MEMORY
     Support: YES
@@ -296,7 +298,6 @@ mysql 5.5.36版本支持的光速引擎有9个：
     Transactions: NO
     XA: NO
     Savepoints: NO
-
 
 *************************** 7. row ***************************
     Engine: ARCHIVE
@@ -306,7 +307,6 @@ mysql 5.5.36版本支持的光速引擎有9个：
     XA: NO
     Savepoints: NO
 
-
 *************************** 8. row ***************************
     Engine: InnoDB
     Support: DEFAULT
@@ -314,7 +314,6 @@ mysql 5.5.36版本支持的光速引擎有9个：
     Transactions: YES
     XA: YES
     Savepoints: YES
-
 
 *************************** 9. row ***************************
     Engine: PERFORMANCE_SCHEMA
@@ -406,148 +405,152 @@ mysql 5.5.36版本支持的光速引擎有9个：
    * 建表：
 
 ```sql
-  drop table if exists t_user;
-  create table t_user(
-    id int primary key auto_increment,
-    username varchar(255)
-  );
+drop table if exists t_user;
+create table t_user(
+  id int primary key auto_increment,
+  username varchar(255)
+);
 ```
 
 演示：mysql中的事务是支持自动提交的，只要执行一条DML语句，则提交一次。
 
 ```sql
-  mysql> insert into t_user(username) values('zs');
-  Querk OK, 1 row affected (0.03 sec)
-  mysql> select * from t_user;
-  +----+----------+
-  | id | username |
-  +----+----------+
-  |  1 | zs       |
-  +----+----------+
-  mysql> rollback;
-  Query OK, 0 rows affected (0.00 sec)
+mysql> insert into t_user(username) values('zs');
+Querk OK, 1 row affected (0.03 sec)
 
-      mysql> select * from t_user;
-  +----+----------+
-  | id | username |
-  +----+----------+
-  |  1 | zs       |
-  +----+----------+
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
++----+----------+
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from t_user;
+
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
++----+----------+
 ```
 
 演示：使用start transaction; 关闭自动提交机制。
 
 ```sql
-  mysql> select * from t_user;
-  +----+----------+
-  | id | username |
-  +----+----------+
-  |  1 | zs       |
-  +----+----------+
-  1 row in set (0.00 sec)
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
++----+----------+
+-- 1 row in set (0.00 sec)
 
-  mysql> start transaction;
-  Query OK, 0 rows affected (0.00 sec)
+mysql> start transaction;
+-- Query OK, 0 rows affected (0.00 sec)
 
-  mysql> insert into t_user(username) values("lisi");
-  Query OK, 1 row affected (0.00 sec)
+mysql> insert into t_user(username) values("lisi");
+-- Query OK, 1 row affected (0.00 sec)
 
-  mysql> select * from t_user;
-  +----+----------+
-  | id | username |
-  +----+----------+
-  |  1 | zs       |
-  |  2 | lisi     |
-  +----+----------+
-  2 rows in set (0.00 sec)
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
+|  2 | lisi     |
++----+----------+
+-- 2 rows in set (0.00 sec)
 
-  mysql> insert into t_user(username) values("wangwu");
-  Query OK, 1 row affected (0.00 sec)
+mysql> insert into t_user(username) values("wangwu");
+-- Query OK, 1 row affected (0.00 sec)
 
-  mysql> select * from t_user;
-  +----+----------+
-  | id | username |
-  +----+----------+
-  |  1 | zs       |
-  |  2 | lisi     |
-  |  3 | wangwu   |
-  +----+----------+
-  3 rows in set (0.00 sec)
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
+|  2 | lisi     |
+|  3 | wangwu   |
++----+----------+
+-- 3 rows in set (0.00 sec)
 
-  mysql> rollback;    //回滚
-  Query OK, 0 rows affected (0.00 sec)
+mysql> rollback;    --回滚
+-- Query OK, 0 rows affected (0.00 sec)
 
-  mysql> select * from t_user;
-  +----+----------+
-  | id | username |
-  +----+----------+
-  |  1 | zs       |
-  +----+----------+
-  1 row in set (0.00 sec)
+mysql> select * from t_user;
++----+----------+
+| id | username |
++----+----------+
+|  1 | zs       |
++----+----------+
+-- 1 row in set (0.00 sec)
 
-  mysql> start transaction;
-  Query OK, 0 rows affected (0.00 sec)
+mysql> start transaction;
+-- Query OK, 0 rows affected (0.00 sec)
 
-  mysql> insert into t_user(username) values("wangwu");
-  Query OK, 1 row affected (0.00 sec)
+mysql> insert into t_user(username) values("wangwu");
+-- Query OK, 1 row affected (0.00 sec)
 
-  mysql> insert into t_user(username) values("object");
-  Query OK, 1 row affected (0.00 sec)
+mysql> insert into t_user(username) values("object");
+-- Query OK, 1 row affected (0.00 sec)
 
-  mysql> insert into t_user(username) values("joke");
-  Query OK, 1 row affected (0.00 sec)
+mysql> insert into t_user(username) values("joke");
+-- Query OK, 1 row affected (0.00 sec)
 
-  mysql> insert into t_user(username) values("xiaozhaozhao");
-  Query OK, 1 row affected (0.00 sec)
+mysql> insert into t_user(username) values("xiaozhaozhao");
+-- Query OK, 1 row affected (0.00 sec)
 
-  mysql> select * from t_user;
-  +----+--------------+
-  | id | username     |
-  +----+--------------+
-  |  1 | zs           |
-  |  4 | wangwu       |
-  |  5 | object       |
-  |  6 | joke         |
-  |  7 | xiaozhaozhao |
-  +----+--------------+
-  5 rows in set (0.00 sec)
+mysql> select * from t_user;
++----+--------------+
+| id | username     |
++----+--------------+
+|  1 | zs           |
+|  4 | wangwu       |
+|  5 | object       |
+|  6 | joke         |
+|  7 | xiaozhaozhao |
++----+--------------+
+-- 5 rows in set (0.00 sec)
 
-  mysql> commit;
-  Query OK, 0 rows affected (0.00 sec)
+mysql> commit;
+-- Query OK, 0 rows affected (0.00 sec)
 
-  mysql> select * from t_user;
-  +----+--------------+
-  | id | username     |
-  +----+--------------+
-  |  1 | zs           |
-  |  4 | wangwu       |
-  |  5 | object       |
-  |  6 | joke         |
-  |  7 | xiaozhaozhao |
-  +----+--------------+
-  5 rows in set (0.00 sec)
+mysql> select * from t_user;
++----+--------------+
+| id | username     |
++----+--------------+
+|  1 | zs           |
+|  4 | wangwu       |
+|  5 | object       |
+|  6 | joke         |
+|  7 | xiaozhaozhao |
++----+--------------+
+-- 5 rows in set (0.00 sec)
 
-  mysql> rollback;
-  Query OK, 0 rows affected (0.00 sec)
+mysql> rollback;
+-- Query OK, 0 rows affected (0.00 sec)
 
-  mysql> select * from t_user;
-  +----+--------------+
-  | id | username     |
-  +----+--------------+
-  |  1 | zs           |
-  |  4 | wangwu       |
-  |  5 | object       |
-  |  6 | joke         |
-  |  7 | xiaozhaozhao |
-  +----+--------------+
-  5 rows in set (0.00 sec)
+mysql> select * from t_user;
++----+--------------+
+| id | username     |
++----+--------------+
+|  1 | zs           |
+|  4 | wangwu       |
+|  5 | object       |
+|  6 | joke         |
+|  7 | xiaozhaozhao |
++----+--------------+
+-- 5 rows in set (0.00 sec)
 
-  rollback : 回滚。
-  commit ： 提交。
-  start transaction : 关闭自动提交机制。
+
+-- rollback : 回滚。
+-- commit ： 提交。
+-- start transaction : 关闭自动提交机制。
 ```
 
--   演示两个事务，假如隔离级别：  
+- 演示两个事务，假如隔离级别：  
   演示第1级别：读未提交 set global transaction isolation level read uncommitted;   
   演示第二级别；读已提交 set global transaction isolation level read committed;   
   演示第三级别:可重复读 set global transaction isolation level repeatable read;  
@@ -589,9 +592,7 @@ select ename,sal from emp where ename = 'SMITH';
 +----+-------------+-------+------+---------------+------+---------+------+------+-------------+
 ```
 
-
-给薪资sal字段添加索引：
-
+给薪资sal字段添加索引:
 ```sql
 create index emp_sal_index on emp(sal);
 mysql> explain select ename,sal from emp where sal = 5000;
@@ -603,7 +604,6 @@ mysql> explain select ename,sal from emp where sal = 5000;
 ```
 
 rows检索次数减少了
-                                                                                  
 
 4.6、索引底层采用的数据结构是：B + Tree
 
@@ -652,8 +652,11 @@ mysql> select * from myview;
 
 create table emp_bak as select * from emp;
 create view myview1 as select empno,ename,sal from emp_bak;
-update myview1 set ename = 'hehe',sal = 1 where empno 7369;  //通过视图修改原表数据。
-delete from myview1 where empno = 7369;  //通过试图删除原表数据。
+
+update myview1 set ename = 'hehe',sal = 1 where empno 7369;  
+--通过视图修改原表数据。
+delete from myview1 where empno = 7369;  
+--通过试图删除原表数据。
 ```
 
 5.5、试图的作用？ 试图可以隐藏表的实现细节。保密级别较高的系统，数据库只对外提供相关的视图，java程序员只对视图对象进行CRUD。
@@ -687,7 +690,7 @@ source D:\bjpowernode.sql
   建立在第一范式的基础上，所有非主键字段完全依赖主键，不能产生部份依赖。
   多对多？三张表，关系表两个外键。
 
-t_student  =>学生表  
+**t_student**  =>学生表  
 
 | 学生编号（PK） | 学生姓名 |
 | -------------- | -------- |
@@ -695,21 +698,21 @@ t_student  =>学生表
 | 1002           | 李四     |
 | 1003           | 王五     |
 
-t_teacher =>讲师表
+**t_teacher** =>讲师表
 
 | 教师编号（PK） | 教师姓名 |
 | -------------- | -------- |
 | 001            | 王老师   |
 | 002            | 赵老师   |
 
-t_student_teacher_relation =>学生讲师关系表
+**t_student_teacher_relation** =>学生讲师关系表
 
-| 学生编号(PK)  fkà学生表的学生编号 | 教师编号(PK) fkà教师表的教师编号 |
-| --------------------------------- | -------------------------------- |
-| 1001                              | 001                              |
-| 1002                              | 002                              |
-| 1003                              | 001                              |
-| 1001                              | 002                              |
+| 学生编号(PK) fkà学生表的学生编号 | 教师编号(PK) fkà教师表的教师编号 |
+| --------| --------|
+| 1001    | 001     |
+| 1002    | 002     |
+| 1003    | 001     |
+| 1001    | 002     |
 
 第三范式：
 
@@ -718,7 +721,7 @@ t_student_teacher_relation =>学生讲师关系表
   班级t_class
 
 | 班级编号（PK）   | 班级名称 |
-| -------------- | -------- |
+| -------------- | ------- |
 | 01             | 一年一班 |
 | 02             | 一年二班 |
 | 03             | 一年三班 |
@@ -738,31 +741,30 @@ t_student_teacher_relation =>学生讲师关系表
 
 一对一设计有两种方案：主键共享 t_user_login 用户登陆表
 
-  id(pk)  | username  | password |
-  | -------------- | -------- | -------------- |
-  1       | zs        | 123   
-  2       | ls        | 456 
+| id(pk)  | username  | password |
+| -------------- | -------- | -------------- |
+1       | zs        | 123  |
+2       | ls        | 456  |
 
-t_user_detail 用户详细信息表
-
+**t_user_detail** 用户详细信息表
   
 | id(pk+fk)  |      realname    |      tel    |
 | -------- | -------- |------- |
-|  1        |       张三        |     13245645612
-|  2        |      李四         |     13245644852
+|  1        |       张三        |     13245645612|
+|  2        |      李四         |     13245644852|
 
-一对一设计有两种方案:外键唯一 
+一对一设计有两种方案:外键唯一
 
-t_user_login 用户登陆表
+**t_user_login** 用户登陆表
 
 | id(pk) |  username |   password |
-| -------- | -------- |------- | 
-| 1    |  zs       |   123   
-| 2    |  ls       |   456
+| -------- | -------- |------- |
+| 1    |  zs       |   123   |
+| 2    |  ls       |   456   |
 
-t_user_detail 用户详细信息表
+**t_user_detail** 用户详细信息表
 
-id(pk)     |   realname   |    tel    |   userid(fk+unique) |
+| id(pk)     |   realname   |    tel    |   userid(fk+unique) |
 | -------- | -------- |------- | ---- |  
-| 1        |   张三        |    111111114   |     2
-| 2        |   李四        |    121432412   |     1
+| 1        |   张三        |    111111114   |     2|
+| 2        |   李四        |    121432412   |     1|

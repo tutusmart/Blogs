@@ -175,18 +175,6 @@ where
 
 案例：查询每个员工的部门名称，要求显示员工名和部门名。
 
-
-SQL92:（太老，不用了）
-```sql
-  select 
-    e.ename,d.dname
-  from
-    emp e, dept d
-  where
-    e.deptno = d.deptno;
-```
-SQL99：（常用的）
-
 ```sql
 select 
   e.ename,d.dname
@@ -196,7 +184,7 @@ join
   dept d
 on
   e.deptno = d.deptno;
-// inner可以省略的，带着inner目的是可读性好一些。
+-- inner可以省略的，带着inner目的是可读性好一些。
 select 
   e.ename,d.dname
 from
@@ -216,9 +204,6 @@ on
     连接条件
   where
     ...
-
-
-SQL99语法结构更清晰一些：表的连接条件和后来的where条件分离了。
 
 ```sql
 +--------+------------+
@@ -318,7 +303,9 @@ on
 
 2.7、自连接：最大的特点是：一张表看做两张表。自己连接自己。
 
-案例：找出每个员工的上级领导，要求显示员工名和对应的领导名。 mysql> select empno,ename,mgr from emp; emp a 员工表
+案例：找出每个员工的上级领导，要求显示员工名和对应的领导名。
+
+mysql> select empno,ename,mgr from emp; emp a 员工表
 ```sql
 +-------+--------+------+
 | empno | ename  | mgr  |
@@ -466,7 +453,7 @@ left join
 on
   a.mgr = b.empno;
 
-// outer是可以省略的。
+-- outer是可以省略的。
 select 
   a.ename '员工', b.ename '领导'
 from
@@ -476,7 +463,7 @@ left outer join
 on
   a.mgr = b.empno;
 
-外连接：（右外连接/右连接）
+-- 外连接：（右外连接/右连接）
 select 
   a.ename '员工', b.ename '领导'
 from
@@ -486,7 +473,7 @@ right join
 on
   a.mgr = b.empno;
 
-// outer可以省略。
+ -- uter可以省略。
 select 
   a.ename '员工', b.ename '领导'
 from
@@ -597,7 +584,6 @@ where
 ```
 
 DEPT d
-
 ```sql
 +--------+------------+----------+
 | DEPTNO | DNAME      | LOC      |
@@ -610,7 +596,6 @@ DEPT d
 ```
 
 SALGRADE s
-
 ```sql
 +-------+-------+-------+
 | GRADE | LOSAL | HISAL |
@@ -695,7 +680,7 @@ on
 
 ```sql
 +--------+------------+-------+-------+
-| 员工      | dname      | grade | 领导    |
+| 员工    | dname      | grade | 领导  |
 +--------+------------+-------+-------+
 | SMITH  | RESEARCH   |     1 | FORD  |
 | ALLEN  | SALES      |     3 | BLAKE |
@@ -720,16 +705,21 @@ on
 
 ```sql
   select
-    ..(select).
+    ...(select)
   from
-    ..(select).
+    ...(select)
   where
-    ..(select).
+    ...(select)
 ```
 
 3.2、where子句中使用子查询。
 
-案例：找出高于平均薪资的员工信息。 select * from emp where sal > avg(sal); //错误的写法，where后面不能直接使用分组函数。
+案例：找出高于平均薪资的员工信息
+
+```sql
+-- 错误的写法，where后面不能直接使用分组函数。
+select * from emp where sal > avg(sal); 
+```
 
 ```sql
 -- 第一步：找出平均薪资
@@ -761,6 +751,7 @@ select * from emp where sal > (select avg(sal) from emp);
 第一步：找出每个部门平均薪水（按照部门编号分组，求sal的平均值）
 ```sql
 select deptno,avg(sal) as avgsal from emp group by deptno;
+
 +--------+-------------+
 | deptno | avgsal      |
 +--------+-------------+
@@ -794,6 +785,7 @@ on
 第一步：找出每个员工的薪水等级。
 ```sql
 select e.ename,e.sal,e.deptno,s.grade from emp e join salgrade s on e.sal between s.losal and s.hisal;
+
 +--------+---------+--------+-------+
 | ename  | sal     | deptno | grade |
 +--------+---------+--------+-------+
@@ -877,8 +869,11 @@ from
 
 案例：找出工作岗位是SALESMAN和MANAGER的员工？
 ```sql
-第一种：select ename,job from emp where job = 'MANAGER' or job = 'SALESMAN';
-第二种：select ename,job from emp where job in('MANAGER','SALESMAN');
+-- 第一种：
+select ename,job from emp where job = 'MANAGER' or job = 'SALESMAN';
+-- 第二种：
+select ename,job from emp where job in('MANAGER','SALESMAN');
+
 +--------+----------+
 | ename  | job      |
 +--------+----------+
@@ -890,10 +885,12 @@ from
 | CLARK  | MANAGER  |
 | TURNER | SALESMAN |
 +--------+----------+
-第三种：union
+
+-- 第三种：union
 select ename,job from emp where job = 'MANAGER'
 union
 select ename,job from emp where job = 'SALESMAN';
+
 +--------+----------+
 | ename  | job      |
 +--------+----------+
@@ -906,8 +903,8 @@ select ename,job from emp where job = 'SALESMAN';
 | TURNER | SALESMAN |
 +--------+----------+
 ```
-两张不相干的表中的数据拼接在一起显示？
 
+两张不相干的表中的数据拼接在一起显示？
 ```sql
 select ename from emp
 union
@@ -938,8 +935,10 @@ select dname from dept;
 
 mysql> select ename,sal from emp
     -> union
-    -> select dname from dept;  //拼接的数据必须两两相对应。不能一张表是一个数据，另一张表是两个数据，这样无法拼接！
-ERROR 1222 (21000): The used SELECT statements have a different number of columns
+    -> select dname from dept;  
+
+--拼接的数据必须两两相对应。不能一张表是一个数据，另一张表是两个数据，这样无法拼接！
+-- ERROR 1222 (21000): The used SELECT statements have a different number of columns
 ```
 
 ### 5、limit (重点中的重点，以后分页查询全靠它了。)
@@ -959,12 +958,22 @@ select ename,sal from emp order by sal desc limit 0, 5;
 select ename,sal from emp order by sal desc limit 5;
 ```
 
-5.4、limit是sql语句最后执行的一个环节： select 5 ... from 1 ... where 2 ... group by 3 ... having 4 ... order by 6 ... limit 7 ...;
+5.4、limit是sql语句最后执行的一个环节
+```sql
+select 5 ... 
+from 1 ... 
+where 2 ... 
+group by 3 ... 
+having 4 ... 
+order by 6 ... 
+limit 7 ...;
+```
 
 5.5、案例：找出工资排名在第4到第9名的员工？
 
 ```sql
 select ename,sal from emp order by sal desc limit 3,6;
+
 +--------+---------+
 | ename  | sal     |
 +--------+---------+
@@ -1054,12 +1063,14 @@ create table t_student(
 
 语法格式： insert into 表名(字段名1,字段名2,字段名3,....) values(值1,值2,值3,....) 要求：字段的数量和值的数量相同，并且数据类型要对应相同。
 ```sql
-insert into t_student(no,name,sex,classno,birth) values(1,'zhangsan','1','gaosan1ban');
+insert into t_student(no,name,sex,classno,birth) 
+  values(1,'zhangsan','1','gaosan1ban');
 -- ERROR 1136 (21S01): Column count doesn't match value count at row 1
 ```
 
 ```sql
-  insert into t_student(no,name,sex,classno,birth) values(1,'zhangsan','1','gaosan1ban', '1950-10-12');
+  insert into t_student(no,name,sex,classno,birth) 
+    values(1,'zhangsan','1','gaosan1ban', '1950-10-12');
 
   mysql> select * from t_student;
   +------+----------+------+------------+------------+
@@ -1068,7 +1079,8 @@ insert into t_student(no,name,sex,classno,birth) values(1,'zhangsan','1','gaosan
   |    1 | zhangsan | 1    | gaosan1ban | 1950-10-12 |
   +------+----------+------+------------+------------+
 
-  insert into t_student(name,sex,classno,birth,no) values('lisi','1','gaosan1ban', '1950-10-12',2);
+  insert into t_student(name,sex,classno,birth,no) 
+    values('lisi','1','gaosan1ban', '1950-10-12',2);
 
   mysql> select * from t_student;
   +------+----------+------+------------+------------+
@@ -1078,7 +1090,8 @@ insert into t_student(no,name,sex,classno,birth) values(1,'zhangsan','1','gaosan
   |    2 | lisi     | 1    | gaosan1ban | 1950-10-12 |
   +------+----------+------+------------+------------+
 
-  insert into t_student(name) values('wangwu'); // 除name字段之外，剩下的所有字段自动插入NULL。
+  insert into t_student(name) values('wangwu'); 
+  -- 除name字段之外，剩下的所有字段自动插入NULL。
   mysql> select * from t_student;
   +------+----------+------+------------+------------+
   | no   | name     | sex  | classno    | birth      |
@@ -1124,7 +1137,7 @@ insert into t_student(no,name,sex,classno,birth) values(1,'zhangsan','1','gaosan
   即使多的这一行记录当中某些字段是NULL，后期也没有办法在执行
   insert语句插入数据了，只能使用update进行更新。
 
-// 字段可以省略不写，但是后面的value对数量和顺序都有要求。
+字段可以省略不写，但是后面的value对数量和顺序都有要求。
 
 ```sql
 insert into t_student values(1,'jack','0','gaosan2ban','1986-10-23');
@@ -1143,7 +1156,8 @@ insert into t_student values(1,'jack','0','gaosan2ban');
 insert into t_student
   (no,name,sex,classno,birth) 
 values
-  (3,'rose','1','gaosi2ban','1952-12-14'),(4,'laotie','1','gaosi2ban','1955-12-14');
+  (3,'rose','1','gaosi2ban','1952-12-14'),
+  (4,'laotie','1','gaosi2ban','1955-12-14');
 ```
 
 ```sql
@@ -1166,20 +1180,20 @@ mysql> select * from t_student;
 ### 9、将查询结果插入到一张表中？
 
 ```sql
-  mysql> insert into dept1 select * from dept;
-  mysql> select * from dept1;
-  +--------+------------+----------+
-  | DEPTNO | DNAME      | LOC      |
-  +--------+------------+----------+
-  |     10 | ACCOUNTING | NEW YORK |
-  |     20 | RESEARCH   | DALLAS   |
-  |     30 | SALES      | CHICAGO  |
-  |     40 | OPERATIONS | BOSTON   |
-  |     10 | ACCOUNTING | NEW YORK |
-  |     20 | RESEARCH   | DALLAS   |
-  |     30 | SALES      | CHICAGO  |
-  |     40 | OPERATIONS | BOSTON   |
-  +--------+------------+----------+
+mysql> insert into dept1 select * from dept;
+mysql> select * from dept1;
++--------+------------+----------+
+| DEPTNO | DNAME      | LOC      |
++--------+------------+----------+
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
+|     10 | ACCOUNTING | NEW YORK |
+|     20 | RESEARCH   | DALLAS   |
+|     30 | SALES      | CHICAGO  |
+|     40 | OPERATIONS | BOSTON   |
++--------+------------+----------+
 ```
 
 ### 10、修改数据：update
@@ -1194,6 +1208,7 @@ mysql> select * from t_student;
 
 ```sql
 update dept1 set loc = 'SHANGHAI', dname = 'RENSHIBU' where deptno = 10;
+
 mysql> select * from dept1;
 +--------+------------+----------+
 | DEPTNO | DNAME      | LOC      |
@@ -1208,23 +1223,24 @@ mysql> select * from dept1;
 |     40 | OPERATIONS | BOSTON   |
 +--------+------------+----------+
 ```
-更新所有记录
 
+更新所有记录
 ```sql
-  update dept1 set loc = 'x', dname = 'y';
-  mysql> select * from dept1;
-  +--------+-------+------+
-  | DEPTNO | DNAME | LOC  |
-  +--------+-------+------+
-  |     10 | y     | x    |
-  |     20 | y     | x    |
-  |     30 | y     | x    |
-  |     40 | y     | x    |
-  |     10 | y     | x    |
-  |     20 | y     | x    |
-  |     30 | y     | x    |
-  |     40 | y     | x    |
-  +--------+-------+------+
+update dept1 set loc = 'x', dname = 'y';
+mysql> select * from dept1;
+
++--------+-------+------+
+| DEPTNO | DNAME | LOC  |
++--------+-------+------+
+|     10 | y     | x    |
+|     20 | y     | x    |
+|     30 | y     | x    |
+|     40 | y     | x    |
+|     10 | y     | x    |
+|     20 | y     | x    |
+|     30 | y     | x    |
+|     40 | y     | x    |
++--------+-------+------+
 ```
 
 11、删除数据？ 语法格式： delete from 表名 where 条件;

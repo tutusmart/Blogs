@@ -135,6 +135,7 @@ mysql> desc salgrade;
 
 ```sql
 mysql> select * from emp;
+
 +-------+--------+-----------+------+------------+---------+---------+--------+
 | EMPNO | ENAME  | JOB       | MGR  | HIREDATE   | SAL     | COMM    | DEPTNO |
 +-------+--------+-----------+------+------------+---------+---------+--------+
@@ -249,6 +250,7 @@ select ename,sal * 12 as yearsal from emp;
 ```sql
 select ename,sal * 12 as 年薪 from emp; // 错误
 select ename,sal * 12 as '年薪' from emp;
+
 +--------+----------+
 | ename  | 年薪      |
 +--------+----------+
@@ -276,6 +278,7 @@ as关键字可以省略？
 
 ```sql
 mysql> select empno,ename,sal * 12 yearsal from emp;
+
 +-------+--------+----------+
 | empno | ename  | yearsal  |
 +-------+--------+----------+
@@ -322,7 +325,8 @@ select ename from emp where sal = 5000;
 查询SMITH的工资？
 
 ```sql
-select sal from emp where ename = 'SMITH'; // 字符串使用单引号括起来。
+select sal from emp where ename = 'SMITH'; 
+--字符串使用单引号括起来。
 +--------+
 | sal    |
 +--------+
@@ -355,14 +359,17 @@ select ename,sal from emp where sal != 3000;
 ```sql
 select ename,sal from emp where sal >= 1100 and sal <= 3000;
 ​
-select ename,sal from emp where sal between 1100 and 3000; // between...and...是闭区间 [1100 ~ 3000]
+select ename,sal from emp where sal between 1100 and 3000; 
+-- between...and...是闭区间 [1100 ~ 3000]
 ​
-select ename,sal from emp where sal between 3000 and 1100; // 查询不到任何数据
+select ename,sal from emp where sal between 3000 and 1100; 
+-- 查询不到任何数据
 ​
-between and在使用的时候必须左小右大。
-​
-between and除了可以使用在数字方面之外，还可以使用在字符串方面。
+-- between and在使用的时候必须左小右大。
+-- between and除了可以使用在数字方面之外，还可以使用在字符串方面。
+
 select ename from emp where ename between 'A' and 'C';
+
 +-------+
 | ename |
 +-------+
@@ -370,7 +377,9 @@ select ename from emp where ename between 'A' and 'C';
 | BLAKE |
 | ADAMS |
 +-------+
-select ename from emp where ename between 'A' and 'D'; // 左闭右开。
+
+-- 左闭右开。
+select ename from emp where ename between 'A' and 'D'; 
 ```
 
 找出哪些人津贴为NULL？
@@ -380,6 +389,7 @@ select ename from emp where ename between 'A' and 'D'; // 左闭右开。
 
 ```sql
 select ename,sal,comm from emp where comm is null;
+
 +--------+---------+------+
 | ename  | sal     | comm |
 +--------+---------+------+
@@ -394,6 +404,7 @@ select ename,sal,comm from emp where comm is null;
 | FORD   | 3000.00 | NULL |
 | MILLER | 1300.00 | NULL |
 +--------+---------+------+
+
 select ename,sal,comm from emp where comm = null;
 Empty set (0.00 sec)
 ```
@@ -402,6 +413,7 @@ Empty set (0.00 sec)
 
 ```sql
 select ename,sal,comm from emp where comm is not null;
+
 +--------+---------+---------+
 | ename  | sal     | comm    |
 +--------+---------+---------+
@@ -416,6 +428,7 @@ select ename,sal,comm from emp where comm is not null;
 
 ```sql
 select ename,sal,comm from emp where comm is null or comm = 0;
+
 +--------+---------+------+
 | ename  | sal     | comm |
 +--------+---------+------+
@@ -437,6 +450,7 @@ select ename,sal,comm from emp where comm is null or comm = 0;
   
 ```sql
 select ename,job from emp where job = 'MANAGER' or job = 'SALESMAN';
+
 +--------+----------+
 | ename  | job      |
 +--------+----------+
@@ -453,8 +467,10 @@ select ename,job from emp where job = 'MANAGER' or job = 'SALESMAN';
 and和or联合起来用：找出薪资大于1000的并且部门编号是20或30部门的员工。
 
 ```sql
-select ename,sal,deptno from emp where sal > 1000 and deptno = 20 or deptno = 30; // 错误的
-select ename,sal,deptno from emp where sal > 1000 and (deptno = 20 or deptno = 30); // 正确的。
+select ename,sal,deptno from emp where sal > 1000 and deptno = 20 or deptno = 30; 
+-- 错误的
+select ename,sal,deptno from emp where sal > 1000 and (deptno = 20 or deptno = 30); 
+--正确的。
 ```
 
 注意：当运算符的优先级不确定的时候加小括号。
@@ -465,7 +481,8 @@ in等同于or：找出工作岗位是MANAGER和SALESMAN的员工？
 select ename,job from emp where job = 'SALESMAN' or job = 'MANAGER';
 select ename,job from emp where job in('SALESMAN', 'MANAGER');
 ​
-select ename,job from emp where sal in(800, 5000); // in后面的值不是区间，是具体的值。
+select ename,job from emp where sal in(800, 5000); 
+-- in后面的值不是区间，是具体的值。
 
 +-------+-----------+
 | ename | job       |
@@ -485,6 +502,7 @@ select ename,job from emp where sal not in(800, 5000);
 
 ```sql
 select ename from emp where ename like '%O%';
+
 +-------+
 | ename |
 +-------+
@@ -498,6 +516,7 @@ select ename from emp where ename like '%O%';
 
 ```sql
 select ename from emp where ename like '_A%';
+
 +--------+
 | ename  |
 +--------+
@@ -511,6 +530,7 @@ select ename from emp where ename like '_A%';
 
 ```sql
 mysql> select * from t_user;
+
 +------+----------+
 | id   | name     |
 +------+----------+
@@ -519,6 +539,7 @@ mysql> select * from t_user;
 |    3 | WANG_WU  |
 +------+----------+
 select name from t_user where name like '%_%';
+
 +---------+
 | name    |
 +---------+
@@ -529,6 +550,7 @@ select name from t_user where name like '%_%';
 找出名字中最后一个字母是T的？
 ```sql
 select ename from emp where ename like '%T';
+
 +-------+
 | ename |
 +-------+
@@ -546,24 +568,25 @@ select  
     emp   
   order by
     sal;   
-  +--------+---------+
-  | ename  | sal     |
-  +--------+---------+
-  | SMITH  |  800.00 |
-  | JAMES  |  950.00 |
-  | ADAMS  | 1100.00 |
-  | WARD   | 1250.00 |
-  | MARTIN | 1250.00 |
-  | MILLER | 1300.00 |
-  | TURNER | 1500.00 |
-  | ALLEN  | 1600.00 |
-  | CLARK  | 2450.00 |
-  | BLAKE  | 2850.00 |
-  | JONES  | 2975.00 |
-  | FORD   | 3000.00 |
-  | SCOTT  | 3000.00 |
-  | KING   | 5000.00 |
-  +--------+---------+
+  
++--------+---------+
+| ename  | sal     |
++--------+---------+
+| SMITH  |  800.00 |
+| JAMES  |  950.00 |
+| ADAMS  | 1100.00 |
+| WARD   | 1250.00 |
+| MARTIN | 1250.00 |
+| MILLER | 1300.00 |
+| TURNER | 1500.00 |
+| ALLEN  | 1600.00 |
+| CLARK  | 2450.00 |
+| BLAKE  | 2850.00 |
+| JONES  | 2975.00 |
+| FORD   | 3000.00 |
+| SCOTT  | 3000.00 |
+| KING   | 5000.00 |
++--------+---------+
 ```
 
 >注意：默认是升序。怎么指定升序或者降序呢？asc表示升序，desc表示降序。 select ename , sal from emp order by sal; // 升序 select ename , sal from emp order by sal asc; // 升序 select ename , sal from emp order by sal desc; // 降序。
@@ -657,26 +680,26 @@ select avg(sal) from emp; // 平均工资
 | 2073.214286 |
 +-------------+
 ​
-select ename,sal from emp where sal > avg(sal); //ERROR 1111 (HY000): Invalid use of group function
+select ename,sal from emp where sal > avg(sal); 
+-- ERROR 1111 (HY000): Invalid use of group function
 -- 思考以上的错误信息：无效的使用了分组函数？
 --   原因：SQL语句当中有一个语法规则，分组函数不可直接使用在where子句当中。why????
 --   怎么解释？
 --     因为group by是在where执行之后才会执行的。
   
-select    5
+select      5
   ..      
-from      1
+from        1
   ..
-where     2
+where       2
   ..
 group by    3
   ..
-having    4
+having      4
   ..
 order by    6
   ..
 ```
-
 
 count(*)和count(具体的某个字段)，他们有什么区别？  
 count(*):不是统计某个字段中数据的个数，而是统计总记录条数。（和某个字段无关）  
@@ -684,6 +707,7 @@ count(comm): 表示统计comm字段中不为NULL的数据总数量。
 分组函数也能组合起来用
 ```sql
 select count(*),sum(sal),avg(sal),max(sal),min(sal) from emp;
+
 +----------+----------+-------------+----------+----------+
 | count(*) | sum(sal) | avg(sal)    | max(sal) | min(sal) |
 +----------+----------+-------------+----------+----------+
@@ -695,6 +719,7 @@ select count(*),sum(sal),avg(sal),max(sal),min(sal) from emp;
 第一步：找出平均工资
 ```sql
 select avg(sal) from emp;
+
 +-------------+
 | avg(sal)    |
 +-------------+
@@ -705,6 +730,9 @@ select avg(sal) from emp;
 第二步：找出高于平均工资的员工
 ```sql
 select ename,sal from emp where sal > 2073.214286;
+
+select ename,sal from emp where sal > (select avg(sal) from emp);
+
 +-------+---------+
 | ename | sal     |
 +-------+---------+
@@ -715,7 +743,7 @@ select ename,sal from emp where sal > 2073.214286;
 | KING  | 5000.00 |
 | FORD  | 3000.00 |
 +-------+---------+
-select ename,sal from emp where sal > (select avg(sal) from emp);
+
 ```
 
 ### 15、单行处理函数
@@ -761,6 +789,7 @@ having : having是对分组之后的数据进行再次过滤。
 
 ```sql
 select max(sal),job from emp group by job;
+
 +----------+-----------+
 | max(sal) | job       |
 +----------+-----------+
@@ -789,6 +818,7 @@ Oracle的语法规则比MySQL语法规则严谨。
 
 ```sql
 select job,avg(sal) from emp group by job;
+
 +-----------+-------------+
 | job       | avg(sal)    |
 +-----------+-------------+
@@ -818,6 +848,7 @@ group by
 
 ```sql
 select max(sal),deptno from emp group by deptno;
+
 +----------+--------+
 | max(sal) | deptno |
 +----------+--------+
@@ -830,7 +861,9 @@ select max(sal),deptno from emp group by deptno;
   第二步：找出薪资大于2900
 
 ```sql
-select max(sal),deptno from emp group by deptno having max(sal) > 2900; // 这种方式效率低。
+select max(sal),deptno from emp group by deptno having max(sal) > 2900; 
+--这种方式效率低。
+
 +----------+--------+
 | max(sal) | deptno |
 +----------+--------+
@@ -838,7 +871,9 @@ select max(sal),deptno from emp group by deptno having max(sal) > 2900; // 这�
 |  3000.00 |     20 |
 +----------+--------+
 ​
-select max(sal),deptno from emp where sal > 2900 group by deptno;  // 效率较高，建议能够使用where过滤的尽量使用where。
+select max(sal),deptno from emp where sal > 2900 group by deptno;  
+--效率较高，建议能够使用where过滤的尽量使用where。
+
 +----------+--------+
 | max(sal) | deptno |
 +----------+--------+
@@ -853,6 +888,7 @@ select max(sal),deptno from emp where sal > 2900 group by deptno;  // 效率较�
 
 ```sql
 select deptno,avg(sal) from emp group by deptno;
+
 +--------+-------------+
 | deptno | avg(sal)    |
 +--------+-------------+
@@ -865,22 +901,22 @@ select deptno,avg(sal) from emp group by deptno;
 第二步：要求显示薪资大于2000的数据
 
 ```sql
-  select deptno,avg(sal) from emp group by deptno having avg(sal) > 2000; 
+select deptno,avg(sal) from emp group by deptno having avg(sal) > 2000; 
 
-  +--------+-------------+
-  | deptno | avg(sal)    |
-  +--------+-------------+
-  |     10 | 2916.666667 |
-  |     20 | 2175.000000 |
-  +--------+-------------+
++--------+-------------+
+| deptno | avg(sal)    |
++--------+-------------+
+|     10 | 2916.666667 |
+|     20 | 2175.000000 |
++--------+-------------+
 ```
 
 
 where后面不能使用分组函数​
 ```sql
-  select deptno,avg(sal) from emp where avg(sal) > 2000 group by deptno; 
+select deptno,avg(sal) from emp where avg(sal) > 2000 group by deptno; 
   -- 错误了
-  这种情况只能使用having过滤。
+  -- 这种情况只能使用having过滤。
 ```
 ### 17、总结一个完整的DQL语句怎么写？
 
