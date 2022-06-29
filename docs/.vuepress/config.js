@@ -1,5 +1,6 @@
 // const { defaultTheme } = require('vuepress')
 const { hopeTheme } = require("vuepress-theme-hope");
+
 module.exports = {
   base: process.env.NODE_ENV === 'production' ? '/ms100/' : '/',
   dest: './ms100', //指定输出路径
@@ -17,6 +18,10 @@ module.exports = {
       {
         text: '首页',
         link: '/index.html',
+      },
+      {
+        text: 'spring',
+        link: 'http://ui.tuwei.site/mszd/index.html',
       },
       {
         text: '面试之道',
@@ -53,7 +58,23 @@ module.exports = {
               "text": "mysql基础知识总结02",
               "link": "mysql_base02"
             },
+
           ]
+      },
+      {
+        "collapsable": true,
+        "text": "SpringBoot2",
+        "prefix": "/SpringBoot2",
+        "children": [
+          {
+            "text": "SpringBoot2核心技术-基础入门",
+            "link": "SpringBoot2-base"
+          },
+          {
+            "text": "SpringBoot2核心技术-核心功能",
+            "link": "SpringBoot2-core"
+          }
+        ]
       },
       {
           "collapsable": true,
