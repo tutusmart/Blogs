@@ -131,19 +131,10 @@
     <div class="son"></div>
 </div>
 ```
-
 `translate(-50%, -50%)`将会将元素位移自己宽度和高度的-50%
-
 这种方法其实和最上面被否定掉的margin负值用法一样，可以说是`margin`负值的替代方案，并不需要知道自身元素的宽高
-
-
-
-
-
 ### table布局
-
 设置父元素为`display:table-cell`，子元素设置 `display: inline-block`。利用`vertical`和`text-align`可以让所有的行内块级元素水平垂直居中
-
 ```html
 <style>
     .father {
@@ -165,13 +156,8 @@
     <div class="son"></div>
 </div>
 ```
-
-
-
 ### flex弹性布局
-
 还是看看实现的整体代码：
-
 ```html
 <style>
     .father {
@@ -192,20 +178,12 @@
     <div class="son"></div>
 </div>
 ```
-
 `css3`中了`flex`布局，可以非常简单实现垂直水平居中
-
 这里可以简单看看`flex`布局的关键属性作用：
-
 - display: flex时，表示该容器内部的元素将按照flex进行布局
-
 - align-items: center表示这些元素将相对于本容器水平居中
 - justify-content: center也是同样的道理垂直居中
-
-
-
 ### grid网格布局
-
 ```html
 <style>
     .father {
@@ -215,7 +193,6 @@
             width: 200px;
             height: 200px;
             background: skyblue;
-
         }
         .son {
             width: 10px;
@@ -227,68 +204,34 @@
     <div class="son"></div>
 </div>
 ```
-
 这里看到，`gird`网格布局和`flex`弹性布局都简单粗暴
-
-
-
 ### 小结
-
 上述方法中，不知道元素宽高大小仍能实现水平垂直居中的方法有：
-
 - 利用定位+margin:auto
 - 利用定位+transform
-
 - 利用定位+margin:负值
-
 - flex布局
-
 - grid布局
-
-
-
-
-
 ## 三、总结
-
 根据元素标签的性质，可以分为：
-
 - 内联元素居中布局
 - 块级元素居中布局
-
-
-
 ### 内联元素居中布局
-
 水平居中
-
 - 行内元素可设置：text-align: center
 - flex布局设置父元素：display: flex; justify-content: center
-
 垂直居中
-
 - 单行文本父元素确认高度：height === line-height
 - 多行文本父元素确认高度：display: table-cell; vertical-align: middle
-
-
-
 ### 块级元素居中布局
-
 水平居中
-
 - 定宽: margin: 0 auto
 - 绝对定位+left:50%+margin:负自身一半
-
 垂直居中
-
 - position: absolute设置left、top、margin-left、margin-top(定高)
 - display: table-cell
 - transform: translate(x, y)
 - flex(不定高，不定宽)
 - grid(不定高，不定宽)，兼容性相对比较差
-
-
-
 ## 参考文献
-
 - https://juejin.cn/post/6844903982960214029#heading-10
