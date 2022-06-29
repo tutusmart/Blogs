@@ -25,6 +25,7 @@ insert into t_user(id) values(4);
 ```
 
 案例：给两个列或者多个列添加unique
+
 ```sql
 drop table if exists t_user;
 create table t_user(
@@ -130,7 +131,7 @@ insert ......
 ```sql
 drop table if exists t_user;
 create table t_user(
-  id int primary key auto_increment,  //id字段自动维护一个自增的数字，从1开始，以1递增。
+  id int primary key auto_increment,  --id字段自动维护一个自增的数字，从1开始，以1递增。
   username varchar(255)
 );
 insert into t_user(username) values('a'); 
@@ -152,10 +153,10 @@ select * from t_user;
 
 |no(pk) | name | classno | classname |
 | ---------| -------- |---------| -------- |
-|1 | zs1 | 101 |河南省平顶山市舞钢市垭口一高高三1班 |   
+|1 | zs1 | 101 |河南省平顶山市舞钢市垭口一高高三1班   |
 |2 | zs2 | 101| 河南省平顶山市舞钢市垭口一高高三1班   |
 |3 | zs3 | 102| 河南省平顶山市舞钢市垭口一高高三2班   |
-|4 | zs4 | 102 |河南省平顶山市舞钢市垭口一高高三2班   | 
+|4 | zs4 | 102 |河南省平顶山市舞钢市垭口一高高三2班   |
 |5 | zs5 | 102| 河南省平顶山市舞钢市垭口一高高三2班   |
 
 缺点：冗余。【不推荐】
@@ -166,18 +167,18 @@ select * from t_user;
 
 | cno(pk)   |      cname|  
 | ---------| -------- |
-101     |      河南省平顶山市舞钢市垭口一高高三1班 
-102     |      河南省平顶山市舞钢市垭口一高高三2班 
+|101     |      河南省平顶山市舞钢市垭口一高高三1班
+|102     |      河南省平顶山市舞钢市垭口一高高三2班
 
 **t_student** 学生表
 
 |sno(pk)   |    sname | classno(该字段添加外键约束fk) |
 | ---------| -------- | ------  |
 |1        |      zs1  |  101    |
-|2        |      zs2  |  101     
-|3        |      zs3  |  102     
-|4        |      zs4  |  102     
-|5        |      zs5  |  102     
+|2        |      zs2  |  101    |
+|3        |      zs3  |  102    |
+|4        |      zs4  |  102    |
+|5        |      zs5  |  102    |
 
 - 将以上表的建表语句写出来：
 
@@ -220,8 +221,8 @@ insert into t_student values(7,'lisi',103);
 -- ERROR 1452 (23000) : Cannot add or update a child row :aforeign key constraint fails (bjpowernode INT YT......)
 ```
 
--   外键值可以为NULL？ 外键可以为null。
--   外键字段引用其他表的某个字段的时候，被引用的字段必须是主键吗？ 注意：被引用的字段不一定是主键，但至少是具有unique约束，具有唯一性，不可重复！
+- 外键值可以为NULL？ 外键可以为null。
+- 外键字段引用其他表的某个字段的时候，被引用的字段必须是主键吗？ 注意：被引用的字段不一定是主键，但至少是具有unique约束，具有唯一性，不可重复！
 
 ### 2、存储引擎？
 
@@ -328,6 +329,7 @@ mysql 5.5.36版本支持的光速引擎有9个：
 2.4、常见的存储引擎？
 
 2.4.1、MyISAM
+
 ```
   Engine: MyISAM
   Support: YES
@@ -336,6 +338,7 @@ mysql 5.5.36版本支持的光速引擎有9个：
   XA: NO
   Savepoints: NO
 ```
+
   MyISAM这种存储引擎不支持事务。
   MyISAM是mysql最常用的存储引擎，但是这种存储引擎不是默认的。
   MyISAM采用三个文件组织一个表：
@@ -346,6 +349,7 @@ mysql 5.5.36版本支持的光速引擎有9个：
   缺点:不支持事务。
 
 2.4.2 InnoDB
+
 ```
   Engine: InnoDB
   Support: DEFAULT
@@ -354,6 +358,7 @@ mysql 5.5.36版本支持的光速引擎有9个：
   XA: YES
   Savepoints: YES
 ```
+
   优点：支持事务、行级锁、外键等。这种存储引擎数据的安全得到保障。
 
   表的结构存储在xxx.frm文件中
@@ -364,6 +369,7 @@ mysql 5.5.36版本支持的光速引擎有9个：
 ----------------------------------------------------------------------------------
 
 2.4.3 MEMORY
+
 ```
   Engine: MEMORY
   Support: YES
@@ -371,7 +377,9 @@ mysql 5.5.36版本支持的光速引擎有9个：
   T     ransactions: NO
   XA: NO
   Savepoints: NO
+
 ```
+
   缺点：不支持事务。数据容易丢失。因为所有数据和索引都是存储在内存当中的。
   优点：查询速度最快。
   以前叫做HEPA引擎。
@@ -593,6 +601,7 @@ select ename,sal from emp where ename = 'SMITH';
 ```
 
 给薪资sal字段添加索引:
+
 ```sql
 create index emp_sal_index on emp(sal);
 mysql> explain select ename,sal from emp where sal = 5000;
@@ -742,16 +751,16 @@ source D:\bjpowernode.sql
 一对一设计有两种方案：主键共享 t_user_login 用户登陆表
 
 | id(pk)  | username  | password |
-| -------------- | -------- | -------------- |
+| -------| -------- | --- |
 1       | zs        | 123  |
 2       | ls        | 456  |
 
 **t_user_detail** 用户详细信息表
   
 | id(pk+fk)  |      realname    |      tel    |
-| -------- | -------- |------- |
-|  1        |       张三        |     13245645612|
-|  2        |      李四         |     13245644852|
+| --------   | -------- |------- |
+|  1         |       张三        |     13245645612|
+|  2         |      李四         |     13245644852|
 
 一对一设计有两种方案:外键唯一
 
@@ -764,7 +773,7 @@ source D:\bjpowernode.sql
 
 **t_user_detail** 用户详细信息表
 
-| id(pk)     |   realname   |    tel    |   userid(fk+unique) |
+| id(pk)   |   realname   |    tel    |   userid(fk+unique) |
 | -------- | -------- |------- | ---- |  
 | 1        |   张三        |    111111114   |     2|
 | 2        |   李四        |    121432412   |     1|

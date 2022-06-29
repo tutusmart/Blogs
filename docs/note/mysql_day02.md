@@ -50,18 +50,12 @@ select count(distinct job) from emp;
 
 2.1、什么是连接查询？ 在实际开发中，大部分的情况下都不是从单表中查询数据，一般都是多张表联合查询取出最终的结果。 在实际开发中，一般一个业务都会对应多张表，比如：学生和班级，起码两张表。
 
-```sql
-+--------+-----------+----------+-----------+
-| stuno  | stuname   | classno  | classname |
-+--------+-----------+----------+-----------+
----------------------------------------------
+| stuno  | stuname | classno | classname |
+| --- |-- | -- | -- | 
 | 1 | zs  | 1 |北京大兴区亦庄经济技术开发区第二中学高三1班|
 | 2 | ls  | 1 |北京大兴区亦庄经济技术开发区第二中学高三1班|
-...
-```
 
 学生和班级信息存储到一张表中，结果就像上面一样，数据会存在大量的重复，导致数据的冗余。
-
 
 2.2、连接查询的分类？ 根据语法出现的年代来划分的话，包括： SQL92（一些老的DBA可能还在使用这种语法。DBA：DataBase Administrator，数据库管理员） SQL99（比较新的语法）
 根据表的连接方式来划分，包括：
@@ -141,36 +135,6 @@ select ename,dname from emp,dept;
 
 2.4、怎么避免笛卡尔积现象？当然是加条件进行过滤。 思考：避免了笛卡尔积现象，会减少记录的匹配次数吗？ 不会，次数还是56次。只不过显示的是有效记录。
 
-案例：找出每一个员工的部门名称，要求显示员工名和部门名。
-
-```sql
-select  
-  e.ename,d.dname
-from
-  emp e , dept d
-where
-  e.deptno = d.deptno; //SQL92，以后不用。
-  
-+--------+------------+
-| ename  | dname      |
-+--------+------------+
-| CLARK  | ACCOUNTING |
-| KING   | ACCOUNTING |
-| MILLER | ACCOUNTING |
-| SMITH  | RESEARCH   |
-| JONES  | RESEARCH   |
-| SCOTT  | RESEARCH   |
-| ADAMS  | RESEARCH   |
-| FORD   | RESEARCH   |
-| ALLEN  | SALES      |
-| WARD   | SALES      |
-| MARTIN | SALES      |
-| BLAKE  | SALES      |
-| TURNER | SALES      |
-| JAMES  | SALES      |
-+--------+------------+
-```
-
 2.5、内连接之等值连接：最大特点是：条件是等量关系。
 
 案例：查询每个员工的部门名称，要求显示员工名和部门名。
@@ -231,7 +195,7 @@ on
 案例：找出每个员工的工资等级，要求显示员工名、工资、工资等级。
 
 ```sql
-mysql> select ename,sal from emp;  // e
+mysql> select ename,sal from emp; -- e表
 +--------+---------+
 | ename  | sal     |
 +--------+---------+
@@ -261,7 +225,9 @@ mysql> select * from salgrade; s
 |     4 |  2001 |  3000 |
 |     5 |  3001 |  9999 |
 +-------+-------+-------+
+```
 
+```sql
 select 
   e.ename,e.sal,s.grade
 from
@@ -305,8 +271,8 @@ on
 
 案例：找出每个员工的上级领导，要求显示员工名和对应的领导名。
 
-mysql> select empno,ename,mgr from emp; emp a 员工表
 ```sql
+mysql> select empno,ename,mgr from emp; -- emp a 员工表
 +-------+--------+------+
 | empno | ename  | mgr  |
 +-------+--------+------+
@@ -355,7 +321,7 @@ on
   a.mgr = b.empno;
 
 +--------+--------+
-| 员工名 | 领导名 |
+| 员工名  | 领导名   |
 +--------+--------+
 | SMITH  | FORD   |
 | ALLEN  | BLAKE  |
@@ -416,6 +382,7 @@ emp a 员工表
 ```
 
 emp b 领导表
+
 ```sql
 +-------+--------+
 | empno | ename  |
@@ -430,6 +397,7 @@ emp b 领导表
 ```
 
 内连接：
+
 ```sql
 select 
   a.ename '员工', b.ename '领导'
@@ -507,7 +475,8 @@ on
 
 外连接最重要的特点是：主表的数据无条件的全部查询出来。
 
-案例：找出哪个部门没有员工？ EMP表
+案例：找出哪个部门没有员工？
+EMP表
 
 ```sql
 +-------+--------+-----------+------+------------+---------+---------+--------+
@@ -560,7 +529,9 @@ where
 +--------+------------+--------+
 ```
 
-2.9、三张表怎么连接查询？ 案例：找出每一个员工的部门名称以及工资等级。 EMP e
+2.9、三张表怎么连接查询？ 案例：找出每一个员工的部门名称以及工资等级。
+
+EMP e
 
 ```sql
 +-------+--------+---------+--------+
@@ -584,6 +555,7 @@ where
 ```
 
 DEPT d
+
 ```sql
 +--------+------------+----------+
 | DEPTNO | DNAME      | LOC      |
@@ -596,6 +568,7 @@ DEPT d
 ```
 
 SALGRADE s
+
 ```sql
 +-------+-------+-------+
 | GRADE | LOSAL | HISAL |
@@ -617,7 +590,6 @@ SALGRADE s
     C
   on
     ...
-
 
 表示：A表和B表先进行表连接，连接之后A表继续和C表进行连接。
 
@@ -704,12 +676,12 @@ on
 3.1、什么是子查询？子查询都可以出现在哪里？ select语句当中嵌套select语句，被嵌套的select语句是子查询。 子查询可以出现在哪里？
 
 ```sql
-  select
-    ...(select)
-  from
-    ...(select)
-  where
-    ...(select)
+select
+  ...(select)
+from
+  ...(select)
+where
+  ...(select)
 ```
 
 3.2、where子句中使用子查询。
@@ -750,6 +722,7 @@ select * from emp where sal > (select avg(sal) from emp);
 案例：找出每个部门平均薪水的等级。
 第一步：找出每个部门平均薪水（按照部门编号分组，求sal的平均值）
 ```sql
+
 select deptno,avg(sal) as avgsal from emp group by deptno;
 
 +--------+-------------+
@@ -762,6 +735,7 @@ select deptno,avg(sal) as avgsal from emp group by deptno;
 ```
 
 第二步：将以上的查询结果当做临时表t，让t表和salgrade s表连接，条件是：t.avgsal between s.losal and s.hisal
+
 ```sql
 select 
   t.*,s.grade
@@ -783,6 +757,7 @@ on
 
 案例：找出每个部门平均的薪水等级。
 第一步：找出每个员工的薪水等级。
+
 ```sql
 select e.ename,e.sal,e.deptno,s.grade from emp e join salgrade s on e.sal between s.losal and s.hisal;
 
@@ -807,6 +782,7 @@ select e.ename,e.sal,e.deptno,s.grade from emp e join salgrade s on e.sal betwee
 ```
 
 第二步：基于以上结果，继续按照deptno分组，求grade平均值。
+
 ```sql
 select 
   e.deptno,avg(s.grade)
@@ -868,6 +844,7 @@ from
 ### 4、union （可以将查询结果集相加）
 
 案例：找出工作岗位是SALESMAN和MANAGER的员工？
+
 ```sql
 -- 第一种：
 select ename,job from emp where job = 'MANAGER' or job = 'SALESMAN';
@@ -905,6 +882,7 @@ select ename,job from emp where job = 'SALESMAN';
 ```
 
 两张不相干的表中的数据拼接在一起显示？
+
 ```sql
 select ename from emp
 union
@@ -959,6 +937,7 @@ select ename,sal from emp order by sal desc limit 5;
 ```
 
 5.4、limit是sql语句最后执行的一个环节
+
 ```sql
 select 5 ... 
 from 1 ... 
@@ -1030,13 +1009,12 @@ BLOB和CLOB类型的使用?
 
 电影表: t_movie
 
-```sql
-  | id(int) | name(varchar) | playtime(date/char) | haibao(BLOB) | history(CLOB) |
-  +--------+----------+--------+---------+--------+----------+
-  | 1      |     蜘蛛侠 
-  | 2
-  | 3
-```
+| id(int) | name(varchar) | playtime(date/char) | haibao(BLOB) | history(CLOB) |
+|--|--|--|--|--|
+| 1 | name |  2020-05-01  |  蜘蛛侠 | 1 |
+| 2 | name2 |  2008-09-09 |  钢铁侠 | 2 |
+| 3 | 
+···
 
 表名在数据库当中一般建议以：t_或者tbl_开始。
 
@@ -1062,6 +1040,7 @@ create table t_student(
 ### 7、insert语句插入数据
 
 语法格式： insert into 表名(字段名1,字段名2,字段名3,....) values(值1,值2,值3,....) 要求：字段的数量和值的数量相同，并且数据类型要对应相同。
+
 ```sql
 insert into t_student(no,name,sex,classno,birth) 
   values(1,'zhangsan','1','gaosan1ban');
@@ -1114,7 +1093,7 @@ insert into t_student(no,name,sex,classno,birth)
   |    3 | NULL     | NULL | NULL       | NULL       |
   +------+----------+------+------------+------------+
 
-  drop table if exists t_student; // 当这个表存在的话删除。
+  drop table if exists t_student; -- 当这个表存在的话删除。
   create table t_student(
     no bigint,
     name varchar(255),
@@ -1198,7 +1177,6 @@ mysql> select * from dept1;
 
 ### 10、修改数据：update
 
-
 语法格式：
   update 表名 set 字段名1=值1,字段名2=值2... where 条件;
 
@@ -1225,6 +1203,7 @@ mysql> select * from dept1;
 ```
 
 更新所有记录
+
 ```sql
 update dept1 set loc = 'x', dname = 'y';
 mysql> select * from dept1;
@@ -1254,14 +1233,18 @@ delete from dept1 where deptno = 10;
 ```
 
 删除所有记录？
+
 ```sql
 delete from dept1;
 ```
+
 怎么删除大表？（重点）
+
 ```sql
 truncate table 表名;
 -- 表被截断，不可回滚。永久丢失。
 ```
+
 ### 12、对于表结构的修改，这里不讲了，大家使用工具完成即可，因为在实际开发中表一旦
 
 设计好之后，对表结构的修改是很少的，修改表结构就是对之前的设计进行了否定，即使 需要修改表结构，我们也可以直接使用工具操作。修改表结构的语句不会出现在Java代码当中。 出现在java代码当中的sql包括：insert delete update select（这些都是表中的数据操作。）
